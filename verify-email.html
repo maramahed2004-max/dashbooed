@@ -1,0 +1,802 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>تأكيد البريد الإلكتروني | عناية</title>
+
+  <meta name="description" content="أدخل رمز التأكيد لإكمال إنشاء حسابك في عناية.">
+
+  <link rel="icon" type="image/png" href="images/logo.png">
+
+  <!-- Cairo Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
+
+  <!-- Main CSS -->
+  <link rel="stylesheet" href="css/landing.css">
+
+  <!-- SweetAlert -->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+  <style>
+    :root {
+      --primary-green: #2E7D32;
+      --dark-green: #1B5E20;
+      --darker-green: #144517;
+      --light-green: #E8F5E9;
+      --soft-green: #A5D6A7;
+      --mint-green: #C8E6C9;
+      --cream-bg: #FAFAF7;
+      --text-dark: #2D3A2F;
+      --text-muted: #5F735F;
+      --text-light: #8A9C8A;
+      --border-light: #E0EADE;
+      --white: #FFFFFF;
+      --btn-hover: #256C2B;
+      --radius-md: 16px;
+      --radius-xl: 32px;
+      --shadow-lg: 0 20px 45px rgba(27, 94, 32, .12);
+      --transition: all .3s cubic-bezier(.25, .8, .25, 1);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      font-size: 16px;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      background: var(--cream-bg);
+      color: var(--text-dark);
+      font-family: 'Cairo', sans-serif;
+      direction: rtl;
+      line-height: 1.7;
+      overflow-x: hidden;
+      animation: pageFadeIn 0.35s ease-out forwards;
+    }
+
+    @keyframes pageFadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(6px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    button,
+    input {
+      font-family: inherit;
+    }
+
+    button {
+      cursor: pointer;
+    }
+
+    /* ==========================================================================
+       UNIFIED AUTH HEADER (Identical across all login/auth pages)
+       ========================================================================== */
+
+    .site-header.verify-header {
+      width: 100%;
+      background: var(--cream-bg);
+      border-bottom: 1px solid rgba(224, 234, 222, 0.7);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .verify-header .container {
+      width: 100%;
+      max-width: 1200px;
+      margin-inline: auto;
+      padding-inline: 24px;
+    }
+
+    .verify-header .navbar {
+      height: 72px;
+      min-height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: relative;
+    }
+
+    .verify-header .brand-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      flex-shrink: 0;
+    }
+
+    .verify-header .brand-logo img {
+      width: 54px;
+      height: 54px;
+      object-fit: contain;
+      border-radius: 10px;
+      display: block;
+      transition: transform 0.3s ease;
+    }
+
+    .verify-header .brand-logo:hover img {
+      transform: scale(1.05);
+    }
+
+    .header-center-title {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      white-space: nowrap;
+      pointer-events: none;
+    }
+
+    .center-arabic {
+      font-family: 'Cairo', sans-serif;
+      font-size: 26px;
+      font-weight: 800;
+      color: #1B5E20;
+      line-height: 1.25;
+      letter-spacing: -0.3px;
+    }
+
+    .center-english {
+      font-family: 'Cairo', sans-serif;
+      font-size: 13px;
+      font-weight: 600;
+      color: #8A9C8A;
+      line-height: 1.2;
+      letter-spacing: 1px;
+    }
+
+    .verify-nav {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      flex-shrink: 0;
+    }
+
+    .verify-nav .nav-link {
+      font-family: 'Cairo', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--text-dark);
+      text-decoration: none;
+      padding: 6px 14px;
+      border-radius: 8px;
+      transition: var(--transition);
+      display: inline-block;
+    }
+
+    .verify-nav .nav-link:hover {
+      color: var(--primary-green);
+      background-color: rgba(46, 125, 50, 0.08);
+    }
+
+    /* ==============================
+       MAIN
+    ============================== */
+
+    .verify-main {
+      padding-top: 16px;
+      padding-bottom: 24px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .verify-card {
+      width: 100%;
+      max-width: 460px;
+      margin: 0 auto;
+      padding: 26px 30px;
+
+      background: var(--white);
+      border: 1px solid var(--border-light);
+      border-radius: 20px;
+      box-shadow: 0 12px 35px rgba(27, 94, 32, .08);
+    }
+
+    /* ==============================
+       ICON
+    ============================== */
+
+    .verify-icon {
+      width: 46px;
+      height: 46px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      background: var(--light-green);
+      color: var(--primary-green);
+      border-radius: 12px;
+      margin-bottom: 14px;
+    }
+
+    .verify-icon svg {
+      width: 22px;
+      height: 22px;
+    }
+
+    /* ==============================
+       TEXT
+    ============================== */
+
+    .verify-tag {
+      display: inline-block;
+      color: var(--text-muted);
+      font-size: 12px;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    .verify-title {
+      color: var(--dark-green);
+      font-size: 21px;
+      font-weight: 800;
+      line-height: 1.35;
+      margin: 0 0 4px;
+    }
+
+    .verify-description {
+      color: var(--text-muted);
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 1.55;
+      margin: 0 0 14px;
+    }
+
+    /* ==============================
+       EMAIL DISPLAY
+    ============================== */
+
+    .email-display {
+      width: 100%;
+      background: var(--light-green);
+      border: 1px solid var(--border-light);
+      border-radius: 8px;
+
+      padding: 8px 12px;
+      margin-bottom: 14px;
+
+      color: var(--dark-green);
+      font-size: 14px;
+      font-weight: 700;
+      text-align: center;
+      overflow-wrap: anywhere;
+    }
+
+    /* ==============================
+       FORM
+    ============================== */
+
+    .verify-form {
+      width: 100%;
+    }
+
+    .form-group {
+      margin-bottom: 11px;
+    }
+
+    .form-label {
+      display: block;
+      color: var(--text-dark);
+      font-size: 14px;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    .code-input-wrapper {
+      position: relative;
+      display: flex;
+      align-items: center;
+    }
+
+    .code-input {
+      width: 100%;
+      height: 44px;
+
+      background: var(--white);
+      border: 1px solid var(--border-light);
+      border-radius: 10px;
+
+      outline: none;
+      color: var(--dark-green);
+      font-size: 1.2rem;
+      font-weight: 800;
+      text-align: center;
+      letter-spacing: 6px;
+      transition: var(--transition);
+    }
+
+    .code-input::placeholder {
+      color: var(--text-light);
+      opacity: .7;
+      letter-spacing: 3px;
+    }
+
+    .code-input:focus {
+      border-color: var(--primary-green);
+      box-shadow: 0 0 0 3px rgba(46, 125, 50, .10);
+    }
+
+    .form-hint {
+      display: block;
+      color: var(--text-muted);
+      font-size: 12px;
+      line-height: 1.45;
+      margin-top: 4px;
+    }
+
+    /* ==============================
+       VERIFY BUTTON
+    ============================== */
+
+    .verify-submit {
+      width: 100%;
+      min-height: 42px;
+      margin-top: 10px;
+
+      border: none;
+      border-radius: 10px;
+      background: var(--primary-green);
+      color: var(--white);
+
+      font-size: 14px;
+      font-weight: 700;
+      box-shadow: 0 3px 12px rgba(46, 125, 50, .20);
+      transition: var(--transition);
+    }
+
+    .verify-submit:hover:not(:disabled) {
+      background: var(--btn-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(46, 125, 50, .30);
+    }
+
+    .verify-submit:disabled {
+      opacity: .7;
+      cursor: wait;
+    }
+
+    /* ==============================
+       ACTION LINKS
+    ============================== */
+
+    .verify-actions {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    .verify-actions button {
+      border: none;
+      background: transparent;
+      color: var(--primary-green);
+
+      font-size: 14px;
+      font-weight: 700;
+      padding: 4px 0;
+      transition: var(--transition);
+    }
+
+    .verify-actions button:hover {
+      color: var(--dark-green);
+      text-decoration: underline;
+    }
+
+    /* ==============================
+       NOTICE
+    ============================== */
+
+    .verify-card .notice-box {
+      margin: 14px 0 0;
+      padding: 12px 14px;
+      background: var(--light-green);
+      border: 1px solid var(--border-light);
+      border-radius: 10px;
+    }
+
+    .verify-card .notice-box strong {
+      display: block;
+      color: var(--dark-green);
+      font-size: 14px;
+      font-weight: 700;
+      margin-bottom: 3px;
+    }
+
+    .verify-card .notice-box p {
+      margin: 0;
+      color: var(--text-muted);
+      font-size: 12px;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+
+    /* ==============================
+       FOOTER
+    ============================== */
+
+    .verify-footer {
+      background: var(--cream-bg);
+      color: var(--text-muted);
+      text-align: center;
+      font-size: 13px;
+      padding: 10px 0 16px;
+    }
+
+    /* ==============================
+       RESPONSIVE
+    ============================== */
+
+    @media (max-width: 768px) {
+      .verify-card {
+        max-width: 92%;
+        padding: 22px 20px;
+      }
+
+      .verify-nav {
+        gap: 16px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .verify-header .container {
+        padding-inline: 16px;
+      }
+
+      .verify-header .navbar {
+        height: 64px;
+        min-height: 64px;
+      }
+
+      .verify-header .brand-logo img {
+        width: 46px;
+        height: 46px;
+      }
+
+      .verify-nav .nav-link {
+        font-size: 0.88rem;
+        padding: 5px 10px;
+      }
+
+      .verify-main {
+        padding-top: 8px;
+      }
+
+      .verify-card {
+        padding: 20px 16px;
+        border-radius: 18px;
+      }
+
+      .verify-description {
+        font-size: 14px;
+      }
+
+      .code-input {
+        height: 42px;
+        font-size: 1.1rem;
+      }
+
+      .verify-actions {
+        gap: 8px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+
+      *,
+      *::before,
+      *::after {
+        transition: none !important;
+        animation: none !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ==============================
+       HEADER
+  ============================== -->
+
+  <header class="site-header verify-header">
+    <div class="container">
+      <nav class="navbar">
+
+        <!-- LOGO -->
+        <a href="index.html" class="brand-logo">
+          <img src="images/logo.png" alt="شعار عناية">
+        </a>
+
+        <!-- CENTER BRAND NAME -->
+        <div class="header-center-title">
+          <span class="center-arabic">عناية</span>
+          <span class="center-english">ENAYA</span>
+        </div>
+
+        <!-- NAVIGATION -->
+        <ul class="verify-nav">
+          <li>
+            <a href="index.html" class="nav-link">
+              الرئيسية
+            </a>
+          </li>
+        </ul>
+
+      </nav>
+    </div>
+  </header>
+
+  <!-- ==============================
+       MAIN
+  ============================== -->
+
+  <main class="container verify-main">
+    <section class="verify-card">
+
+      <!-- ICON -->
+      <div class="verify-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+          stroke-linejoin="round">
+
+          <rect x="2" y="4" width="20" height="16" rx="2">
+          </rect>
+
+          <path d="M22 7l-8.97 5.7a1.94 1.94 0 01-2.06 0L2 7">
+          </path>
+        </svg>
+      </div>
+
+      <!-- TITLE -->
+      <span class="verify-tag">
+        إنشاء الحساب · تأكيد البريد
+      </span>
+
+      <h1 class="verify-title">
+        تأكيد البريد الإلكتروني
+      </h1>
+
+      <p class="verify-description">
+        أدخل رمز التأكيد المكوّن من 6 أرقام
+        لإكمال إنشاء حسابك في عناية.
+      </p>
+
+      <!-- EMAIL -->
+      <div class="email-display" id="emailDisplay">
+        البريد الإلكتروني
+      </div>
+
+      <!-- FORM -->
+      <form id="verifyForm" class="verify-form" novalidate>
+
+        <div class="form-group">
+          <label for="code" class="form-label">
+            رمز تأكيد البريد الإلكتروني
+          </label>
+
+          <div class="code-input-wrapper">
+            <input type="text" id="code" class="code-input" placeholder="••••••" inputmode="numeric" maxlength="6"
+              autocomplete="one-time-code" dir="ltr" pattern="[0-9]{6}" required>
+          </div>
+
+          <span class="form-hint">
+            أدخل رمز التحقق المكوّن من ستة أرقام.
+          </span>
+        </div>
+
+        <!-- BUTTON -->
+        <button type="submit" class="verify-submit" id="submitBtn">
+          تأكيد البريد الإلكتروني
+        </button>
+
+      </form>
+
+      <!-- ACTIONS -->
+      <div class="verify-actions">
+
+        <button type="button" onclick="resendCode()">
+          إعادة إرسال الرمز
+        </button>
+
+        <button type="button" onclick="editEmail()">
+          تعديل البريد الإلكتروني
+        </button>
+
+      </div>
+
+      <!-- HELP -->
+      <div class="notice-box">
+        <strong>
+          لم تجد الرسالة في بريدك؟
+        </strong>
+
+        <p>
+          تحقق من البريد الوارد ومجلد الرسائل
+          غير المرغوب فيها (Spam / Junk).
+          قد يستغرق وصول الرمز بعض الوقت.
+        </p>
+      </div>
+
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="verify-footer">
+    <div class="container">
+      عناية © 2026 | أقرب لنباتاتك، كل يوم
+    </div>
+  </footer>
+
+  <!-- ==============================
+       JAVASCRIPT
+  ============================== -->
+
+  <script src="js/auth.js"></script>
+
+  <script>
+    // قراءة البريد من رابط إنشاء الحساب
+    const params = new URLSearchParams(
+      window.location.search
+    );
+
+    const email = params.get("email");
+
+    const emailDisplay = document.getElementById(
+      "emailDisplay"
+    );
+
+    if (emailDisplay) {
+      if (email) {
+        emailDisplay.textContent = email;
+      } else {
+        emailDisplay.style.display = "none";
+      }
+    }
+
+    // التنبيهات بنفس تصميم عناية
+    function showAlert(icon, title, message) {
+
+      if (icon === "success") {
+        return EnayaAlert.success(
+          title,
+          message,
+          "حسنًا"
+        );
+      }
+
+      if (icon === "error") {
+        return EnayaAlert.error(
+          title,
+          message,
+          "حسنًا"
+        );
+      }
+
+      if (icon === "warning") {
+        return EnayaAlert.warning(
+          title,
+          message,
+          "حسنًا"
+        );
+      }
+
+      return EnayaAlert.info(
+        title,
+        message,
+        "حسنًا"
+      );
+    }
+
+    // التحقق من الرمز
+    document.getElementById("verifyForm")
+      .addEventListener("submit", function (event) {
+
+        event.preventDefault();
+
+        const code = document
+          .getElementById("code")
+          .value.trim();
+
+        const submitBtn = document
+          .getElementById("submitBtn");
+
+        // رمز غير مكتمل
+        if (!/^\d{6}$/.test(code)) {
+          showAlert(
+            "error",
+            "رمز غير مكتمل",
+            "يرجى إدخال رمز التأكيد المكوّن من 6 أرقام بشكل صحيح."
+          );
+          return;
+        }
+
+        submitBtn.disabled = true;
+        submitBtn.textContent =
+          "جاري التحقق من الرمز...";
+
+        // محاكاة التحقق فقط
+        setTimeout(() => {
+
+          submitBtn.disabled = false;
+          submitBtn.textContent =
+            "تأكيد البريد الإلكتروني";
+
+          // رمز الخطأ التجريبي
+          if (code === "000000") {
+            showAlert(
+              "error",
+              "رمز التأكيد غير صحيح",
+              "الرمز الذي أدخلته غير صالح. يرجى المحاولة مرة أخرى."
+            );
+
+          } else {
+            // نجاح تجريبي
+            showAlert(
+              "success",
+              "تم اجتياز التأكيد التجريبي 🌿",
+              "هذه نسخة تجريبية، ولم يتم تأكيد بريد إلكتروني فعلي. يمكنك المتابعة لتسجيل الدخول."
+            ).then(() => {
+              window.location.href = "login.html";
+            });
+          }
+
+        }, 600);
+      });
+
+    // إعادة إرسال الرمز
+    function resendCode() {
+      showAlert(
+        "info",
+        "إعادة إرسال الرمز",
+        "هذه نسخة تجريبية من عناية. لم يتم إرسال رمز جديد إلى البريد الإلكتروني."
+      );
+    }
+
+    // تعديل البريد الإلكتروني
+    function editEmail() {
+      const url = new URL(
+        "signup.html",
+        window.location.href
+      );
+
+      if (email) {
+        url.searchParams.set("email", email);
+      }
+
+      window.location.href = url.href;
+    }
+  </script>
+
+</body>
+
+</html>

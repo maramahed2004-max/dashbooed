@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>خدماتنا | عناية - تفاصيل نبتتك مجتمعة لتتابعها بوعي</title>
+  <meta name="description"
+    content="اكتشف خدمات عناية المتكاملة للعناية بالنباتات المنزلية: جداول سقاية مخصصة، تشخيص فوري بالصور، وتنبيهات ذكية واستشارات من خبراء النباتات.">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="images/logo.png">
+  <link rel="apple-touch-icon" href="images/logo.png">
+
+  <!-- Cairo Google Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
+
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+  <!-- Services Stylesheet -->
+  <link rel="stylesheet" href="css/services.css">
+
+  <style>
+    /* SERVICES HERO - SOFT GREEN OVERLAY ONLY */
+
+    .services-hero {
+      position: relative;
+      isolation: isolate;
+      overflow: hidden;
+    }
+
+    .services-hero .services-hero-overlay {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      opacity: 1;
+
+      background: linear-gradient(90deg,
+          rgba(46, 125, 50, 0.16) 0%,
+          rgba(46, 125, 50, 0.24) 30%,
+          rgba(27, 94, 32, 0.40) 55%,
+          rgba(20, 69, 23, 0.58) 80%,
+          rgba(20, 69, 23, 0.65) 100%);
+
+      pointer-events: none;
+    }
+
+    .services-hero>.container {
+      position: relative;
+      z-index: 2;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Header & Navbar -->
+  <header class="site-header">
+    <div class="container">
+      <nav class="navbar" aria-label="شريط التنقل الرئيسي">
+
+        <!-- Brand Logo -->
+        <a href="index.html" class="brand-logo" aria-label="الصفحة الرئيسية لعناية">
+          <img src="images/logo.png" alt="شعار عناية">
+        </a>
+
+        <!-- Navigation Menu -->
+        <ul class="nav-menu" id="navMenu">
+          <li><a href="index.html" class="nav-link">الرئيسية</a></li>
+          <li><a href="about.html" class="nav-link">من نحن</a></li>
+          <li><a href="kaif-ta3mal-enaya.html" class="nav-link">كيف تعمل عناية</a></li>
+          <li><a href="services.html" class="nav-link active" aria-current="page">خدماتنا</a></li>
+          <li><a href="contact.html" class="nav-link">تواصل معنا</a></li>
+        </ul>
+
+        <!-- Nav Actions -->
+        <div class="nav-actions">
+          <a href="login.html" class="btn btn-outline btn-sm">تسجيل الدخول</a>
+          <a href="signup.html" class="btn btn-primary btn-sm">ابدأ الآن</a>
+          <button class="mobile-toggle" aria-label="فتح القائمة" aria-expanded="false">☰</button>
+        </div>
+
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="services-hero-wrapper" aria-label="مقدمة الخدمات">
+    <div class="services-hero">
+      <div class="services-hero-overlay"></div>
+
+      <div class="container">
+        <div class="services-hero-content">
+          <div class="hero-tag">
+            <i class="fa-solid fa-leaf"></i>
+            <span>خدمات عناية المتكاملة</span>
+          </div>
+
+          <h1>
+            <span>تفاصيل نبتتك،</span>
+            <span>مجتمعة،</span>
+            <span>لتتابعها بوعي.</span>
+          </h1>
+
+          <p class="services-hero-desc">
+            منبهات ذكية، إرشادات رعاية، واستشارات فورية مصممة خصيصاً لنباتاتك في أي وقت ومن أي مكان.
+          </p>
+
+          <div class="services-hero-buttons">
+            <a href="signup.html" class="btn btn-white">ابدأ مجاناً</a>
+            <a href="#services-grid" class="btn btn-glass">استكشف خدماتنا</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 2: Grid of Services -->
+  <section class="services-grid-section" id="services-grid">
+    <div class="container">
+
+      <div class="section-header">
+        <span class="section-tag">خدمات متكاملة</span>
+        <h2 class="section-title">خدمات مترابطة، لا أدوات متفرقة</h2>
+        <p class="section-subtitle">منصتك الشاملة لكل ما تحتاجه نباتاتك المنزلية، بدقة وسهولة واحترافية عالية</p>
+      </div>
+
+      <div class="services-cards-grid">
+
+        <!-- Card 1 -->
+        <div class="service-card">
+          <div class="service-card-icon">
+            <i class="fa-solid fa-seedling" aria-hidden="true"></i>
+          </div>
+          <h3>إدارة نباتاتك</h3>
+          <p>سجل رقمي متكامل لكل نبتة لديك يشمل تاريخ الري، نوع التربة، موقع الأصيص، ومتابعة دورية لتطور نموها خطوة
+            بخطوة.</p>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="service-card">
+          <div class="service-card-icon">
+            <i class="fa-solid fa-droplet" aria-hidden="true"></i>
+          </div>
+          <h3>نظام سقاية مخصص</h3>
+          <p>جداول ري ديناميكية تتكيف مع الفصول، حجم الأصيص، ورطوبة الغرفة لتجنب تعفن الجذور وحماية النبتة من العطش.</p>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="service-card">
+          <div class="service-card-icon">
+            <i class="fa-solid fa-camera" aria-hidden="true"></i>
+          </div>
+          <h3>التشخيص بالصور</h3>
+          <p>التقط صورة لأي ورقة صفراء أو بقع بنية وتعرّف فوراً على السبب المباشر مع خطوات علاجية واضحة ومجربة.</p>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="service-card">
+          <div class="service-card-icon">
+            <i class="fa-regular fa-bell" aria-hidden="true"></i>
+          </div>
+          <h3>تنبيهات وتذكيرات</h3>
+          <p>إشعارات ذكية في الوقت الأنسب لري وتسميد وتقليم نباتاتك، بدون إزعاج متكرر وبحسب احتياج كل نبتة الفعلي.</p>
+        </div>
+
+        <!-- Card 5 -->
+        <div class="service-card">
+          <div class="service-card-icon">
+            <i class="fa-regular fa-comments" aria-hidden="true"></i>
+          </div>
+          <h3>استشارات ومتابعة</h3>
+          <p>فريق من خبراء النباتات الداخلية مستعد للإجابة على استفساراتك وتوجيهك لإنقاذ النباتات المعرضة للذبول.</p>
+        </div>
+
+        <!-- Card 6 -->
+        <div class="service-card">
+          <div class="service-card-icon">
+            <i class="fa-solid fa-book-open" aria-hidden="true"></i>
+          </div>
+          <h3>سجل ومحتوى متكامل</h3>
+          <p>مكتبة معرفية غنية بنصائح عملية ومقالات مبسطة تمكنك من فهم لغة النباتات والعناية بها بثقة وهدوء بال.</p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Section 3: Dashboard Preview -->
+  <section class="dashboard-preview-section" id="dashboard">
+    <div class="container">
+
+      <div class="section-header">
+        <span class="section-tag">لوحة التحكم</span>
+        <h2 class="section-title">مساحة واحدة للمتابعة</h2>
+        <p class="section-subtitle">شاشة تجمع كل معلومات نباتاتك وجدولتها في واجهة واحدة بسيطة وسلسة</p>
+      </div>
+
+      <div class="dashboard-mockup-frame">
+
+        <!-- Mockup Top Bar -->
+        <div class="mockup-top-bar">
+          <div class="mockup-title-group">
+            <h4>نباتاتي - لوحة المتابعة</h4>
+            <span class="mockup-badge">عرض حي</span>
+          </div>
+
+          <div class="mockup-actions-bar">
+            <span class="mockup-date-btn">
+              <i class="fa-regular fa-calendar"></i>
+              <span>الأسبوع الحالي</span>
+            </span>
+            <button class="btn btn-primary btn-sm" id="mockupWaterBtn">تسجيل سقاية</button>
+          </div>
+        </div>
+
+        <!-- Mockup Body Grid -->
+        <div class="mockup-body-grid">
+
+          <!-- Detailed Active Card -->
+          <div class="mockup-main-card">
+
+            <div>
+              <div class="main-card-header">
+                <div class="main-card-info">
+                  <h5>مونستيرا ديلسيوسا</h5>
+                  <span>نبتة القفص الصدري • غرفة المعيشة</span>
+                </div>
+                <div class="main-card-img-wrap">
+                  <img src="images/نبتة-مونستيرا-طولية.png" alt="مونستيرا ديلسيوسا">
+                </div>
+              </div>
+
+              <!-- Metrics -->
+              <div class="mockup-metrics-grid">
+                <div class="metric-box">
+                  <span class="metric-label">الري القادم</span>
+                  <span class="metric-value" id="mockupNextWater">بعد يومين</span>
+                  <span class="metric-status">كل 7-9 أيام</span>
+                </div>
+
+                <div class="metric-box">
+                  <span class="metric-label">الإضاءة</span>
+                  <span class="metric-value">سطوع غير مباشر</span>
+                  <span class="metric-status">بجانب النافذة</span>
+                </div>
+
+                <div class="metric-box">
+                  <span class="metric-label">التسميد</span>
+                  <span class="metric-value">موسم الصيف</span>
+                  <span class="metric-status">مرة كل شهر</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="main-card-actions">
+              <div class="water-status-text" id="mockupWaterStatus">
+                <i class="fa-solid fa-droplet"></i>
+                <span>آخر ري: قبل 5 أيام (التربة رطبة جزئياً)</span>
+              </div>
+              <span class="health-badge">صحة النبتة 98%</span>
+            </div>
+
+          </div>
+
+          <!-- Side Plant List -->
+          <div class="mockup-side-card">
+            <div class="side-card-title">
+              <span>نباتات أخرى في منزلك</span>
+              <a href="#" style="color: var(--primary-green); font-size: 0.8rem;">عرض الكل</a>
+            </div>
+
+            <!-- Plant item 1 -->
+            <div class="side-plant-item">
+              <div class="side-plant-thumb">
+                <img src="images/نبتة-غرفة-معيشة.png" alt="مونستيرا الأصيص الفخاري">
+              </div>
+              <div class="side-plant-meta">
+                <h6>مونستيرا الصالون</h6>
+                <p>الري القادم: غداً صباحاً</p>
+              </div>
+              <span class="health-badge">95%</span>
+            </div>
+
+            <!-- Plant item 2 -->
+            <div class="side-plant-item">
+              <div class="side-plant-thumb">
+                <img src="images/نبتة-فيكس-كرسي.png" alt="فيكس ليراتا">
+              </div>
+              <div class="side-plant-meta">
+                <h6>فيكس ليراتا</h6>
+                <p>الري القادم: بعد 4 أيام</p>
+              </div>
+              <span class="health-badge">91%</span>
+            </div>
+
+            <!-- Plant item 3 -->
+            <div class="side-plant-item">
+              <div class="side-plant-thumb">
+                <img src="images/section1-rubber-plant.png" alt="نبتة المطاط">
+              </div>
+              <div class="side-plant-meta">
+                <h6>نبتة المطاط</h6>
+                <p>الري القادم: بعد أسبوع</p>
+              </div>
+              <span class="health-badge">100%</span>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Section 4: Split Feature -->
+  <section class="split-feature-section">
+    <div class="container">
+
+      <div class="split-feature-grid">
+
+        <div class="split-img-box">
+          <img src="images/نبتة-فيكس-كرسي.png" alt="نبتة فيكس ليراتا على كرسي خشبي بجانب النافذة">
+        </div>
+
+        <div class="split-content">
+          <span class="section-tag">إرشاد مخصص</span>
+          <h2 class="section-title">نصائح تبدأ بما تعرفه عن نبتتك</h2>
+          <p class="split-desc">
+            لا توجد قاعدة واحدة تناسب كل النباتات. في عناية نقوم بمطابقة احتياجات كل نبتة بحسب بيئتها الفعلية، موقعها من
+            الشمس، وحجم الأصيص داخل منزلك.
+          </p>
+
+          <ul class="split-checklist">
+            <li>
+              <span class="check-icon"><i class="fa-solid fa-check"></i></span>
+              <span>تحديد نوع التربة ونسبة تصريف الوعاء المناسبة</span>
+            </li>
+            <li>
+              <span class="check-icon"><i class="fa-solid fa-check"></i></span>
+              <span>قياس مستوى الإضاءة الطبيعية في موقع النبتة</span>
+            </li>
+            <li>
+              <span class="check-icon"><i class="fa-solid fa-check"></i></span>
+              <span>تكييف كميات الري مع درجات الحرارة والرطوبة الفصلية</span>
+            </li>
+          </ul>
+
+          <a href="signup.html" class="btn btn-primary">ابدأ العناية بنبتتك</a>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Section 5: Interactive Diagnostic -->
+  <section class="diagnostic-section">
+    <div class="container">
+
+      <div class="section-header">
+        <span class="section-tag">التشخيص الفوري</span>
+        <h2 class="section-title">أشهر ما تراه، قبل أن تتصرف</h2>
+        <p class="section-subtitle">اختر العَرَض الذي تلاحظه على أوراق نبتتك وتعرف على التشخيص العلمي والحل المناسب</p>
+      </div>
+
+      <div class="diagnostic-box-wrapper">
+        <div class="diagnostic-interactive-grid">
+
+          <!-- Symptoms list tabs -->
+          <div class="symptoms-selector-list">
+            <button class="symptom-tab-btn active" data-symptom="yellow">
+              <span>اصفرار الأوراق</span>
+              <i class="fa-solid fa-chevron-left"></i>
+            </button>
+
+            <button class="symptom-tab-btn" data-symptom="droop">
+              <span>ذبول وتدلي الساق</span>
+              <i class="fa-solid fa-chevron-left"></i>
+            </button>
+
+            <button class="symptom-tab-btn" data-symptom="brown">
+              <span>بقع داكنة وأطراف جافة</span>
+              <i class="fa-solid fa-chevron-left"></i>
+            </button>
+
+            <button class="symptom-tab-btn" data-symptom="drop">
+              <span>تساقط الأوراق المفاجئ</span>
+              <i class="fa-solid fa-chevron-left"></i>
+            </button>
+          </div>
+
+          <!-- Dynamic Result Card -->
+          <div class="diagnostic-result-card">
+
+            <div class="result-card-header">
+              <h4 id="resultTitle">احتمالات اصفرار ورقتك</h4>
+              <span class="confidence-badge" id="resultConfidence">85% ري زائد وتجمع مياه</span>
+            </div>
+
+            <div class="result-cause" id="resultCause">
+              <i class="fa-solid fa-triangle-exclamation"></i>
+              <span>اختناق في الجذور وضعف تصريف الأصيص</span>
+            </div>
+
+            <p class="result-explanation" id="resultExplanation">
+              عندما تفرط في الري أو عند انسداد ثقوب التصريف، تحرم الجذور من الأكسجين وتبدأ الأوراق القديمة والسفلية
+              بالاصفرار التدريجي.
+            </p>
+
+            <div class="result-steps-title">خطوات التصرف الموصى بها:</div>
+            <ul class="result-steps-list" id="resultSteps">
+              <li>افحص فتحات تصريف الأصيص وتأكد من خروج الماء الفائض فوراً.</li>
+              <li>أوقف الري تماماً حتى تجف أول 3-4 سم من سطح التربة عند لمسها.</li>
+              <li>انقل النبتة لمكان مشمس أو مضاء بضوء غير مباشر لتنشيط عملية النتح.</li>
+            </ul>
+
+            <a href="signup.html" class="btn btn-primary btn-sm">فحص نبتتك بالكامل</a>
+
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Section 6: Mid-Page CTA Green Banner -->
+  <section class="mid-cta-banner">
+    <div class="container">
+      <div class="mid-cta-content">
+        <div class="mid-cta-text">
+          <h3>العناية الذكية تحتاج إلى ملاحظتك</h3>
+          <p>نحن نمنحك التنبيه والمعلومة الدقيقة، وأنت تمنح نبتتك الدفء والاهتمام اليومي لتزدهر في منزلك.</p>
+        </div>
+        <a href="signup.html" class="btn btn-white">ابدأ مجاناً</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 7: Comparison Table -->
+  <section class="comparison-section">
+    <div class="container">
+
+      <div class="section-header">
+        <span class="section-tag">المقارنة الذكية</span>
+        <h2 class="section-title">غيّر طريقة المتابعة، لا تتبع قاعدة ثابتة</h2>
+        <p class="section-subtitle">شاهد الفارق بين روتين العناية التقليدي القائم على التخمين، والمنهج العلمي الدقيق مع
+          عناية</p>
+      </div>
+
+      <div class="comparison-table-wrapper">
+        <table class="comparison-table">
+          <thead>
+            <tr>
+              <th scope="col">الخاصية</th>
+              <th scope="col" class="col-enaya">مع عناية</th>
+              <th scope="col">بدون عناية (الأسلوب التقليدي)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="col-feature">جدول السقاية</td>
+              <td class="col-enaya"><i class="fa-solid fa-circle-check"></i> ديناميكي يتكيف مع فصول السنة وسرعة جفاف
+                التربة</td>
+              <td class="col-traditional"><i class="fa-solid fa-circle-xmark"></i> يوم ثابت أسبوعياً يؤدي لتعفن الجذور
+                أو عطشها</td>
+            </tr>
+            <tr>
+              <td class="col-feature">تشخيص المشكلات</td>
+              <td class="col-enaya"><i class="fa-solid fa-circle-check"></i> فوري بالذكاء الاصطناعي مع خطوات علاجية
+                علمية</td>
+              <td class="col-traditional"><i class="fa-solid fa-circle-xmark"></i> بحث عشوائي وتجارب خاطئة تزيد من تدهور
+                النبتة</td>
+            </tr>
+            <tr>
+              <td class="col-feature">التذكيرات والمتابعة</td>
+              <td class="col-enaya"><i class="fa-solid fa-circle-check"></i> تنبيهات دقيقة في الوقت المناسب مع سجل نمو
+                مصور</td>
+              <td class="col-traditional"><i class="fa-solid fa-circle-xmark"></i> الاعتماد على الذاكرة ونسيان مواعيد
+                التسميد والري</td>
+            </tr>
+            <tr>
+              <td class="col-feature">اختيار وتوزيع النباتات</td>
+              <td class="col-enaya"><i class="fa-solid fa-circle-check"></i> ترشيحات دقيقة تتطابق مع بيئة منزلك وخبرتك
+                الشخصية</td>
+              <td class="col-traditional"><i class="fa-solid fa-circle-xmark"></i> شراء نباتات لا تناسب إضاءة الغرفة
+                وموتها سريعاً</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Section 8: Pricing Cards -->
+  <section class="pricing-section" id="pricing">
+    <div class="container">
+
+      <div class="section-header">
+        <span class="section-tag">خطط الاشتراك</span>
+        <h2 class="section-title">اختر ما يناسب رغبتك مع النباتات</h2>
+        <p class="section-subtitle">خطط مرنة تناسب المبتدئين وهواة اقتناء المجموعات النباتية المنزلية الكبيرة</p>
+      </div>
+
+      <div class="pricing-grid">
+
+        <!-- Free Plan -->
+        <div class="pricing-card">
+          <div>
+            <div class="pricing-header">
+              <h4>مجاني</h4>
+              <p>مثالي للبدء وتجربة العناية الذكية بالنباتات</p>
+            </div>
+
+            <div class="pricing-cost">
+              <span class="amount">0</span>
+              <span class="currency">ر.س</span>
+              <span class="period">/ شهرياً</span>
+            </div>
+
+            <ul class="pricing-features-list">
+              <li><i class="fa-solid fa-check"></i> متابعة حتى 3 نباتات منزلية</li>
+              <li><i class="fa-solid fa-check"></i> جدول ري أساسي مع تنبيهات</li>
+              <li><i class="fa-solid fa-check"></i> تشخيص صورة واحدة مجاناً شهرياً</li>
+              <li><i class="fa-solid fa-check"></i> مقالات إرشادية ونصائح عامة</li>
+            </ul>
+          </div>
+
+          <a href="signup.html" class="btn btn-outline" style="width: 100%;">ابدأ مجاناً</a>
+        </div>
+
+        <!-- Monthly Pro Plan (Featured) -->
+        <div class="pricing-card featured">
+          <span class="pricing-ribbon">الأكثر شعبية</span>
+
+          <div>
+            <div class="pricing-header">
+              <h4>شهري</h4>
+              <p>لعشاق النباتات الراغبين في رعاية مثالية واحترافية</p>
+            </div>
+
+            <div class="pricing-cost">
+              <span class="amount">29</span>
+              <span class="currency">ر.س</span>
+              <span class="period">/ شهرياً</span>
+            </div>
+
+            <ul class="pricing-features-list">
+              <li><i class="fa-solid fa-check"></i> عدد غير محدود من النباتات</li>
+              <li><i class="fa-solid fa-check"></i> جداول ري وتسميد ذكية متقدمة</li>
+              <li><i class="fa-solid fa-check"></i> تشخيص غير محدود بالصور</li>
+              <li><i class="fa-solid fa-check"></i> استشارات مباشرة مع خبراء النباتات</li>
+              <li><i class="fa-solid fa-check"></i> تنبيهات الطقس والتقلبات الموسمية</li>
+            </ul>
+          </div>
+
+          <a href="signup.html" class="btn btn-primary" style="width: 100%;">اشترك الآن</a>
+        </div>
+
+        <!-- Annual Plan -->
+        <div class="pricing-card">
+          <span class="pricing-ribbon" style="background-color: #0c3312;">وفر 25%</span>
+
+          <div>
+            <div class="pricing-header">
+              <h4>سنوي</h4>
+              <p>أفضل قيمة سنوية مع راحة بال كاملة على مدار العام</p>
+            </div>
+
+            <div class="pricing-cost">
+              <span class="amount">249</span>
+              <span class="currency">ر.س</span>
+              <span class="period">/ سنوياً</span>
+            </div>
+
+            <ul class="pricing-features-list">
+              <li><i class="fa-solid fa-check"></i> جميع مزايا باقة Pro الشهرية</li>
+              <li><i class="fa-solid fa-check"></i> شهران مجاناً طوال السنة</li>
+              <li><i class="fa-solid fa-check"></i> أولوية قصوى في الاستشارات الفورية</li>
+              <li><i class="fa-solid fa-check"></i> تقارير موسمية لصحة وتغذية نباتاتك</li>
+            </ul>
+          </div>
+
+          <a href="signup.html" class="btn btn-outline" style="width: 100%;">اشترك سنوياً</a>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Section 9: FAQ Accordions -->
+  <section class="faq-section" id="faq">
+    <div class="container">
+
+      <div class="section-header">
+        <span class="section-tag">الأسئلة الشائعة</span>
+        <h2 class="section-title">ما الذي تحتاج إلى معرفته عن الخدمات؟</h2>
+        <p class="section-subtitle">إليك إجابات واضحة ومباشرة عن أكثر الاستفسارات شيوعاً حول خدمات عناية</p>
+      </div>
+
+      <div class="faq-list">
+
+        <div class="faq-item active">
+          <button class="faq-question">
+            <span>هل أستطيع إضافة نوع نبات غير موجود في القائمة؟</span>
+            <i class="fa-solid fa-chevron-down"></i>
+          </button>
+          <div class="faq-answer">
+            <p>نعم بالتأكيد! يمكنك التقاط صورة للنبتة أو إدخال اسمها وسيقوم نظام عناية بالتعرف عليها تلقائياً وتحديد
+              جدول الري ومستوى الإضاءة الموصى بهما.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>كيف يعمل نظام تشخيص أمراض النباتات بالصور؟</span>
+            <i class="fa-solid fa-chevron-down"></i>
+          </button>
+          <div class="faq-answer">
+            <p>يعتمد التشخيص على نموذج ذكاء اصطناعي مدرب على مئات الآلاف من صور النباتات وأعراض الإصابات الفطرية
+              والحشرية ومشاكل الري، ليقدم لك تشخيصاً سريعاً مع خطوات وقائية وعلاجية دقيقة.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>هل أحتاج إلى شراء أجهزة استشعار أو أدوات إضافية؟</span>
+            <i class="fa-solid fa-chevron-down"></i>
+          </button>
+          <div class="faq-answer">
+            <p>لا، تطبيق عناية لا يتطلب أي أجهزة خارجية. نحسب الاحتياج الدقيق بناءً على معطيات نبتتك وموقعها والطقس
+              المحلي في مدينتك.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>هل تتوفر استشارات مع خبراء حقيقيين؟</span>
+            <i class="fa-solid fa-chevron-down"></i>
+          </button>
+          <div class="faq-answer">
+            <p>نعم، في باقات Pro يمكنك فتح محادثة مباشرة مع أخصائي نباتات داخلية لمساعدتك في علاج الحالات المستعصية خطوة
+              بخطوة.</p>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Section 10: Final CTA Bottom Banner -->
+  <section class="bottom-cta-section">
+    <div class="container">
+      <div class="bottom-cta-content">
+        <h2>اجمع تفاصيل نباتاتك في مكان واحد</h2>
+        <p>ابدأ رحلتك اليوم وحافظ على حيوية ونضارة نباتاتك بأسهل الخطوات وبكل ثقة.</p>
+        <a href="signup.html" class="btn btn-white">ابدأ الآن</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top">
+
+        <div class="footer-about">
+          <div class="brand-logo" style="margin-bottom: 16px;">
+            <img src="images/logo.png" alt="شعار عناية">
+            <div>
+              <span class="brand-name">عناية</span>
+              <span class="brand-sub">ENAYA</span>
+            </div>
+          </div>
+          <p>
+            رفيقك اليومي لنباتات خضراء تزدهر، ونمط حياة هادئ ومريح ينبض بالطبيعة والجمال داخل منزلك.
+          </p>
+        </div>
+
+        <div class="footer-col">
+          <h5>روابط سريعة</h5>
+          <ul>
+            <li><a href="index.html">الرئيسية</a></li>
+            <li><a href="about.html">من نحن</a></li>
+            <li><a href="kaif-ta3mal-enaya.html">كيف تعمل عناية</a></li>
+            <li><a href="services.html">خدماتنا</a></li>
+            <li><a href="index.html#pricing">الباقات</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h5>خدماتنا</h5>
+          <ul>
+            <li><a href="services.html#services-grid">إدارة النباتات</a></li>
+            <li><a href="services.html#services-grid">نظام السقاية الذكي</a></li>
+            <li><a href="services.html#services-grid">التشخيص بالصور</a></li>
+            <li><a href="services.html#services-grid">استشارات الخبراء</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h5>المساعدة</h5>
+          <ul>
+            <li><a href="services.html#faq">الأسئلة الشائعة</a></li>
+            <li><a href="privacy.html">سياسة الخصوصية</a></li>
+            <li><a href="terms.html">شروط الاستخدام</a></li>
+            <li><a href="contact.html">تواصل معنا</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="footer-bottom">
+        <p>© 2026 عناية. جميع الحقوق محفوظة.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Services JavaScript Logic -->
+  <script src="js/services.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>الحساب والإعدادات | عناية Enaya</title>
+
+    <!-- خط Cairo المعتمد لكامل الواجهة -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+
+    <!-- أيقونات Lucide المعتمدة -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- ربط CSS الخاص بالقائمة الجانبية الموحدة وواجهة الحساب والإعدادات -->
+    <link rel="stylesheet" href="../css/sidebar.css">
+    <link rel="stylesheet" href="../css/settings.css">
+
+
+    <!-- أيقونة الموقع في التبويب -->
+    <link rel="icon" type="image/png" href="logo-enaya.png">
+</head>
+
+<body>
+
+    <div class="app-container">
+
+        <!-- ============= القائمة الجانبية الموحدة ============= -->
+        <aside class="sidebar" id="sidebar">
+
+            <a href="dashboard.html" class="sidebar-logo logo-area" aria-label="الرئيسية | عناية">
+                <img src="logo-enaya.png" alt="شعار عناية">
+            </a>
+
+            <nav class="sidebar-menu">
+
+                <!-- الرئيسية -->
+                <a href="dashboard.html" class="menu-link">
+                    <i data-lucide="house"></i>
+                    <span>الرئيسية</span>
+                </a>
+
+                <!-- نباتاتي -->
+                <a href="my-plants.html" class="menu-link">
+                    <i data-lucide="sprout"></i>
+                    <span>نباتاتي</span>
+                </a>
+
+                <!-- إضافة نبتة -->
+                <a href="add-plant.html" class="menu-link">
+                    <i data-lucide="circle-plus"></i>
+                    <span>إضافة نبتة</span>
+                </a>
+
+                <!-- تشخيص النباتات -->
+                <a href="plant-diagnosis.html" class="menu-link">
+                    <i data-lucide="scan-line"></i>
+                    <span>تشخيص النباتات</span>
+                </a>
+
+                <!-- جدول العناية -->
+                <a href="care-calendar.html" class="menu-link">
+                    <i data-lucide="calendar-days"></i>
+                    <span>جدول العناية</span>
+                </a>
+
+                <!-- سجل النشاط -->
+                <a href="activity-log.html" class="menu-link">
+                    <i data-lucide="history"></i>
+                    <span>سجل النشاط</span>
+                </a>
+
+                <div class="menu-divider"></div>
+
+                <!-- الاشتراك والفواتير -->
+                <a href="subscription.html" class="menu-link">
+                    <i data-lucide="credit-card"></i>
+                    <span>الاشتراك والفواتير</span>
+                </a>
+
+                <!-- الحساب والإعدادات (النشطة الحالية) -->
+                <a href="settings.html" class="menu-link active">
+                    <i data-lucide="settings"></i>
+                    <span>الحساب والإعدادات</span>
+                </a>
+
+            </nav>
+
+            <!-- صندوق ترقية الخطة -->
+            <div class="upgrade-box">
+                <div class="upgrade-title">
+                    <i data-lucide="sparkles"></i>
+                    <strong>ترقية الخطة</strong>
+                </div>
+                <p>افتحي ميزات متقدمة لعناية أفضل بنباتاتك</p>
+                <a href="subscription.html" class="upgrade-button">
+                    اكتشف الخطط
+                    <i data-lucide="arrow-left"></i>
+                </a>
+            </div>
+
+            <!-- معلومات المستخدم -->
+            <div class="sidebar-user">
+                <div class="user-avatar">ي</div>
+                <div class="user-info">
+                    <strong>يوسف وسام</strong>
+                    <small>yousef@example.com</small>
+                    <span>الحساب المجاني</span>
+                </div>
+            </div>
+
+        </aside>
+
+        <!-- ============= منطقة المحتوى الرئيسي ============= -->
+        <main class="main-content">
+
+            <!-- الشريط العلوي -->
+            <div class="top-bar">
+                <div class="top-bar-right" style="display: flex; align-items: center; gap: 10px;">
+                    <button type="button" class="mobile-menu-btn" id="mobile-menu-toggle" aria-label="فتح القائمة">
+                        <i data-lucide="menu"></i>
+                    </button>
+                    <h2 class="page-title-small">الحساب والإعدادات</h2>
+                </div>
+
+                <div class="top-bar-left">
+
+                    <!-- أيقونة البحث فقط -->
+                    <button type="button" class="icon-btn" aria-label="بحث">
+                        <i data-lucide="search"></i>
+                    </button>
+
+                    <!-- زر الإشعارات المكتومة كما في التصميم -->
+                    <button type="button" class="icon-btn" aria-label="الإشعارات">
+                        <i data-lucide="bell-off"></i>
+                    </button>
+
+                    <!-- محدد اللغة -->
+                    <div class="lang-selector">
+                        <span>العربية</span>
+                        <i data-lucide="chevron-down"></i>
+                    </div>
+                </div>
+            </div>
+
+            <!-- بانر الهيرو (صورة أوراق المونستيرا الخضراء مع زر حفظ التغييرات) -->
+            <section class="settings-hero-banner"
+                style="background-image: linear-gradient(90deg, rgba(14, 38, 18, 0.72), rgba(14, 38, 18, 0.48)), url('./Rectangle.png');">
+                
+                <div class="hero-text-side">
+                    <span class="hero-demo-badge">بيانات توضيحية</span>
+                    <h1>الحساب والإعدادات</h1>
+                    <p>حسابك وتفضيلاتك · تجربة عناية تناسبك</p>
+                </div>
+
+                <div class="hero-action-side">
+                    <button type="button" class="btn-save-changes" id="btnSaveChanges">
+                        <i data-lucide="check"></i>
+                        <span>حفظ التغييرات</span>
+                    </button>
+                </div>
+            </section>
+
+            <!-- شبكة المحتوى (قسم النماذج والبطاقات + القائمة والملخص الجانبي) -->
+            <div class="settings-layout-grid">
+
+                <!-- العمود الأيمن: بطاقات الإعدادات الرئيسية -->
+                <div class="settings-main-column">
+
+                    <!-- بطاقة 1: الملف الشخصي -->
+                    <section class="settings-card" id="profile-section">
+                        <h3 class="settings-card-title">الملف الشخصي</h3>
+
+                        <div class="form-row-grid">
+                            <div class="form-group">
+                                <label for="userNameInput">الاسم</label>
+                                <input type="text" id="userNameInput" class="form-input" value="يوسف وسام">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="userEmailInput">البريد الإلكتروني</label>
+                                <input type="email" id="userEmailInput" class="form-input" value="yousef@example.com">
+                            </div>
+                        </div>
+
+                        <p class="card-foot-caption">تظهر هذه البيانات في حسابك ولا تُضاف إلى سجلات البيانات العامة.</p>
+                    </section>
+
+                    <!-- بطاقة 2: اللغة والعرض -->
+                    <section class="settings-card" id="display-section">
+                        <h3 class="settings-card-title">اللغة والعرض</h3>
+
+                        <div class="form-row-grid">
+                            <div class="form-group">
+                                <label for="appDirectionSelect">اتجاه العرض</label>
+                                <div class="custom-select-wrap">
+                                    <select id="appDirectionSelect">
+                                        <option value="rtl" selected>من اليمين إلى اليسار</option>
+                                        <option value="ltr">من اليسار إلى اليمين</option>
+                                    </select>
+                                    <i data-lucide="chevron-down" class="select-chevron"></i>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="appLangSelect">لغة التطبيق</label>
+                                <div class="custom-select-wrap">
+                                    <select id="appLangSelect">
+                                        <option value="ar" selected>العربية</option>
+                                        <option value="en">English (الإنجليزية)</option>
+                                    </select>
+                                    <i data-lucide="chevron-down" class="select-chevron"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- بطاقة 3: الإشعارات -->
+                    <section class="settings-card" id="notifications-section">
+                        <h3 class="settings-card-title">الإشعارات</h3>
+                        <p class="card-top-subtext">حالات توضيحية للتضمين: إشعارات المتصفح متوقفة في التجربة</p>
+
+                        <div class="toggle-items-list">
+                            <!-- صف تذكيرات العناية (مفعل) -->
+                            <div class="toggle-row">
+                                <div class="toggle-info">
+                                    <span class="toggle-title">تذكيرات العناية</span>
+                                    <span class="toggle-subtitle">تفضيل استقبال مواعيد الري والتسميد والمتابعة</span>
+                                </div>
+                                <label class="switch-control" aria-label="تفعيل تذكيرات العناية">
+                                    <input type="checkbox" checked id="toggleCareReminders">
+                                    <span class="switch-slider"></span>
+                                </label>
+                            </div>
+
+                            <!-- صف ملخص البريد الإلكتروني (غير مفعل) -->
+                            <div class="toggle-row">
+                                <div class="toggle-info">
+                                    <span class="toggle-title">ملخص البريد الإلكتروني</span>
+                                    <span class="toggle-subtitle">تلخيص نشاط نباتاتك في رسالة دورية</span>
+                                </div>
+                                <label class="switch-control" aria-label="تفعيل ملخص البريد الإلكتروني">
+                                    <input type="checkbox" id="toggleEmailSummary">
+                                    <span class="switch-slider"></span>
+                                </label>
+                            </div>
+
+                            <!-- صف إشعارات المتصفح (غير مفعل) -->
+                            <div class="toggle-row">
+                                <div class="toggle-info">
+                                    <span class="toggle-title">إشعارات المتصفح</span>
+                                    <span class="toggle-subtitle">غير مفعلة · تحتاج إلى إذن من المتصفح</span>
+                                </div>
+                                <label class="switch-control" aria-label="تفعيل إشعارات المتصفح">
+                                    <input type="checkbox" id="toggleBrowserNotifs">
+                                    <span class="switch-slider"></span>
+                                </label>
+                            </div>
+                        </div>
+                    </section>
+
+                </div>
+
+                <!-- العمود الأيسر: ملخص الحساب والتنقل السريع -->
+                <aside class="settings-side-column">
+
+                    <!-- بطاقة حسابك -->
+                    <div class="user-summary-card">
+                        <div class="user-summary-card-header">
+                            <h3>حسابك</h3>
+                        </div>
+
+                        <div class="large-avatar-circle">ي</div>
+                        <h4 class="summary-user-name">يوسف وسام</h4>
+                        <span class="summary-user-email">yousef@example.com</span>
+                        <div class="summary-plan-badge">الحساب المجاني</div>
+
+                        <p class="summary-desc-text">
+                            ٤ نباتات في مجموعتك · تذكيرات عناية وسجل نشاط توضيحي.
+                        </p>
+
+                        <a href="subscription.html" class="btn-manage-sub">
+                            <i data-lucide="credit-card"></i>
+                            <span>إدارة الاشتراك</span>
+                        </a>
+                    </div>
+
+                    <!-- بطاقة أقسام الإعدادات -->
+                    <div class="sections-nav-card">
+                        <h4 class="sections-nav-title">أقسام الإعدادات</h4>
+                        <nav class="sections-nav-list">
+                            <a href="#profile-section" class="section-nav-item active" data-target="profile-section">الملف الشخصي</a>
+                            <a href="#display-section" class="section-nav-item" data-target="display-section">اللغة والعرض</a>
+                            <a href="#notifications-section" class="section-nav-item" data-target="notifications-section">الإشعارات</a>
+                            <a href="#security-section" class="section-nav-item" data-target="security-section">الخصوصية والأمان</a>
+                            <a href="#account-section" class="section-nav-item" data-target="account-section">إدارة الحساب</a>
+                        </nav>
+                    </div>
+
+                </aside>
+
+            </div>
+
+            <!-- بطاقات على طول الصفحة بعرض كامل ومسافات متساوية على الجوانب: الخصوصية والأمان وإدارة الحساب -->
+            <div class="settings-full-width-container">
+
+                <!-- بطاقة 4: الخصوصية والأمان (على طول الصفحة) -->
+                <section class="settings-card full-width-card" id="security-section">
+                    <h3 class="settings-card-title">الخصوصية والأمان</h3>
+
+                    <!-- صف كلمة المرور -->
+                    <div class="action-row">
+                        <div class="action-row-left">
+                            <i data-lucide="shield-check" class="action-icon"></i>
+                            <div class="toggle-info">
+                                <span class="toggle-title">كلمة المرور</span>
+                                <span class="toggle-subtitle">لا تُعرض كلمة المرور في الحساب</span>
+                            </div>
+                        </div>
+                        <button type="button" class="btn-secondary-action" id="btnChangePassword">تغيير كلمة المرور</button>
+                    </div>
+
+                    <!-- صف حفظ صور التشخيص -->
+                    <div class="action-row" style="margin-top: 14px;">
+                        <div class="toggle-info">
+                            <span class="toggle-title">حفظ صور التشخيص في السجل</span>
+                            <span class="toggle-subtitle">تفضيل توضيحي للخصوصية · يمكنك مراجعة الصور قبل مشاركتها</span>
+                        </div>
+                        <label class="switch-control" aria-label="حفظ صور التشخيص في السجل">
+                            <input type="checkbox" id="toggleSaveDiagnosis">
+                            <span class="switch-slider"></span>
+                        </label>
+                    </div>
+                </section>
+
+                <!-- بطاقة 5: إدارة الحساب (على طول الصفحة) -->
+                <section class="settings-card full-width-card" id="account-section">
+                    <h3 class="settings-card-title">إدارة الحساب</h3>
+
+                    <!-- صف تسجيل الخروج -->
+                    <div class="action-row">
+                        <div class="toggle-info">
+                            <span class="toggle-subtitle" style="font-size: 13.5px; color: var(--text-dark);">حساب مجاني · لا يوجد اشتراك مدفوع لإلغائه</span>
+                        </div>
+                        <button type="button" class="btn-secondary-action" id="btnLogout">تسجيل الخروج</button>
+                    </div>
+
+                    <div class="settings-divider"></div>
+
+                    <!-- صف حذف الحساب -->
+                    <div class="action-row" id="deleteAccountRow">
+                        <div class="toggle-info">
+                            <span class="toggle-subtitle" id="deleteSubtitle">إجراء دائم يتطلب تأكيداً منفصلاً.</span>
+                        </div>
+                        <button type="button" class="btn-danger-link" id="btnDeleteAccount">طلب حذف الحساب</button>
+                    </div>
+                </section>
+
+            </div>
+
+            <!-- تذييل الصفحة المعتمد -->
+            <footer class="page-footer-note">
+                <span>جميع البيانات والمواعيد والسجلات هنا توضيحية، وليست قياسات صحية أو نتائج تشخيص فعلية.</span>
+                <span class="brand-enaya">Enaya</span>
+            </footer>
+
+        </main>
+
+    </div>
+
+    <!-- الإشعار العائم (Toast Notification) -->
+    <div class="toast-notice" id="toastNotice">
+        <div class="toast-icon-wrap">
+            <i data-lucide="check"></i>
+        </div>
+        <span id="toastMsg">تم حفظ التغييرات بنجاح</span>
+    </div>
+
+    <!-- نافذة منبثقة تفاعلية عامة (Modal) -->
+    <div class="modal-overlay" id="actionModalOverlay">
+        <div class="modal-card">
+            <div class="modal-header">
+                <h3 id="modalTitle">عنوان النافذة</h3>
+                <button type="button" class="modal-close-btn" id="modalCloseBtn" aria-label="إغلاق">
+                    <i data-lucide="x"></i>
+                </button>
+            </div>
+            <div class="modal-body" id="modalBodyContent">
+                <!-- المحتوى الديناميكي -->
+            </div>
+            <div class="modal-actions">
+                <button type="button" class="btn-modal-cancel" id="modalCancelBtn">إلغاء</button>
+                <button type="button" class="btn-modal-confirm" id="modalConfirmBtn">تأكيد</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ملف التفاعل البرمجي -->
+    <script src="../js/sidebar.js"></script>
+    <script src="../js/settings.js"></script>
+</body>
+
+</html>

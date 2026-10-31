@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>الاشتراك والفواتير | عناية Enaya</title>
+
+    <!-- خط Cairo المعتمد لكامل الواجهة -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+
+    <!-- أيقونات Lucide المعتمدة -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- ربط CSS الخاص بالقائمة الجانبية الموحدة وواجهة الاشتراك والفواتير -->
+    <link rel="stylesheet" href="../css/sidebar.css">
+    <link rel="stylesheet" href="../css/subscription.css">
+
+
+    <!-- أيقونة الموقع في التبويب -->
+    <link rel="icon" type="image/png" href="logo-enaya.png">
+</head>
+
+<body>
+
+    <div class="app-container">
+
+        <!-- ============= القائمة الجانبية الموحدة ============= -->
+        <aside class="sidebar" id="sidebar">
+
+            <a href="dashboard.html" class="sidebar-logo logo-area" aria-label="الرئيسية | عناية">
+                <img src="logo-enaya.png" alt="شعار عناية">
+            </a>
+
+            <nav class="sidebar-menu">
+
+                <!-- الرئيسية -->
+                <a href="dashboard.html" class="menu-link">
+                    <i data-lucide="house"></i>
+                    <span>الرئيسية</span>
+                </a>
+
+                <!-- نباتاتي -->
+                <a href="my-plants.html" class="menu-link">
+                    <i data-lucide="sprout"></i>
+                    <span>نباتاتي</span>
+                </a>
+
+                <!-- إضافة نبتة -->
+                <a href="add-plant.html" class="menu-link">
+                    <i data-lucide="circle-plus"></i>
+                    <span>إضافة نبتة</span>
+                </a>
+
+                <!-- تشخيص النباتات -->
+                <a href="plant-diagnosis.html" class="menu-link">
+                    <i data-lucide="scan-line"></i>
+                    <span>تشخيص النباتات</span>
+                </a>
+
+                <!-- جدول العناية -->
+                <a href="care-calendar.html" class="menu-link">
+                    <i data-lucide="calendar-days"></i>
+                    <span>جدول العناية</span>
+                </a>
+
+                <!-- سجل النشاط -->
+                <a href="activity-log.html" class="menu-link">
+                    <i data-lucide="history"></i>
+                    <span>سجل النشاط</span>
+                </a>
+
+                <div class="menu-divider"></div>
+
+                <!-- الاشتراك والفواتير (النشطة الحالية) -->
+                <a href="subscription.html" class="menu-link active">
+                    <i data-lucide="credit-card"></i>
+                    <span>الاشتراك والفواتير</span>
+                </a>
+
+                <!-- الحساب والإعدادات -->
+                <a href="settings.html" class="menu-link">
+                    <i data-lucide="settings"></i>
+                    <span>الحساب والإعدادات</span>
+                </a>
+
+            </nav>
+
+            <!-- صندوق ترقية الخطة -->
+            <div class="upgrade-box">
+                <div class="upgrade-title">
+                    <i data-lucide="sparkles"></i>
+                    <strong>ترقية الخطة</strong>
+                </div>
+                <p>افتحي ميزات متقدمة لعناية أفضل بنباتاتك</p>
+                <a href="subscription.html" class="upgrade-button">
+                    اكتشف الخطط
+                    <i data-lucide="arrow-left"></i>
+                </a>
+            </div>
+
+            <!-- معلومات المستخدم -->
+            <div class="sidebar-user">
+                <div class="user-avatar">ي</div>
+                <div class="user-info">
+                    <strong>يوسف وسام</strong>
+                    <small>yousef@example.com</small>
+                    <span>الحساب المجاني</span>
+                </div>
+            </div>
+
+        </aside>
+
+        <!-- ============= منطقة المحتوى الرئيسي ============= -->
+        <main class="main-content">
+
+            <!-- الشريط العلوي -->
+            <div class="top-bar">
+                <div class="top-bar-right" style="display: flex; align-items: center; gap: 10px;">
+                    <button type="button" class="mobile-menu-btn" id="mobile-menu-toggle" aria-label="فتح القائمة">
+                        <i data-lucide="menu"></i>
+                    </button>
+                    <h2 class="page-title-small">الاشتراك والفواتير</h2>
+                </div>
+
+                <div class="top-bar-left">
+
+                    <!-- أيقونة البحث فقط -->
+                    <button type="button" class="icon-btn" aria-label="بحث">
+                        <i data-lucide="search"></i>
+                    </button>
+
+                    <!-- زر الإشعارات المكتومة كما في التصميم -->
+                    <button type="button" class="icon-btn" aria-label="الإشعارات">
+                        <i data-lucide="bell-off"></i>
+                    </button>
+
+                    <!-- محدد اللغة -->
+                    <span class="lang-badge">العربية</span>
+                </div>
+            </div>
+
+            <!-- بانر الهيرو (صورة أوراق المونستيرا الخضراء مع التدرج المعتمد) -->
+            <section class="subscription-hero-banner"
+                style="background-image: linear-gradient(90deg, rgba(14, 38, 18, 0.72), rgba(14, 38, 18, 0.48)), url('./Rectangle.png');">
+                <span class="hero-demo-badge">بيانات توضيحية</span>
+                <h1>الاشتراك والفواتير</h1>
+                <p>خيارات مجانية وشهرية وسنوية - اختاري ما يناسب رحلتك مع نباتاتك</p>
+            </section>
+
+            <!-- شريط حالة الخطة الحالية -->
+            <div class="current-plan-status-card">
+                <div class="status-card-right">
+                    <div class="status-card-icon-box">
+                        <i data-lucide="credit-card"></i>
+                    </div>
+                    <div class="status-card-info">
+                        <h3>حسابك مجاني حالياً</h3>
+                        <p>لا يوجد اشتراك مدفوع نشط أو موعد لتجديد دفعة في هذه المعاينة.</p>
+                    </div>
+                </div>
+
+                <div class="status-card-badge">
+                    الخطة المجانية
+                </div>
+            </div>
+
+            <!-- شبكة خطط الاشتراك (3 بطاقات مطابقة للمعاينة) -->
+            <div class="plans-grid">
+
+                <!-- بطاقة 1: الخطة المجانية (الخطة الحالية النشطة - داكنة خضراء) -->
+                <div class="plan-card plan-free-active">
+                    <div class="plan-card-header">
+                        <h3 class="plan-title">الخطة المجانية</h3>
+                        <span class="plan-pill-tag tag-current-plan">خطتك الحالية</span>
+                    </div>
+
+                    <div class="plan-price-wrap">
+                        <div class="plan-price-main">مجانية</div>
+                        <div class="plan-price-sub">دون رسوم اشتراك</div>
+                    </div>
+
+                    <div class="plan-divider"></div>
+
+                    <p class="plan-desc">
+                        مكتبة النباتات وجدول العناية وسجل نشاطك في حسابك الحالي.
+                    </p>
+
+                    <div class="plan-active-check">
+                        <span>مفعلة على حساب يوسف وسام</span>
+                        <i data-lucide="check"></i>
+                    </div>
+                </div>
+
+                <!-- بطاقة 2: اشتراك شهري (بيضاء) -->
+                <div class="plan-card plan-white">
+                    <div class="plan-card-header">
+                        <h3 class="plan-title">اشتراك شهري</h3>
+                        <span class="plan-pill-tag tag-preview-plan">خيار توضيحي</span>
+                    </div>
+
+                    <div class="plan-price-wrap">
+                        <div class="plan-price-main">السعر غير محدد</div>
+                        <div class="plan-price-sub">دورة شهرية · خيار استكشافي</div>
+                    </div>
+
+                    <div class="plan-divider"></div>
+
+                    <p class="plan-desc">
+                        تصور لخيار اشتراك متقدم؛ الأسعار والمزايا النهائية غير معتمدة.
+                    </p>
+
+                    <button type="button" class="plan-action-btn" data-plan="اشتراك شهري">
+                        <span>استعراض الخيار</span>
+                    </button>
+                </div>
+
+                <!-- بطاقة 3: اشتراك سنوي (بيضاء) -->
+                <div class="plan-card plan-white">
+                    <div class="plan-card-header">
+                        <h3 class="plan-title">اشتراك سنوي</h3>
+                        <span class="plan-pill-tag tag-preview-plan">خيار توضيحي</span>
+                    </div>
+
+                    <div class="plan-price-wrap">
+                        <div class="plan-price-main">السعر غير محدد</div>
+                        <div class="plan-price-sub">دورة سنوية · خيار استكشافي</div>
+                    </div>
+
+                    <div class="plan-divider"></div>
+
+                    <p class="plan-desc">
+                        تصور لخيار اشتراك متقدم؛ الأسعار والمزايا النهائية غير معتمدة.
+                    </p>
+
+                    <button type="button" class="plan-action-btn" data-plan="اشتراك سنوي">
+                        <span>استعراض الخيار</span>
+                    </button>
+                </div>
+
+            </div>
+
+            <!-- بطاقة مقارنة المزايا -->
+            <section class="comparison-card">
+                <div class="comparison-header">
+                    <h2>مقارنة المزايا</h2>
+                    <p>المقارنة التالية توضيحية للتصميم، ولا تمثل عرضاً تجارياً أو مزايا مدفوعة معتمدة.</p>
+                </div>
+
+                <div class="comparison-table-wrapper">
+                    <table class="comparison-table">
+                        <thead>
+                            <tr>
+                                <th>الميزة</th>
+                                <th>المجانية الحالية</th>
+                                <th>شهري · توضيحي</th>
+                                <th>سنوي · توضيحي</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>مكتبة النباتات</td>
+                                <td class="feature-active">متاحة في المعاينة</td>
+                                <td>تفاصيل تُحدد لاحقاً</td>
+                                <td>تفاصيل تُحدد لاحقاً</td>
+                            </tr>
+                            <tr>
+                                <td>جدول العناية والتذكيرات</td>
+                                <td class="feature-active">متاح في المعاينة</td>
+                                <td>تفاصيل تُحدد لاحقاً</td>
+                                <td>تفاصيل تُحدد لاحقاً</td>
+                            </tr>
+                            <tr>
+                                <td>سجل النشاط</td>
+                                <td class="feature-active">متاح في المعاينة</td>
+                                <td>تفاصيل تُحدد لاحقاً</td>
+                                <td>تفاصيل تُحدد لاحقاً</td>
+                            </tr>
+                            <tr>
+                                <td>ميزات متقدمة</td>
+                                <td class="feature-dash">—</td>
+                                <td>غير محددة</td>
+                                <td>غير محددة</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- الصف السفلي: الفواتير ومعلومات الاشتراك -->
+            <div class="bottom-details-row">
+
+                <!-- بطاقة الفواتير -->
+                <div class="bottom-card">
+                    <h3 class="bottom-card-title">الفواتير</h3>
+
+                    <div class="invoices-empty-state">
+                        <div class="invoice-icon-box">
+                            <i data-lucide="receipt"></i>
+                        </div>
+                        <h4>لا توجد فواتير</h4>
+                        <p>أنت على الخطة المجانية، لا توجد معاملات مدفوعة مسجلة في هذه المعاينة.</p>
+                        <span class="invoice-status-badge">لا مبالغ مستحقة</span>
+                    </div>
+                </div>
+
+                <!-- بطاقة معلومات الاشتراك -->
+                <div class="bottom-card">
+                    <h3 class="bottom-card-title">معلومات الاشتراك</h3>
+
+                    <p class="subscription-info-text">
+                        لن تُطلب بيانات دفع أو تُنشأ فاتورة قبل اختيار خطة مدفوعة مؤكدة.
+                    </p>
+
+                    <div class="subscription-account-group">
+                        <span class="account-label">الحساب المرتبط</span>
+                        <span class="account-name">يوسف وسام</span>
+                        <span class="account-email">yousef@example.com</span>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- تذييل الصفحة الموحد -->
+            <footer class="page-bottom-footer">
+                <span>جميع البيانات والمواعيد والسجلات هنا توضيحية، وليست قياسات صحية أو نتائج تشخيص فعلية.</span>
+                <span class="brand-tag">Enaya</span>
+            </footer>
+
+        </main>
+
+    </div>
+
+    <!-- نافذة منبثقة تفاعلية عند استعراض أي خطة -->
+    <div class="plan-modal-overlay" id="planModalOverlay">
+        <div class="plan-modal" id="planModal">
+            <div class="modal-header">
+                <h3 id="modalPlanTitle">تفاصيل الخطة</h3>
+                <button type="button" class="modal-close-btn" id="modalCloseBtn" aria-label="إغلاق">
+                    <i data-lucide="x"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p id="modalPlanDesc">هذا الخيار نموذج توضيحي لميزات الاشتراك المتقدمة في منصة عناية.</p>
+                <ul class="modal-features-list">
+                    <li><i data-lucide="check-circle-2"></i> تشخيص غير محدود للنباتات بالذكاء الاصطناعي</li>
+                    <li><i data-lucide="check-circle-2"></i> تنبيهات ري وتسميد ذكية ومخصصة لكل صنف</li>
+                    <li><i data-lucide="check-circle-2"></i> حفظ سجل العناية وتصدير تقارير النمو الشهرية</li>
+                    <li><i data-lucide="check-circle-2"></i> دعم فني واستشارات متخصصة في صحة النبات</li>
+                </ul>
+            </div>
+            <div class="modal-actions">
+                <button type="button" class="modal-btn-confirm" id="modalConfirmBtn">حفظ الرغبة بالانضمام</button>
+                <button type="button" class="modal-btn-cancel" id="modalCancelBtn">إغلاق</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- رسالة Toast تفاعلية للتأكيد -->
+    <div class="toast-notice" id="toastNotice">
+        <i data-lucide="check-circle"></i>
+        <span id="toastMsg">تم تسجيل اهتمامك بالخطة بنجاح!</span>
+    </div>
+
+    <!-- سكريبت التفاعلية -->
+    <script src="../js/sidebar.js"></script>
+    <script src="../js/subscription.js"></script>
+
+</body>
+
+</html>

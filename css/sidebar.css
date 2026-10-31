@@ -1,0 +1,1593 @@
+/* ========================================================
+   ENAYA - UNIFIED DESIGN SYSTEM & SIDEBAR COMPONENT
+   نظام التصميم الشامل، الخطوط المعتمدة من Figma، والقائمة الجانبية الثابتة الموحدة
+   ======================================================== */
+
+/* استيراد خط Cairo المعتمد */
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&display=swap');
+
+/* ========================================================
+   1. متغيرات النظام ومعايير الخطوط (Figma Design System)
+   ======================================================== */
+:root {
+    --font-main: 'Cairo', sans-serif;
+
+    /* أحجام الخطوط المعتمدة من Figma */
+    --font-display: 43px;   /* Display - العنوان الكبير جداً (Bold 700) */
+    --font-h1: 34px;        /* H1 - العنوان الرئيسي (Bold 700) */
+    --font-h2: 28px;        /* H2 - العنوان الفرعي (Bold 700) */
+    --font-h3: 23px;        /* H3 - العنوان الصغير (Bold 700) */
+    --font-body: 17px;      /* Body - النص العادي (Regular 400) */
+    --font-label: 16px;     /* Label - التسميات والأزرار (Bold 700) */
+    --font-caption: 14px;   /* Caption - النص التوضيحي (Regular 400) */
+
+    /* أوزان الخطوط المعتمدة */
+    --weight-bold: 700;
+    --weight-regular: 400;
+
+    /* أبعاد وألوان القائمة الجانبية */
+    --sidebar-width: 260px;
+    --sidebar-bg: #1b2c1d;
+    --sidebar-active-bg: #396c35;
+    --sidebar-card-bg: #304f2e;
+    --sidebar-card-border: #456c40;
+    --sidebar-btn-bg: #a9cf9c;
+    --sidebar-btn-color: #244722;
+    --sidebar-btn-hover: #c4e2b9;
+    --sidebar-avatar-bg: #426d3b;
+    --sidebar-badge-bg: #dcebd6;
+    --sidebar-badge-color: #315c30;
+    --sidebar-badge-border: #a9cba0;
+    --sidebar-text-muted: #bed2b8;
+    --sidebar-text-sub: #d3e5cb;
+    --sidebar-divider: rgba(255, 255, 255, 0.15);
+
+    /* ألوان وهوية الواجهات */
+    --bg-page: #eaf4e8;
+    --primary-green: #2d4a2c;
+    --primary-hover: #3a6239;
+    --text-dark: #1b2f1a;
+    --text-muted: #5e7c5b;
+    --text-light: #7b9678;
+    --border-color: #d8e6d5;
+    --card-bg: #ffffff;
+    --transition-smooth: all 0.25s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+/* ========================================================
+   2. إعادة الضبط الكاملة — صفر مسافات، اتجاه RTL
+   ======================================================== */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body {
+    min-height: 100vh !important;
+    min-height: 100dvh !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    background-color: var(--bg-page) !important;
+    color: var(--text-dark) !important;
+    font-family: var(--font-main) !important;
+    font-size: var(--font-body) !important;
+    font-weight: var(--weight-regular) !important;
+    direction: rtl !important;
+    text-align: right !important;
+    overflow-x: hidden !important;
+}
+
+/* ========================================================
+   نظام الخطوط — Figma Design System (Cairo)
+   Display 43px · H1 34px · H2 28px · H3 23px
+   Body 17px · Label 16px · Caption 14px
+   ======================================================== */
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-main) !important;
+    font-weight: var(--weight-bold) !important;
+    margin: 0;
+    line-height: 1.4;
+}
+
+h1 { font-size: var(--font-h1) !important; }   /* 34px */
+h2 { font-size: var(--font-h2) !important; }   /* 28px */
+h3 { font-size: var(--font-h3) !important; }   /* 23px */
+
+p {
+    font-family: var(--font-main) !important;
+    font-size: var(--font-body) !important;     /* 17px */
+    font-weight: var(--weight-regular) !important;
+    margin: 0;
+    line-height: 1.55;
+}
+
+button,
+input,
+textarea,
+select {
+    font-family: var(--font-main) !important;
+}
+
+a {
+    font-family: var(--font-main) !important;
+    text-decoration: none;
+}
+
+/* أحجام خاصة يمكن استخدامها كـ class */
+.text-display { font-size: var(--font-display) !important; font-weight: var(--weight-bold) !important; } /* 43px */
+.text-h1      { font-size: var(--font-h1) !important;      font-weight: var(--weight-bold) !important; } /* 34px */
+.text-h2      { font-size: var(--font-h2) !important;      font-weight: var(--weight-bold) !important; } /* 28px */
+.text-h3      { font-size: var(--font-h3) !important;      font-weight: var(--weight-bold) !important; } /* 23px */
+.text-body    { font-size: var(--font-body) !important;    font-weight: var(--weight-regular) !important; } /* 17px */
+.text-label   { font-size: var(--font-label) !important;   font-weight: var(--weight-bold) !important; } /* 16px */
+.text-caption { font-size: var(--font-caption) !important; font-weight: var(--weight-regular) !important; } /* 14px */
+
+/* ========================================================
+   3. حاوية التطبيق الرئيسية
+   ======================================================== */
+.app-container,
+.dashboard-layout {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-height: 100vh !important;
+    min-height: 100dvh !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    box-sizing: border-box !important;
+}
+
+/* مساحة المحتوى */
+.main-content,
+.page-wrap,
+.dashboard-content,
+.main-layout {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    box-sizing: border-box !important;
+    background-color: var(--bg-page) !important;
+    direction: rtl !important;
+    text-align: right !important;
+}
+
+/* ========================================================
+   4. القائمة الجانبية — سطح المكتب (≥ 1025px)
+   ======================================================== */
+@media (min-width: 1025px) {
+    .sidebar {
+        position: fixed !important;
+        top: 0 !important;
+        right: 0 !important;
+        bottom: 0 !important;
+        width: var(--sidebar-width) !important;
+        min-width: var(--sidebar-width) !important;
+        max-width: var(--sidebar-width) !important;
+        height: 100vh !important;
+        height: 100dvh !important;
+        z-index: 1000 !important;
+        transform: translateX(0) !important;
+        visibility: visible !important;
+        pointer-events: auto !important;
+        overflow-y: auto !important;
+        box-shadow: -2px 0 12px rgba(0, 0, 0, 0.08) !important;
+        transition: transform 0.28s ease, visibility 0.28s ease !important;
+    }
+
+    /* إزاحة المحتوى بجانب القائمة الثابتة */
+    .app-container,
+    .dashboard-layout {
+        display: block !important;
+        padding-right: var(--sidebar-width) !important;
+        transition: padding-right 0.28s ease !important;
+    }
+
+    .main-content,
+    .page-wrap,
+    .dashboard-content,
+    .main-layout {
+        padding: 24px 32px 32px !important;
+    }
+
+    /* ديسكتوب — طي القائمة عند sidebar-collapsed */
+    body.sidebar-collapsed .sidebar {
+        transform: translateX(110%) !important;
+        visibility: hidden !important;
+        pointer-events: none !important;
+    }
+
+    body.sidebar-collapsed .app-container,
+    body.sidebar-collapsed .dashboard-layout {
+        padding-right: 0 !important;
+    }
+
+    /* زر الهامبرجر على الديسكتوب */
+    .mobile-menu-btn {
+        display: inline-flex !important;
+    }
+}
+
+/* ========================================================
+   4b. القائمة الجانبية — تابلت وموبايل (≤ 1024px)
+   ======================================================== */
+@media (max-width: 1024px) {
+    /* القائمة مخفية بالكامل افتراضياً */
+    .sidebar {
+        position: fixed !important;
+        top: 0 !important;
+        right: 0 !important;
+        bottom: 0 !important;
+        left: auto !important;
+        width: min(300px, 88vw) !important;
+        max-width: 88vw !important;
+        height: 100dvh !important;
+        z-index: 1002 !important;
+        transform: translateX(110%) !important;
+        visibility: hidden !important;
+        pointer-events: none !important;
+        overflow-y: auto !important;
+        transition: transform 0.28s ease, visibility 0.28s ease !important;
+    }
+
+    /* القائمة مفتوحة */
+    body.sidebar-open .sidebar {
+        transform: translateX(0) !important;
+        visibility: visible !important;
+        pointer-events: auto !important;
+    }
+
+    body.sidebar-open {
+        overflow: hidden !important;
+    }
+
+    /* المحتوى يمتد بالكامل */
+    .app-container,
+    .dashboard-layout {
+        display: block !important;
+        padding-right: 0 !important;
+    }
+
+    .main-content,
+    .page-wrap,
+    .dashboard-content,
+    .main-layout {
+        padding: 16px 18px 24px !important;
+    }
+
+    /* زر إغلاق داخل القائمة */
+    .mobile-sidebar-close {
+        display: inline-flex !important;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        top: 12px;
+        left: 12px;
+        z-index: 3;
+        width: 36px;
+        height: 36px;
+        border: 1px solid rgba(255,255,255,.3);
+        border-radius: 9px;
+        background: rgba(255,255,255,.12);
+        color: white;
+        font-size: 22px;
+        cursor: pointer;
+        line-height: 1;
+    }
+
+    /* Backdrop */
+    .mobile-sidebar-backdrop {
+        display: none;
+        position: fixed;
+        inset: 0;
+        z-index: 1001;
+        width: 100%;
+        height: 100%;
+        border: 0;
+        background: rgba(8,26,14,.48);
+        cursor: default;
+    }
+
+    body.sidebar-open .mobile-sidebar-backdrop {
+        display: block !important;
+    }
+}
+
+/* ========================================================
+   5. هيئة القائمة الجانبية العامة
+   ======================================================== */
+.sidebar {
+    background: var(--sidebar-bg) !important;
+    color: #ffffff !important;
+    padding: 0 16px 20px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: flex-start !important;
+    box-sizing: border-box !important;
+    direction: rtl !important;
+    text-align: right !important;
+    font-family: var(--font-main) !important;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255, 255, 255, 0.2) transparent;
+}
+
+.sidebar::-webkit-scrollbar { width: 4px; }
+.sidebar::-webkit-scrollbar-track { background: transparent; }
+.sidebar::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 4px;
+}
+
+/* ========================================================
+   6. شعار القائمة الجانبية (مُكبَّر)
+   ======================================================== */
+.sidebar .sidebar-logo,
+.sidebar .logo-area,
+.sidebar-logo,
+.logo-area {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 100% !important;
+    height: 100px !important;
+    min-height: 100px !important;
+    max-height: 100px !important;
+    padding: 0 !important;
+    margin: 8px 0 6px !important;
+    text-decoration: none !important;
+    box-sizing: border-box !important;
+    flex-shrink: 0 !important;
+}
+
+.sidebar .sidebar-logo img,
+.sidebar .logo-area img,
+.sidebar-logo img,
+.logo-area img,
+.sidebar img[src*="logo"],
+.sidebar img[alt*="شعار"] {
+    display: block !important;
+    width: 85px !important;
+    min-width: 85px !important;
+    max-width: 85px !important;
+    height: 85px !important;
+    min-height: 85px !important;
+    max-height: 85px !important;
+    object-fit: contain !important;
+    filter: brightness(0) invert(1) !important;
+    margin: 0 auto !important;
+    transition: transform 0.25s ease, opacity 0.2s ease !important;
+}
+
+.sidebar .sidebar-logo:hover img,
+.sidebar .logo-area:hover img,
+.sidebar-logo:hover img,
+.logo-area:hover img {
+    transform: scale(1.05) !important;
+    opacity: 0.9 !important;
+}
+
+/* ========================================================
+   7. روابط القائمة الجانبية
+   ======================================================== */
+.sidebar .sidebar-menu,
+.sidebar .sidebar-nav {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 4px !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    list-style: none !important;
+    flex-shrink: 0 !important;
+}
+
+.sidebar .menu-link,
+.sidebar .nav-item {
+    display: flex !important;
+    align-items: center !important;
+    gap: 10px !important;
+    padding: 10px 12px !important;
+    min-height: 44px !important;
+    border-radius: 10px !important;
+    color: var(--sidebar-text-muted) !important;
+    text-decoration: none !important;
+    font-family: var(--font-main) !important;
+    font-size: var(--font-caption) !important; /* 14px — Caption من Figma */
+    font-weight: var(--weight-bold) !important;
+    line-height: 1.3 !important;
+    box-sizing: border-box !important;
+    transition: background-color 0.22s ease, color 0.22s ease !important;
+    cursor: pointer !important;
+    overflow: visible !important;
+    width: 100% !important;
+}
+
+.sidebar .menu-link:hover,
+.sidebar .nav-item:hover {
+    background: rgba(255, 255, 255, 0.09) !important;
+    color: #ffffff !important;
+}
+
+.sidebar .menu-link.active,
+.sidebar .nav-item.active {
+    background: var(--sidebar-active-bg) !important;
+    color: #ffffff !important;
+    font-weight: var(--weight-bold) !important;
+}
+
+.sidebar .menu-link svg,
+.sidebar .nav-item svg,
+.sidebar .menu-link i,
+.sidebar .nav-item i,
+.sidebar .menu-link [data-lucide],
+.sidebar .nav-item [data-lucide] {
+    width: 18px !important;
+    height: 18px !important;
+    min-width: 18px !important;
+    min-height: 18px !important;
+    stroke-width: 1.8 !important;
+    flex-shrink: 0 !important;
+}
+
+.sidebar .menu-link span,
+.sidebar .nav-item span {
+    white-space: nowrap !important;
+    font-family: var(--font-main) !important;
+    overflow: visible !important;
+    text-overflow: clip !important;
+    flex-shrink: 0 !important;
+}
+
+/* ── تصغير خياري "سجل النشاط" و"الحساب والإعدادات" بمقدار درجتين (من 14px إلى 12px) ── */
+.sidebar a[href*="activity-log"],
+.sidebar a[href*="settings"],
+.sidebar .menu-link[href*="activity-log"],
+.sidebar .menu-link[href*="settings"],
+.sidebar .nav-item[href*="activity-log"],
+.sidebar .nav-item[href*="settings"] {
+    font-size: 12px !important;
+}
+
+.sidebar a[href*="activity-log"] span,
+.sidebar a[href*="settings"] span,
+.sidebar .menu-link[href*="activity-log"] span,
+.sidebar .menu-link[href*="settings"] span,
+.sidebar .nav-item[href*="activity-log"] span,
+.sidebar .nav-item[href*="settings"] span {
+    font-size: 12px !important;
+}
+
+.sidebar .menu-divider,
+.sidebar .nav-divider {
+    height: 1px !important;
+    background: var(--sidebar-divider) !important;
+    margin: 8px 0 !important;
+    border: none !important;
+    flex-shrink: 0 !important;
+}
+
+/* ========================================================
+   8. بطاقة الترقية / العناية
+   ======================================================== */
+.sidebar .upgrade-box,
+.sidebar .upgrade-card {
+    background: var(--sidebar-card-bg) !important;
+    border: 1px solid var(--sidebar-card-border) !important;
+    border-radius: 12px !important;
+    padding: 13px !important;
+    margin: 14px 0 16px !important;
+    text-align: right !important;
+    box-sizing: border-box !important;
+    flex-shrink: 0 !important;
+}
+
+.sidebar .upgrade-title,
+.sidebar .upgrade-heading {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    gap: 7px !important;
+    margin-bottom: 7px !important;
+}
+
+.sidebar .upgrade-title strong,
+.sidebar .upgrade-heading strong {
+    font-family: var(--font-main) !important;
+    font-size: 13px !important;
+    font-weight: 800 !important;
+    color: #ffffff !important;
+    line-height: 1.4 !important;
+}
+
+.sidebar .upgrade-title svg,
+.sidebar .upgrade-heading svg,
+.sidebar .upgrade-title [data-lucide],
+.sidebar .upgrade-heading [data-lucide],
+.sidebar .upgrade-title i,
+.sidebar .upgrade-heading i {
+    width: 16px !important;
+    height: 16px !important;
+    color: #c1dfb5 !important;
+    stroke-width: 1.8 !important;
+    flex-shrink: 0 !important;
+}
+
+.sidebar .upgrade-box p,
+.sidebar .upgrade-card p {
+    color: var(--sidebar-text-sub) !important;
+    font-size: 11px !important;
+    line-height: 1.7 !important;
+    margin: 0 0 11px !important;
+    text-align: right !important;
+    font-family: var(--font-main) !important;
+}
+
+.sidebar .upgrade-button,
+.sidebar .upgrade-btn {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 7px !important;
+    width: 100% !important;
+    height: 36px !important;
+    padding: 8px 10px !important;
+    background: var(--sidebar-btn-bg) !important;
+    color: var(--sidebar-btn-color) !important;
+    border-radius: 8px !important;
+    text-decoration: none !important;
+    font-family: var(--font-main) !important;
+    font-size: 12px !important;
+    font-weight: 800 !important;
+    border: none !important;
+    cursor: pointer !important;
+    box-sizing: border-box !important;
+    transition: background-color 0.2s ease, transform 0.2s ease !important;
+}
+
+.sidebar .upgrade-button:hover,
+.sidebar .upgrade-btn:hover {
+    background: var(--sidebar-btn-hover) !important;
+    transform: translateY(-1px) !important;
+}
+
+.sidebar .upgrade-button svg,
+.sidebar .upgrade-btn svg,
+.sidebar .upgrade-button [data-lucide],
+.sidebar .upgrade-btn [data-lucide],
+.sidebar .upgrade-button i,
+.sidebar .upgrade-btn i {
+    width: 14px !important;
+    height: 14px !important;
+    stroke-width: 1.8 !important;
+    flex-shrink: 0 !important;
+}
+
+/* ========================================================
+   9. معلومات المستخدم في أسفل القائمة
+   ======================================================== */
+.sidebar .sidebar-user,
+.sidebar .user-profile {
+    display: flex !important;
+    align-items: center !important;
+    gap: 10px !important;
+    padding-top: 14px !important;
+    margin-top: auto !important;
+    border-top: 1px solid rgba(255, 255, 255, 0.12) !important;
+    text-align: right !important;
+    box-sizing: border-box !important;
+    flex-shrink: 0 !important;
+}
+
+.sidebar .user-avatar {
+    width: 38px !important;
+    height: 38px !important;
+    min-width: 38px !important;
+    min-height: 38px !important;
+    flex-shrink: 0 !important;
+    border-radius: 50% !important;
+    background: var(--sidebar-avatar-bg) !important;
+    color: #ffffff !important;
+    display: grid !important;
+    place-items: center !important;
+    font-family: var(--font-main) !important;
+    font-weight: 900 !important;
+    font-size: 15px !important;
+    line-height: 1 !important;
+}
+
+.sidebar .user-info,
+.sidebar .user-meta {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    font-size: 11px !important;
+    gap: 2px !important;
+    min-width: 0 !important;
+    flex: 1 !important;
+}
+
+.sidebar .user-info strong,
+.sidebar .user-meta strong,
+.sidebar-user .user-info strong {
+    color: #ffffff !important;
+    font-size: 11px !important; /* تصغير اسم المستخدم "يوسف" بمقدار درجتين (من 13px إلى 11px) */
+    font-weight: 700 !important;
+    line-height: 1.4 !important;
+    font-family: var(--font-main) !important;
+}
+
+.sidebar .user-info small,
+.sidebar .user-meta small {
+    color: #a4bfa0 !important;
+    font-size: 11px !important;
+    line-height: 1.3 !important;
+    direction: ltr !important;
+    unicode-bidi: embed !important;
+    font-family: var(--font-main) !important;
+}
+
+.sidebar .user-info span,
+.sidebar .user-meta span {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: fit-content !important;
+    padding: 2px 10px !important;
+    background-color: var(--sidebar-badge-bg) !important;
+    color: var(--sidebar-badge-color) !important;
+    border: 1px solid var(--sidebar-badge-border) !important;
+    border-radius: 20px !important;
+    font-size: 10px !important;
+    font-weight: 800 !important;
+    line-height: 1.6 !important;
+    margin-top: 3px !important;
+    font-family: var(--font-main) !important;
+}
+
+/* ========================================================
+   10. الشريط العلوي الموحد لجميع الواجهات
+   ======================================================== */
+.top-bar,
+.topbar,
+.top-header {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    margin-bottom: 20px !important;
+    width: 100% !important;
+    gap: 14px !important;
+    background: transparent !important;
+    border: none !important;
+    min-height: 52px !important;
+    height: 52px !important;
+    padding: 0 !important;
+    box-shadow: none !important;
+    flex-wrap: nowrap !important;
+    box-sizing: border-box !important;
+}
+
+/* الجانب الأيمن: زر الموبايل + عنوان الصفحة */
+.top-bar-right,
+.topbar-right {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    gap: 10px !important;
+    min-width: 0 !important;
+    text-align: right !important;
+    flex: 0 0 auto !important;
+}
+
+.top-bar-right > div,
+.top-bar-right .page-title-box,
+.topbar-right > div {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    justify-content: center !important;
+    text-align: right !important;
+    gap: 1px !important;
+}
+
+.top-bar-right .breadcrumb,
+.page-title small,
+.breadcrumb {
+    display: none !important;
+}
+
+.top-bar-right .breadcrumb a,
+.page-title small a {
+    color: inherit !important;
+    text-decoration: none !important;
+}
+
+.top-bar-right .breadcrumb a:hover,
+.page-title small a:hover {
+    color: var(--primary-green) !important;
+}
+
+.top-bar-right .page-title-small,
+.page-title h2 {
+    font-family: var(--font-main) !important;
+    font-size: 16px !important;
+    font-weight: 700 !important;
+    color: var(--text-dark) !important;
+    margin: 0 !important;
+    line-height: 1.3 !important;
+}
+
+/* الجانب الأيسر: البحث + الإشعارات + المستخدم */
+.top-bar-left,
+.topbar-actions,
+.header-actions {
+    display: flex !important;
+    align-items: center !important;
+    gap: 12px !important;
+    margin-inline-start: auto !important;
+    flex-shrink: 0 !important;
+}
+
+/* ========================================================
+   11. زر قائمة الموبايل (الثلاث شرطات)
+   ======================================================== */
+.mobile-menu-btn,
+.mobile-menu-toggle,
+.mobile-menu,
+#menuToggle,
+#mobile-menu-toggle {
+    display: none !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 42px !important;
+    height: 42px !important;
+    min-width: 42px !important;
+    min-height: 42px !important;
+    background: #ffffff !important;
+    border: 1px solid var(--border-color) !important;
+    border-radius: 10px !important;
+    color: var(--text-dark) !important;
+    cursor: pointer !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04) !important;
+    transition: all 0.2s ease !important;
+    flex-shrink: 0 !important;
+}
+
+.mobile-menu-btn:hover,
+.mobile-menu-toggle:hover,
+.mobile-menu:hover,
+#menuToggle:hover,
+#mobile-menu-toggle:hover {
+    background: #f1f8ee !important;
+    border-color: #396c35 !important;
+}
+
+.mobile-menu-btn svg,
+.mobile-menu-toggle svg,
+.mobile-menu svg,
+#menuToggle svg,
+#mobile-menu-toggle svg,
+.mobile-menu-btn [data-lucide],
+.mobile-menu-toggle [data-lucide],
+.mobile-menu [data-lucide],
+#menuToggle [data-lucide],
+#mobile-menu-toggle [data-lucide],
+.mobile-menu-btn i,
+.mobile-menu-toggle i,
+#menuToggle i,
+#mobile-menu-toggle i {
+    width: 22px !important;
+    height: 22px !important;
+    stroke-width: 2 !important;
+    color: var(--text-dark) !important;
+    pointer-events: none !important;
+}
+
+/* ========================================================
+   12. الشاشات المتوسطة والصغيرة (<= 1024px)
+   ======================================================== */
+@media (max-width: 1024px) {
+
+    .app-container,
+    .dashboard-layout {
+        display: block !important;
+        padding-right: 0 !important;
+    }
+
+    .main-content,
+    .page-wrap,
+    .dashboard-content,
+    .main-layout {
+        padding: 16px 18px 28px !important;
+    }
+
+    /* إظهار زر الثلاث شرطات */
+    .mobile-menu-btn,
+    .mobile-menu-toggle,
+    .mobile-menu,
+    #menuToggle,
+    #mobile-menu-toggle {
+        display: inline-flex !important;
+    }
+
+    .mobile-sidebar-close {
+        display: inline-flex !important;
+    }
+
+    /* القائمة الجانبية مخفية تبدأ من خارج الشاشة يميناً */
+    .sidebar {
+        position: fixed !important;
+        top: 0 !important;
+        right: 0 !important;
+        bottom: 0 !important;
+        left: auto !important;
+        width: min(300px, 86vw) !important;
+        max-width: 86vw !important;
+        height: 100vh !important;
+        height: 100dvh !important;
+        z-index: 1002 !important;
+        transform: translateX(110%) !important;
+        visibility: hidden !important;
+        pointer-events: none !important;
+        transition: transform 0.28s cubic-bezier(0.25, 0.8, 0.25, 1), visibility 0s linear 0.28s !important;
+        box-shadow: none !important;
+        overflow-y: auto !important;
+        overscroll-behavior: contain;
+    }
+
+    body.sidebar-open .sidebar,
+    .sidebar.open {
+        transform: translateX(0) !important;
+        visibility: visible !important;
+        pointer-events: auto !important;
+        transition: transform 0.28s cubic-bezier(0.25, 0.8, 0.25, 1), visibility 0s !important;
+        box-shadow: -8px 0 35px rgba(0, 0, 0, 0.32) !important;
+    }
+
+    body.sidebar-open {
+        overflow: hidden !important;
+    }
+
+    /* التعتيم خلف القائمة */
+    .mobile-sidebar-backdrop {
+        position: fixed !important;
+        inset: 0 !important;
+        z-index: 1001 !important;
+        background: rgba(8, 26, 14, 0.5) !important;
+        backdrop-filter: blur(4px) !important;
+        border: 0 !important;
+        width: 100% !important;
+        height: 100% !important;
+        cursor: pointer !important;
+        padding: 0 !important;
+        opacity: 0 !important;
+        visibility: hidden !important;
+        pointer-events: none !important;
+        transition: opacity 0.25s ease, visibility 0.25s linear !important;
+    }
+
+    body.sidebar-open .mobile-sidebar-backdrop,
+    .sidebar.open ~ .mobile-sidebar-backdrop {
+        opacity: 1 !important;
+        visibility: visible !important;
+        pointer-events: auto !important;
+    }
+}
+
+/* زر الإغلاق داخل القائمة */
+.mobile-sidebar-close {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 14px;
+    left: 14px;
+    z-index: 10;
+    width: 36px;
+    height: 36px;
+    padding: 0;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 9px;
+    background: rgba(255, 255, 255, 0.12);
+    color: #ffffff;
+    font-size: 26px;
+    line-height: 1;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    flex-shrink: 0;
+}
+
+.mobile-sidebar-close:hover {
+    background: rgba(255, 255, 255, 0.25);
+}
+
+/* ========================================================
+   13. أحجام خطوط Figma المعتمدة — طبّق على كامل الواجهة
+   ======================================================== */
+
+/* Display */
+.display-title,
+.hero-display {
+    font-family: var(--font-main) !important;
+    font-size: var(--font-display) !important;
+    font-weight: var(--weight-bold) !important;
+    line-height: 1.25 !important;
+    text-align: right !important;
+}
+
+/* H1 — 34px Bold */
+h1,
+.h1,
+.page-intro h1,
+.hero-copy h1,
+.welcome-title {
+    font-family: var(--font-main) !important;
+    font-size: var(--font-h1) !important;
+    font-weight: var(--weight-bold) !important;
+    line-height: 1.3 !important;
+    margin: 0 !important;
+    text-align: right !important;
+}
+
+/* H2 — 28px Bold */
+h2,
+.h2,
+.page-intro h2,
+.section-heading h2,
+.card-header-row h2 {
+    font-family: var(--font-main) !important;
+    font-size: var(--font-h2) !important;
+    font-weight: var(--weight-bold) !important;
+    line-height: 1.35 !important;
+    margin: 0 !important;
+    text-align: right !important;
+}
+
+/* H3 — 23px Bold */
+h3,
+.h3,
+.plant-title,
+.modal-card h3 {
+    font-family: var(--font-main) !important;
+    font-size: var(--font-h3) !important;
+    font-weight: var(--weight-bold) !important;
+    line-height: 1.4 !important;
+    margin: 0 !important;
+    text-align: right !important;
+}
+
+/* Body — 17px Regular */
+body,
+p,
+.body-text {
+    font-family: var(--font-main) !important;
+    font-size: var(--font-body) !important;
+    font-weight: var(--weight-regular) !important;
+    line-height: 1.65 !important;
+}
+
+/* Label — 16px Bold (أزرار وتسميات) */
+label,
+button,
+.btn,
+.primary-btn,
+.btn-submit-action,
+.btn-approve-action,
+.btn-edit-action {
+    font-family: var(--font-main) !important;
+    font-size: var(--font-label) !important;
+    font-weight: var(--weight-bold) !important;
+}
+
+/* Caption — 14px Regular */
+small,
+.small,
+.field-hint,
+.plant-location,
+.file-specs,
+.plant-date,
+.required-hint,
+.breadcrumb,
+.page-bottom-footer,
+.brand-tag,
+.lang-badge,
+.caption {
+    font-family: var(--font-main) !important;
+    font-size: var(--font-caption) !important;
+    font-weight: var(--weight-regular) !important;
+}
+
+/* ========================================================
+   14. الهواتف الصغيرة (<= 640px)
+   ======================================================== */
+@media (max-width: 640px) {
+
+    .main-content,
+    .page-wrap,
+    .dashboard-content,
+    .main-layout {
+        padding: 12px 14px 20px !important;
+    }
+
+    .top-bar,
+    .topbar,
+    .top-header {
+        margin-bottom: 14px !important;
+    }
+
+    h1,
+    .page-intro h1,
+    .hero-copy h1,
+    .welcome-title {
+        font-size: clamp(24px, 6vw, 30px) !important;
+    }
+
+    h2,
+    .page-intro h2,
+    .section-heading h2 {
+        font-size: clamp(20px, 5vw, 24px) !important;
+    }
+
+    h3 {
+        font-size: clamp(17px, 4.5vw, 20px) !important;
+    }
+}
+
+/* ========================================================
+   15. ضمان RTL وبداية النص من اليمين في كل العناصر
+   ======================================================== */
+.main-content *,
+.page-wrap *,
+.dashboard-content *,
+.main-layout * {
+    direction: rtl;
+    text-align: right;
+}
+
+/* استثناءات: العناصر التي تحتاج LTR */
+input[type="email"],
+input[type="url"],
+input[dir="ltr"] {
+    direction: ltr !important;
+    text-align: left !important;
+}
+
+/* ========================================================
+   16. تثبيت أيقونة الموبايل في الـ topbar القديم
+   ======================================================== */
+@media (max-width: 1024px) {
+    .topbar {
+        position: relative !important;
+    }
+
+    .topbar #menuToggle,
+    .topbar .mobile-menu {
+        display: inline-flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        flex-shrink: 0 !important;
+    }
+}
+
+/* ========================================================
+   17. توحيد تنسيق وهوامش ومستوى المربعات عبر جميع الواجهات
+   (نفس تنسيق واجهة إدارة المستخدمين admin-users)
+   ======================================================== */
+
+/* هوامش المحتوى الموحدة */
+@media (min-width: 1025px) {
+    .main-content,
+    .page-wrap,
+    .dashboard-content,
+    .main-layout {
+        padding: 24px 32px 32px !important;
+        box-sizing: border-box !important;
+    }
+}
+
+@media (max-width: 1024px) {
+    .main-content,
+    .page-wrap,
+    .dashboard-content,
+    .main-layout {
+        padding: 18px 20px 24px !important;
+        box-sizing: border-box !important;
+    }
+}
+
+@media (max-width: 640px) {
+    .main-content,
+    .page-wrap,
+    .dashboard-content,
+    .main-layout {
+        padding: 14px 14px 20px !important;
+        box-sizing: border-box !important;
+    }
+}
+
+/* توحيد شبكة الإحصائيات لتكون على نفس المستوى تماماً */
+.stats-grid,
+.statistics,
+.stats-grid-row {
+    display: grid !important;
+    grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+    align-items: stretch !important;
+    gap: 16px !important;
+    margin-bottom: 22px !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+}
+
+@media (max-width: 1024px) {
+    .stats-grid,
+    .statistics,
+    .stats-grid-row {
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    }
+}
+
+@media (max-width: 640px) {
+    .stats-grid,
+    .statistics,
+    .stats-grid-row {
+        grid-template-columns: minmax(0, 1fr) !important;
+    }
+}
+
+/* توحيد بطاقات الإحصائيات لتتطابق مع واجهة admin-users */
+.stat-card,
+.stat-metric-card {
+    background: #ffffff !important;
+    border-radius: 18px !important;
+    padding: 20px 22px 18px !important;
+    box-shadow: 0 2px 14px rgba(23, 44, 21, 0.05) !important;
+    border: 1px solid rgba(216, 230, 213, 0.7) !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: space-between !important;
+    height: 100% !important;
+    min-height: 138px !important;
+    box-sizing: border-box !important;
+    position: relative !important;
+    overflow: hidden !important;
+    transition: all 0.25s cubic-bezier(0.25, 0.8, 0.25, 1) !important;
+}
+
+.stat-card:hover,
+.stat-metric-card:hover {
+    transform: translateY(-3px) !important;
+    box-shadow: 0 8px 24px rgba(23, 44, 21, 0.09) !important;
+    border-color: #c4dbc0 !important;
+}
+
+/* توحيد محاذاة الأعمدة والتخطيط المزدوج في كافة الواجهات لتبدأ من نفس المستوى العالي */
+.users-layout,
+.plants-layout,
+.diagnosis-layout,
+.content-layout,
+.support-layout,
+.dashboard-lower-grid,
+.content-grid {
+    align-items: start !important;
+    gap: 18px !important;
+}
+
+/* توحيد تصميم وحواف وظلال المربعات الرئيسية لكافة الصفحات */
+.users-table-card,
+.user-detail-card,
+.plants-table-card,
+.plant-detail-card,
+.queue-card,
+.queue-detail-card,
+.content-list-card,
+.content-editor-card,
+.today-care-card,
+.weekly-care-card,
+.plant-recommendations-card,
+.plant-change-card,
+.recent-activities-card,
+.subscription-card,
+.detail-card,
+.care-file-card {
+    background: #ffffff !important;
+    border-radius: 18px !important;
+    border: 1px solid rgba(216, 230, 213, 0.7) !important;
+    box-shadow: 0 2px 14px rgba(23, 44, 21, 0.05) !important;
+    box-sizing: border-box !important;
+    transition: all 0.25s cubic-bezier(0.25, 0.8, 0.25, 1) !important;
+}
+
+/* ========================================================
+   18. توحيد نظام خطوط Figma المعتمد لجميع الواجهات
+   - نوع الخط: Cairo
+   - Display: 43px Bold (700)
+   - H1: 34px Bold (700)
+   - H2: 28px Bold (700)
+   - H3: 23px Bold (700)
+   - Body: 17px Regular (400)
+   - Label: 16px Bold (700)
+   - Caption: 14px Regular (400)
+   ======================================================== */
+body, body * {
+    font-family: 'Cairo', sans-serif !important;
+}
+
+h1, .page-header h1, .welcome-title, .hero-copy h1, .hero-banner h1 {
+    font-size: 34px !important;
+    font-weight: 700 !important;
+    line-height: 1.3 !important;
+}
+
+h2, .section-heading h2, .plants-header h2, .table-card-title, .care-card-header h2, .weekly-care-header h2, .subscription-header h2 {
+    font-size: 28px !important;
+    font-weight: 700 !important;
+    line-height: 1.35 !important;
+}
+
+h3, .stat-heading strong, .card-title, .plant-heading h3, .care-task-info h3, .recent-activity-content h3 {
+    font-size: 23px !important;
+    font-weight: 700 !important;
+    line-height: 1.4 !important;
+}
+
+p, .body-text, .recommendation-description, .change-description, .subscription-description, .stat-subtext, .care-date {
+    font-size: 17px !important;
+    font-weight: 400 !important;
+    line-height: 1.6 !important;
+}
+
+button, .btn, .button, .primary-btn, .pill-btn, .filter-btn, .care-done-btn, .subscription-plan-btn, .change-diagnose-btn, label, .lang-badge, .badge {
+    font-size: 16px !important;
+    font-weight: 700 !important;
+}
+
+small, .caption, .subtext, .stat-sub, .care-bottom-note, .weekly-care-subtitle, .plant-location, .plant-date, .change-note, .breadcrumb {
+    font-size: 14px !important;
+    font-weight: 400 !important;
+    line-height: 1.5 !important;
+}
+
+/* ========================================================
+   19. فرض اتجاه ومحاذاة كافة النصوص من اليمين (RTL)
+   ======================================================== */
+html,
+body,
+.app-container,
+.main-content,
+.dashboard-content,
+.page-wrap,
+.main-layout {
+    direction: rtl !important;
+    text-align: right !important;
+}
+
+.main-content,
+.main-content *,
+.dashboard-content,
+.dashboard-content *,
+.page-wrap,
+.page-wrap *,
+.main-layout,
+.main-layout * {
+    text-align: right;
+}
+
+h1, h2, h3, h4, h5, h6,
+p, span, label, strong, small,
+.stat-value, .stat-title, .stat-subtext, .stat-label, .stat-sub,
+.table-card-title, .table-card-count,
+.section-heading, .plants-header, .care-card-header,
+.weekly-care-header, .subscription-header,
+.recent-activities-header, .change-card-header,
+.hero-text, .hero-copy {
+    text-align: right !important;
+}
+
+/* استثناء العناصر ذات التوسيط البصري كالأيقونات والدوائر والشارات */
+.stat-icon,
+.care-task-icon,
+.recent-activity-icon,
+.topbar-user-avatar,
+.user-avatar,
+.day-circle,
+.pill-count,
+.notif-badge,
+.mobile-menu-btn,
+.icon-btn,
+.mobile-sidebar-close,
+.search-icon-btn {
+    text-align: center !important;
+}
+
+input[type="email"],
+input[type="url"],
+input[dir="ltr"] {
+    direction: ltr !important;
+    text-align: left !important;
+}
+
+/* ========================================================
+   20. شريط البحث العلوي: أيقونة البحث فقط وإخفاء أي حقل نصي
+   ======================================================== */
+.top-bar-left .search-box input,
+.topbar .search-box input,
+.top-bar .search-box input {
+    display: none !important;
+}
+
+.top-bar-left .search-box,
+.topbar .search-box,
+.top-bar .search-box {
+    width: 38px !important;
+    height: 38px !important;
+    min-width: 38px !important;
+    max-width: 38px !important;
+    padding: 0 !important;
+    border: none !important;
+    background: transparent !important;
+    border-radius: 50% !important;
+    cursor: pointer !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    transition: background 0.2s ease !important;
+}
+
+.top-bar-left .search-box:hover,
+.topbar .search-box:hover,
+.top-bar .search-box:hover {
+    background: rgba(0, 0, 0, 0.05) !important;
+}
+
+.top-bar-left .search-box .search-icon,
+.topbar .search-box .search-icon,
+.top-bar .search-box .search-icon,
+.top-bar-left .search-box svg,
+.topbar .search-box svg,
+.top-bar .search-box svg {
+    position: static !important;
+    width: 19px !important;
+    height: 19px !important;
+    color: var(--text-dark) !important;
+    margin: 0 auto !important;
+    display: block !important;
+    pointer-events: auto !important;
+}
+
+/* ========================================================
+   21. نظام الخطوط الموحد — Typography Normalization
+   تطبيق شامل لمعايير خط Cairo على جميع الواجهات
+   Display 43 · H1 34 · H2 28 · H3 23 · Body 17 · Label 16 · Caption 14
+   ======================================================== */
+
+/* ── عناوين الصفحة (page-title-small) — Label / 16px Bold ── */
+.page-title-small,
+h2.page-title-small {
+    font-size: 16px !important;
+    font-weight: 700 !important;
+    line-height: 1.4 !important;
+    font-family: var(--font-main) !important;
+}
+
+/* ── عناوين الأقسام الداخلية (section headers) — Label / 16px Bold ── */
+.section-header h2,
+.section-header h3,
+.section-title,
+.card-section-title,
+.widget-title,
+.panel-title,
+.modal-title,
+.modal-header h2,
+.modal-header h3,
+.care-title-group h2 {
+    font-size: 16px !important;
+    font-weight: 700 !important;
+    line-height: 1.4 !important;
+    font-family: var(--font-main) !important;
+}
+
+/* ── بطاقات الإحصائيات — القيمة الرقمية الكبيرة H2/28px ── */
+.stat-value,
+.kpi-value,
+.stat-number,
+.metric-value,
+.chart-number,
+.bar-stat-value,
+.line-stat-value {
+    font-size: 28px !important;
+    font-weight: 700 !important;
+    line-height: 1.2 !important;
+    font-family: var(--font-main) !important;
+}
+
+/* ── التسميات في البطاقات — Label / 16px Bold ── */
+.stat-label,
+.kpi-label,
+.metric-label,
+.card-label,
+.badge-label,
+.filter-label,
+.form-label,
+.bar-stat-label,
+.line-stat-label {
+    font-size: 16px !important;
+    font-weight: 700 !important;
+    font-family: var(--font-main) !important;
+}
+
+/* ── عناوين البطاقات الثانوية — Label / 16px Bold ── */
+.card-title,
+.item-title,
+.list-item-title,
+.row-title,
+.entry-title,
+.ticket-title,
+.plant-name,
+.plant-title,
+.user-name,
+.table-title {
+    font-size: 16px !important;
+    font-weight: 700 !important;
+    font-family: var(--font-main) !important;
+}
+
+/* ── النصوص التوضيحية — Caption / 14px Regular ── */
+.stat-sub,
+.stat-sub-label,
+.card-meta,
+.item-meta,
+.item-date,
+.item-time,
+.entry-meta,
+.table-meta,
+.ticket-meta,
+.user-meta,
+.badge,
+.tag,
+.chip,
+.bar-label,
+.bar-value,
+.chart-x-labels span,
+.chart-y-labels span,
+.activity-meta,
+.breadcrumb,
+.breadcrumb span,
+.top-bar-right .breadcrumb {
+    font-size: 14px !important;
+    font-weight: 400 !important;
+    font-family: var(--font-main) !important;
+}
+
+/* ── النص العادي / Body / 17px Regular ── */
+.card-body-text,
+.description-text,
+.note-text,
+.info-text,
+.empty-state-text {
+    font-size: 17px !important;
+    font-weight: 400 !important;
+    font-family: var(--font-main) !important;
+}
+
+/* ── أزرار الإجراءات — Label / 16px Bold ── */
+button.btn,
+.btn,
+.action-btn,
+.primary-btn,
+.secondary-btn,
+.danger-btn,
+.outline-btn,
+.save-btn,
+.cancel-btn,
+.submit-btn {
+    font-size: 16px !important;
+    font-weight: 700 !important;
+    font-family: var(--font-main) !important;
+}
+
+/* ── حقول الإدخال — Body / 17px Regular ── */
+input:not([type="checkbox"]):not([type="radio"]):not([type="range"]),
+textarea,
+select {
+    font-size: 17px !important;
+    font-weight: 400 !important;
+    font-family: var(--font-main) !important;
+}
+
+/* ── الجداول: رأس الجدول — Label / 16px Bold ── */
+th,
+.table-header,
+thead td {
+    font-size: 16px !important;
+    font-weight: 700 !important;
+    font-family: var(--font-main) !important;
+}
+
+/* ── الجداول: خلايا البيانات — Caption / 14px Regular ── */
+td,
+.table-cell {
+    font-size: 14px !important;
+    font-weight: 400 !important;
+    font-family: var(--font-main) !important;
+}
+
+/* ── عناوين قوائم المستخدمين والبطاقات الكبيرة — H3 / 23px Bold (درجتين أقل من H1 34px) ── */
+.page-header-title,
+.hero-title,
+.main-heading {
+    font-size: 23px !important;
+    font-weight: 700 !important;
+    font-family: var(--font-main) !important;
+}
+
+/* ── بانرات الهيرو — H3 / 23px Bold (درجتين أقل من H1 34px) ── */
+.activity-hero-banner h1,
+.subscription-hero-banner h1,
+.care-hero-banner h1,
+.diagnosis-hero-banner h1,
+.plant-hero-banner h1,
+.review-hero-banner h1,
+.hero-copy h1,
+[class$="-hero-banner"] h1,
+[class*="-hero-banner"] h1 {
+    font-size: 23px !important;
+    font-weight: 700 !important;
+    font-family: var(--font-main) !important;
+}
+
+/* بانرات الهيرو — فقرة النص / Body / 17px Regular — */
+.activity-hero-banner p,
+.subscription-hero-banner p,
+[class$="-hero-banner"] p,
+[class*="-hero-banner"] p {
+    font-size: 17px !important;
+    font-weight: 400 !important;
+    font-family: var(--font-main) !important;
+}
+
+/* ── مقدمة الصفحة — H3 / 23px Bold (درجتين أقل من H1 34px) ── */
+.page-intro h1,
+.page-intro h2 {
+    font-size: 23px !important;
+    font-weight: 700 !important;
+    font-family: var(--font-main) !important;
+}
+
+.page-intro p {
+    font-size: 17px !important;
+    font-weight: 400 !important;
+    font-family: var(--font-main) !important;
+}
+
+/* ── أزرار فلاتر النوع — Caption / 14px / Bold ── */
+.filter-pill,
+.filter-btn,
+.pill-btn,
+.tab-btn,
+.tab-item {
+    font-size: 14px !important;
+    font-weight: 700 !important;
+    font-family: var(--font-main) !important;
+}
+
+/* ── شارات اللغة والعلامات الصغيرة — Caption / 14px Regular ── */
+.lang-badge,
+.hero-demo-badge,
+.plan-pill-tag,
+.status-badge,
+.role-badge {
+    font-size: 14px !important;
+    font-weight: 700 !important;
+    font-family: var(--font-main) !important;
+}
+
+/* ── ضمان عدم تجاوز أوزان الخطوط المحددة ── */
+.main-content *,
+.page-wrap *,
+.dashboard-content * {
+    font-family: var(--font-main) !important;
+}

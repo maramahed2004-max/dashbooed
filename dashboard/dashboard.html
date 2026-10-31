@@ -1,0 +1,1180 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>الرئيسية | عناية Enaya</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <link rel="stylesheet" href="../css/sidebar.css">
+    <link rel="stylesheet" href="../css/dashboard.css">
+
+    <link rel="icon" href="./logo-enaya.png">
+
+    <style>
+        /* ==============================
+           DASHBOARD PAGE — SEARCH PANEL ONLY
+           Layout fully managed by sidebar.css
+        ============================== */
+
+        .enaya-search {
+            position: relative;
+            flex-shrink: 0;
+        }
+
+        .enaya-search-panel {
+            position: absolute;
+            top: calc(100% + 10px);
+            left: 0;
+            right: auto;
+            z-index: 1400;
+            width: min(340px, calc(100vw - 30px));
+            padding: 14px;
+            background: #fff;
+            border: 1px solid #dce9e0;
+            border-radius: 14px;
+            box-shadow: 0 12px 30px rgba(17, 56, 27, .15);
+            direction: rtl;
+            text-align: right;
+        }
+
+        .enaya-search-panel[hidden] {
+            display: none !important;
+        }
+
+        .enaya-search-label {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 16px;
+            font-weight: 700;
+        }
+
+        .enaya-search-field {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 9px 10px;
+            background: #f7faf6;
+            border: 1px solid #cddfcf;
+            border-radius: 9px;
+        }
+
+        .enaya-search-field svg {
+            width: 18px;
+            height: 18px;
+            color: #396c35;
+        }
+
+        .enaya-search-field input {
+            width: 100%;
+            min-width: 0;
+            padding: 0;
+            border: none;
+            outline: none;
+            background: transparent;
+            font-size: 17px;
+        }
+
+        .enaya-search-results {
+            max-height: 240px;
+            overflow-y: auto;
+            margin-top: 8px;
+        }
+
+        .enaya-search-results a {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+            padding: 9px;
+            border-radius: 8px;
+            text-decoration: none;
+            color: #273626;
+            font-size: 16px;
+        }
+
+        .enaya-search-results a:hover {
+            background: #eaf6e9;
+        }
+
+        .enaya-search-results small {
+            font-size: 14px;
+            font-weight: 400;
+            color: #61785c;
+        }
+
+        .enaya-search-empty {
+            margin: 8px 0;
+            font-size: 14px;
+            color: #667962;
+        }
+
+        @media (max-width: 650px) {
+            .enaya-search-panel {
+                position: fixed;
+                top: 72px;
+                left: 12px;
+                right: 12px;
+                width: auto;
+                max-width: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="app-container">
+
+        <!-- ==============================
+     SIDEBAR
+============================== -->
+
+        <aside class="sidebar" id="sidebar">
+
+            <button type="button" class="mobile-sidebar-close" id="mobile-sidebar-close" aria-label="إغلاق القائمة">
+                &times;
+            </button>
+
+            <a href="dashboard.html" class="sidebar-logo logo-area" aria-label="الرئيسية | عناية">
+
+                <img src="logo-enaya.png" alt="شعار عناية">
+
+            </a>
+
+            <nav class="sidebar-menu">
+
+                <a href="dashboard.html" class="menu-link active">
+                    <i data-lucide="house"></i>
+                    <span>الرئيسية</span>
+                </a>
+
+                <a href="my-plants.html" class="menu-link">
+                    <i data-lucide="sprout"></i>
+                    <span>نباتاتي</span>
+                </a>
+
+                <a href="add-plant.html" class="menu-link">
+                    <i data-lucide="circle-plus"></i>
+                    <span>إضافة نبتة</span>
+                </a>
+
+                <a href="plant-diagnosis.html" class="menu-link">
+                    <i data-lucide="scan-line"></i>
+                    <span>تشخيص النباتات</span>
+                </a>
+
+                <a href="care-calendar.html" class="menu-link">
+                    <i data-lucide="calendar-days"></i>
+                    <span>جدول العناية</span>
+                </a>
+
+                <a href="activity-log.html" class="menu-link">
+                    <i data-lucide="history"></i>
+                    <span>سجل النشاط</span>
+                </a>
+
+                <div class="menu-divider"></div>
+
+                <a href="subscription.html" class="menu-link">
+                    <i data-lucide="credit-card"></i>
+                    <span>الاشتراك والفواتير</span>
+                </a>
+
+                <a href="settings.html" class="menu-link">
+                    <i data-lucide="settings"></i>
+                    <span>الحساب والإعدادات</span>
+                </a>
+
+            </nav>
+
+            <div class="upgrade-box">
+
+                <div class="upgrade-title">
+                    <i data-lucide="sparkles"></i>
+                    <strong>ترقية الخطة</strong>
+                </div>
+
+                <p>
+                    استمتعي بمزايا إضافية لعناية أفضل بنباتاتك.
+                </p>
+
+                <a href="subscription.html" class="upgrade-button">
+                    استكشفي الخطط
+                    <i data-lucide="arrow-left"></i>
+                </a>
+
+            </div>
+
+            <div class="sidebar-user">
+
+                <div class="user-avatar">ي</div>
+
+                <div class="user-info">
+                    <strong>يوسف وسام</strong>
+                    <small>yousef@example.com</small>
+                    <span>الحساب المجاني</span>
+                </div>
+
+            </div>
+
+        </aside>
+
+        <button type="button" class="mobile-sidebar-backdrop" id="mobile-sidebar-backdrop"
+            aria-label="إغلاق القائمة الجانبية" tabindex="-1">
+        </button>
+
+        <!-- ==============================
+     MAIN CONTENT
+============================== -->
+
+        <main class="main-content dashboard-content">
+
+            <!-- TOP BAR -->
+            <div class="top-bar">
+
+                <div class="top-bar-right">
+
+                    <button type="button" class="mobile-menu-btn" id="mobile-menu-toggle" aria-label="فتح القائمة"
+                        aria-controls="sidebar" aria-expanded="false">
+
+                        <i data-lucide="menu"></i>
+
+                    </button>
+
+                    <h2 class="page-title-small">
+                        الرئيسية
+                    </h2>
+
+                </div>
+
+                <div class="top-bar-left">
+
+                    <!-- SEARCH -->
+                    <div class="enaya-search" id="enaya-search">
+
+                        <button type="button" class="enaya-search-toggle" id="enaya-search-toggle"
+                            aria-label="فتح البحث" aria-expanded="false" aria-controls="enaya-search-panel">
+
+                            <i data-lucide="search"></i>
+
+                        </button>
+
+                        <div class="enaya-search-panel" id="enaya-search-panel" hidden>
+
+                            <label class="enaya-search-label" for="enaya-search-input">
+
+                                ابحثي في عناية
+
+                            </label>
+
+                            <div class="enaya-search-field">
+
+                                <i data-lucide="search"></i>
+
+                                <input type="search" id="enaya-search-input" autocomplete="off"
+                                    placeholder="ابحثي عن نبتة أو صفحة...">
+
+                            </div>
+
+                            <div class="enaya-search-results" id="enaya-search-results" aria-live="polite">
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <span class="lang-badge">
+                        العربية
+                    </span>
+
+                </div>
+
+            </div>
+
+            <!-- ==============================
+         HERO BANNER
+    ============================== -->
+
+            <section class="hero-banner"
+                style="background-image:linear-gradient(90deg,rgba(12,40,17,.65),rgba(12,40,17,.45)),url('./Rectangle.png');">
+
+                <div class="hero-text">
+
+                    <span class="hero-label">
+                        بيانات توضيحية
+                    </span>
+
+                    <h1 class="welcome-title">
+                        <i data-lucide="sprout"></i>
+                        صباح الخير، يوسف
+                    </h1>
+
+                    <p>
+                        أنتِ هون عشان اليوم،
+                        خطوة صغيرة وأثر ينمو معك.
+                    </p>
+
+                </div>
+
+                <div class="hero-buttons">
+
+                    <a href="add-plant.html" class="add-plant-btn">
+                        <i data-lucide="plus"></i>
+                        إضافة نبتة
+                    </a>
+
+                    <a href="plant-diagnosis.html" class="diagnose-plant-btn">
+
+                        <i data-lucide="scan-line"></i>
+                        تشخيص نبتة
+
+                    </a>
+
+                </div>
+
+            </section>
+
+            <!-- ==============================
+         STATISTICS
+    ============================== -->
+
+            <section class="statistics">
+
+                <div class="stat-card stat-featured" role="link" tabindex="0" data-link="my-plants.html">
+
+                    <div class="stat-heading">
+
+                        <strong>4</strong>
+
+                        <span class="stat-icon">
+                            <i data-lucide="leaf"></i>
+                        </span>
+
+                    </div>
+
+                    <h3>نباتاتك</h3>
+
+                    <p>
+                        مجموعة العناية الخاصة بك
+                    </p>
+
+                </div>
+
+                <div class="stat-card" role="link" tabindex="0" data-link="my-plants.html?filter=today">
+
+                    <div class="stat-heading">
+
+                        <strong>2</strong>
+
+                        <span class="stat-icon water-icon">
+                            <i data-lucide="droplets"></i>
+                        </span>
+
+                    </div>
+
+                    <h3>مهام ري</h3>
+
+                    <p>
+                        بوتس وسانسيفيريا
+                    </p>
+
+                </div>
+
+                <div class="stat-card" role="link" tabindex="0" data-link="my-plants.html?filter=today">
+
+                    <div class="stat-heading">
+
+                        <strong>1</strong>
+
+                        <span class="stat-icon fertilizer-icon">
+                            <i data-lucide="sprout"></i>
+                        </span>
+
+                    </div>
+
+                    <h3>مهمة تسميد</h3>
+
+                    <p>
+                        زنبق السلام
+                    </p>
+
+                </div>
+
+                <div class="stat-card" role="link" tabindex="0" data-link="my-plants.html?filter=attention">
+
+                    <div class="stat-heading">
+
+                        <strong>1</strong>
+
+                        <span class="stat-icon follow-icon">
+                            <i data-lucide="scan-line"></i>
+                        </span>
+
+                    </div>
+
+                    <h3>تحتاج متابعة</h3>
+
+                    <p>
+                        زاميا - ملاحظة الأوراق
+                    </p>
+
+                </div>
+
+            </section>
+
+            <!-- ==============================
+                 1. MY PLANTS (نباتاتي - 4 كروت جنب بعض)
+            ============================== -->
+            <section class="my-plants-section">
+
+                <div class="plants-header">
+                    <h2>نباتاتي</h2>
+                    <a href="my-plants.html" class="view-all-plants">
+                        كل النباتات ←
+                    </a>
+                </div>
+
+                <div class="plants-grid">
+
+                    <!-- PLANT 1 -->
+                    <article class="plant-card">
+                        <img src="./Rectangle (1).png" alt="زنبق السلام" class="plant-image">
+                        <div class="plant-details">
+                            <div class="plant-heading">
+                                <h3>زنبق السلام</h3>
+                                <i data-lucide="ellipsis"></i>
+                            </div>
+                            <p class="plant-location">غرفة النوم · قرب النافذة</p>
+                            <span class="plant-status status-blue">موعد تسميد</span>
+                            <p class="plant-date">اليوم · 11:00 صباحاً</p>
+                        </div>
+                        <div class="plant-footer">
+                            <a href="my-plants.html?plant=peace-lily">عرض التفاصيل ←</a>
+                            <span>قائمة الحدث</span>
+                        </div>
+                    </article>
+
+                    <!-- PLANT 2 -->
+                    <article class="plant-card">
+                        <img src="./Rectangle (2).png" alt="زاميا" class="plant-image">
+                        <div class="plant-details">
+                            <div class="plant-heading">
+                                <h3>زاميا</h3>
+                                <i data-lucide="ellipsis"></i>
+                            </div>
+                            <p class="plant-location">المكتب · ضوء غير مباشر</p>
+                            <span class="plant-status status-yellow">تحتاج متابعة</span>
+                            <p class="plant-date">راقب تغيّر الأوراق</p>
+                        </div>
+                        <div class="plant-footer">
+                            <a href="my-plants.html?plant=zz-plant">عرض التفاصيل ←</a>
+                            <span>قائمة الحدث</span>
+                        </div>
+                    </article>
+
+                    <!-- PLANT 3 -->
+                    <article class="plant-card">
+                        <img src="./Rectangle (3).png" alt="بوتس" class="plant-image">
+                        <div class="plant-details">
+                            <div class="plant-heading">
+                                <h3>بوتس</h3>
+                                <i data-lucide="ellipsis"></i>
+                            </div>
+                            <p class="plant-location">المطبخ · الرف</p>
+                            <span class="plant-status status-blue">موعد ري</span>
+                            <p class="plant-date">اليوم · 10:00 صباحاً</p>
+                        </div>
+                        <div class="plant-footer">
+                            <a href="my-plants.html?plant=pothos">عرض التفاصيل ←</a>
+                            <span>قائمة الحدث</span>
+                        </div>
+                    </article>
+
+                    <!-- PLANT 4 -->
+                    <article class="plant-card">
+                        <img src="./Rectangle (4).png" alt="سانسيفيريا" class="plant-image">
+                        <div class="plant-details">
+                            <div class="plant-heading">
+                                <h3>سانسيفيريا</h3>
+                                <i data-lucide="ellipsis"></i>
+                            </div>
+                            <p class="plant-location">المدخل · بجوار الرف</p>
+                            <span class="plant-status status-blue">موعد ري</span>
+                            <p class="plant-date">اليوم · 10:00 صباحاً</p>
+                        </div>
+                        <div class="plant-footer">
+                            <a href="my-plants.html?plant=snake-plant">عرض التفاصيل ←</a>
+                            <span>قائمة الحدث</span>
+                        </div>
+                    </article>
+
+                </div>
+
+            </section>
+
+            <!-- ==============================
+                 2. WEEKLY CARE & SUBSCRIPTION (أسبوع العناية + حسابك واشتراكك بجانب بعض ونفس الطول)
+            ============================== -->
+            <div class="dashboard-duo-row">
+
+                <!-- أسبوع العناية -->
+                <section class="weekly-care-card">
+
+                    <div class="weekly-care-header">
+                        <h2>أسبوع العناية</h2>
+                        <span class="weekly-header-icon">
+                            <i data-lucide="calendar-days"></i>
+                        </span>
+                    </div>
+
+                    <p class="weekly-care-subtitle">
+                        12–18 أكتوبر 2026 · جدول مهام الأسبوع
+                    </p>
+
+                    <div class="weekly-days">
+                        <div class="weekly-day">
+                            <div class="day-circle current">
+                                <span>السبت</span>
+                                <strong>12</strong>
+                            </div>
+                        </div>
+                        <div class="weekly-day">
+                            <div class="day-circle">
+                                <span>الأحد</span>
+                                <strong>13</strong>
+                            </div>
+                        </div>
+                        <div class="weekly-day">
+                            <div class="day-circle">
+                                <span>الإثنين</span>
+                                <strong>14</strong>
+                            </div>
+                        </div>
+                        <div class="weekly-day">
+                            <div class="day-circle">
+                                <span>الثلاثاء</span>
+                                <strong>15</strong>
+                            </div>
+                        </div>
+                        <div class="weekly-day">
+                            <div class="day-circle">
+                                <span>الأربعاء</span>
+                                <strong>16</strong>
+                            </div>
+                        </div>
+                        <div class="weekly-day">
+                            <div class="day-circle">
+                                <span>الخميس</span>
+                                <strong>17</strong>
+                            </div>
+                        </div>
+                        <div class="weekly-day">
+                            <div class="day-circle">
+                                <span>الجمعة</span>
+                                <strong>18</strong>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="weekly-care-footer">
+                        <h3>الاثنين، 12 أكتوبر</h3>
+                        <p>
+                            اليوم: مهمتا ري ومهمة تسميد. الزراعة عادة صغيرة وأثرها ينمو.
+                        </p>
+                        <a href="care-calendar.html">
+                            فتح جدول العناية ←
+                        </a>
+                    </div>
+
+                </section>
+
+                <!-- حسابك واشتراكك -->
+                <section class="subscription-card">
+
+                    <div class="subscription-header">
+                        <h2>حسابك واشتراكك</h2>
+                        <span class="subscription-badge">
+                            الخطة المجانية
+                        </span>
+                    </div>
+
+                    <p class="subscription-description">
+                        خيارات مجانية وفواتير وتسوية، اختاري ما يناسب رحلتك مع نباتاتك.
+                    </p>
+
+                    <div class="subscription-details-box">
+                        <div class="sub-feature-item">
+                            <i data-lucide="check-circle-2"></i>
+                            <span>تتبع حتى 4 نباتات مجاناً مع التذكيرات</span>
+                        </div>
+                        <div class="sub-feature-item">
+                            <i data-lucide="check-circle-2"></i>
+                            <span>جدول ري وتسميد آلي مخصص</span>
+                        </div>
+                        <div class="sub-feature-item">
+                            <i data-lucide="sparkles"></i>
+                            <span>إمكانية الترقية لعدد غير محدود وميزات متقدمة</span>
+                        </div>
+                    </div>
+
+                    <a href="subscription.html" class="subscription-plan-btn">
+                        استكشاف وترقية الخطة
+                        <i data-lucide="sparkles"></i>
+                    </a>
+
+                    <div class="subscription-footer">
+                        <a href="subscription.html">
+                            إدارة الاشتراك ←
+                        </a>
+                        <span>سجل الفواتير والدفع</span>
+                    </div>
+
+                </section>
+
+            </div>
+
+            <!-- ==============================
+                 3. TODAY CARE & RECENT ACTIVITIES (العناية اليوم + آخر مستجدات نباتاتك بجانب بعض ونفس الطول)
+            ============================== -->
+            <div class="dashboard-duo-row">
+
+                <!-- العناية اليوم -->
+                <section class="today-care-card">
+
+                    <div class="care-card-header">
+                        <h2>العناية اليوم</h2>
+                        <span class="remaining-badge">
+                            3 مهام متبقية
+                        </span>
+                    </div>
+
+                    <p class="care-date">
+                        الاثنين، 12 أكتوبر 2026
+                    </p>
+
+                    <div class="care-task-item">
+                        <div class="care-task-icon water-icon">
+                            <i data-lucide="droplets"></i>
+                        </div>
+                        <div class="care-task-info">
+                            <h3>ري البوتس</h3>
+                            <p>10:00 صباحاً · تحققي من التربة قبل الري</p>
+                        </div>
+                        <button type="button" class="care-done-btn">تمت ✓</button>
+                    </div>
+
+                    <div class="care-task-item">
+                        <div class="care-task-icon water-icon">
+                            <i data-lucide="droplets"></i>
+                        </div>
+                        <div class="care-task-info">
+                            <h3>ري السانسيفيريا</h3>
+                            <p>10:00 صباحاً · اسقي فقط إذا احتاجت التربة</p>
+                        </div>
+                        <button type="button" class="care-done-btn">تمت ✓</button>
+                    </div>
+
+                    <div class="care-task-item">
+                        <div class="care-task-icon fertilizer-icon">
+                            <i data-lucide="sprout"></i>
+                        </div>
+                        <div class="care-task-info">
+                            <h3>تسميد زنبق السلام</h3>
+                            <p>11:00 صباحاً · اتبعي توصيات ملف العناية</p>
+                        </div>
+                        <button type="button" class="care-done-btn">تمت ✓</button>
+                    </div>
+
+                    <p class="care-bottom-note">
+                        أكدي الإنجاز بعد العناية الفعلية لتحديث المهمة وسجل النشاط.
+                    </p>
+
+                </section>
+
+                <!-- آخر مستجدات نباتاتك -->
+                <section class="recent-activities-card">
+
+                    <div class="recent-activities-header">
+                        <h2>آخر مستجدات نباتاتك</h2>
+                    </div>
+
+                    <div class="recent-activities-list">
+
+                        <div class="recent-activity-item">
+                            <span class="recent-activity-icon">
+                                <i data-lucide="scan-line"></i>
+                            </span>
+                            <div class="recent-activity-content">
+                                <h3>تشخيص مقترح: البوتس</h3>
+                                <p>14 أكتوبر · اصفرار بسبب زيادة الري؛ راجعي العلاج والوقاية.</p>
+                            </div>
+                        </div>
+
+                        <div class="recent-activity-item">
+                            <span class="recent-activity-icon">
+                                <i data-lucide="circle-check"></i>
+                            </span>
+                            <div class="recent-activity-content">
+                                <h3>تمت إضافة زاميا</h3>
+                                <p>14 أكتوبر · تمت إضافة النبات وضبط التذكيرات.</p>
+                            </div>
+                        </div>
+
+                        <div class="recent-activity-item">
+                            <span class="recent-activity-icon">
+                                <i data-lucide="history"></i>
+                            </span>
+                            <div class="recent-activity-content">
+                                <h3>تمت العناية بزنبق السلام</h3>
+                                <p>14 أكتوبر · سُجّل إكمال مهمة الري.</p>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="recent-activities-footer">
+                        <a href="activity-log.html">
+                            عرض سجل النشاط والتشخيص
+                            <i data-lucide="arrow-left"></i>
+                        </a>
+                    </div>
+
+                </section>
+
+            </div>
+
+            <!-- ==============================
+                 4. RECOMMENDATIONS & DIAGNOSIS (توصيات تناسب نباتاتك + هل لاحظتِ تغيراً؟ بجانب بعض ونفس الطول)
+            ============================== -->
+            <div class="dashboard-duo-row">
+
+                <!-- توصيات تناسب نباتاتك -->
+                <section class="plant-recommendations-card">
+
+                    <h2>توصيات تناسب نباتاتك</h2>
+
+                    <img src="./Rectangle (5).png" alt="نبات بأوراق خضراء" class="recommendation-image">
+
+                    <h3>البوتس: افحصي التربة قبل موعد الري</h3>
+
+                    <p class="recommendation-description">
+                        الموعد تذكير بالمراجعة، إنما تبلل التربة وحالة النبات هما الأساس قبل إضافة الماء.
+                    </p>
+
+                    <div class="recommendation-tip">
+                        <i data-lucide="leaf"></i>
+                        <div>
+                            <strong>زاميا: راقبي الأوراق بهدوء</strong>
+                            <p>
+                                افحصي الإضاءة وحالة التربة. إذا استمر التغيّر، أرفقي صورة لطلب تشخيص مقترح.
+                            </p>
+                        </div>
+                    </div>
+
+                    <a href="#" class="recommendation-link">
+                        مقالات العناية والنصائح ←
+                    </a>
+
+                </section>
+
+                <!-- هل لاحظتِ تغيّرًا؟ (تشخيص نبتة) -->
+                <section class="plant-change-card">
+
+                    <div class="change-card-header">
+                        <h2>هل لاحظتِ تغيّرًا؟</h2>
+                        <span class="change-ai-badge">ذكاء اصطناعي</span>
+                    </div>
+
+                    <p class="change-description">
+                        صورة واضحة ووصف بسيط يساعدان على فهم المشكلة واقتراح خطوات علاج.
+                    </p>
+
+                    <label for="plant-change-image" class="change-upload-box">
+                        <i data-lucide="image-plus"></i>
+                        <span>ارفعي صورة للنبتة</span>
+                    </label>
+
+                    <input type="file" id="plant-change-image" class="change-file-input" accept="image/*">
+
+                    <p id="selected-image-name" class="change-selected-file" aria-live="polite"></p>
+
+                    <textarea class="change-textarea" placeholder="صفي ما لاحظتيه، مثل اصفرار بعض الأوراق..." rows="2"></textarea>
+
+                    <button type="button" class="change-diagnose-btn">
+                        <i data-lucide="scan-line"></i>
+                        بدء التشخيص
+                    </button>
+
+                    <p class="change-note">
+                        يعطيك البرنامج نتائج مقترحة وليست مؤكدة.
+                    </p>
+
+                </section>
+
+            </div>
+
+        </main>
+
+    </div>
+
+    <!-- ==============================
+     JAVASCRIPT
+============================== -->
+
+    <script>
+
+        document.addEventListener("DOMContentLoaded", function () {
+
+            // ==============================
+            // LUCIDE ICONS
+            // ==============================
+
+            if (window.lucide) {
+                lucide.createIcons({
+                    attrs: {
+                        "stroke-width": 1.8
+                    }
+                });
+            }
+
+            // ==============================
+            // IMAGE UPLOAD
+            // ==============================
+
+            const plantImageInput =
+                document.getElementById("plant-change-image");
+
+            const selectedImageName =
+                document.getElementById("selected-image-name");
+
+            if (plantImageInput && selectedImageName) {
+
+                plantImageInput.addEventListener("change", function () {
+
+                    const file = this.files[0];
+
+                    selectedImageName.textContent = file
+                        ? "الصورة المختارة: " + file.name
+                        : "";
+
+                });
+
+            }
+
+            // ==============================
+            // SEARCH
+            // ==============================
+
+            const searchToggle =
+                document.getElementById("enaya-search-toggle");
+
+            const searchPanel =
+                document.getElementById("enaya-search-panel");
+
+            const searchInput =
+                document.getElementById("enaya-search-input");
+
+            const searchResults =
+                document.getElementById("enaya-search-results");
+
+            const searchContainer =
+                document.getElementById("enaya-search");
+
+            if (
+                searchToggle &&
+                searchPanel &&
+                searchInput &&
+                searchResults &&
+                searchContainer
+            ) {
+
+                // النباتات الموجودة في الصفحة
+                const plantItems = Array.from(
+                    document.querySelectorAll(".plants-grid .plant-card")
+                ).map(function (card) {
+
+                    const title = card.querySelector("h3");
+                    const link = card.querySelector("a[href]");
+                    const location = card.querySelector(".plant-location");
+
+                    if (!title || !link) {
+                        return null;
+                    }
+
+                    return {
+                        title: title.textContent.trim(),
+                        description: location
+                            ? location.textContent.trim()
+                            : "نباتاتي",
+                        keywords: card.textContent,
+                        href: link.getAttribute("href")
+                    };
+
+                }).filter(Boolean);
+
+                // صفحات القائمة الجانبية
+                const pageItems = Array.from(
+                    document.querySelectorAll(".sidebar-menu a[href]")
+                )
+                    .filter(function (link) {
+                        return link.getAttribute("href") !== "#";
+                    })
+                    .map(function (link) {
+
+                        return {
+                            title: link.textContent.trim(),
+                            description: "صفحة في عناية",
+                            keywords: link.textContent,
+                            href: link.getAttribute("href")
+                        };
+
+                    });
+
+                const items = [
+                    ...plantItems,
+                    ...pageItems
+                ];
+
+                // توحيد كتابة الأحرف العربية
+                function normalizeText(value) {
+
+                    return String(value)
+                        .toLowerCase()
+                        .replace(/[\u064B-\u065F\u0670]/g, "")
+                        .replace(/[أإآ]/g, "ا")
+                        .replace(/ى/g, "ي")
+                        .replace(/ة/g, "ه")
+                        .trim();
+
+                }
+
+                // رسالة البحث
+                function showSearchMessage(message) {
+
+                    const paragraph = document.createElement("p");
+
+                    paragraph.className = "enaya-search-empty";
+
+                    paragraph.textContent = message;
+
+                    searchResults.appendChild(paragraph);
+
+                }
+
+                // عرض النتائج
+                function displayResults() {
+
+                    const query = normalizeText(searchInput.value);
+
+                    searchResults.replaceChildren();
+
+                    if (!query) {
+
+                        showSearchMessage(
+                            "اكتبي اسم نبتة أو صفحة للبحث."
+                        );
+
+                        return;
+
+                    }
+
+                    const matches = items.filter(function (item) {
+
+                        const content =
+                            item.title + " " +
+                            item.description + " " +
+                            item.keywords;
+
+                        return normalizeText(content).includes(query);
+
+                    }).slice(0, 8);
+
+                    if (!matches.length) {
+
+                        showSearchMessage(
+                            "ما لقينا نتائج لهذا البحث."
+                        );
+
+                        return;
+
+                    }
+
+                    matches.forEach(function (item) {
+
+                        const link = document.createElement("a");
+
+                        link.href = item.href;
+
+                        const title = document.createElement("span");
+                        title.textContent = item.title;
+
+                        const description = document.createElement("small");
+                        description.textContent = item.description;
+
+                        link.append(title, description);
+
+                        searchResults.appendChild(link);
+
+                    });
+
+                }
+
+                // إغلاق البحث
+                function closeSearch(restoreFocus = false) {
+
+                    searchPanel.hidden = true;
+
+                    searchToggle.setAttribute(
+                        "aria-expanded",
+                        "false"
+                    );
+
+                    searchToggle.setAttribute(
+                        "aria-label",
+                        "فتح البحث"
+                    );
+
+                    if (restoreFocus) {
+                        searchToggle.focus();
+                    }
+
+                }
+
+                // فتح البحث
+                searchToggle.addEventListener("click", function () {
+
+                    const opening = searchPanel.hidden;
+
+                    searchPanel.hidden = !opening;
+
+                    searchToggle.setAttribute(
+                        "aria-expanded",
+                        String(opening)
+                    );
+
+                    searchToggle.setAttribute(
+                        "aria-label",
+                        opening ? "إغلاق البحث" : "فتح البحث"
+                    );
+
+                    if (opening) {
+
+                        displayResults();
+
+                        searchInput.focus();
+
+                    }
+
+                });
+
+                // البحث أثناء الكتابة
+                searchInput.addEventListener(
+                    "input",
+                    displayResults
+                );
+
+                // الانتقال لأول نتيجة
+                searchInput.addEventListener("keydown", function (event) {
+
+                    if (event.key === "Enter") {
+
+                        const first =
+                            searchResults.querySelector("a[href]");
+
+                        if (first) {
+                            window.location.href = first.href;
+                        }
+
+                    }
+
+                });
+
+                // الإغلاق عند الضغط خارج البحث
+                document.addEventListener("pointerdown", function (event) {
+
+                    if (
+                        !searchPanel.hidden &&
+                        !searchContainer.contains(event.target)
+                    ) {
+                        closeSearch(false);
+                    }
+
+                });
+
+                // الإغلاق بزر Escape
+                document.addEventListener("keydown", function (event) {
+
+                    if (event.key !== "Escape") {
+                        return;
+                    }
+
+                    if (!searchPanel.hidden) {
+                        closeSearch(true);
+                    }
+
+                    if (
+                        document.body.classList.contains("sidebar-open")
+                    ) {
+                        closeMobileMenu(true);
+                    }
+
+                });
+
+            }
+
+            // ==============================
+            // STAT CARDS LINKS
+            // ==============================
+
+            document.querySelectorAll(".stat-card[data-link]")
+                .forEach(function (card) {
+
+                    const navigate = function () {
+
+                        const url = card.dataset.link;
+
+                        if (url) {
+                            window.location.href = url;
+                        }
+
+                    };
+
+                    card.style.cursor = "pointer";
+
+                    card.addEventListener("click", navigate);
+
+                    card.addEventListener("keydown", function (event) {
+
+                        if (
+                            event.key === "Enter" ||
+                            event.key === " "
+                        ) {
+
+                            event.preventDefault();
+
+                            navigate();
+
+                        }
+
+                    });
+
+                });
+
+        });
+
+    </script>
+
+    <script src="../js/sidebar.js"></script>
+    <script src="../js/dashboard.js"></script>
+
+</body>
+
+</html>

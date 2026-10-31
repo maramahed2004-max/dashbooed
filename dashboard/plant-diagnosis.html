@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>تشخيص النباتات | عناية Enaya</title>
+
+    <!-- خط Cairo المعتمد لكامل الواجهة -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+
+    <!-- أيقونات Lucide المعتمدة -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- ربط CSS الخاص بالقائمة الجانبية الموحدة وواجهة تشخيص النباتات -->
+    <link rel="stylesheet" href="../css/sidebar.css">
+    <link rel="stylesheet" href="../css/plant-diagnosis.css">
+
+
+    <!-- أيقونة الموقع في التبويب -->
+    <link rel="icon" type="image/png" href="logo-enaya.png">
+</head>
+
+<body>
+
+    <div class="app-container">
+
+        <!-- ============= القائمة الجانبية الموحدة ============= -->
+        <aside class="sidebar" id="sidebar">
+
+            <a href="dashboard.html" class="sidebar-logo logo-area" aria-label="الرئيسية | عناية">
+                <img src="logo-enaya.png" alt="شعار عناية">
+            </a>
+
+            <nav class="sidebar-menu">
+
+                <!-- الرئيسية -->
+                <a href="dashboard.html" class="menu-link">
+                    <i data-lucide="house"></i>
+                    <span>الرئيسية</span>
+                </a>
+
+                <!-- نباتاتي -->
+                <a href="my-plants.html" class="menu-link">
+                    <i data-lucide="sprout"></i>
+                    <span>نباتاتي</span>
+                </a>
+
+                <!-- إضافة نبتة -->
+                <a href="add-plant.html" class="menu-link">
+                    <i data-lucide="circle-plus"></i>
+                    <span>إضافة نبتة</span>
+                </a>
+
+                <!-- تشخيص النباتات (النشطة الحالية) -->
+                <a href="plant-diagnosis.html" class="menu-link active">
+                    <i data-lucide="scan-line"></i>
+                    <span>تشخيص النباتات</span>
+                </a>
+
+                <!-- جدول العناية -->
+                <a href="care-calendar.html" class="menu-link">
+                    <i data-lucide="calendar-days"></i>
+                    <span>جدول العناية</span>
+                </a>
+
+                <!-- سجل النشاط -->
+                <a href="activity-log.html" class="menu-link">
+                    <i data-lucide="history"></i>
+                    <span>سجل النشاط</span>
+                </a>
+
+                <div class="menu-divider"></div>
+
+                <!-- الاشتراك والفواتير -->
+                <a href="subscription.html" class="menu-link">
+                    <i data-lucide="credit-card"></i>
+                    <span>الاشتراك والفواتير</span>
+                </a>
+
+                <!-- الحساب والإعدادات -->
+                <a href="settings.html" class="menu-link">
+                    <i data-lucide="settings"></i>
+                    <span>الحساب والإعدادات</span>
+                </a>
+
+            </nav>
+
+            <!-- صندوق ترقية الخطة -->
+            <div class="upgrade-box">
+                <div class="upgrade-title">
+                    <i data-lucide="sparkles"></i>
+                    <strong>ترقية الخطة</strong>
+                </div>
+                <p>افتحي ميزات متقدمة لعناية أفضل بنباتاتك</p>
+                <a href="subscription.html" class="upgrade-button">
+                    اكتشف الخطط
+                    <i data-lucide="arrow-left"></i>
+                </a>
+            </div>
+
+            <!-- معلومات المستخدم -->
+            <div class="sidebar-user">
+                <div class="user-avatar">ي</div>
+                <div class="user-info">
+                    <strong>يوسف وسام</strong>
+                    <small>yousef@example.com</small>
+                    <span>الحساب المجاني</span>
+                </div>
+            </div>
+
+        </aside>
+
+        <!-- ============= منطقة المحتوى الرئيسي ============= -->
+        <main class="main-content">
+
+            <!-- الشريط العلوي (بدون مسافات زائدة وبنفس الهوية) -->
+            <div class="top-bar">
+                <div class="top-bar-right" style="display: flex; align-items: center; gap: 10px;">
+                    <button type="button" class="mobile-menu-btn" id="mobile-menu-toggle" aria-label="فتح القائمة">
+                        <i data-lucide="menu"></i>
+                    </button>
+                    <h2 class="page-title-small">تشخيص النباتات</h2>
+                </div>
+
+                <div class="top-bar-left">
+                    <!-- أيقونة البحث فقط -->
+                    <button type="button" class="icon-btn" aria-label="بحث">
+                        <i data-lucide="search"></i>
+                    </button>
+
+                    <!-- زر الإشعارات المكتومة كما في الصورة -->
+                    <button type="button" class="icon-btn" aria-label="الإشعارات">
+                        <i data-lucide="bell-off"></i>
+                    </button>
+
+                    <!-- محدد اللغة -->
+                    <span class="lang-badge">العربية</span>
+                </div>
+            </div>
+
+            <!-- بانر الهيرو (صورة أوراق المونستيرا الخضراء) -->
+            <section class="diagnosis-hero-banner"
+                style="background-image: linear-gradient(90deg, rgba(14, 38, 18, 0.72), rgba(14, 38, 18, 0.48)), url('./Rectangle.png');">
+                <span class="hero-demo-badge">بيانات توضيحية</span>
+                <h1>تشخيص النباتات</h1>
+                <p>صورة واضحة ووصف بسيط يساعدان على فهم المشكلة واقتراح خطوات العناية</p>
+            </section>
+
+            <!-- شريط التنبيه وإخلاء المسؤولية الهادئ -->
+            <div class="disclaimer-banner">
+                النتائج مقترحة وليست تشخيصاً مؤكداً. لا تستبدل استشارة مختص، ولا تعتمدي علاجاً بناءً على الصورة وحدها.
+            </div>
+
+            <!-- الشبكة الوسطى (عمود النموذج وعمود النصائح) -->
+            <div class="diagnosis-grid">
+
+                <!-- بطاقة تشخيص جديد (اليمين في RTL) -->
+                <div class="new-diagnosis-card">
+                    <div class="card-title-block">
+                        <h2>تشخيص جديد</h2>
+                        <p>ارفعي الصورة ثم اختاري النبتة وأضيفي ملاحظتك.</p>
+                    </div>
+
+                    <!-- منطقة رفع الصورة -->
+                    <div class="upload-dropzone" id="uploadDropzone">
+                        <!-- محتوى منطقة الرفع الافتراضية -->
+                        <div id="dropzoneContent" style="display: flex; flex-direction: column; align-items: center; gap: 6px;">
+                            <div class="dropzone-icon">
+                                <i data-lucide="image"></i>
+                            </div>
+                            <strong class="dropzone-title">اسحبي صورة النبتة هنا أو اختاري ملفاً</strong>
+                            <span class="dropzone-desc">صورة قريبة وواضحة للأوراق المتأثرة</span>
+
+                            <button type="button" class="btn-browse-file" id="browseFileBtn">
+                                <i data-lucide="image-plus"></i>
+                                <span>اختيار صورة</span>
+                            </button>
+
+                            <span class="dropzone-footnote">حتى ١٠ ميغابايت · إرشاد توضيحي · PNG أو JPG</span>
+                        </div>
+
+                        <!-- حاوية معاينة الصورة بعد الاختيار -->
+                        <div class="dropzone-preview" id="dropzonePreview">
+                            <img src="" alt="معاينة الصورة" id="previewImg">
+                            <button type="button" class="remove-preview-btn" id="removePreviewBtn" title="إزالة الصورة">
+                                <i data-lucide="x"></i>
+                            </button>
+                        </div>
+
+                        <!-- مدخل رفع الملف الحقيقي -->
+                        <input type="file" id="diagnosisFileInput" accept="image/*" style="display: none;">
+                    </div>
+
+                    <!-- حقل اختيار النبتة -->
+                    <div class="diag-form-group">
+                        <label for="plantSelect">النبتة</label>
+                        <select id="plantSelect" class="diag-select">
+                            <option value="">اختاري من نباتاتك</option>
+                            <option value="monstera">مونستيرا (غرفة المعيشة)</option>
+                            <option value="pothos" selected>البوتس (الصالة)</option>
+                            <option value="sansevieria">سانسيفيريا (المكتب)</option>
+                            <option value="peace-lily">زنبق السلام (غرفة النوم)</option>
+                            <option value="zz">زاميا (المدخل)</option>
+                        </select>
+                        <span class="field-subtext">بونس · سانسيفيريا · زنبق السلام · زاميا</span>
+                    </div>
+
+                    <!-- حقل وصف الملاحظة -->
+                    <div class="diag-form-group">
+                        <label for="observationText">صفي ما تلاحظينه</label>
+                        <textarea id="observationText" class="diag-textarea"
+                            placeholder="مثل: اصفرار بعض الأوراق... متى بدأ التغيّر؟ وكيف تبدو التربة؟"></textarea>
+                    </div>
+
+                    <!-- شريط أسفل بطاقة التشخيص -->
+                    <div class="diag-card-footer">
+                        <!-- تلميح البدء على اليسار في RTL -->
+                        <span class="diag-footnote-hint" id="footnoteHint">لن يبدأ التشخيص قبل إضافة صورة</span>
+
+                        <!-- زر بدء التشخيص على اليمين في RTL -->
+                        <button type="button" class="btn-start-diag" id="startDiagBtn">
+                            <i data-lucide="scan-line"></i>
+                            <span>بدء التشخيص</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- العمود الأيسر: بطاقات النصائح المساعدة -->
+                <div class="diag-sidebar-col">
+
+                    <!-- بطاقة: لصورة أوضح -->
+                    <div class="tips-card">
+                        <h3>لصورة أوضح</h3>
+
+                        <div class="tips-image-box">
+                            <img src="diagnosis-leaf-guide.jpg" alt="إرشاد تصوير النبتة">
+                        </div>
+
+                        <div class="tips-list">
+                            <div class="tip-item">
+                                <strong>ضوء طبيعي</strong>
+                                <p>صوّري قرب نافذة دون فلاش أو إضاءة حادة</p>
+                            </div>
+
+                            <div class="tip-item">
+                                <strong>قرّبي موضع الملاحظة</strong>
+                                <p>أظهري الورقة المتأثرة بوضوح ومن دون اهتزاز.</p>
+                            </div>
+
+                            <div class="tip-item">
+                                <strong>أظهري السياق</strong>
+                                <p>أضيفي صورة للنبتة كاملة والتربة عند الحاجة.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- بطاقة: قبل البدء -->
+                    <div class="pre-start-card">
+                        <h3>قبل البدء</h3>
+                        <p>راجعي آخر موعد ري، ورطوبة التربة، وأي تغيير في موقع النبتة. هذه التفاصيل تساعد على اقتراح خطوات أنسب.</p>
+                        <span class="internet-note">يتطلب التشخيص اتصالاً بالإنترنت.</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- بطاقة: سجل التشخيصات المقترحة (أسفل الصفحة) -->
+            <div class="diag-history-card">
+                <h2>سجل التشخيصات المقترحة</h2>
+
+                <div class="diag-history-row">
+                    <div class="history-item-content">
+                        <!-- صورة النبتة في السجل -->
+                        <div class="history-thumb">
+                            <img src="diagnosis-pothos-thumb.jpg" alt="البوتس">
+                        </div>
+
+                        <!-- تفاصيل السجل -->
+                        <div class="history-details">
+                            <span class="history-badge">نتيجة مقترحة · غير مؤكدة</span>
+                            <h4>البوتس · احتمال زيادة الري</h4>
+                            <p>١١ أكتوبر ٢٠٢٦ · راجعي الري وحالة التربة والتصريف قبل اتخاذ أي إجراء.</p>
+                        </div>
+                    </div>
+
+                    <!-- زر عرض الاقتراح -->
+                    <button type="button" class="btn-view-suggestion" id="viewSuggestionBtn">
+                        عرض الاقتراح
+                    </button>
+                </div>
+
+                <div class="history-bottom-note">
+                    هذا سجل توضيحي واحد، وليس تحليلاً معملياً أو قياساً لصحة النبتة
+                </div>
+            </div>
+
+            <!-- تذييل الصفحة -->
+            <footer class="page-bottom-footer">
+                <span>جميع البيانات والمواعيد والسجلات هنا توضيحية، وليست قياسات صحية أو نتائج تشخيص فعلية.</span>
+                <span class="brand-tag">Enaya</span>
+            </footer>
+
+        </main>
+
+    </div>
+
+    <!-- نافذة محاكاة نتيجة التشخيص بالذكاء الاصطناعي -->
+    <div class="modal-overlay" id="diagModal">
+        <div class="modal-card">
+            <div class="modal-spinner" id="modalSpinner"></div>
+            <h3 id="diagModalTitle">جارٍ فحص صورة النبتة بالذكاء الاصطناعي...</h3>
+            <p id="diagModalDesc">يتم الآن تحليل درجات لون الأوراق، بقع الجفاف أو الرطوبة، ومقارنتها بقاعدة بيانات أمراض النباتات.</p>
+            <button type="button" class="modal-close-btn" id="modalCloseBtn" style="display: none;">حسناً، فهمت</button>
+        </div>
+    </div>
+
+    <!-- سكريبت التفاعلية -->
+    <script src="../js/sidebar.js"></script>
+    <script src="../js/plant-diagnosis.js"></script>
+
+</body>
+
+</html>

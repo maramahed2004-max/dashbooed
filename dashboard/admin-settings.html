@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>الصلاحيات والإعدادات | لوحة الأدمن — عناية Enaya</title>
+    <meta name="description" content="إدارة صلاحيات الفريق وتعيين الأدوار وضبط الإعدادات العامة في منصة عناية.">
+
+    <!-- خط Cairo المعتمد لكامل الواجهة -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- أيقونات Lucide المعتمدة -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- CSS الموحد للقائمة الجانبية والواجهة -->
+    <link rel="stylesheet" href="../css/sidebar.css">
+    <link rel="stylesheet" href="../css/admin-settings.css">
+
+
+    <!-- أيقونة الموقع في التبويب -->
+    <link rel="icon" type="image/png" href="logo-enaya.png">
+</head>
+
+<body>
+
+    <div class="app-container">
+
+        <!-- ============= القائمة الجانبية الموحدة (أدمن) ============= -->
+        <aside class="sidebar" id="sidebar">
+
+            <a href="admin-overview.html" class="sidebar-logo logo-area" aria-label="لوحة الأدمن | عناية">
+                <img src="logo-enaya.png" alt="شعار عناية">
+            </a>
+
+            <!-- شارة لوحة الإدارة -->
+            <div style="
+                display:flex; align-items:center; justify-content:center;
+                margin: 0 0 14px; padding: 4px 14px; border-radius: 20px;
+                background: rgba(169,207,156,0.18); border: 1px solid rgba(169,207,156,0.3);
+                font-size: 11px; font-weight: 800; color: #a9cf9c; letter-spacing: 0.3px;
+            ">لوحة الإدارة</div>
+
+            <nav class="sidebar-menu" aria-label="قائمة الأدمن">
+
+                <!-- نظرة عامة -->
+                <a href="admin-overview.html" class="menu-link">
+                    <i data-lucide="layout-dashboard"></i>
+                    <span>نظرة عامة</span>
+                </a>
+
+                <!-- إدارة المستخدمين -->
+                <a href="admin-users.html" class="menu-link">
+                    <i data-lucide="users"></i>
+                    <span>إدارة المستخدمين</span>
+                </a>
+
+                <!-- مكتبة النباتات -->
+                <a href="admin-plants.html" class="menu-link">
+                    <i data-lucide="sprout"></i>
+                    <span>مكتبة النباتات</span>
+                </a>
+
+                <!-- مراجعة التشخيصات -->
+                <a href="admin-diagnosis.html" class="menu-link">
+                    <i data-lucide="scan-line"></i>
+                    <span>مراجعة التشخيصات</span>
+                </a>
+
+                <!-- الاشتراكات والفواتير -->
+                <a href="admin-billing.html" class="menu-link">
+                    <i data-lucide="credit-card"></i>
+                    <span>الاشتراكات والفواتير</span>
+                </a>
+
+                <div class="menu-divider"></div>
+
+                <!-- إدارة المحتوى -->
+                <a href="admin-content.html" class="menu-link">
+                    <i data-lucide="file-text"></i>
+                    <span>إدارة المحتوى</span>
+                </a>
+
+                <!-- الدعم والرسائل -->
+                <a href="admin-support.html" class="menu-link">
+                    <i data-lucide="message-circle"></i>
+                    <span>الدعم والرسائل</span>
+                </a>
+
+                <!-- الصلاحيات والإعدادات (النشطة) -->
+                <a href="admin-settings.html" class="menu-link active" aria-current="page">
+                    <i data-lucide="settings"></i>
+                    <span>الصلاحيات والإعدادات</span>
+                </a>
+
+            </nav>
+
+            <!-- صندوق العناية تبدأ من هنا -->
+            <div class="upgrade-box">
+                <div class="upgrade-title">
+                    <i data-lucide="shield-check"></i>
+                    <strong>العناية تبدأ من هنا</strong>
+                </div>
+                <p>تابع الطلبات، وراجع المعرفة، وأجِب كل استفسار أهاممه.</p>
+                <a href="#" class="upgrade-button">
+                    <span style="display:inline-block; width:6px; height:6px; border-radius:50%; background:#2ed573; margin-left:6px;"></span>
+                    جميع الخدمات مستقرة
+                </a>
+            </div>
+
+            <!-- معلومات الأدمن -->
+            <div class="sidebar-user">
+                <div class="user-avatar">م</div>
+                <div class="user-info">
+                    <strong>مرام عاهد</strong>
+                    <small>مدير النظام · وصول كامل</small>
+                </div>
+                <button type="button" class="icon-btn" title="تسجيل الخروج" style="color:rgba(255,255,255,0.7); margin-right:auto;">
+                    <i data-lucide="log-out" style="width:17px; height:17px;"></i>
+                </button>
+            </div>
+
+        </aside>
+
+        <!-- ============= منطقة المحتوى الرئيسي ============= -->
+        <main class="main-content">
+
+            <!-- الشريط العلوي -->
+            <div class="top-bar">
+                <div class="top-bar-right">
+                    <button type="button" class="mobile-menu-btn" id="mobile-menu-toggle" aria-label="فتح القائمة">
+                        <i data-lucide="menu"></i>
+                    </button>
+                    <h2 class="page-title-small">الصلاحيات والإعدادات</h2>
+                </div>
+
+                <div class="top-bar-left">
+                    <div class="search-box">
+                        <i data-lucide="search" class="search-icon"></i>
+                        <input type="text" id="topSearchInput" placeholder="بحث في الصلاحيات والإعدادات..." aria-label="بحث سريع">
+                    </div>
+
+                    <button type="button" class="icon-btn" aria-label="الإشعارات" title="الإشعارات">
+                        <i data-lucide="bell"></i>
+                        <span class="notif-badge"></span>
+                    </button>
+
+                    <div style="display:flex; align-items:center; gap:8px; background:#fff; border:1px solid #d8e6d5; border-radius:12px; padding:5px 14px 5px 10px; cursor:pointer;">
+                        <div style="width:32px; height:32px; border-radius:50%; background:linear-gradient(135deg,#2d4a2c,#3a6239); color:#fff; font-size:14px; font-weight:800; display:flex; align-items:center; justify-content:center;">ن</div>
+                        <span style="font-size:13px; font-weight:700; color:#1b2f1a;">مرام عاهد</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- رأس الصفحة -->
+            <div class="page-header">
+                <div class="page-header-info">
+                    <h1>الصلاحيات والإعدادات</h1>
+                    <p>اضبط الوصول وفق مسؤوليات الفريق، واحتفظ بأثر واضح لكل تغيير إداري.</p>
+                </div>
+                <div class="page-header-actions">
+                    <button type="button" class="btn-primary" id="btn-invite-member" onclick="openInviteModal()">
+                        <i data-lucide="user-plus"></i>
+                        دعوة عضو للفريق
+                    </button>
+                </div>
+            </div>
+
+            <!-- ============= قسم الفريق الإداري ============= -->
+            <section class="section-card">
+                <div class="section-header">
+                    <h3 class="section-title">الفريق الإداري</h3>
+                    <span class="section-subtitle">٤ أعضاء نشطين · المصادقة الثنائية مطلوبة</span>
+                </div>
+
+                <div class="table-responsive">
+                    <table class="custom-table" aria-label="جدول الفريق الإداري">
+                        <thead>
+                            <tr>
+                                <th>العضو</th>
+                                <th>الدور</th>
+                                <th>حالة الوصول</th>
+                                <th>آخر نشاط</th>
+                                <th>الإجراءات</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- مرام عاهد -->
+                            <tr>
+                                <td>
+                                    <div class="user-cell">
+                                        <span class="user-name-row">مرام عاهد · <span class="user-email-row">admin@example.com</span></span>
+                                    </div>
+                                </td>
+                                <td>
+                                    <span class="role-badge">مدير النظام</span>
+                                </td>
+                                <td>
+                                    <span class="status-badge-active">نشط</span>
+                                </td>
+                                <td>
+                                    <span class="activity-time">اليوم، ٩:٤١ ص</span>
+                                </td>
+                                <td>
+                                    <button class="action-link" type="button" onclick="openPermissionsModal('مرام عاهد', 'مدير النظام')">إدارة الوصول</button>
+                                </td>
+                            </tr>
+
+                            <!-- مريم علي -->
+                            <tr>
+                                <td>
+                                    <div class="user-cell">
+                                        <span class="user-name-row">مريم علي · <span class="user-email-row">editor@example.com</span></span>
+                                    </div>
+                                </td>
+                                <td>
+                                    <span class="role-badge">محرر محتوى</span>
+                                </td>
+                                <td>
+                                    <span class="status-badge-active">نشط</span>
+                                </td>
+                                <td>
+                                    <span class="activity-time">اليوم، ٩:٣٢ ص</span>
+                                </td>
+                                <td>
+                                    <button class="action-link" type="button" onclick="openPermissionsModal('مريم علي', 'محرر محتوى')">تعديل الصلاحيات</button>
+                                </td>
+                            </tr>
+
+                            <!-- ليان حسن -->
+                            <tr>
+                                <td>
+                                    <div class="user-cell">
+                                        <span class="user-name-row">ليان حسن · <span class="user-email-row">plants@example.com</span></span>
+                                    </div>
+                                </td>
+                                <td>
+                                    <span class="role-badge">مختص نباتات</span>
+                                </td>
+                                <td>
+                                    <span class="status-badge-active">نشط</span>
+                                </td>
+                                <td>
+                                    <span class="activity-time">اليوم، ٩:١٨ ص</span>
+                                </td>
+                                <td>
+                                    <button class="action-link" type="button" onclick="openPermissionsModal('ليان حسن', 'مختص نباتات')">تعديل الصلاحيات</button>
+                                </td>
+                            </tr>
+
+                            <!-- آدم عمر -->
+                            <tr>
+                                <td>
+                                    <div class="user-cell">
+                                        <span class="user-name-row">آدم عمر · <span class="user-email-row">support@example.com</span></span>
+                                    </div>
+                                </td>
+                                <td>
+                                    <span class="role-badge">فريق الدعم</span>
+                                </td>
+                                <td>
+                                    <span class="status-badge-active">نشط</span>
+                                </td>
+                                <td>
+                                    <span class="activity-time">اليوم، ٨:٥٥ ص</span>
+                                </td>
+                                <td>
+                                    <button class="action-link" type="button" onclick="openPermissionsModal('آدم عمر', 'فريق الدعم')">تعديل الصلاحيات</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- ============= الشبكة السفلية ============= -->
+            <div class="settings-grid">
+
+                <!-- العمود الأيمن (المصفوفة + سجل التدقيق) -->
+                <div class="settings-main-column">
+
+                    <!-- مصفوفة الصلاحيات -->
+                    <div class="matrix-card">
+                        <div class="section-header">
+                            <h3 class="section-title">مصفوفة الصلاحيات</h3>
+                            <span class="section-subtitle">وفق مبدأ أقل وصول لازم</span>
+                        </div>
+
+                        <div class="table-responsive">
+                            <table class="matrix-table" aria-label="مصفوفة الصلاحيات">
+                                <thead>
+                                    <tr>
+                                        <th>المساحة</th>
+                                        <th>مدير النظام</th>
+                                        <th>محرر محتوى</th>
+                                        <th>فريق الدعم</th>
+                                        <th>مختص نباتات</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><strong>المستخدمون</strong></td>
+                                        <td>إدارة كاملة</td>
+                                        <td><span class="matrix-dash">—</span></td>
+                                        <td>قراءة للدعم</td>
+                                        <td><span class="matrix-dash">—</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>مكتبة النباتات</strong></td>
+                                        <td>إدارة كاملة</td>
+                                        <td>تحرير الوصف</td>
+                                        <td>قراءة</td>
+                                        <td>اعتماد المعرفة</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>التشخيصات</strong></td>
+                                        <td>إشراف وتعيين</td>
+                                        <td><span class="matrix-dash">—</span></td>
+                                        <td>متابعة الطلب</td>
+                                        <td>اعتماد المراجعة</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>المحتوى</strong></td>
+                                        <td>إدارة كاملة</td>
+                                        <td>تحرير ونشر</td>
+                                        <td>قراءة</td>
+                                        <td>مراجعة معرفية</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>الفوترة والإعدادات</strong></td>
+                                        <td>إدارة فقط</td>
+                                        <td><span class="matrix-dash">—</span></td>
+                                        <td><span class="matrix-dash">—</span></td>
+                                        <td><span class="matrix-dash">—</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div class="matrix-footer-note">
+                            <i data-lucide="info" style="width:14px; height:14px; color:var(--text-light); flex-shrink:0;"></i>
+                            <span>الوصول إلى صور التشخيص محصور بالمختص والمدير؛ كل تعديل للصلاحيات يُسجل تلقائياً.</span>
+                        </div>
+                    </div>
+
+                    <!-- سجل التدقيق -->
+                    <div class="audit-card">
+                        <div class="section-header">
+                            <h3 class="section-title">سجل التدقيق</h3>
+                            <span class="section-subtitle">أحدث ٣ عمليات</span>
+                        </div>
+
+                        <div class="audit-list">
+                            <!-- عملية 1 -->
+                            <div class="audit-item">
+                                <div class="audit-info">
+                                    <i data-lucide="history" class="audit-icon"></i>
+                                    <span class="audit-text">مريم علي · حفظت مسودة «ري البوتس دون إفراط» · C-0038</span>
+                                </div>
+                                <span class="audit-time">٩:٣٢</span>
+                            </div>
+
+                            <!-- عملية 2 -->
+                            <div class="audit-item">
+                                <div class="audit-info">
+                                    <i data-lucide="history" class="audit-icon"></i>
+                                    <span class="audit-text">ليان حسن · اعتمدت مراجعة المختص للحالة · D-1041</span>
+                                </div>
+                                <span class="audit-time">٩:١٨</span>
+                            </div>
+
+                            <!-- عملية 3 -->
+                            <div class="audit-item">
+                                <div class="audit-info">
+                                    <i data-lucide="history" class="audit-icon"></i>
+                                    <span class="audit-text">آدم عمر · غيّر حالة المحادثة إلى محلولة · S-0283</span>
+                                </div>
+                                <span class="audit-time">٨:٥٥</span>
+                            </div>
+                        </div>
+
+                        <button class="audit-view-all" type="button" onclick="showToast('جارٍ تحميل سجل التدقيق الموسع…')">
+                            عرض سجل التدقيق الكامل ←
+                        </button>
+                    </div>
+
+                </div>
+
+                <!-- العمود الأيسر (الإعدادات العامة + تفضيلات الإشعارات) -->
+                <div class="settings-side-column">
+
+                    <!-- الإعدادات العامة -->
+                    <div class="config-card">
+                        <h3>الإعدادات العامة</h3>
+
+                        <div class="form-group">
+                            <label class="form-label" for="platformNameInput">اسم المنصة</label>
+                            <input type="text" id="platformNameInput" class="input-styled" value="عناية" aria-label="اسم المنصة">
+                        </div>
+
+                        <div class="form-row-dual">
+                            <div class="form-group" style="margin-bottom:0;">
+                                <label class="form-label" for="timezoneInput">التوقيت</label>
+                                <input type="text" id="timezoneInput" class="input-styled" value="الرياض 03+" aria-label="التوقيت">
+                            </div>
+                            <div class="form-group" style="margin-bottom:0;">
+                                <label class="form-label" for="langInput">اللغة الافتراضية</label>
+                                <input type="text" id="langInput" class="input-styled" value="العربية · RTL" aria-label="اللغة الافتراضية">
+                            </div>
+                        </div>
+
+                        <p class="config-notice">
+                            وضع التشغيل: الخطة المجانية فقط، الدفع المدفوع غير مفعّل.
+                        </p>
+
+                        <button type="button" class="btn-save" onclick="saveGeneralSettings()">
+                            <i data-lucide="check"></i>
+                            حفظ الإعدادات
+                        </button>
+                    </div>
+
+                    <!-- تفضيلات الإشعارات -->
+                    <div class="config-card">
+                        <h3>تفضيلات الإشعارات</h3>
+
+                        <div class="toggle-list">
+                            <!-- تفعيل 1 -->
+                            <div class="toggle-item">
+                                <div class="toggle-info">
+                                    <span class="toggle-title">الحالات عالية الأولوية</span>
+                                    <span class="toggle-desc">تنبيه فوري للفريق المختص</span>
+                                </div>
+                                <label class="switch">
+                                    <input type="checkbox" checked onchange="handleToggleChange(this, 'الحالات عالية الأولوية')">
+                                    <span class="slider"></span>
+                                </label>
+                            </div>
+
+                            <!-- تفعيل 2 -->
+                            <div class="toggle-item">
+                                <div class="toggle-info">
+                                    <span class="toggle-title">رسائل الدعم الجديدة</span>
+                                    <span class="toggle-desc">إشعار داخل لوحة الإدارة</span>
+                                </div>
+                                <label class="switch">
+                                    <input type="checkbox" checked onchange="handleToggleChange(this, 'رسائل الدعم الجديدة')">
+                                    <span class="slider"></span>
+                                </label>
+                            </div>
+
+                            <!-- تفعيل 3 -->
+                            <div class="toggle-item">
+                                <div class="toggle-info">
+                                    <span class="toggle-title">ملخص البريد اليومي</span>
+                                    <span class="toggle-desc">ملخص العمليات الساعة ٨ صباحاً</span>
+                                </div>
+                                <label class="switch">
+                                    <input type="checkbox" onchange="handleToggleChange(this, 'ملخص البريد اليومي')">
+                                    <span class="slider"></span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- الفوتر التوضيحي الموحد -->
+            <footer class="dashboard-footer">
+                <span>Enaya Admin · ٢٠٢٦</span>
+                <span>مساحة إدارية آمنة · السجلات المعروضة توضيحية</span>
+            </footer>
+
+        </main>
+
+    </div>
+
+    <!-- نافذة دعوة عضو للفريق (Modal) -->
+    <div class="modal-overlay" id="inviteModal">
+        <div class="modal-card">
+            <div class="modal-header">
+                <h3>دعوة عضو جديد للفريق</h3>
+                <button class="modal-close" onclick="closeModal('inviteModal')" type="button">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label class="form-label">الاسم الكامل</label>
+                    <input type="text" class="input-styled" id="inviteName" placeholder="مثال: يوسف خالد">
+                </div>
+                <div class="form-group">
+                    <label class="form-label">البريد الإلكتروني</label>
+                    <input type="email" class="input-styled" id="inviteEmail" placeholder="name@example.com" style="direction:ltr; text-align:right;">
+                </div>
+                <div class="form-group">
+                    <label class="form-label">الدور الوظيفي</label>
+                    <select class="input-styled" id="inviteRole">
+                        <option>محرر محتوى</option>
+                        <option>مختص نباتات</option>
+                        <option>فريق الدعم</option>
+                        <option>مدير النظام</option>
+                    </select>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-secondary" onclick="closeModal('inviteModal')" type="button">إلغاء</button>
+                <button class="btn-primary" onclick="submitInvite()" type="button">إرسال الدعوة</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- نافذة تعديل الصلاحيات (Modal) -->
+    <div class="modal-overlay" id="permModal">
+        <div class="modal-card">
+            <div class="modal-header">
+                <h3 id="permModalTitle">تعديل الصلاحيات</h3>
+                <button class="modal-close" onclick="closeModal('permModal')" type="button">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p id="permModalDesc" style="font-size:13px; color:var(--text-muted); font-weight:600;"></p>
+                <div class="form-group">
+                    <label class="form-label">الدور المحدد</label>
+                    <select class="input-styled" id="permRoleSelect">
+                        <option>مدير النظام (وصول كامل)</option>
+                        <option>محرر محتوى</option>
+                        <option>مختص نباتات</option>
+                        <option>فريق الدعم</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">حالة الحساب</label>
+                    <select class="input-styled">
+                        <option>نشط (مصادقة ثنائية مفعّلة)</option>
+                        <option>تعليق مؤقت</option>
+                    </select>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-secondary" onclick="closeModal('permModal')" type="button">إلغاء</button>
+                <button class="btn-primary" onclick="submitPermissions()" type="button">حفظ التغييرات</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sidebar overlay للموبايل -->
+    <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+    <!-- Toast container -->
+    <div class="toast-container" id="toast-container" aria-live="polite"></div>
+
+    <script>
+        /* ======== تهيئة الأيقونات ======== */
+        lucide.createIcons();
+
+        /* ======== القائمة الجانبية (موبايل) ======== */
+        const sidebar        = document.getElementById('sidebar');
+        const overlay        = document.getElementById('sidebar-overlay');
+        const menuToggle     = document.getElementById('mobile-menu-toggle');
+
+        function openSidebar()  { sidebar.classList.add('open');   overlay.classList.add('active'); }
+        function closeSidebar() { sidebar.classList.remove('open'); overlay.classList.remove('active'); }
+
+        menuToggle?.addEventListener('click', openSidebar);
+        overlay?.addEventListener('click', closeSidebar);
+
+        /* ======== النوافذ المنبثقة (Modals) ======== */
+        function openInviteModal() {
+            document.getElementById('inviteModal').classList.add('active');
+        }
+
+        function openPermissionsModal(userName, role) {
+            document.getElementById('permModalTitle').textContent = `إدارة وصول · ${userName}`;
+            document.getElementById('permModalDesc').textContent = `تعديل صلاحيات الوصول والمسؤوليات الموكلة إلى ${userName} (${role}).`;
+            document.getElementById('permModal').classList.add('active');
+        }
+
+        function closeModal(id) {
+            document.getElementById(id).classList.remove('active');
+        }
+
+        function submitInvite() {
+            const name = document.getElementById('inviteName').value.trim();
+            if (!name) {
+                showToast('يرجى إدخال اسم العضو', 'warn');
+                return;
+            }
+            closeModal('inviteModal');
+            showToast(`تم إرسال دعوة الانضمام إلى ${name} بنجاح ✓`);
+            document.getElementById('inviteName').value = '';
+            document.getElementById('inviteEmail').value = '';
+        }
+
+        function submitPermissions() {
+            closeModal('permModal');
+            showToast('تم تحديث الصلاحيات وتسجيل التغيير في سجل التدقيق ✓');
+        }
+
+        /* ======== حفظ الإعدادات العامة ======== */
+        function saveGeneralSettings() {
+            showToast('تم حفظ الإعدادات العامة بنجاح ✓');
+        }
+
+        /* ======== التعامل مع أزرار التبديل ======== */
+        function handleToggleChange(checkbox, label) {
+            const status = checkbox.checked ? 'تفعيل' : 'تعطيل';
+            showToast(`تم ${status} إشعار: ${label}`);
+        }
+
+        /* ======== إشعارات Toast ======== */
+        function showToast(msg, type) {
+            const container = document.getElementById('toast-container');
+            const el = document.createElement('div');
+            el.className = 'toast';
+            el.style.background = type === 'warn' ? '#856404' : 'var(--primary-green)';
+            el.innerHTML = `<i data-lucide="check-circle" style="width:18px;height:18px;flex-shrink:0"></i><span>${msg}</span>`;
+            container.appendChild(el);
+            lucide.createIcons();
+            setTimeout(() => {
+                el.classList.add('toast-exit');
+                setTimeout(() => el.remove(), 400);
+            }, 3000);
+        }
+    </script>
+
+</body>
+
+</html>

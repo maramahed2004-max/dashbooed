@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>الدعم والرسائل | لوحة الأدمن — عناية Enaya</title>
+    <meta name="description" content="إدارة رسائل الدعم الفني ومحادثات المستخدمين ومتابعة طلباتهم في منصة عناية.">
+
+    <!-- خط Cairo المعتمد لكامل الواجهة -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- أيقونات Lucide المعتمدة -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- CSS الموحد للقائمة الجانبية والواجهة -->
+    <link rel="stylesheet" href="../css/sidebar.css">
+    <link rel="stylesheet" href="../css/admin-support.css">
+
+
+    <!-- أيقونة الموقع في التبويب -->
+    <link rel="icon" type="image/png" href="logo-enaya.png">
+</head>
+
+<body>
+
+    <div class="app-container">
+
+        <!-- ============= القائمة الجانبية الموحدة (أدمن) ============= -->
+        <aside class="sidebar" id="sidebar">
+
+            <a href="admin-overview.html" class="sidebar-logo logo-area" aria-label="لوحة الأدمن | عناية">
+                <img src="logo-enaya.png" alt="شعار عناية">
+            </a>
+
+            <!-- شارة لوحة الإدارة -->
+            <div style="
+                display:flex; align-items:center; justify-content:center;
+                margin: 0 0 14px; padding: 4px 14px; border-radius: 20px;
+                background: rgba(169,207,156,0.18); border: 1px solid rgba(169,207,156,0.3);
+                font-size: 11px; font-weight: 800; color: #a9cf9c; letter-spacing: 0.3px;
+            ">لوحة الإدارة</div>
+
+            <nav class="sidebar-menu" aria-label="قائمة الأدمن">
+
+                <!-- نظرة عامة -->
+                <a href="admin-overview.html" class="menu-link">
+                    <i data-lucide="layout-dashboard"></i>
+                    <span>نظرة عامة</span>
+                </a>
+
+                <!-- إدارة المستخدمين -->
+                <a href="admin-users.html" class="menu-link">
+                    <i data-lucide="users"></i>
+                    <span>إدارة المستخدمين</span>
+                </a>
+
+                <!-- مكتبة النباتات -->
+                <a href="admin-plants.html" class="menu-link">
+                    <i data-lucide="sprout"></i>
+                    <span>مكتبة النباتات</span>
+                </a>
+
+                <!-- مراجعة التشخيصات -->
+                <a href="admin-diagnosis.html" class="menu-link">
+                    <i data-lucide="scan-line"></i>
+                    <span>مراجعة التشخيصات</span>
+                </a>
+
+                <!-- الاشتراكات والفواتير -->
+                <a href="admin-billing.html" class="menu-link">
+                    <i data-lucide="credit-card"></i>
+                    <span>الاشتراكات والفواتير</span>
+                </a>
+
+                <div class="menu-divider"></div>
+
+                <!-- إدارة المحتوى -->
+                <a href="admin-content.html" class="menu-link">
+                    <i data-lucide="file-text"></i>
+                    <span>إدارة المحتوى</span>
+                </a>
+
+                <!-- الدعم والرسائل (النشطة) -->
+                <a href="admin-support.html" class="menu-link active" aria-current="page">
+                    <i data-lucide="message-circle"></i>
+                    <span>الدعم والرسائل</span>
+                </a>
+
+                <!-- الصلاحيات والإعدادات -->
+                <a href="admin-settings.html" class="menu-link">
+                    <i data-lucide="settings"></i>
+                    <span>الصلاحيات والإعدادات</span>
+                </a>
+
+            </nav>
+
+            <!-- صندوق العناية تبدأ من هنا -->
+            <div class="upgrade-box">
+                <div class="upgrade-title">
+                    <i data-lucide="shield-check"></i>
+                    <strong>العناية تبدأ من هنا</strong>
+                </div>
+                <p>تابع الطلبات، وراجع المعرفة، وأجِب كل استفسار أهاممه.</p>
+                <a href="#" class="upgrade-button">
+                    <span style="display:inline-block; width:6px; height:6px; border-radius:50%; background:#2ed573; margin-left:6px;"></span>
+                    جميع الخدمات مستقرة
+                </a>
+            </div>
+
+            <!-- معلومات الأدمن -->
+            <div class="sidebar-user">
+                <div class="user-avatar">م</div>
+                <div class="user-info">
+                    <strong>مرام عاهد</strong>
+                    <small>مدير النظام · وصول كامل</small>
+                </div>
+                <button type="button" class="icon-btn" title="تسجيل الخروج" style="color:rgba(255,255,255,0.7); margin-right:auto;">
+                    <i data-lucide="log-out" style="width:17px; height:17px;"></i>
+                </button>
+            </div>
+
+        </aside>
+
+        <!-- ============= منطقة المحتوى الرئيسي ============= -->
+        <main class="main-content">
+
+            <!-- الشريط العلوي -->
+            <div class="top-bar">
+                <div class="top-bar-right">
+                    <button type="button" class="mobile-menu-btn" id="mobile-menu-toggle" aria-label="فتح القائمة">
+                        <i data-lucide="menu"></i>
+                    </button>
+                    <h2 class="page-title-small">الدعم والرسائل</h2>
+                </div>
+
+                <div class="top-bar-left">
+                    <div class="search-box">
+                        <i data-lucide="search" class="search-icon"></i>
+                        <input type="text" id="topSearchInput" placeholder="بحث في الدعم والرسائل..." aria-label="بحث سريع">
+                    </div>
+
+                    <button type="button" class="icon-btn" aria-label="الإشعارات" title="الإشعارات">
+                        <i data-lucide="bell"></i>
+                        <span class="notif-badge"></span>
+                    </button>
+
+                    <div style="display:flex; align-items:center; gap:8px; background:#fff; border:1px solid #d8e6d5; border-radius:12px; padding:5px 14px 5px 10px; cursor:pointer;">
+                        <div style="width:32px; height:32px; border-radius:50%; background:linear-gradient(135deg,#2d4a2c,#3a6239); color:#fff; font-size:14px; font-weight:800; display:flex; align-items:center; justify-content:center;">ن</div>
+                        <span style="font-size:13px; font-weight:700; color:#1b2f1a;">مرام عاهد</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- رأس الصفحة -->
+            <div class="page-header">
+                <div class="page-header-info">
+                    <h1>الدعم والرسائل</h1>
+                    <p>صندوق واحد لاستفسارات العناية والحسابات؛ عَيِن المسؤول وتابع كل رسالة حتى الحل.</p>
+                </div>
+                <div class="page-header-actions">
+                    <button type="button" class="btn-primary" id="btn-new-chat" onclick="showToast('جارٍ إنشاء محادثة جديدة…')">
+                        <i data-lucide="message-square-plus"></i>
+                        إنشاء محادثة
+                    </button>
+                </div>
+            </div>
+
+            <!-- تبويبات الفلترة -->
+            <div class="filter-tabs" role="tablist" aria-label="تصفية الطلبات">
+                <button class="filter-tab active" id="tab-all" role="tab" aria-selected="true" onclick="switchTab(this,'all')">
+                    كل المفتوحة
+                    <span class="tab-count">٢٤</span>
+                </button>
+                <button class="filter-tab" id="tab-new" role="tab" aria-selected="false" onclick="switchTab(this,'new')">
+                    جديدة
+                    <span class="tab-count">٨٠</span>
+                </button>
+                <button class="filter-tab" id="tab-pending" role="tab" aria-selected="false" onclick="switchTab(this,'pending')">
+                    قيد المعالجة
+                    <span class="tab-count">١١</span>
+                </button>
+                <button class="filter-tab" id="tab-waiting" role="tab" aria-selected="false" onclick="switchTab(this,'waiting')">
+                    بانتظار المستخدم
+                    <span class="tab-count">٥٠</span>
+                </button>
+            </div>
+
+            <!-- =========== تخطيط الدعم الثلاثي =========== -->
+            <div class="support-layout">
+
+                <!-- ---- عمود المحادثات ---- -->
+                <div class="conversations-panel" id="conversations-panel">
+
+                    <div class="panel-header">
+                        <h3>الرسائل</h3>
+                        <span class="count-badge">٢٤ مفتوحة</span>
+                    </div>
+
+                    <div class="panel-search">
+                        <div class="search-box">
+                            <i data-lucide="search" class="search-icon"></i>
+                            <input type="text" placeholder="ابحث في الرسائل..." id="convSearchInput" aria-label="بحث في الرسائل">
+                        </div>
+                    </div>
+
+                    <div class="sort-row">
+                        <span>الفريق: الكل</span>
+                        <select aria-label="ترتيب المحادثات" id="sortSelect">
+                            <option>الأحدث أولاً</option>
+                            <option>الأقدم أولاً</option>
+                            <option>الأعلى أولوية</option>
+                        </select>
+                    </div>
+
+                    <div class="conversations-list" id="conv-list" role="list">
+
+                        <!-- محادثة 1 – نشطة -->
+                        <div class="conv-item active" role="listitem" onclick="openConversation(this, 'sara')" id="conv-sara" tabindex="0">
+                            <div class="conv-item-top">
+                                <span class="conv-name">يوسف وسام</span>
+                                <span class="conv-time">٩:٢٣ ص</span>
+                            </div>
+                            <span class="conv-subject">لم يصل تذكير الري</span>
+                            <div class="conv-meta">
+                                <span class="conv-id">S-0286</span>
+                                <span class="status-badge status-pending">قيد المعالجة</span>
+                            </div>
+                        </div>
+
+                        <!-- محادثة 2 -->
+                        <div class="conv-item" role="listitem" onclick="openConversation(this, 'omar')" id="conv-omar" tabindex="0">
+                            <div class="conv-item-top">
+                                <span class="conv-name">عمر خالد</span>
+                                <span class="conv-time">٩:١٦ ص</span>
+                            </div>
+                            <span class="conv-subject">تعديل معلومات النبتة</span>
+                            <div class="conv-meta">
+                                <span class="conv-id">S-0287</span>
+                                <span class="status-badge status-new">جديدة</span>
+                            </div>
+                        </div>
+
+                        <!-- محادثة 3 -->
+                        <div class="conv-item" role="listitem" onclick="openConversation(this, 'huda')" id="conv-huda" tabindex="0">
+                            <div class="conv-item-top">
+                                <span class="conv-name">هدى سامي</span>
+                                <span class="conv-time">٩:٠٨ ص</span>
+                            </div>
+                            <span class="conv-subject">سؤال عن مراجعة التشخيص</span>
+                            <div class="conv-meta">
+                                <span class="conv-id">S-0288</span>
+                                <span class="status-badge status-new">جديدة</span>
+                            </div>
+                        </div>
+
+                        <!-- محادثة 4 -->
+                        <div class="conv-item" role="listitem" onclick="openConversation(this, 'may')" id="conv-may" tabindex="0">
+                            <div class="conv-item-top">
+                                <span class="conv-name">ماي ناصر</span>
+                                <span class="conv-time">أمس</span>
+                            </div>
+                            <span class="conv-subject">تأكيد البريد الإلكتروني</span>
+                            <div class="conv-meta">
+                                <span class="conv-id">S-0285</span>
+                                <span class="status-badge status-pending">بانتظار المستخدم</span>
+                            </div>
+                        </div>
+
+                        <!-- محادثة 5 -->
+                        <div class="conv-item" role="listitem" onclick="openConversation(this, 'fahad')" id="conv-fahad" tabindex="0">
+                            <div class="conv-item-top">
+                                <span class="conv-name">فهد علي</span>
+                                <span class="conv-time">أمس</span>
+                            </div>
+                            <span class="conv-subject">ظهور صورة النبات</span>
+                            <div class="conv-meta">
+                                <span class="conv-id">S-0284</span>
+                                <span class="status-badge status-pending">قيد المعالجة</span>
+                            </div>
+                        </div>
+
+                        <!-- محادثة 6 -->
+                        <div class="conv-item" role="listitem" onclick="openConversation(this, 'reem')" id="conv-reem" tabindex="0">
+                            <div class="conv-item-top">
+                                <span class="conv-name">ريم عادل</span>
+                                <span class="conv-time">أمس</span>
+                            </div>
+                            <span class="conv-subject">مساعدة في ملف العناية</span>
+                            <div class="conv-meta">
+                                <span class="conv-id">S-0282</span>
+                                <span class="status-badge status-pending">بانتظار المستخدم</span>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <button class="show-more-btn" onclick="showToast('جارٍ تحميل المزيد من المحادثات…')" type="button">
+                        عرض بقية المحادثات ←
+                    </button>
+
+                </div>
+
+                <!-- ---- نافذة المحادثة ---- -->
+                <div class="chat-panel">
+
+                    <div class="chat-header">
+                        <div class="chat-header-info">
+                            <h3 id="chat-title">لم يصل تذكير الري</h3>
+                            <div class="chat-meta" id="chat-meta">اليوم، ٢٦ أكتوبر ٢٠٢٦ · S-0286 · يوسف وسام</div>
+                        </div>
+                        <div class="chat-header-actions">
+                            <span class="status-badge status-pending" id="chat-status-badge">قيد المعالجة</span>
+                            <button type="button" class="btn-solve" id="btn-solve" onclick="markSolved()">
+                                <i data-lucide="check-circle-2"></i>
+                                وضع علامة كمحلولة
+                            </button>
+                            <button type="button" class="icon-btn" title="المزيد" aria-label="المزيد من الخيارات">
+                                <i data-lucide="more-vertical"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- رسائل المحادثة -->
+                    <div class="chat-messages" id="chat-messages-container">
+
+                        <div class="chat-date-divider">
+                            <span>اليوم، ٢٦ أكتوبر ٢٠٢٦</span>
+                        </div>
+
+                        <!-- رسالة المستخدم -->
+                        <div class="message-bubble user-msg">
+                            <span class="bubble-sender">يوسف وسام</span>
+                            <div class="bubble-content">
+                                مرحباً، يظهر موعد ري النباتات في الجدول لكن لم يصلني أي تنبيه. المنصة هل هناك إعداد أحتاج إلى تفعيله؟
+                            </div>
+                            <span class="bubble-time">٩:٤٨ ص</span>
+                        </div>
+
+                        <!-- رسالة الأدمن -->
+                        <div class="message-bubble admin-msg">
+                            <span class="bubble-sender">أدم عمر - فريق عناية</span>
+                            <div class="bubble-content">
+                                أهلاً يوسف، هل إشعارات المنصة مفعّلة في إعدادات حسابك؟ وهل سمحت للمتصفح بإرسال التنبيهات من المنصة؟
+                            </div>
+                            <span class="bubble-time">٩:١٨ ص</span>
+                        </div>
+
+                        <!-- رسالة المستخدم -->
+                        <div class="message-bubble user-msg">
+                            <span class="bubble-sender">يوسف وسام</span>
+                            <div class="bubble-content">
+                                تذكيرات العناية مفعّلة، لكن إشعارات المنصة متوقفة. أستخدم الحاسوب اللآن.
+                            </div>
+                            <span class="bubble-time">٩:٢٣ ص</span>
+                        </div>
+
+                        <!-- ملاحظة داخلية -->
+                        <div class="internal-note-bubble">
+                            <div class="internal-note-label">ملاحظة داخلية</div>
+                            <div class="bubble-content">
+                                رد للمستخدم: شكراً للتوضيح، فعِّلي إشعارات المنصة من الحساب والإعدادات، ثم امنحي المتصفح صلاحية إرسال إشعارات العناية. يبقى الجدول مرتبطاً بالمواعيد، وافحصي التاريخية قبل البدء.
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- منطقة الرد -->
+                    <div class="reply-area">
+                        <div class="reply-tabs">
+                            <button class="reply-tab-btn active" id="reply-tab-user" onclick="switchReplyTab('user')" type="button">رد للمستخدم</button>
+                            <button class="reply-tab-btn" id="reply-tab-internal" onclick="switchReplyTab('internal')" type="button">ملاحظة داخلية</button>
+                        </div>
+                        <textarea
+                            class="reply-textarea"
+                            id="reply-textarea"
+                            placeholder="شكراً للتوضيح، فعِّلي إشعارات المنصة من الحساب والإعدادات، ثم امنحي المتصفح صلاحية إرسال إشعارات العناية. يبقى الجدول مرتبطاً للمواعيد، وافحصي التاريخية قبل البدء."
+                            aria-label="كتابة الرد"
+                        ></textarea>
+                        <div class="reply-actions">
+                            <div class="reply-actions-left">
+                                <button type="button" class="attach-btn" title="إرفاق ملف" aria-label="إرفاق ملف">
+                                    <i data-lucide="paperclip"></i>
+                                </button>
+                                <span class="reply-status-text">محفوظة كمسودة</span>
+                            </div>
+                            <button type="button" class="btn-send" id="btn-send" onclick="sendReply()">
+                                <i data-lucide="send"></i>
+                                إرسال الرد
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- ---- لوحة بيانات الطلب ---- -->
+                <div class="details-panel" id="details-panel">
+
+                    <!-- بيانات المستخدم -->
+                    <div class="detail-card">
+                        <h4>بيانات الطلب</h4>
+                        <div class="user-detail-header">
+                            <div class="user-avatar-sm">ي</div>
+                            <div>
+                                <div class="user-detail-name" id="detail-username">يوسف وسام</div>
+                                <div class="user-detail-email" id="detail-email">U-0124 · yousef@example.com</div>
+                            </div>
+                        </div>
+                        <span class="plan-badge" id="detail-plan">الخطة المجانية</span>
+                        <div class="detail-row">
+                            <span class="detail-label">٤ نباتات شخصية · طلبا تشخيص</span>
+                            <span class="detail-value" id="detail-ticket">طلب مرتبط: D-1042</span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="detail-label">يونس · بانتظار مراجعة المختص</span>
+                        </div>
+                        <a href="admin-users.html" class="view-user-btn">
+                            <i data-lucide="external-link"></i>
+                            عرض حساب المستخدم
+                        </a>
+                    </div>
+
+                    <!-- إدارة الطلب -->
+                    <div class="detail-card">
+                        <h4>إدارة الطلب</h4>
+                        <div class="ticket-manage-row">
+                            <span class="ticket-manage-label">المسؤول</span>
+                            <select class="select-styled" id="assign-select" aria-label="تعيين المسؤول">
+                                <option>أدم عمر · الدعم</option>
+                                <option>مرام عاهد</option>
+                                <option>خالد منصور</option>
+                            </select>
+                        </div>
+                        <div class="ticket-manage-row">
+                            <span class="ticket-manage-label">الأولوية</span>
+                            <select class="select-styled" id="priority-select" aria-label="تحديد الأولوية">
+                                <option>عادية</option>
+                                <option>عالية</option>
+                                <option>حرجة</option>
+                                <option>منخفضة</option>
+                            </select>
+                        </div>
+                        <div class="ticket-manage-row">
+                            <span class="ticket-manage-label">الوسوم</span>
+                            <div class="tags-area">
+                                <span class="tag-chip">تذكيرات العناية</span>
+                                <span class="tag-chip">يونس</span>
+                                <span class="tag-chip">الحاسوب اللآن</span>
+                            </div>
+                        </div>
+                        <div class="detail-row">
+                            <span class="detail-label">فُتح اليوم ٩:٤١ ص</span>
+                            <span class="detail-value" style="font-size:12px; color:var(--text-muted);">الفئة: نموذج التواصل</span>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+            <!-- / support-layout -->
+
+        </main>
+
+    </div>
+
+    <!-- Sidebar overlay للموبايل -->
+    <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+    <!-- Toast container -->
+    <div class="toast-container" id="toast-container" aria-live="polite"></div>
+
+    <script>
+        /* ======== تهيئة الأيقونات ======== */
+        lucide.createIcons();
+
+        /* ======== القائمة الجانبية (موبايل) ======== */
+        const sidebar        = document.getElementById('sidebar');
+        const overlay        = document.getElementById('sidebar-overlay');
+        const menuToggle     = document.getElementById('mobile-menu-toggle');
+
+        function openSidebar()  { sidebar.classList.add('open');   overlay.classList.add('active'); }
+        function closeSidebar() { sidebar.classList.remove('open'); overlay.classList.remove('active'); }
+
+        menuToggle?.addEventListener('click', openSidebar);
+        overlay?.addEventListener('click', closeSidebar);
+
+        /* ======== فلتر التبويبات ======== */
+        function switchTab(btn, key) {
+            document.querySelectorAll('.filter-tab').forEach(t => {
+                t.classList.remove('active');
+                t.setAttribute('aria-selected', 'false');
+            });
+            btn.classList.add('active');
+            btn.setAttribute('aria-selected', 'true');
+        }
+
+        /* ======== تبديل تبويب الرد ======== */
+        function switchReplyTab(type) {
+            const userBtn     = document.getElementById('reply-tab-user');
+            const internalBtn = document.getElementById('reply-tab-internal');
+            const textarea    = document.getElementById('reply-textarea');
+            const sendBtn     = document.getElementById('btn-send');
+
+            if (type === 'user') {
+                userBtn.classList.add('active');
+                internalBtn.classList.remove('active');
+                textarea.placeholder = 'اكتب ردك للمستخدم هنا…';
+                sendBtn.textContent = '';
+                sendBtn.innerHTML = '<i data-lucide="send"></i> إرسال الرد';
+            } else {
+                internalBtn.classList.add('active');
+                userBtn.classList.remove('active');
+                textarea.placeholder = 'اكتب ملاحظة داخلية للفريق…';
+                sendBtn.innerHTML = '<i data-lucide="sticky-note"></i> إضافة ملاحظة';
+            }
+            lucide.createIcons();
+        }
+
+        /* ======== الانتقال بين المحادثات ======== */
+        const convData = {
+            sara:  { title: 'لم يصل تذكير الري',          meta: 'اليوم، ٢٦ أكتوبر ٢٠٢٦ · S-0286 · يوسف وسام',        status: 'قيد المعالجة', statusClass: 'status-pending', name: 'يوسف وسام', email: 'U-0124 · yousef@example.com',  plan: 'الخطة المجانية',  ticket: 'طلب مرتبط: D-1042', avatar: 'ي' },
+            omar:  { title: 'تعديل معلومات النبتة',        meta: 'اليوم، ٢٦ أكتوبر ٢٠٢٦ · S-0287 · عمر خالد',         status: 'جديدة',         statusClass: 'status-new',     name: 'عمر خالد',  email: 'U-0205 · omar@example.com', plan: 'الخطة الاحترافية', ticket: 'طلب مرتبط: —',      avatar: 'ع' },
+            huda:  { title: 'سؤال عن مراجعة التشخيص',    meta: 'اليوم، ٢٦ أكتوبر ٢٠٢٦ · S-0288 · هدى سامي',         status: 'جديدة',         statusClass: 'status-new',     name: 'هدى سامي',  email: 'U-0312 · huda@example.com', plan: 'الخطة المجانية',  ticket: 'طلب مرتبط: D-1098', avatar: 'ه' },
+            may:   { title: 'تأكيد البريد الإلكتروني',    meta: 'أمس، ٢٥ أكتوبر ٢٠٢٦ · S-0285 · ماي ناصر',          status: 'بانتظار المستخدم', statusClass: 'status-pending', name: 'ماي ناصر',  email: 'U-0089 · may@example.com',  plan: 'الخطة الاحترافية', ticket: 'طلب مرتبط: —',      avatar: 'م' },
+            fahad: { title: 'ظهور صورة النبات',            meta: 'أمس، ٢٥ أكتوبر ٢٠٢٦ · S-0284 · فهد علي',            status: 'قيد المعالجة', statusClass: 'status-pending', name: 'فهد علي',   email: 'U-0178 · fahad@example.com', plan: 'الخطة المجانية',  ticket: 'طلب مرتبط: —',      avatar: 'ف' },
+            reem:  { title: 'مساعدة في ملف العناية',       meta: 'أمس، ٢٥ أكتوبر ٢٠٢٦ · S-0282 · ريم عادل',           status: 'بانتظار المستخدم', statusClass: 'status-pending', name: 'ريم عادل',  email: 'U-0254 · reem@example.com', plan: 'الخطة الاحترافية', ticket: 'طلب مرتبط: —',      avatar: 'ر' }
+        };
+
+        function openConversation(el, key) {
+            document.querySelectorAll('.conv-item').forEach(c => c.classList.remove('active'));
+            el.classList.add('active');
+
+            const d = convData[key];
+            if (!d) return;
+
+            document.getElementById('chat-title').textContent       = d.title;
+            document.getElementById('chat-meta').textContent        = d.meta;
+            document.getElementById('detail-username').textContent   = d.name;
+            document.getElementById('detail-email').textContent      = d.email;
+            document.getElementById('detail-plan').textContent       = d.plan;
+            document.getElementById('detail-ticket').textContent     = d.ticket;
+
+            const badge = document.getElementById('chat-status-badge');
+            badge.className = 'status-badge ' + d.statusClass;
+            badge.textContent = d.status;
+
+            const avatarEl = document.querySelector('.user-avatar-sm');
+            if (avatarEl) avatarEl.textContent = d.avatar;
+
+            /* تحديث رسائل المحادثة بمحادثة مبسطة */
+            const container = document.getElementById('chat-messages-container');
+            container.innerHTML = `
+                <div class="chat-date-divider"><span>${d.meta.split(' · ')[0]}</span></div>
+                <div class="message-bubble user-msg" style="animation:fadeIn .3s ease-out">
+                    <span class="bubble-sender">${d.name}</span>
+                    <div class="bubble-content">مرحباً، لدي استفسار بخصوص "${d.title}"، أرجو المساعدة.</div>
+                    <span class="bubble-time">٩:٠٠ ص</span>
+                </div>
+                <div class="message-bubble admin-msg" style="animation:fadeIn .3s ease-out .1s both">
+                    <span class="bubble-sender">أدم عمر - فريق عناية</span>
+                    <div class="bubble-content">أهلاً ${d.name.split(' ')[0]}، سنراجع طلبك فوراً ونعود إليك بأقرب وقت.</div>
+                    <span class="bubble-time">٩:٠٥ ص</span>
+                </div>
+            `;
+        }
+
+        /* ======== إرسال الرد ======== */
+        function sendReply() {
+            const textarea = document.getElementById('reply-textarea');
+            const text = textarea.value.trim();
+            if (!text) {
+                showToast('يرجى كتابة رد قبل الإرسال', 'warn');
+                return;
+            }
+            const isInternal = document.getElementById('reply-tab-internal').classList.contains('active');
+            const container  = document.getElementById('chat-messages-container');
+
+            if (isInternal) {
+                container.insertAdjacentHTML('beforeend', `
+                    <div class="internal-note-bubble" style="animation:fadeIn .3s ease-out">
+                        <div class="internal-note-label">ملاحظة داخلية</div>
+                        <div class="bubble-content">${text}</div>
+                    </div>
+                `);
+            } else {
+                container.insertAdjacentHTML('beforeend', `
+                    <div class="message-bubble admin-msg" style="animation:fadeIn .3s ease-out">
+                        <span class="bubble-sender">أدم عمر - فريق عناية</span>
+                        <div class="bubble-content">${text}</div>
+                        <span class="bubble-time">الآن</span>
+                    </div>
+                `);
+            }
+
+            textarea.value = '';
+            container.scrollTop = container.scrollHeight;
+            showToast('تم إرسال الرد بنجاح ✓');
+        }
+
+        /* ======== وضع علامة كمحلولة ======== */
+        function markSolved() {
+            const badge = document.getElementById('chat-status-badge');
+            badge.className = 'status-badge status-closed';
+            badge.textContent = 'محلولة';
+            showToast('تم تحديد الطلب كمحلول ✓');
+        }
+
+        /* ======== Toast ======== */
+        function showToast(msg, type) {
+            const container = document.getElementById('toast-container');
+            const el = document.createElement('div');
+            el.className = 'toast';
+            el.style.background = type === 'warn' ? '#856404' : 'var(--primary-green)';
+            el.innerHTML = `<i data-lucide="check-circle" style="width:18px;height:18px;flex-shrink:0"></i><span>${msg}</span>`;
+            container.appendChild(el);
+            lucide.createIcons();
+            setTimeout(() => {
+                el.classList.add('toast-exit');
+                setTimeout(() => el.remove(), 400);
+            }, 3000);
+        }
+    </script>
+
+</body>
+
+</html>

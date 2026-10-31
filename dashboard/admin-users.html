@@ -1,0 +1,875 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>إدارة المستخدمين | لوحة الأدمن — عناية Enaya</title>
+    <meta name="description" content="إدارة حسابات المستخدمين ومراجعة حالة الوصول في نظام عناية.">
+
+    <!-- خط Cairo المعتمد لكامل الواجهة -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- أيقونات Lucide المعتمدة -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- CSS الموحد للقائمة الجانبية والواجهة -->
+    <link rel="stylesheet" href="../css/sidebar.css">
+    <link rel="stylesheet" href="../css/admin-users.css">
+
+
+    <!-- أيقونة الموقع في التبويب -->
+    <link rel="icon" type="image/png" href="logo-enaya.png">
+</head>
+
+<body>
+
+    <div class="app-container">
+
+        <!-- ============= القائمة الجانبية الموحدة (أدمن) ============= -->
+        <aside class="sidebar" id="sidebar">
+
+            <a href="admin-overview.html" class="sidebar-logo logo-area" aria-label="لوحة الأدمن | عناية">
+                <img src="logo-enaya.png" alt="شعار عناية">
+            </a>
+
+            <!-- شارة لوحة الإدارة -->
+            <div style="
+                display:flex; align-items:center; justify-content:center;
+                margin: 0 0 14px; padding: 4px 14px; border-radius: 20px;
+                background: rgba(169,207,156,0.18); border: 1px solid rgba(169,207,156,0.3);
+                font-size: 11px; font-weight: 800; color: #a9cf9c; letter-spacing: 0.3px;
+            ">لوحة الإدارة</div>
+
+            <nav class="sidebar-menu" aria-label="قائمة الأدمن">
+
+                <!-- نظرة عامة -->
+                <a href="admin-overview.html" class="menu-link">
+                    <i data-lucide="layout-dashboard"></i>
+                    <span>نظرة عامة</span>
+                </a>
+
+                <!-- إدارة المستخدمين (النشطة) -->
+                <a href="admin-users.html" class="menu-link active" aria-current="page">
+                    <i data-lucide="users"></i>
+                    <span>إدارة المستخدمين</span>
+                </a>
+
+                <!-- مكتبة النباتات -->
+                <a href="admin-plants.html" class="menu-link">
+                    <i data-lucide="sprout"></i>
+                    <span>مكتبة النباتات</span>
+                </a>
+
+                <!-- مراجعة التشخيصات -->
+                <a href="admin-diagnosis.html" class="menu-link">
+                    <i data-lucide="scan-line"></i>
+                    <span>مراجعة التشخيصات</span>
+                </a>
+
+                <!-- الاشتراكات والفواتير -->
+                <a href="admin-billing.html" class="menu-link">
+                    <i data-lucide="credit-card"></i>
+                    <span>الاشتراكات والفواتير</span>
+                </a>
+
+                <div class="menu-divider"></div>
+
+                <!-- إدارة المحتوى -->
+                <a href="admin-content.html" class="menu-link">
+                    <i data-lucide="file-text"></i>
+                    <span>إدارة المحتوى</span>
+                </a>
+
+                <!-- الدعم والرسائل -->
+                <a href="admin-support.html" class="menu-link">
+                    <i data-lucide="message-circle"></i>
+                    <span>الدعم والرسائل</span>
+                </a>
+
+                <!-- الصلاحيات والإعدادات -->
+                <a href="admin-settings.html" class="menu-link">
+                    <i data-lucide="settings"></i>
+                    <span>الصلاحيات والإعدادات</span>
+                </a>
+
+            </nav>
+
+            <!-- صندوق العناية تبدأ من هنا -->
+            <div class="upgrade-box">
+                <div class="upgrade-title">
+                    <i data-lucide="shield-check"></i>
+                    <strong>العناية تبدأ من هنا</strong>
+                </div>
+                <p>تابع الطلبات، وراجع المعرفة، وأجِب كل استفسار أهاممه.</p>
+                <a href="#" class="upgrade-button">
+                    <span style="display:inline-block; width:6px; height:6px; border-radius:50%; background:#2ed573; margin-left:6px;"></span>
+                    جميع الخدمات مستقرة
+                </a>
+            </div>
+
+            <!-- معلومات الأدمن -->
+            <div class="sidebar-user">
+                <div class="user-avatar">م</div>
+                <div class="user-info">
+                    <strong>مرام عاهد</strong>
+                    <small>مدير النظام · وصول كامل</small>
+                </div>
+                <button type="button" class="icon-btn" title="تسجيل الخروج" style="color:rgba(255,255,255,0.7); margin-right:auto;">
+                    <i data-lucide="log-out" style="width:17px; height:17px;"></i>
+                </button>
+            </div>
+
+        </aside>
+
+        <!-- ============= منطقة المحتوى الرئيسي ============= -->
+        <main class="main-content">
+
+            <!-- الشريط العلوي -->
+            <div class="top-bar">
+                <div class="top-bar-right">
+                    <button type="button" class="mobile-menu-btn" id="mobile-menu-toggle" aria-label="فتح القائمة">
+                        <i data-lucide="menu"></i>
+                    </button>
+                    <h2 class="page-title-small">إدارة المستخدمين</h2>
+                </div>
+
+                <div class="top-bar-left">
+                    <div class="search-box">
+                        <i data-lucide="search" class="search-icon"></i>
+                        <input type="text" id="topSearchInput" placeholder="بحث في إدارة المستخدمين..." aria-label="بحث سريع">
+                    </div>
+
+                    <button type="button" class="icon-btn" aria-label="الإشعارات" title="الإشعارات">
+                        <i data-lucide="bell"></i>
+                        <span class="notif-badge"></span>
+                    </button>
+
+                    <div class="topbar-user" title="الملف الشخصي">
+                        <span class="topbar-user-name">مرام عاهد</span>
+                        <div class="topbar-user-avatar">م</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- رأس الصفحة -->
+            <div class="page-header">
+                <div class="page-header-right">
+                    <h1>إدارة المستخدمين</h1>
+                    <p>أدر الحسابات، وراجع حالة الوصول دون المساس ببيانات المستخدمين الشخصية.</p>
+                </div>
+
+                <div class="page-header-left">
+                    <button type="button" class="btn-export" id="exportUsersBtn">
+                        <i data-lucide="download"></i>
+                        تصدير المستخدمين
+                    </button>
+                </div>
+            </div>
+
+            <!-- شبكة الإحصاءات الأربعة -->
+            <div class="stats-grid">
+
+                <!-- بطاقة 1: إجمالي المستخدمين -->
+                <div class="stat-card">
+                    <div class="stat-value">١٬٢٤٨</div>
+                    <div class="stat-title">إجمالي المستخدمين</div>
+                    <div class="stat-subtext">جميع الحسابات على الخطة المجانية</div>
+                </div>
+
+                <!-- بطاقة 2: حساباً نشطاً -->
+                <div class="stat-card">
+                    <div class="stat-value">١٬١٣٦</div>
+                    <div class="stat-title">حساباً نشطاً</div>
+                    <div class="stat-subtext">٩١٪ من إجمالي الحسابات</div>
+                </div>
+
+                <!-- بطاقة 3: بانتظار تأكيد البريد -->
+                <div class="stat-card">
+                    <div class="stat-value">٧٢</div>
+                    <div class="stat-title">بانتظار تأكيد البريد</div>
+                    <div class="stat-subtext link-style" id="resendAllConfirmBtn">إعادة إرسال رابط التأكيد</div>
+                </div>
+
+                <!-- بطاقة 4: حساباً موقوفاً -->
+                <div class="stat-card">
+                    <div class="stat-value">٤٠</div>
+                    <div class="stat-title">حساباً موقوفاً</div>
+                    <div class="stat-subtext">يمكن مراجعة أسباب الإيقاف</div>
+                </div>
+
+            </div>
+
+            <!-- التخطيط المزدوج: جدول المستخدمين (يمين) + تفاصيل المستخدم (يسار) -->
+            <div class="users-layout">
+
+                <!-- العمود الأيمن: سجل المستخدمين (جدول) -->
+                <div class="users-table-card">
+
+                    <div class="table-card-header">
+                        <div class="table-card-title">سجل المستخدمين</div>
+                        <div class="table-card-count" id="tableCountDisplay">١٬٢٤٨ حساباً</div>
+                    </div>
+
+                    <!-- شريط البحث الداخلي -->
+                    <div class="card-search-box">
+                        <i data-lucide="search" class="card-search-icon"></i>
+                        <input type="text" id="userFilterInput" placeholder="ابحث بالاسم أو البريد أو رقم المستخدم..." aria-label="بحث في المستخدمين">
+                    </div>
+
+                    <!-- أزرار التصفية العلوية (Tabs) -->
+                    <div class="filter-pills-row">
+                        <button type="button" class="pill-btn active" data-filter="all">
+                            الكل <span class="pill-count">١٬٢٤٨</span>
+                        </button>
+                        <button type="button" class="pill-btn" data-filter="active">
+                            نشط <span class="pill-count">١٬١٣٦</span>
+                        </button>
+                        <button type="button" class="pill-btn" data-filter="pending">
+                            بانتظار التأكيد <span class="pill-count">٧٢</span>
+                        </button>
+                        <button type="button" class="pill-btn" data-filter="suspended">
+                            موقوف <span class="pill-count">٤٠</span>
+                        </button>
+                    </div>
+
+                    <!-- خيارات الترتيب والتصفية الثانوية -->
+                    <div class="filters-secondary-row">
+                        <div class="secondary-filters-right">
+                            <button type="button" class="dropdown-filter-btn">
+                                <span>الخطة: مجانية</span>
+                                <i data-lucide="chevron-down"></i>
+                            </button>
+                            <button type="button" class="dropdown-filter-btn">
+                                <span>تاريخ الانضمام</span>
+                                <i data-lucide="chevron-down"></i>
+                            </button>
+                        </div>
+                        <div>
+                            <button type="button" class="dropdown-filter-btn">
+                                <span>الترتيب: الأحدث انضماماً</span>
+                                <i data-lucide="chevron-down"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- الجدول التفاعلي -->
+                    <div class="table-responsive">
+                        <table class="users-table" id="usersTable">
+                            <thead>
+                                <tr>
+                                    <th>المستخدم</th>
+                                    <th>الحالة</th>
+                                    <th>الخطة</th>
+                                    <th>النباتات</th>
+                                    <th>الانضمام</th>
+                                </tr>
+                            </thead>
+                            <tbody id="usersTableBody">
+
+                                <!-- صف 1: يوسف وسام (محدد افتراضياً) -->
+                                <tr class="selected" 
+                                    data-id="U-0124" 
+                                    data-name="يوسف وسام" 
+                                    data-email="yousef@example.com" 
+                                    data-status="active" 
+                                    data-status-label="نشط"
+                                    data-plan="مجانية" 
+                                    data-joined="٢٤ سبتمبر ٢٠٢٦" 
+                                    data-last-active="اليوم، ٠٩:١٢ ص"
+                                    data-plants="٤ نباتات" 
+                                    data-diagnoses="طلبان · ١ للمراجعة"
+                                    data-since="مستخدمة منذ سبتمبر">
+                                    <td>
+                                        <div class="user-name-cell">
+                                            <span class="user-full-name">يوسف وسام</span>
+                                            <span class="user-meta-sub">U-0124 · yousef@example.com</span>
+                                        </div>
+                                    </td>
+                                    <td><span class="status-badge badge-active">نشط</span></td>
+                                    <td><span class="plan-text">مجانية</span></td>
+                                    <td><span class="plants-count-text">٤</span></td>
+                                    <td><span class="join-date-text">٢٤ سبتمبر</span></td>
+                                </tr>
+
+                                <!-- صف 2: عمر خالد -->
+                                <tr data-id="U-0125" 
+                                    data-name="عمر خالد" 
+                                    data-email="omar@example.com" 
+                                    data-status="active" 
+                                    data-status-label="نشط"
+                                    data-plan="مجانية" 
+                                    data-joined="٢٢ سبتمبر ٢٠٢٦" 
+                                    data-last-active="أمس، ٠٤:٣٠ م"
+                                    data-plants="٧ نباتات" 
+                                    data-diagnoses="٥ طلبات"
+                                    data-since="مستخدم منذ سبتمبر">
+                                    <td>
+                                        <div class="user-name-cell">
+                                            <span class="user-full-name">عمر خالد</span>
+                                            <span class="user-meta-sub">U-0125 · omar@example.com</span>
+                                        </div>
+                                    </td>
+                                    <td><span class="status-badge badge-active">نشط</span></td>
+                                    <td><span class="plan-text">مجانية</span></td>
+                                    <td><span class="plants-count-text">٧</span></td>
+                                    <td><span class="join-date-text">٢٢ سبتمبر</span></td>
+                                </tr>
+
+                                <!-- صف 3: ريم عادل -->
+                                <tr data-id="U-0126" 
+                                    data-name="ريم عادل" 
+                                    data-email="reem@example.com" 
+                                    data-status="pending" 
+                                    data-status-label="بانتظار التأكيد"
+                                    data-plan="مجانية" 
+                                    data-joined="٢١ سبتمبر ٢٠٢٦" 
+                                    data-last-active="منذ ٤ أيام"
+                                    data-plants="٢ نبات" 
+                                    data-diagnoses="لا يوجد"
+                                    data-since="مستخدمة منذ سبتمبر">
+                                    <td>
+                                        <div class="user-name-cell">
+                                            <span class="user-full-name">ريم عادل</span>
+                                            <span class="user-meta-sub">U-0126 · reem@example.com</span>
+                                        </div>
+                                    </td>
+                                    <td><span class="status-badge badge-pending">بانتظار التأكيد</span></td>
+                                    <td><span class="plan-text">مجانية</span></td>
+                                    <td><span class="plants-count-text">٢</span></td>
+                                    <td><span class="join-date-text">٢١ سبتمبر</span></td>
+                                </tr>
+
+                                <!-- صف 4: هدى سامي -->
+                                <tr data-id="U-0127" 
+                                    data-name="هدى سامي" 
+                                    data-email="huda@example.com" 
+                                    data-status="active" 
+                                    data-status-label="نشط"
+                                    data-plan="مجانية" 
+                                    data-joined="٢٠ سبتمبر ٢٠٢٦" 
+                                    data-last-active="اليوم، ١١:٠٠ ص"
+                                    data-plants="٥ نباتات" 
+                                    data-diagnoses="٣ طلبات"
+                                    data-since="مستخدمة منذ سبتمبر">
+                                    <td>
+                                        <div class="user-name-cell">
+                                            <span class="user-full-name">هدى سامي</span>
+                                            <span class="user-meta-sub">U-0127 · huda@example.com</span>
+                                        </div>
+                                    </td>
+                                    <td><span class="status-badge badge-active">نشط</span></td>
+                                    <td><span class="plan-text">مجانية</span></td>
+                                    <td><span class="plants-count-text">٥</span></td>
+                                    <td><span class="join-date-text">٢٠ سبتمبر</span></td>
+                                </tr>
+
+                                <!-- صف 5: خالد أمين -->
+                                <tr data-id="U-0128" 
+                                    data-name="خالد أمين" 
+                                    data-email="khaled@example.com" 
+                                    data-status="suspended" 
+                                    data-status-label="موقوف"
+                                    data-plan="مجانية" 
+                                    data-joined="١٨ سبتمبر ٢٠٢٦" 
+                                    data-last-active="منذ أسبوعين"
+                                    data-plants="٣ نباتات" 
+                                    data-diagnoses="طلب واحد"
+                                    data-since="مستخدم منذ سبتمبر">
+                                    <td>
+                                        <div class="user-name-cell">
+                                            <span class="user-full-name">خالد أمين</span>
+                                            <span class="user-meta-sub">U-0128 · khaled@example.com</span>
+                                        </div>
+                                    </td>
+                                    <td><span class="status-badge badge-suspended">موقوف</span></td>
+                                    <td><span class="plan-text">مجانية</span></td>
+                                    <td><span class="plants-count-text">٣</span></td>
+                                    <td><span class="join-date-text">١٨ سبتمبر</span></td>
+                                </tr>
+
+                                <!-- صف 6: منى ناصر -->
+                                <tr data-id="U-0129" 
+                                    data-name="منى ناصر" 
+                                    data-email="mona@example.com" 
+                                    data-status="active" 
+                                    data-status-label="نشط"
+                                    data-plan="مجانية" 
+                                    data-joined="١٦ سبتمبر ٢٠٢٦" 
+                                    data-last-active="اليوم، ٠٨:٢٠ ص"
+                                    data-plants="٦ نباتات" 
+                                    data-diagnoses="٤ طلبات"
+                                    data-since="مستخدمة منذ سبتمبر">
+                                    <td>
+                                        <div class="user-name-cell">
+                                            <span class="user-full-name">منى ناصر</span>
+                                            <span class="user-meta-sub">U-0129 · mona@example.com</span>
+                                        </div>
+                                    </td>
+                                    <td><span class="status-badge badge-active">نشط</span></td>
+                                    <td><span class="plan-text">مجانية</span></td>
+                                    <td><span class="plants-count-text">٦</span></td>
+                                    <td><span class="join-date-text">١٦ سبتمبر</span></td>
+                                </tr>
+
+                                <!-- صف 7: فهد علي -->
+                                <tr data-id="U-0130" 
+                                    data-name="فهد علي" 
+                                    data-email="fahad@example.com" 
+                                    data-status="active" 
+                                    data-status-label="نشط"
+                                    data-plan="مجانية" 
+                                    data-joined="١٥ سبتمبر ٢٠٢٦" 
+                                    data-last-active="أمس، ٠١:١٥ م"
+                                    data-plants="١ نبات" 
+                                    data-diagnoses="لا يوجد"
+                                    data-since="مستخدم منذ سبتمبر">
+                                    <td>
+                                        <div class="user-name-cell">
+                                            <span class="user-full-name">فهد علي</span>
+                                            <span class="user-meta-sub">U-0130 · fahad@example.com</span>
+                                        </div>
+                                    </td>
+                                    <td><span class="status-badge badge-active">نشط</span></td>
+                                    <td><span class="plan-text">مجانية</span></td>
+                                    <td><span class="plants-count-text">١</span></td>
+                                    <td><span class="join-date-text">١٥ سبتمبر</span></td>
+                                </tr>
+
+                                <!-- صف 8: لينا حسن -->
+                                <tr data-id="U-0131" 
+                                    data-name="لينا حسن" 
+                                    data-email="lina@example.com" 
+                                    data-status="pending" 
+                                    data-status-label="بانتظار التأكيد"
+                                    data-plan="مجانية" 
+                                    data-joined="١٤ سبتمبر ٢٠٢٦" 
+                                    data-last-active="منذ أسبوع"
+                                    data-plants="٣ نباتات" 
+                                    data-diagnoses="طلب واحد"
+                                    data-since="مستخدمة منذ سبتمبر">
+                                    <td>
+                                        <div class="user-name-cell">
+                                            <span class="user-full-name">لينا حسن</span>
+                                            <span class="user-meta-sub">U-0131 · lina@example.com</span>
+                                        </div>
+                                    </td>
+                                    <td><span class="status-badge badge-pending">بانتظار التأكيد</span></td>
+                                    <td><span class="plan-text">مجانية</span></td>
+                                    <td><span class="plants-count-text">٣</span></td>
+                                    <td><span class="join-date-text">١٤ سبتمبر</span></td>
+                                </tr>
+
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <!-- الترقيم وتذييل الجدول -->
+                    <div class="table-pagination-footer">
+                        <div class="pagination-info" id="paginationInfo">عرض ١–٨ من ١٬٢٤٨ مستخدماً</div>
+                        <div class="pagination-controls">
+                            <button type="button" class="page-btn" id="nextPageBtn">التالي</button>
+                            <button type="button" class="page-btn active">١</button>
+                            <button type="button" class="page-btn" id="prevPageBtn" disabled aria-label="السابق">
+                                <i data-lucide="chevron-left"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- العمود الأيسر: بطاقة تفاصيل المستخدم المحدد -->
+                <div class="user-detail-card" id="userDetailCard">
+
+                    <div class="detail-card-title">تفاصيل المستخدم</div>
+
+                    <!-- ملخص الهوية والصورة الشخصية -->
+                    <div class="user-profile-header">
+                        <div class="user-profile-text">
+                            <div class="detail-user-name" id="detailUserName">يوسف وسام</div>
+                            <div class="detail-user-subtitle" id="detailUserSubtitle">مستخدمة منذ سبتمبر · U-0124</div>
+                        </div>
+                        <div class="detail-user-avatar" id="detailUserAvatar">س</div>
+                    </div>
+
+                    <!-- شارات الحالة -->
+                    <div class="detail-badges-row">
+                        <span class="status-badge badge-active" id="detailBadgeStatus">نشط</span>
+                        <span class="badge-outline-cyan" id="detailBadgePlan">مجانية</span>
+                    </div>
+
+                    <!-- حقول التعديل السريع -->
+                    <div class="form-group">
+                        <label class="form-label" for="detailNameInput">الاسم المعروض</label>
+                        <input type="text" class="form-input" id="detailNameInput" value="يوسف وسام">
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="detailEmailInput">البريد الإلكتروني</label>
+                        <input type="email" class="form-input" id="detailEmailInput" value="yousef@example.com">
+                    </div>
+
+                    <!-- إحصائيات ومعلومات الحساب -->
+                    <div class="detail-info-list">
+                        <div class="detail-info-item">
+                            <span class="detail-info-label">انضم في</span>
+                            <span class="detail-info-value" id="detailJoinedVal">٢٤ سبتمبر ٢٠٢٦</span>
+                        </div>
+                        <div class="detail-info-item">
+                            <span class="detail-info-label">آخر نشاط</span>
+                            <span class="detail-info-value" id="detailLastActiveVal">اليوم، ٠٩:١٢ ص</span>
+                        </div>
+                        <div class="detail-info-item">
+                            <span class="detail-info-label">النباتات الشخصية</span>
+                            <span class="detail-info-value" id="detailPlantsVal">٤ نباتات</span>
+                        </div>
+                        <div class="detail-info-item">
+                            <span class="detail-info-label">التشخيصات</span>
+                            <span class="detail-info-value" id="detailDiagnosesVal">طلبان · ١ للمراجعة</span>
+                        </div>
+                    </div>
+
+                    <!-- إجراءات الحساب -->
+                    <div class="account-actions-section">
+                        <div class="actions-section-title">إجراءات الحساب</div>
+
+                        <div class="actions-btn-row">
+                            <button type="button" class="btn-save" id="saveUserBtn">حفظ</button>
+                            <button type="button" class="btn-recovery" id="sendRecoveryBtn">إرسال رابط استعادة</button>
+                        </div>
+
+                        <button type="button" class="btn-suspend" id="suspendUserBtn">
+                            <i data-lucide="ban" style="width:16px; height:16px;"></i>
+                            <span id="suspendBtnText">إيقاف الحساب</span>
+                        </button>
+
+                        <div class="suspend-note">
+                            الإيقاف يتطلب سبباً وتأكيداً، ويُسجل في سجل التدقيق. لا يؤدي إلى حذف البيانات.
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- شريط التنبيه الخاص بالخصوصية -->
+            <div class="privacy-banner">
+                <i data-lucide="info"></i>
+                <div class="privacy-banner-text">
+                    <strong>خصوصية المستخدمين:</strong> الوصول إلى بيانات الحساب لأغراض الدعم فقط؛ المكتبة المعرفية مستقلة عن مجموعاتهم الشخصية.
+                </div>
+            </div>
+
+            <!-- تذييل الصفحة -->
+            <footer class="page-bottom-footer">
+                <span>مساحة إدارية آمنة · السجلات المعروضة توضيحية</span>
+                <span class="brand-tag">Enaya Admin · ٢٠٢٦</span>
+            </footer>
+
+        </main>
+
+    </div>
+
+    <!-- إشعار Toast منبثق للتفاعلات -->
+    <div class="toast-notice" id="toastNotice" role="status" aria-live="polite">
+        <i data-lucide="check-circle" id="toastIcon"></i>
+        <span id="toastMsg">تم تنفيذ الإجراء بنجاح</span>
+    </div>
+
+    <!-- سكريبت التفاعلية والقائمة الجانبية -->
+    <script src="../js/sidebar.js"></script>
+    <script>
+        /* ============= تهيئة أيقونات Lucide ============= */
+        document.addEventListener('DOMContentLoaded', function () {
+            if (window.lucide) {
+                lucide.createIcons();
+            }
+        });
+
+        /* ============= نظام إشعارات Toast ============= */
+        let toastTimeout;
+        function showToast(message, isError = false) {
+            const toast = document.getElementById('toastNotice');
+            const msgEl = document.getElementById('toastMsg');
+            const iconEl = document.getElementById('toastIcon');
+
+            if (!toast || !msgEl) return;
+
+            msgEl.textContent = message;
+            if (isError) {
+                toast.style.background = '#c0392b';
+                iconEl.setAttribute('data-lucide', 'alert-circle');
+            } else {
+                toast.style.background = '#1b2f1a';
+                iconEl.setAttribute('data-lucide', 'check-circle');
+            }
+
+            if (window.lucide) lucide.createIcons();
+
+            toast.classList.add('show');
+            clearTimeout(toastTimeout);
+            toastTimeout = setTimeout(() => {
+                toast.classList.remove('show');
+            }, 3000);
+        }
+
+        /* ============= التفاعل مع أسطر الجدول وتحديث بطاقة التفاصيل ============= */
+        const tableBody = document.getElementById('usersTableBody');
+        const rows = tableBody ? tableBody.querySelectorAll('tr') : [];
+
+        let currentSelectedRow = document.querySelector('#usersTableBody tr.selected');
+
+        function loadUserDetails(row) {
+            if (!row) return;
+
+            // إزالة التحديد السابق
+            rows.forEach(r => r.classList.remove('selected'));
+            row.classList.add('selected');
+            currentSelectedRow = row;
+
+            // استخراج البيانات
+            const name = row.getAttribute('data-name');
+            const email = row.getAttribute('data-email');
+            const id = row.getAttribute('data-id');
+            const status = row.getAttribute('data-status');
+            const statusLabel = row.getAttribute('data-status-label');
+            const plan = row.getAttribute('data-plan') || 'مجانية';
+            const joined = row.getAttribute('data-joined');
+            const lastActive = row.getAttribute('data-last-active');
+            const plants = row.getAttribute('data-plants');
+            const diagnoses = row.getAttribute('data-diagnoses');
+            const since = row.getAttribute('data-since') || 'مستخدم منذ سبتمبر';
+
+            // تعبئة اللوحة الجانبية
+            document.getElementById('detailUserName').textContent = name;
+            document.getElementById('detailUserSubtitle').textContent = `${since} · ${id}`;
+            document.getElementById('detailUserAvatar').textContent = name.trim().charAt(0);
+
+            document.getElementById('detailNameInput').value = name;
+            document.getElementById('detailEmailInput').value = email;
+
+            document.getElementById('detailJoinedVal').textContent = joined;
+            document.getElementById('detailLastActiveVal').textContent = lastActive;
+            document.getElementById('detailPlantsVal').textContent = plants;
+            document.getElementById('detailDiagnosesVal').textContent = diagnoses;
+
+            // تحديث شارة الحالة
+            const statusBadge = document.getElementById('detailBadgeStatus');
+            statusBadge.textContent = statusLabel;
+            statusBadge.className = 'status-badge';
+            if (status === 'active') {
+                statusBadge.classList.add('badge-active');
+            } else if (status === 'pending') {
+                statusBadge.classList.add('badge-pending');
+            } else if (status === 'suspended') {
+                statusBadge.classList.add('badge-suspended');
+            }
+
+            // تحديث نص زر الإيقاف / التفعيل
+            const suspendBtn = document.getElementById('suspendUserBtn');
+            const suspendText = document.getElementById('suspendBtnText');
+            if (status === 'suspended') {
+                suspendBtn.style.background = '#27ae60';
+                suspendText.textContent = 'إلغاء الإيقاف وتفعيل الحساب';
+            } else {
+                suspendBtn.style.background = '#c0392b';
+                suspendText.textContent = 'إيقاف الحساب';
+            }
+        }
+
+        // إضافة حدث النقر على كل صف
+        rows.forEach(row => {
+            row.addEventListener('click', () => {
+                loadUserDetails(row);
+            });
+        });
+
+        /* ============= تصفية التبويبات (Tabs: الكل / نشط / بانتظار التأكيد / موقوف) ============= */
+        const filterPills = document.querySelectorAll('.pill-btn');
+        filterPills.forEach(pill => {
+            pill.addEventListener('click', function () {
+                filterPills.forEach(p => p.classList.remove('active'));
+                this.classList.add('active');
+
+                const filter = this.getAttribute('data-filter');
+                filterRows(filter, searchInput.value);
+            });
+        });
+
+        /* ============= البحث السريع في الجدول ============= */
+        const searchInput = document.getElementById('userFilterInput');
+        const topSearch = document.getElementById('topSearchInput');
+
+        function filterRows(statusFilter, query) {
+            query = (query || '').trim().toLowerCase();
+            let visibleCount = 0;
+
+            rows.forEach(row => {
+                const rowStatus = row.getAttribute('data-status');
+                const rowName = (row.getAttribute('data-name') || '').toLowerCase();
+                const rowEmail = (row.getAttribute('data-email') || '').toLowerCase();
+                const rowId = (row.getAttribute('data-id') || '').toLowerCase();
+
+                const matchesStatus = (statusFilter === 'all' || !statusFilter) || (rowStatus === statusFilter);
+                const matchesQuery = !query || rowName.includes(query) || rowEmail.includes(query) || rowId.includes(query);
+
+                if (matchesStatus && matchesQuery) {
+                    row.style.display = '';
+                    visibleCount++;
+                } else {
+                    row.style.display = 'none';
+                }
+            });
+
+            const countDisplay = document.getElementById('tableCountDisplay');
+            if (countDisplay) {
+                countDisplay.textContent = `${visibleCount} حساباً معروضاً`;
+            }
+        }
+
+        if (searchInput) {
+            searchInput.addEventListener('input', function () {
+                const activePill = document.querySelector('.pill-btn.active');
+                const currentFilter = activePill ? activePill.getAttribute('data-filter') : 'all';
+                filterRows(currentFilter, this.value);
+            });
+        }
+
+        if (topSearch) {
+            topSearch.addEventListener('input', function () {
+                if (searchInput) {
+                    searchInput.value = this.value;
+                }
+                const activePill = document.querySelector('.pill-btn.active');
+                const currentFilter = activePill ? activePill.getAttribute('data-filter') : 'all';
+                filterRows(currentFilter, this.value);
+            });
+        }
+
+        /* ============= زر حفظ التعديلات ============= */
+        const saveBtn = document.getElementById('saveUserBtn');
+        if (saveBtn) {
+            saveBtn.addEventListener('click', function () {
+                const newName = document.getElementById('detailNameInput').value.trim();
+                const newEmail = document.getElementById('detailEmailInput').value.trim();
+
+                if (!newName || !newEmail) {
+                    showToast('يرجى ملء جميع الحقول', true);
+                    return;
+                }
+
+                if (currentSelectedRow) {
+                    currentSelectedRow.setAttribute('data-name', newName);
+                    currentSelectedRow.setAttribute('data-email', newEmail);
+                    const nameEl = currentSelectedRow.querySelector('.user-full-name');
+                    const metaEl = currentSelectedRow.querySelector('.user-meta-sub');
+                    const id = currentSelectedRow.getAttribute('data-id');
+
+                    if (nameEl) nameEl.textContent = newName;
+                    if (metaEl) metaEl.textContent = `${id} · ${newEmail}`;
+
+                    document.getElementById('detailUserName').textContent = newName;
+                    document.getElementById('detailUserAvatar').textContent = newName.charAt(0);
+                }
+
+                this.textContent = 'تم الحفظ!';
+                showToast(`تم حفظ بيانات "${newName}" بنجاح.`);
+                setTimeout(() => {
+                    this.textContent = 'حفظ';
+                }, 1800);
+            });
+        }
+
+        /* ============= زر إرسال رابط استعادة ============= */
+        const sendRecoveryBtn = document.getElementById('sendRecoveryBtn');
+        if (sendRecoveryBtn) {
+            sendRecoveryBtn.addEventListener('click', function () {
+                const email = document.getElementById('detailEmailInput').value;
+                this.textContent = 'جارٍ الإرسال...';
+                setTimeout(() => {
+                    this.textContent = 'تم الإرسال!';
+                    showToast(`تم إرسال رابط استعادة كلمة المرور إلى ${email}`);
+                    setTimeout(() => {
+                        this.textContent = 'إرسال رابط استعادة';
+                    }, 2000);
+                }, 1000);
+            });
+        }
+
+        /* ============= زر إيقاف / إعادة تفعيل الحساب ============= */
+        const suspendBtn = document.getElementById('suspendUserBtn');
+        if (suspendBtn) {
+            suspendBtn.addEventListener('click', function () {
+                if (!currentSelectedRow) return;
+
+                const currentStatus = currentSelectedRow.getAttribute('data-status');
+                const userName = currentSelectedRow.getAttribute('data-name');
+                const badgeInRow = currentSelectedRow.querySelector('.status-badge');
+
+                if (currentStatus === 'suspended') {
+                    // إعادة التفعيل
+                    currentSelectedRow.setAttribute('data-status', 'active');
+                    currentSelectedRow.setAttribute('data-status-label', 'نشط');
+                    if (badgeInRow) {
+                        badgeInRow.textContent = 'نشط';
+                        badgeInRow.className = 'status-badge badge-active';
+                    }
+                    loadUserDetails(currentSelectedRow);
+                    showToast(`تم إلغاء إيقاف حساب "${userName}" وتفعيله بنجاح.`);
+                } else {
+                    // تأكيد الإيقاف
+                    const confirmSuspend = confirm(`هل أنت متأكد من رغبتك في إيقاف حساب ${userName}؟\nسيتم تسجيل هذا الإجراء في سجل التدقيق.`);
+                    if (confirmSuspend) {
+                        currentSelectedRow.setAttribute('data-status', 'suspended');
+                        currentSelectedRow.setAttribute('data-status-label', 'موقوف');
+                        if (badgeInRow) {
+                            badgeInRow.textContent = 'موقوف';
+                            badgeInRow.className = 'status-badge badge-suspended';
+                        }
+                        loadUserDetails(currentSelectedRow);
+                        showToast(`تم إيقاف حساب "${userName}".`, true);
+                    }
+                }
+            });
+        }
+
+        /* ============= زر تصدير المستخدمين ============= */
+        const exportBtn = document.getElementById('exportUsersBtn');
+        if (exportBtn) {
+            exportBtn.addEventListener('click', function () {
+                this.innerHTML = '<i data-lucide="loader"></i> جارٍ التحضير...';
+                if (window.lucide) lucide.createIcons();
+                this.disabled = true;
+
+                setTimeout(() => {
+                    this.innerHTML = '<i data-lucide="check"></i> تم التصدير (CSV)';
+                    if (window.lucide) lucide.createIcons();
+                    showToast('تم تصدير سجل المستخدمين بصيغة CSV بنجاح');
+
+                    setTimeout(() => {
+                        this.innerHTML = '<i data-lucide="download"></i> تصدير المستخدمين';
+                        this.disabled = false;
+                        if (window.lucide) lucide.createIcons();
+                    }, 2500);
+                }, 1500);
+            });
+        }
+
+        /* ============= إعادة إرسال رابط التأكيد لجميع المعلقين ============= */
+        const resendAllBtn = document.getElementById('resendAllConfirmBtn');
+        if (resendAllBtn) {
+            resendAllBtn.addEventListener('click', function () {
+                showToast('جارٍ إعادة إرسال روابط التأكيد لـ ٧٢ حساباً...');
+                setTimeout(() => {
+                    showToast('تمت جدولة إرسال روابط التأكيد بنجاح!');
+                }, 1600);
+            });
+        }
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>سجل النشاط | عناية Enaya</title>
+
+    <!-- خط Cairo المعتمد لكامل الواجهة -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+
+    <!-- أيقونات Lucide المعتمدة -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- ربط CSS الخاص بالقائمة الجانبية الموحدة وواجهة سجل النشاط -->
+    <link rel="stylesheet" href="../css/sidebar.css">
+    <link rel="stylesheet" href="../css/activity-log.css">
+
+
+    <!-- أيقونة الموقع في التبويب -->
+    <link rel="icon" type="image/png" href="logo-enaya.png">
+</head>
+
+<body>
+
+    <div class="app-container">
+
+        <!-- ============= القائمة الجانبية الموحدة ============= -->
+        <aside class="sidebar" id="sidebar">
+
+            <a href="dashboard.html" class="sidebar-logo logo-area" aria-label="الرئيسية | عناية">
+                <img src="logo-enaya.png" alt="شعار عناية">
+            </a>
+
+            <nav class="sidebar-menu">
+
+                <!-- الرئيسية -->
+                <a href="dashboard.html" class="menu-link">
+                    <i data-lucide="house"></i>
+                    <span>الرئيسية</span>
+                </a>
+
+                <!-- نباتاتي -->
+                <a href="my-plants.html" class="menu-link">
+                    <i data-lucide="sprout"></i>
+                    <span>نباتاتي</span>
+                </a>
+
+                <!-- إضافة نبتة -->
+                <a href="add-plant.html" class="menu-link">
+                    <i data-lucide="circle-plus"></i>
+                    <span>إضافة نبتة</span>
+                </a>
+
+                <!-- تشخيص النباتات -->
+                <a href="plant-diagnosis.html" class="menu-link">
+                    <i data-lucide="scan-line"></i>
+                    <span>تشخيص النباتات</span>
+                </a>
+
+                <!-- جدول العناية -->
+                <a href="care-calendar.html" class="menu-link">
+                    <i data-lucide="calendar-days"></i>
+                    <span>جدول العناية</span>
+                </a>
+
+                <!-- سجل النشاط (النشطة الحالية) -->
+                <a href="activity-log.html" class="menu-link active">
+                    <i data-lucide="history"></i>
+                    <span>سجل النشاط</span>
+                </a>
+
+                <div class="menu-divider"></div>
+
+                <!-- الاشتراك والفواتير -->
+                <a href="subscription.html" class="menu-link">
+                    <i data-lucide="credit-card"></i>
+                    <span>الاشتراك والفواتير</span>
+                </a>
+
+                <!-- الحساب والإعدادات -->
+                <a href="settings.html" class="menu-link">
+                    <i data-lucide="settings"></i>
+                    <span>الحساب والإعدادات</span>
+                </a>
+
+            </nav>
+
+            <!-- صندوق ترقية الخطة -->
+            <div class="upgrade-box">
+                <div class="upgrade-title">
+                    <i data-lucide="sparkles"></i>
+                    <strong>ترقية الخطة</strong>
+                </div>
+                <p>افتحي ميزات متقدمة لعناية أفضل بنباتاتك</p>
+                <a href="subscription.html" class="upgrade-button">
+                    اكتشف الخطط
+                    <i data-lucide="arrow-left"></i>
+                </a>
+            </div>
+
+            <!-- معلومات المستخدم -->
+            <div class="sidebar-user">
+                <div class="user-avatar">ي</div>
+                <div class="user-info">
+                    <strong>يوسف وسام</strong>
+                    <small>yousef@example.com</small>
+                    <span>الحساب المجاني</span>
+                </div>
+            </div>
+
+        </aside>
+
+        <!-- ============= منطقة المحتوى الرئيسي ============= -->
+        <main class="main-content">
+
+            <!-- الشريط العلوي (بدون مسافات زائدة وبنفس الهوية) -->
+            <div class="top-bar">
+                <div class="top-bar-right" style="display: flex; align-items: center; gap: 10px;">
+                    <button type="button" class="mobile-menu-btn" id="mobile-menu-toggle" aria-label="فتح القائمة">
+                        <i data-lucide="menu"></i>
+                    </button>
+                    <h2 class="page-title-small">سجل النشاط</h2>
+                </div>
+
+                <div class="top-bar-left">
+                    <!-- أيقونة البحث فقط -->
+                    <button type="button" class="icon-btn" aria-label="بحث">
+                        <i data-lucide="search"></i>
+                    </button>
+
+                    <!-- زر الإشعارات المكتومة كما في الصورة -->
+                    <button type="button" class="icon-btn" aria-label="الإشعارات">
+                        <i data-lucide="bell-off"></i>
+                    </button>
+
+                    <!-- محدد اللغة -->
+                    <span class="lang-badge">العربية</span>
+                </div>
+            </div>
+
+            <!-- بانر الهيرو (صورة أوراق المونستيرا الخضراء) -->
+            <section class="activity-hero-banner"
+                style="background-image: linear-gradient(90deg, rgba(14, 38, 18, 0.72), rgba(14, 38, 18, 0.48)), url('./Rectangle.png');">
+                <span class="hero-demo-badge">بيانات توضيحية</span>
+                <h1>سجل النشاط</h1>
+                <p>خطوات العناية، وإضافات النباتات، والاقتراحات التشخيصية في مكان واحد</p>
+            </section>
+
+            <!-- شريط الفلاتر ومحدد التاريخ -->
+            <div class="activity-controls-row">
+                <!-- أزرار الفلترة على اليمين في RTL -->
+                <div class="filter-pills-group">
+                    <button type="button" class="filter-btn active" data-filter="all">كل النشاط</button>
+                    <button type="button" class="filter-btn" data-filter="care">العناية</button>
+                    <button type="button" class="filter-btn" data-filter="add">الإضافة</button>
+                    <button type="button" class="filter-btn" data-filter="diagnosis">التشخيص</button>
+                </div>
+
+                <!-- محدد الفترة على اليسار في RTL -->
+                <div class="date-range-block">
+                    <span class="date-range-label">الفترة</span>
+                    <div class="date-range-pill">
+                        <span>١٢–٩ أكتوبر ٢٠٢٦</span>
+                        <i data-lucide="calendar"></i>
+                    </div>
+                </div>
+            </div>
+
+            <!-- الشبكة المزدوجة: كل مستطيل مقابل مربعه على نفس السطر والارتفاع -->
+            <div class="activity-paired-rows">
+
+                <!-- الصف 1: حدث التشخيص + بطاقة نظرة على نشاطك -->
+                <div class="timeline-group" data-type="diagnosis">
+                    <div class="timeline-date-header">
+                        <i data-lucide="scan-line"></i>
+                        <span>١١ أكتوبر ٢٠٢٦</span>
+                    </div>
+                    <div class="activity-pair-row">
+                        <div class="activity-card">
+                            <div class="activity-card-body">
+                                <div class="activity-plant-thumb">
+                                    <img src="activity-pothos.jpg" alt="البوتس">
+                                </div>
+                                <div class="activity-info-side">
+                                    <span class="activity-badge badge-diagnosis">تشخيص مقترح</span>
+                                    <h3>البوتس · احتمال زيادة الري</h3>
+                                    <p class="activity-desc">اقترحت مراجعة الري وحالة التربة والتصريف. النتيجة إرشادية وغير مؤكدة.</p>
+                                    <p class="activity-subnote">لم يُسجّل علاج مؤكّد أو تغيير تلقائي في جدول العناية.</p>
+                                </div>
+                            </div>
+                            <a href="plant-diagnosis.html" class="link-activity-action">عرض الاقتراح ←</a>
+                        </div>
+
+                        <div class="activity-stats-card pair-card">
+                            <h3>نظرة على نشاطك</h3>
+                            <div class="stats-items-list">
+                                <div class="stat-metric-row">
+                                    <span>مهمة عناية مكتملة</span>
+                                    <div class="metric-number-wrap">
+                                        <span class="metric-number">١</span>
+                                        <span class="metric-bar"></span>
+                                    </div>
+                                </div>
+                                <div class="stat-metric-row">
+                                    <span>نبتة أضيفت</span>
+                                    <div class="metric-number-wrap">
+                                        <span class="metric-number">١</span>
+                                        <span class="metric-bar"></span>
+                                    </div>
+                                </div>
+                                <div class="stat-metric-row">
+                                    <span>تشخيص مقترح</span>
+                                    <div class="metric-number-wrap">
+                                        <span class="metric-number">١</span>
+                                        <span class="metric-bar"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="stats-footer-hint">ملخص الأحداث الثلاثة المعروضة فقط.</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- الصف 2: حدث الإضافة + بطاقة مهام اليوم -->
+                <div class="timeline-group" data-type="add">
+                    <div class="timeline-date-header">
+                        <i data-lucide="circle-plus"></i>
+                        <span>١٠ أكتوبر ٢٠٢٦</span>
+                    </div>
+                    <div class="activity-pair-row">
+                        <div class="activity-card">
+                            <div class="activity-card-body">
+                                <div class="activity-plant-thumb">
+                                    <img src="activity-zamia.jpg" alt="زاميا">
+                                </div>
+                                <div class="activity-info-side">
+                                    <span class="activity-badge badge-add">إضافة نبتة</span>
+                                    <h3>تمت إضافة زاميا</h3>
+                                    <p class="activity-desc">اعتُمد ملف العناية وضُبطت التذكيرات للنبتة الجديدة في المجموعة.</p>
+                                    <p class="activity-subnote">المكتب · ضوء غير مباشر · المتابعة القادمة: الأربعاء ١٤ أكتوبر.</p>
+                                </div>
+                            </div>
+                            <a href="my-plants.html" class="link-activity-action">عرض ملف النبتة ←</a>
+                        </div>
+
+                        <div class="today-pending-card pair-card">
+                            <h3>مهام اليوم لم تُنجز بعد</h3>
+                            <p>الإثنين ١٢ أكتوبر: مهمتا ري ومهمة تسميد بانتظار تأكيد الإتمام.</p>
+                            <a href="care-calendar.html" class="link-goto-calendar">الانتقال إلى جدول العناية ←</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- الصف 3: حدث العناية + بطاقة عن هذا السجل -->
+                <div class="timeline-group" data-type="care">
+                    <div class="timeline-date-header">
+                        <i data-lucide="history"></i>
+                        <span>٩ أكتوبر ٢٠٢٦</span>
+                    </div>
+                    <div class="activity-pair-row">
+                        <div class="activity-card">
+                            <div class="activity-card-body">
+                                <div class="activity-plant-thumb">
+                                    <img src="activity-peace-lily.jpg" alt="زنبق السلام">
+                                </div>
+                                <div class="activity-info-side">
+                                    <span class="activity-badge badge-care">عناية مكتملة</span>
+                                    <h3>تمت العناية بزنبق السلام</h3>
+                                    <p class="activity-desc">سُجّل إتمام مهمة الري في سجل العناية.</p>
+                                    <p class="activity-subnote">غرفة النوم · قرب النافذة · هذا الحدث سابق لمهمة تسميد اليوم.</p>
+                                </div>
+                            </div>
+                            <a href="care-calendar.html" class="link-activity-action">عرض تفاصيل العناية ←</a>
+                        </div>
+
+                        <div class="about-log-card pair-card">
+                            <h3>عن هذا السجل</h3>
+                            <p>يحتفظ السجل بخطوات العناية والإضافة والتشخيص المقترح. جميع الأحداث والتواريخ هنا توضيحية.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ملاحظة نهاية السجل -->
+                <div class="timeline-end-note">
+                    وصلتِ إلى بداية السجل التوضيحي · ٣ أحداث
+                </div>
+
+            </div>
+
+            <!-- تذييل الصفحة -->
+            <footer class="page-bottom-footer">
+                <span>جميع البيانات والمواعيد والسجلات هنا توضيحية، وليست قياسات صحية أو نتائج تشخيص فعلية.</span>
+                <span class="brand-tag">Enaya</span>
+            </footer>
+
+        </main>
+
+    </div>
+
+    <!-- سكريبت التفاعلية -->
+    <script src="../js/sidebar.js"></script>
+    <script src="../js/activity-log.js"></script>
+
+</body>
+
+</html>

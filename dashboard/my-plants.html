@@ -1,0 +1,382 @@
+
+<!DOCTYPE html>
+<html dir="rtl" lang="ar">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>نباتاتي | عناية</title>
+<link href="logo-enaya.png" rel="icon" type="image/png"/>
+<!-- Cairo Font -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<!-- CSS -->
+<link href="../css/sidebar.css" rel="stylesheet"/>
+<link href="../css/my-plants.css" rel="stylesheet"/>
+<!-- Lucide Icons -->
+<script defer="" src="https://unpkg.com/lucide@latest">
+</script>
+<!-- JavaScript -->
+<script defer src="../js/sidebar.js"></script>
+<script defer src="../js/my-plants.js"></script>
+</head>
+<body>
+<div class="dashboard-layout app-container">
+<!-- SIDEBAR -->
+<aside class="sidebar" id="sidebar">
+<button aria-label="إغلاق القائمة" class="mobile-sidebar-close" id="mobile-sidebar-close" type="button">
+                ×
+            </button>
+<a aria-label="الرئيسية | عناية" class="sidebar-logo logo-area" href="dashboard.html">
+<img alt="شعار عناية" src="logo-enaya.png"/>
+</a>
+<nav class="sidebar-menu">
+<a class="menu-link" href="dashboard.html">
+<i data-lucide="house"></i>
+<span>الرئيسية</span>
+</a>
+<a aria-current="page" class="menu-link active" href="my-plants.html">
+<i data-lucide="sprout"></i>
+<span>نباتاتي</span>
+</a>
+<a class="menu-link" href="add-plant.html">
+<i data-lucide="circle-plus"></i>
+<span>إضافة نبتة</span>
+</a>
+<a class="menu-link" href="plant-diagnosis.html">
+<i data-lucide="scan-line"></i>
+<span>تشخيص النباتات</span>
+</a>
+<a class="menu-link" href="care-calendar.html">
+<i data-lucide="calendar-days"></i>
+<span>جدول العناية</span>
+</a>
+<a class="menu-link" href="activity-log.html">
+<i data-lucide="history"></i>
+<span>سجل النشاط</span>
+</a>
+<div class="menu-divider"></div>
+<a class="menu-link" href="subscription.html">
+<i data-lucide="credit-card"></i>
+<span>الاشتراك والفواتير</span>
+</a>
+<a class="menu-link" href="settings.html">
+<i data-lucide="settings"></i>
+<span>الحساب والإعدادات</span>
+</a>
+</nav>
+<div class="upgrade-box">
+<div class="upgrade-title">
+<i data-lucide="sparkles"></i>
+<strong>ترقية الخطة</strong>
+</div>
+<p>
+                    استمتعي بمزايا إضافية لعناية أفضل بنباتاتك.
+                </p>
+<a class="upgrade-button" href="subscription.html">
+                    استكشفي الخطط
+                    <i data-lucide="arrow-left"></i>
+</a>
+</div>
+<div class="sidebar-user">
+<div class="user-avatar">ي</div>
+<div class="user-info">
+<strong>يوسف وسام</strong>
+<small>yousef@example.com</small>
+<span>الحساب المجاني</span>
+</div>
+</div>
+</aside><button aria-label="إغلاق القائمة الجانبية" class="mobile-sidebar-backdrop" id="mobile-sidebar-backdrop" tabindex="-1" type="button">
+</button>
+<!-- MAIN CONTENT -->
+<main class="main-content">
+<!-- الشريط العلوي الموحد -->
+<div class="top-bar">
+<div class="top-bar-right">
+<button aria-controls="sidebar" aria-expanded="false" aria-label="فتح القائمة" class="mobile-menu-btn" id="mobile-menu-toggle" type="button">
+<i data-lucide="menu"></i>
+</button>
+<h2 class="page-title-small">نباتاتي</h2>
+</div>
+<div class="top-bar-left">
+<!-- SEARCH -->
+<div class="enaya-search" id="enaya-search">
+<button aria-controls="enaya-search-panel" aria-expanded="false" aria-label="فتح البحث" class="enaya-search-toggle" id="enaya-search-toggle" type="button">
+<i data-lucide="search"></i>
+</button>
+<div class="enaya-search-panel" hidden="" id="enaya-search-panel">
+<label class="enaya-search-label" for="enaya-search-input">
+
+                                ابحثي في عناية
+
+                            </label>
+<div class="enaya-search-field">
+<i data-lucide="search"></i>
+<input autocomplete="off" id="enaya-search-input" placeholder="ابحثي عن نبتة أو صفحة..." type="search"/>
+</div>
+<div aria-live="polite" class="enaya-search-results" id="enaya-search-results">
+</div>
+</div>
+</div>
+<span class="lang-badge">
+                        العربية
+                    </span>
+</div>
+</div>
+<!-- HERO BANNER -->
+<section class="hero-banner">
+<div class="hero-copy">
+<span class="hero-kicker">بيانات توضيحية</span>
+<h1>نباتاتي</h1>
+<p>
+              مجموعة العناية الخاصة بك،
+              ازرعي نباتك وخلي لكل واحدة إلها رعايتها.
+            </p>
+</div>
+<a class="primary-btn hero-add" href="add-plant.html" id="heroAddPlant">
+<i data-lucide="plus"></i>
+            إضافة نبتة
+          </a>
+</section>
+<!-- SEARCH AND FILTERS -->
+<section class="toolbar">
+<div class="search-box">
+<label for="plantSearch">البحث في نباتاتي</label>
+<div class="search-field">
+<i data-lucide="search"></i>
+<input id="plantSearch" placeholder="ابحثي بالاسم أو الموقع..." type="search"/>
+</div>
+</div>
+<div class="filters">
+<div class="filter-buttons">
+<button class="filter-btn active" data-filter="all" type="button">
+                كل النباتات ·
+                <span id="allCount">٤</span>
+</button>
+<button class="filter-btn" data-filter="today" type="button">
+                مواعيد اليوم ·
+                <span id="todayCount">٣</span>
+</button>
+<button class="filter-btn" data-filter="attention" type="button">
+                تحتاج متابعة ·
+                <span id="attentionCount">١</span>
+</button>
+</div>
+<p id="filterDescription">
+              كل المواقع · عرض جميع النباتات الأربعة
+            </p>
+</div>
+</section>
+<!-- SECTION HEADING -->
+<div class="section-heading">
+<h2>كل النباتات</h2>
+<span id="visibleCount">٤ نباتات</span>
+</div>
+<!-- CONTENT GRID -->
+<div class="content-grid">
+<!-- PLANTS SECTION -->
+<section class="plants-section">
+<div class="plants-grid" id="plantsGrid">
+<!-- زنبق السلام -->
+<article class="plant-card" data-filter-tags="today" data-id="peace-lily" data-location="غرفة النوم" data-name="زنبق السلام">
+<img alt="زنبق السلام" src="Rectangle (1).png"/>
+<div class="plant-card-heading">
+<h3>زنبق السلام</h3>
+<button aria-label="خيارات زنبق السلام" class="more-btn" data-plant="peace-lily" type="button">
+<i data-lucide="ellipsis"></i>
+</button>
+</div>
+<p class="plant-location">
+                  غرفة النوم · قرب النافذة
+                </p>
+<span class="care-tag water">
+                  موعد تسميد
+                </span>
+<p class="plant-date">
+                  اليوم · ١١:٠٠ صباحًا
+                </p>
+<div class="plant-card-footer">
+<button class="details-link" data-plant="peace-lily" type="button">
+                    عرض التفاصيل ←
+                  </button>
+<span>قائمة الحفظ</span>
+</div>
+</article>
+<!-- زاميا -->
+<article class="plant-card selected" data-filter-tags="attention" data-id="zz-plant" data-location="المكتب" data-name="زاميا">
+<img alt="زاميا" src="Rectangle (2).png"/>
+<div class="plant-card-heading">
+<h3>زاميا</h3>
+<button aria-label="خيارات زاميا" class="more-btn" data-plant="zz-plant" type="button">
+<i data-lucide="ellipsis"></i>
+</button>
+</div>
+<p class="plant-location">
+                  المكتب · ضوء غير مباشر
+                </p>
+<span class="care-tag warning">
+                  تحتاج متابعة
+                </span>
+<p class="plant-date">
+                  راقبي تغيّر الأوراق
+                </p>
+<div class="plant-card-footer">
+<button class="details-link" data-plant="zz-plant" type="button">
+                    عرض التفاصيل ←
+                  </button>
+<span>قائمة الحفظ</span>
+</div>
+</article>
+<!-- بوتس -->
+<article class="plant-card" data-filter-tags="today" data-id="pothos" data-location="المطبخ" data-name="بوتس">
+<img alt="بوتس" src="Rectangle (3).png"/>
+<div class="plant-card-heading">
+<h3>بوتس</h3>
+<button aria-label="خيارات بوتس" class="more-btn" data-plant="pothos" type="button">
+<i data-lucide="ellipsis"></i>
+</button>
+</div>
+<p class="plant-location">المطبخ · الرف</p>
+<span class="care-tag water">موعد ري</span>
+<p class="plant-date">
+                  اليوم · ٠٩:٠٠ صباحًا
+                </p>
+<div class="plant-card-footer">
+<button class="details-link" data-plant="pothos" type="button">
+                    عرض التفاصيل ←
+                  </button>
+<span>قائمة الحفظ</span>
+</div>
+</article>
+<!-- سانسيفيريا -->
+<article class="plant-card" data-filter-tags="today" data-id="snake-plant" data-location="المدخل" data-name="سانسيفيريا">
+<img alt="سانسيفيريا" src="Rectangle (4).png"/>
+<div class="plant-card-heading">
+<h3>سانسيفيريا</h3>
+<button aria-label="خيارات سانسيفيريا" class="more-btn" data-plant="snake-plant" type="button">
+<i data-lucide="ellipsis"></i>
+</button>
+</div>
+<p class="plant-location">
+                  المدخل · بجوار الباب
+                </p>
+<span class="care-tag water">موعد ري</span>
+<p class="plant-date">
+                  اليوم · ١٠:٠٠ صباحًا
+                </p>
+<div class="plant-card-footer">
+<button class="details-link" data-plant="snake-plant" type="button">
+                    عرض التفاصيل ←
+                  </button>
+<span>قائمة الحفظ</span>
+</div>
+</article>
+</div>
+<p class="empty-results" hidden="" id="emptyResults">
+              ما لقينا نباتات مطابقة للبحث 🌱
+            </p>
+</section>
+<!-- DETAILS SIDEBAR -->
+<aside class="details-column">
+<section class="detail-card" id="selectedPlantDetails">
+<h2>
+                تفاصيل <span id="detailTitle">زاميا</span>
+</h2>
+<span class="section-underline"></span>
+<span class="detail-pill">النبتة المحددة</span>
+<img alt="نبتة زاميا" class="detail-image" id="detailImage" src="Rectangle (2).png"/>
+<h3 id="detailName">زاميا</h3>
+<p class="detail-location" id="detailLocation">
+                المكتب · ضوء غير مباشر
+              </p>
+<div class="thin-divider"></div>
+<span class="detail-status warning" id="detailStatus">
+                تحتاج متابعة
+              </span>
+<h4 id="detailNoteTitle">
+                راقبي تغيّر الأوراق
+              </h4>
+<p id="detailDescription">
+                راقبي الإضاءة وحالة التربة،
+                وإذا استمر التغيّر أرفقي صورة
+                لطلب تشخيص مقترح.
+              </p>
+<p class="detail-update" id="detailUpdate">
+                المتابعة القادمة: راقبي الأوراق
+              </p>
+<a class="dark-btn" href="plant-diagnosis.html" id="diagnoseBtn" style="text-decoration: none;">
+<i data-lucide="scan-line"></i>
+                تشخيص النبتة
+              </a>
+<button class="secondary-btn" id="careFileBtn" type="button">
+                عرض ملف العناية
+              </button>
+</section>
+<!-- CARE FILE -->
+<section class="care-file-card">
+<h2>ملف العناية</h2>
+<p>
+                أضفتِ زاميا في ١ أكتوبر.
+                اعتمدي ملف العناية وتحديث التذكيرات.
+              </p>
+<button class="text-link" id="activityBtn" type="button">
+                عرض سجل النشاط ←
+              </button>
+</section>
+</aside>
+</div>
+<!-- REMINDER -->
+<section class="reminder-strip">
+<div class="reminder-copy">
+<i data-lucide="leaf"></i>
+<div>
+<strong>
+                الموعد تذكير بالملاحظة، لا أمر للري
+              </strong>
+<p>
+                افحصي التربة وتصريف الأصيص قبل السقي،
+                وارجعي لاحتياج كل نبتة.
+              </p>
+</div>
+</div>
+<button class="secondary-btn" id="careScheduleBtn" type="button">
+            فتح جدول العناية
+          </button>
+</section>
+<!-- FOOTER -->
+<footer class="main-footer">
+<p>
+            جميع النباتات والمواعيد والسجلات هنا توضيحية،
+            وليست قياسات حقيقية أو نتائج تشخيص فعلية.
+          </p>
+<small>Enaya</small>
+</footer>
+</main>
+</div>
+<!-- ADD PLANT DIALOG -->
+<dialog class="plant-dialog" id="addPlantDialog">
+<form id="addPlantForm">
+<div class="dialog-header">
+<h2>إضافة نبتة جديدة 🌱</h2>
+<button aria-label="إغلاق" class="icon-button" id="closeDialog" type="button">
+<i data-lucide="x"></i>
+</button>
+</div>
+<label for="newPlantName">اسم النبتة</label>
+<input id="newPlantName" maxlength="60" name="plantName" placeholder="مثلًا: صبار" required=""/>
+<label for="newPlantLocation">مكان النبتة</label>
+<input id="newPlantLocation" maxlength="80" name="plantLocation" placeholder="مثلًا: غرفة المعيشة" required=""/>
+<div class="dialog-actions">
+<button class="secondary-btn" id="cancelDialog" type="button">
+          إلغاء
+        </button>
+<button class="primary-btn" type="submit">
+          إضافة النبتة
+        </button>
+</div>
+</form>
+</dialog>
+<!-- TOAST -->
+<div aria-live="polite" class="toast" id="appToast" role="status"></div>
+</body>
+</html>

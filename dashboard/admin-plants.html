@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>مكتبة النباتات | لوحة الأدمن — عناية Enaya</title>
+    <meta name="description" content="المكتبة المعرفية المنسقة للمنصة: مرجع العناية بالنباتات في نظام عناية.">
+
+    <!-- خط Cairo المعتمد لكامل الواجهة -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- أيقونات Lucide المعتمدة -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- CSS الموحد للقائمة الجانبية والواجهة -->
+    <link rel="stylesheet" href="../css/sidebar.css">
+    <link rel="stylesheet" href="../css/admin-plants.css">
+
+
+    <!-- أيقونة الموقع في التبويب -->
+    <link rel="icon" type="image/png" href="logo-enaya.png">
+</head>
+
+<body>
+
+    <div class="app-container">
+
+        <!-- ============= القائمة الجانبية الموحدة (أدمن) ============= -->
+        <aside class="sidebar" id="sidebar">
+
+            <a href="admin-overview.html" class="sidebar-logo logo-area" aria-label="لوحة الأدمن | عناية">
+                <img src="logo-enaya.png" alt="شعار عناية">
+            </a>
+
+            <!-- شارة لوحة الإدارة -->
+            <div style="
+                display:flex; align-items:center; justify-content:center;
+                margin: 0 0 14px; padding: 4px 14px; border-radius: 20px;
+                background: rgba(169,207,156,0.18); border: 1px solid rgba(169,207,156,0.3);
+                font-size: 11px; font-weight: 800; color: #a9cf9c; letter-spacing: 0.3px;
+            ">لوحة الإدارة</div>
+
+            <nav class="sidebar-menu" aria-label="قائمة الأدمن">
+
+                <!-- نظرة عامة -->
+                <a href="admin-overview.html" class="menu-link">
+                    <i data-lucide="layout-dashboard"></i>
+                    <span>نظرة عامة</span>
+                </a>
+
+                <!-- إدارة المستخدمين -->
+                <a href="admin-users.html" class="menu-link">
+                    <i data-lucide="users"></i>
+                    <span>إدارة المستخدمين</span>
+                </a>
+
+                <!-- مكتبة النباتات (النشطة) -->
+                <a href="admin-plants.html" class="menu-link active" aria-current="page">
+                    <i data-lucide="sprout"></i>
+                    <span>مكتبة النباتات</span>
+                </a>
+
+                <!-- مراجعة التشخيصات -->
+                <a href="admin-diagnosis.html" class="menu-link">
+                    <i data-lucide="scan-line"></i>
+                    <span>مراجعة التشخيصات</span>
+                </a>
+
+                <!-- الاشتراكات والفواتير -->
+                <a href="admin-billing.html" class="menu-link">
+                    <i data-lucide="credit-card"></i>
+                    <span>الاشتراكات والفواتير</span>
+                </a>
+
+                <div class="menu-divider"></div>
+
+                <!-- إدارة المحتوى -->
+                <a href="admin-content.html" class="menu-link">
+                    <i data-lucide="file-text"></i>
+                    <span>إدارة المحتوى</span>
+                </a>
+
+                <!-- الدعم والرسائل -->
+                <a href="admin-support.html" class="menu-link">
+                    <i data-lucide="message-circle"></i>
+                    <span>الدعم والرسائل</span>
+                </a>
+
+                <!-- الصلاحيات والإعدادات -->
+                <a href="admin-settings.html" class="menu-link">
+                    <i data-lucide="settings"></i>
+                    <span>الصلاحيات والإعدادات</span>
+                </a>
+
+            </nav>
+
+            <!-- صندوق العناية تبدأ من هنا -->
+            <div class="upgrade-box">
+                <div class="upgrade-title">
+                    <i data-lucide="shield-check"></i>
+                    <strong>العناية تبدأ من هنا</strong>
+                </div>
+                <p>تابع الطلبات، وراجع المعرفة، وأجِب كل استفسار أهاممه.</p>
+                <a href="#" class="upgrade-button">
+                    <span style="display:inline-block; width:6px; height:6px; border-radius:50%; background:#2ed573; margin-left:6px;"></span>
+                    جميع الخدمات مستقرة
+                </a>
+            </div>
+
+            <!-- معلومات الأدمن -->
+            <div class="sidebar-user">
+                <div class="user-avatar">م</div>
+                <div class="user-info">
+                    <strong>مرام عاهد</strong>
+                    <small>مدير النظام · وصول كامل</small>
+                </div>
+                <button type="button" class="icon-btn" title="تسجيل الخروج" style="color:rgba(255,255,255,0.7); margin-right:auto;">
+                    <i data-lucide="log-out" style="width:17px; height:17px;"></i>
+                </button>
+            </div>
+
+        </aside>
+
+        <!-- ============= منطقة المحتوى الرئيسي ============= -->
+        <main class="main-content">
+
+            <!-- الشريط العلوي -->
+            <div class="top-bar">
+                <div class="top-bar-right">
+                    <button type="button" class="mobile-menu-btn" id="mobile-menu-toggle" aria-label="فتح القائمة">
+                        <i data-lucide="menu"></i>
+                    </button>
+                    <h2 class="page-title-small">مكتبة النباتات</h2>
+                </div>
+
+                <div class="top-bar-left">
+                    <div class="search-box">
+                        <i data-lucide="search" class="search-icon"></i>
+                        <input type="text" id="topSearchInput" placeholder="بحث في مكتبة النباتات..." aria-label="بحث سريع">
+                    </div>
+
+                    <button type="button" class="icon-btn" aria-label="الإشعارات" title="الإشعارات">
+                        <i data-lucide="bell"></i>
+                        <span class="notif-badge"></span>
+                    </button>
+
+                    <div class="topbar-user" title="الملف الشخصي">
+                        <span class="topbar-user-name">مرام عاهد</span>
+                        <div class="topbar-user-avatar">م</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- رأس الصفحة -->
+            <div class="page-header">
+                <div class="page-header-right">
+                    <h1>مكتبة النباتات</h1>
+                    <p>المكتبة المعرفية المنسقة للمنصة: مرجع العناية، وليست نباتات المستخدمين الشخصية.</p>
+                </div>
+
+                <div class="page-header-left">
+                    <button type="button" class="btn-add-record" id="addRecordBtn">
+                        <i data-lucide="plus"></i>
+                        إضافة سجل نبات
+                    </button>
+                </div>
+            </div>
+
+            <!-- شريط ملخص وإحصاءات السجلات المعرفية -->
+            <div class="knowledge-summary-bar">
+                <span class="summary-main-count">٨٦ سجلاً معرفياً</span>
+                <span class="summary-badge badge-published">٧٢ منشورة</span>
+                <span class="summary-badge badge-draft">١٠ مسودات</span>
+                <span class="summary-badge badge-review">٤ للمراجعة</span>
+                <span class="summary-last-review">آخر مراجعة معرفية: اليوم بواسطة ليان حسن</span>
+            </div>
+
+            <!-- التخطيط المزدوج: جدول دليل النباتات (يمين) + تحرير السجل (يسار) -->
+            <div class="plants-layout">
+
+                <!-- العمود الأيمن: دليل النباتات (جدول) -->
+                <div class="plants-table-card">
+
+                    <div class="table-card-header">
+                        <div class="table-card-title">دليل النباتات</div>
+                        <div class="table-card-badge">مصدر المعرفة العام</div>
+                    </div>
+
+                    <!-- شريط البحث الداخلي -->
+                    <div class="card-search-box">
+                        <i data-lucide="search" class="card-search-icon"></i>
+                        <input type="text" id="plantFilterInput" placeholder="ابحث بالاسم العربي أو العلمي..." aria-label="بحث في النباتات">
+                    </div>
+
+                    <!-- أزرار التصفية العلوية (Tabs) -->
+                    <div class="filter-pills-row">
+                        <button type="button" class="pill-btn active" data-filter="all">
+                            الكل <span class="pill-count">٨٦</span>
+                        </button>
+                        <button type="button" class="pill-btn" data-filter="published">
+                            منشور <span class="pill-count">٧٢</span>
+                        </button>
+                        <button type="button" class="pill-btn" data-filter="draft">
+                            مسودة <span class="pill-count">١٠</span>
+                        </button>
+                        <button type="button" class="pill-btn" data-filter="review">
+                            للمراجعة <span class="pill-count">٤</span>
+                        </button>
+                    </div>
+
+                    <!-- خيارات الفرز والتصنيف -->
+                    <div class="filters-secondary-row">
+                        <div>
+                            <button type="button" class="dropdown-filter-btn">
+                                <span>التصنيف: كل الفئات</span>
+                                <i data-lucide="chevron-down"></i>
+                            </button>
+                        </div>
+                        <div>
+                            <button type="button" class="dropdown-filter-btn">
+                                <span>آخر تحديث</span>
+                                <i data-lucide="arrow-down" style="width:13px; height:13px;"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- جدول النباتات التفاعلي -->
+                    <div class="table-responsive">
+                        <table class="plants-table" id="plantsTable">
+                            <thead>
+                                <tr>
+                                    <th>النبتة</th>
+                                    <th>الفئة</th>
+                                    <th>النشر</th>
+                                    <th>التحديث</th>
+                                </tr>
+                            </thead>
+                            <tbody id="plantsTableBody">
+
+                                <!-- صف 1: زاميا (محدد افتراضياً) -->
+                                <tr class="selected" 
+                                    data-code="PL-001" 
+                                    data-name-ar="زاميا" 
+                                    data-name-sc="Zamioculcas zamiifolia" 
+                                    data-category="نباتات داخلية" 
+                                    data-status="published" 
+                                    data-status-label="منشور"
+                                    data-updated="٢٦ أكتوبر"
+                                    data-light="ضوء غير مباشر"
+                                    data-water="بعد جفاف التربة"
+                                    data-soil="خليط خفيف جيد التصريف"
+                                    data-care="افحص جفاف التربة قبل الري، وتجنّب بقاء الماء في الصحن. أبعد النبتة عن الشمس المباشرة؛ وتختلف المواعيد حسب ظروف المكان."
+                                    data-img="activity-zamia.jpg"
+                                    data-version="معرفة معتمدة · الإصدار ٣">
+                                    <td>
+                                        <div class="plant-cell">
+                                            <img src="activity-zamia.jpg" alt="زاميا" class="plant-thumb">
+                                            <div class="plant-names">
+                                                <span class="plant-name-ar">زاميا</span>
+                                                <span class="plant-name-sc">Zamioculcas zamiifolia</span>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td><span class="category-text">نباتات داخلية</span></td>
+                                    <td><span class="summary-badge badge-published">منشور</span></td>
+                                    <td><span class="updated-date-text">٢٦ أكتوبر</span></td>
+                                </tr>
+
+                                <!-- صف 2: بوتس -->
+                                <tr data-code="PL-002" 
+                                    data-name-ar="بوتس" 
+                                    data-name-sc="Epipremnum aureum" 
+                                    data-category="نباتات متسلقة" 
+                                    data-status="published" 
+                                    data-status-label="منشور"
+                                    data-updated="٢٥ أكتوبر"
+                                    data-light="إضاءة متوسطة إلى ساطعة غير مباشرة"
+                                    data-water="عند جفاف أول ٢ سم من التربة"
+                                    data-soil="بيتموس مع بيرلايت متوازن"
+                                    data-care="نبتة قوية وسهلة التكاثر بالماء. مسح الأوراق بقطعة مبللة يمنحها لمعاناً ويحسّن عملية التنفس."
+                                    data-img="activity-pothos.jpg"
+                                    data-version="معرفة معتمدة · الإصدار ٤">
+                                    <td>
+                                        <div class="plant-cell">
+                                            <img src="activity-pothos.jpg" alt="بوتس" class="plant-thumb">
+                                            <div class="plant-names">
+                                                <span class="plant-name-ar">بوتس</span>
+                                                <span class="plant-name-sc">Epipremnum aureum</span>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td><span class="category-text">نباتات متسلقة</span></td>
+                                    <td><span class="summary-badge badge-published">منشور</span></td>
+                                    <td><span class="updated-date-text">٢٥ أكتوبر</span></td>
+                                </tr>
+
+                                <!-- صف 3: زنبق السلام -->
+                                <tr data-code="PL-003" 
+                                    data-name-ar="زنبق السلام" 
+                                    data-name-sc="Spathiphyllum wallisii" 
+                                    data-category="نباتات مزهرة" 
+                                    data-status="review" 
+                                    data-status-label="للمراجعة"
+                                    data-updated="٢٤ أكتوبر"
+                                    data-light="إضاءة خافتة إلى متوسطة"
+                                    data-water="ري منتظم مع بقاء التربة رطبة قليلاً"
+                                    data-soil="تربة غنية بالمواد العضوية مع تصريف جيد"
+                                    data-care="تظهر ذبولاً خفيفاً عندما تحتاج للماء مما يجعلها سهلة الملاحظة. تجنب المياه المعالجة بالكلور."
+                                    data-img="activity-peace-lily.jpg"
+                                    data-version="مسودة قيد المراجعة · الإصدار ١">
+                                    <td>
+                                        <div class="plant-cell">
+                                            <img src="activity-peace-lily.jpg" alt="زنبق السلام" class="plant-thumb">
+                                            <div class="plant-names">
+                                                <span class="plant-name-ar">زنبق السلام</span>
+                                                <span class="plant-name-sc">Spathiphyllum wallisii</span>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td><span class="category-text">نباتات مزهرة</span></td>
+                                    <td><span class="summary-badge badge-review">للمراجعة</span></td>
+                                    <td><span class="updated-date-text">٢٤ أكتوبر</span></td>
+                                </tr>
+
+                                <!-- صف 4: سانسيفيريا -->
+                                <tr data-code="PL-004" 
+                                    data-name-ar="سانسيفيريا" 
+                                    data-name-sc="Dracaena trifasciata" 
+                                    data-category="نباتات داخلية" 
+                                    data-status="published" 
+                                    data-status-label="منشور"
+                                    data-updated="٢٣ أكتوبر"
+                                    data-light="تتحمل الإضاءة الضعيفة والمباشرة"
+                                    data-water="كل أسبوعين إلى ثلاثة أسابيع"
+                                    data-soil="تربة صباريات سريعة التصريف"
+                                    data-care="نبتة صبورة جداً ومنقية ممتازة للهواء. العدو الأول لها هو زيادة الري وتجمع الماء في قلب الأوراق."
+                                    data-img="Rectangle (1).png"
+                                    data-version="معرفة معتمدة · الإصدار ٢">
+                                    <td>
+                                        <div class="plant-cell">
+                                            <img src="Rectangle (1).png" alt="سانسيفيريا" class="plant-thumb">
+                                            <div class="plant-names">
+                                                <span class="plant-name-ar">سانسيفيريا</span>
+                                                <span class="plant-name-sc">Dracaena trifasciata</span>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td><span class="category-text">نباتات داخلية</span></td>
+                                    <td><span class="summary-badge badge-published">منشور</span></td>
+                                    <td><span class="updated-date-text">٢٣ أكتوبر</span></td>
+                                </tr>
+
+                                <!-- صف 5: زاميا رافن -->
+                                <tr data-code="PL-005" 
+                                    data-name-ar="زاميا رافن" 
+                                    data-name-sc="Zamioculcas 'Raven'" 
+                                    data-category="نباتات داخلية" 
+                                    data-status="draft" 
+                                    data-status-label="مسودة"
+                                    data-updated="٢٢ أكتوبر"
+                                    data-light="ضوء غير مباشر متوسط إلى ساطع"
+                                    data-water="بعد الجفاف التام للتربة"
+                                    data-soil="تربة رملية مع بيتموس وبيرلايت"
+                                    data-care="تتميز بأوراقها الأرجوانية الداكنة المائلة للسواد. نموها أبطأ من الزاميا الخضراء وتتطلب رياً أقل."
+                                    data-img="activity-zamia.jpg"
+                                    data-version="مسودة عمل غير منشورة">
+                                    <td>
+                                        <div class="plant-cell">
+                                            <img src="activity-zamia.jpg" alt="زاميا رافن" class="plant-thumb">
+                                            <div class="plant-names">
+                                                <span class="plant-name-ar">زاميا رافن</span>
+                                                <span class="plant-name-sc">Zamioculcas 'Raven'</span>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td><span class="category-text">نباتات داخلية</span></td>
+                                    <td><span class="summary-badge badge-draft">مسودة</span></td>
+                                    <td><span class="updated-date-text">٢٢ أكتوبر</span></td>
+                                </tr>
+
+                                <!-- صف 6: بوتس ذهبي -->
+                                <tr data-code="PL-006" 
+                                    data-name-ar="بوتس ذهبي" 
+                                    data-name-sc="Epipremnum aureum" 
+                                    data-category="نباتات متسلقة" 
+                                    data-status="draft" 
+                                    data-status-label="مسودة"
+                                    data-updated="٢١ أكتوبر"
+                                    data-light="إضاءة ساطعة غير مباشرة للحفاظ على التبرقش"
+                                    data-water="بمجرد جفاف السطح العلوي"
+                                    data-soil="بيتموس خفيف مهوى"
+                                    data-care="تحتاج لإضاءة جيدة لتظهر التموجات الذهبية في الأوراق. ممتازة في الأواني المعلقة أو على دعامات التسلق."
+                                    data-img="activity-pothos.jpg"
+                                    data-version="مسودة عمل غير منشورة">
+                                    <td>
+                                        <div class="plant-cell">
+                                            <img src="activity-pothos.jpg" alt="بوتس ذهبي" class="plant-thumb">
+                                            <div class="plant-names">
+                                                <span class="plant-name-ar">بوتس ذهبي</span>
+                                                <span class="plant-name-sc">Epipremnum aureum</span>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td><span class="category-text">نباتات متسلقة</span></td>
+                                    <td><span class="summary-badge badge-draft">مسودة</span></td>
+                                    <td><span class="updated-date-text">٢١ أكتوبر</span></td>
+                                </tr>
+
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <!-- الترقيم وتذييل الجدول -->
+                    <div class="table-pagination-footer">
+                        <div class="pagination-info" id="paginationInfo">عرض ١–٦ من ٨٦ سجلاً</div>
+                        <div class="pagination-controls">
+                            <button type="button" class="page-btn" id="nextPageBtn">التالي</button>
+                            <button type="button" class="page-btn active">١</button>
+                            <button type="button" class="page-btn" id="prevPageBtn" disabled aria-label="السابق">
+                                <i data-lucide="chevron-left"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- العمود الأيسر: بطاقة تحرير السجل المعرفي -->
+                <div class="plant-edit-card" id="plantEditCard">
+
+                    <div class="edit-card-header">
+                        <div class="edit-card-title">تحرير السجل المعرفي</div>
+                        <span class="record-code-tag" id="editRecordCode">PL-001</span>
+                    </div>
+
+                    <!-- صندوق معاينة النبتة العلوية -->
+                    <div class="plant-preview-box">
+                        <div class="preview-text-info">
+                            <div class="preview-plant-name" id="previewPlantName">زاميا</div>
+                            <div class="preview-plant-meta" id="previewPlantMeta">معرفة معتمدة · الإصدار ٣</div>
+                            <span class="summary-badge badge-published preview-badge-status" id="previewStatusBadge">منشور</span>
+                        </div>
+                        <img src="activity-zamia.jpg" alt="معاينة النبتة" class="preview-image" id="previewPlantImg">
+                    </div>
+
+                    <!-- حقول السجل المعرفي -->
+                    <div class="form-group">
+                        <label class="form-label" for="inputNameAr">الاسم العربي</label>
+                        <input type="text" class="form-input" id="inputNameAr" value="زاميا">
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="inputNameSc">الاسم العلمي</label>
+                        <input type="text" class="form-input" id="inputNameSc" value="Zamioculcas zamiifolia" style="direction: ltr; text-align: right;">
+                    </div>
+
+                    <div class="form-row-2">
+                        <div class="form-group">
+                            <label class="form-label" for="inputLight">الإضاءة</label>
+                            <input type="text" class="form-input" id="inputLight" value="ضوء غير مباشر">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="inputWater">الري</label>
+                            <input type="text" class="form-input" id="inputWater" value="بعد جفاف التربة">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="inputSoil">التربة</label>
+                        <input type="text" class="form-input" id="inputSoil" value="خليط خفيف جيد التصريف">
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="inputCare">تعليمات العناية</label>
+                        <textarea class="form-textarea" id="inputCare" rows="4">افحص جفاف التربة قبل الري، وتجنّب بقاء الماء في الصحن. أبعد النبتة عن الشمس المباشرة؛ وتختلف المواعيد حسب ظروف المكان.</textarea>
+                    </div>
+
+                    <!-- أزرار الإجراءات -->
+                    <div class="edit-actions-row">
+                        <button type="button" class="btn-save-record" id="saveRecordBtn">حفظ التغييرات</button>
+                        <button type="button" class="btn-preview-record" id="previewRecordBtn">معاينة</button>
+                    </div>
+
+                    <div class="edit-note">
+                        التعديل يُحفظ في نسخة جديدة، ولا يغيّر ملفات نباتات المستخدمين تلقائياً.
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- شريط التنبيه السفلي لضبط الجودة -->
+            <div class="quality-notice-banner">
+                <i data-lucide="info"></i>
+                <div class="quality-notice-text">
+                    <strong>ضبط الجودة:</strong> راجع الاسم العلمي، ومصدر الإرشادات، ومتطلبات العناية قبل نشر أي سجل جديد.
+                </div>
+            </div>
+
+            <!-- تذييل الصفحة -->
+            <footer class="page-bottom-footer">
+                <span>مساحة إدارية آمنة · السجلات المعروضة توضيحية</span>
+                <span class="brand-tag">Enaya Admin · ٢٠٢٦</span>
+            </footer>
+
+        </main>
+
+    </div>
+
+    <!-- إشعار Toast منبثق للتفاعلات -->
+    <div class="toast-notice" id="toastNotice" role="status" aria-live="polite">
+        <i data-lucide="check-circle" id="toastIcon"></i>
+        <span id="toastMsg">تم حفظ التغييرات بنجاح</span>
+    </div>
+
+    <!-- سكريبت التفاعلية والقائمة الجانبية -->
+    <script src="../js/sidebar.js"></script>
+    <script>
+        /* ============= تهيئة أيقونات Lucide ============= */
+        document.addEventListener('DOMContentLoaded', function () {
+            if (window.lucide) {
+                lucide.createIcons();
+            }
+        });
+
+        /* ============= نظام إشعارات Toast ============= */
+        let toastTimeout;
+        function showToast(message, isError = false) {
+            const toast = document.getElementById('toastNotice');
+            const msgEl = document.getElementById('toastMsg');
+            const iconEl = document.getElementById('toastIcon');
+
+            if (!toast || !msgEl) return;
+
+            msgEl.textContent = message;
+            if (isError) {
+                toast.style.background = '#c0392b';
+                iconEl.setAttribute('data-lucide', 'alert-circle');
+            } else {
+                toast.style.background = '#1b2f1a';
+                iconEl.setAttribute('data-lucide', 'check-circle');
+            }
+
+            if (window.lucide) lucide.createIcons();
+
+            toast.classList.add('show');
+            clearTimeout(toastTimeout);
+            toastTimeout = setTimeout(() => {
+                toast.classList.remove('show');
+            }, 3000);
+        }
+
+        /* ============= التفاعل مع أسطر جدول النباتات وتحديث بطاقة التحرير ============= */
+        const tableBody = document.getElementById('plantsTableBody');
+        const rows = tableBody ? tableBody.querySelectorAll('tr') : [];
+        let currentSelectedRow = document.querySelector('#plantsTableBody tr.selected');
+
+        function loadPlantRecord(row) {
+            if (!row) return;
+
+            rows.forEach(r => r.classList.remove('selected'));
+            row.classList.add('selected');
+            currentSelectedRow = row;
+
+            const code = row.getAttribute('data-code');
+            const nameAr = row.getAttribute('data-name-ar');
+            const nameSc = row.getAttribute('data-name-sc');
+            const light = row.getAttribute('data-light');
+            const water = row.getAttribute('data-water');
+            const soil = row.getAttribute('data-soil');
+            const care = row.getAttribute('data-care');
+            const img = row.getAttribute('data-img');
+            const version = row.getAttribute('data-version') || 'معرفة معتمدة';
+            const status = row.getAttribute('data-status');
+            const statusLabel = row.getAttribute('data-status-label');
+
+            // تحديث بطاقة التحرير
+            document.getElementById('editRecordCode').textContent = code;
+            document.getElementById('previewPlantName').textContent = nameAr;
+            document.getElementById('previewPlantMeta').textContent = version;
+            document.getElementById('previewPlantImg').src = img;
+
+            // تحديث شارة الحالة
+            const statusBadge = document.getElementById('previewStatusBadge');
+            statusBadge.textContent = statusLabel;
+            statusBadge.className = 'summary-badge preview-badge-status';
+            if (status === 'published') {
+                statusBadge.classList.add('badge-published');
+            } else if (status === 'draft') {
+                statusBadge.classList.add('badge-draft');
+            } else if (status === 'review') {
+                statusBadge.classList.add('badge-review');
+            }
+
+            // تحديث حقول الإدخال
+            document.getElementById('inputNameAr').value = nameAr;
+            document.getElementById('inputNameSc').value = nameSc;
+            document.getElementById('inputLight').value = light;
+            document.getElementById('inputWater').value = water;
+            document.getElementById('inputSoil').value = soil;
+            document.getElementById('inputCare').value = care;
+        }
+
+        rows.forEach(row => {
+            row.addEventListener('click', () => {
+                loadPlantRecord(row);
+            });
+        });
+
+        /* ============= أزرار التصفية العلوية (Tabs: الكل / منشور / مسودة / للمراجعة) ============= */
+        const filterPills = document.querySelectorAll('.pill-btn');
+        filterPills.forEach(pill => {
+            pill.addEventListener('click', function () {
+                filterPills.forEach(p => p.classList.remove('active'));
+                this.classList.add('active');
+
+                const filter = this.getAttribute('data-filter');
+                filterRows(filter, plantSearchInput.value);
+            });
+        });
+
+        /* ============= البحث السريع في النباتات ============= */
+        const plantSearchInput = document.getElementById('plantFilterInput');
+        const topSearch = document.getElementById('topSearchInput');
+
+        function filterRows(statusFilter, query) {
+            query = (query || '').trim().toLowerCase();
+            let count = 0;
+
+            rows.forEach(row => {
+                const rowStatus = row.getAttribute('data-status');
+                const rowAr = (row.getAttribute('data-name-ar') || '').toLowerCase();
+                const rowSc = (row.getAttribute('data-name-sc') || '').toLowerCase();
+                const rowCode = (row.getAttribute('data-code') || '').toLowerCase();
+
+                const matchesStatus = (statusFilter === 'all' || !statusFilter) || (rowStatus === statusFilter);
+                const matchesQuery = !query || rowAr.includes(query) || rowSc.includes(query) || rowCode.includes(query);
+
+                if (matchesStatus && matchesQuery) {
+                    row.style.display = '';
+                    count++;
+                } else {
+                    row.style.display = 'none';
+                }
+            });
+
+            const paginationInfo = document.getElementById('paginationInfo');
+            if (paginationInfo) {
+                paginationInfo.textContent = `عرض ١–${count} من ٨٦ سجلاً`;
+            }
+        }
+
+        if (plantSearchInput) {
+            plantSearchInput.addEventListener('input', function () {
+                const activePill = document.querySelector('.pill-btn.active');
+                const filter = activePill ? activePill.getAttribute('data-filter') : 'all';
+                filterRows(filter, this.value);
+            });
+        }
+
+        if (topSearch) {
+            topSearch.addEventListener('input', function () {
+                if (plantSearchInput) plantSearchInput.value = this.value;
+                const activePill = document.querySelector('.pill-btn.active');
+                const filter = activePill ? activePill.getAttribute('data-filter') : 'all';
+                filterRows(filter, this.value);
+            });
+        }
+
+        /* ============= زر حفظ التغييرات ============= */
+        const saveBtn = document.getElementById('saveRecordBtn');
+        if (saveBtn) {
+            saveBtn.addEventListener('click', function () {
+                const newNameAr = document.getElementById('inputNameAr').value.trim();
+                const newNameSc = document.getElementById('inputNameSc').value.trim();
+                const newLight = document.getElementById('inputLight').value.trim();
+                const newWater = document.getElementById('inputWater').value.trim();
+                const newSoil = document.getElementById('inputSoil').value.trim();
+                const newCare = document.getElementById('inputCare').value.trim();
+
+                if (!newNameAr || !newNameSc) {
+                    showToast('يرجى إدخال الاسمين العربي والعلمي', true);
+                    return;
+                }
+
+                if (currentSelectedRow) {
+                    currentSelectedRow.setAttribute('data-name-ar', newNameAr);
+                    currentSelectedRow.setAttribute('data-name-sc', newNameSc);
+                    currentSelectedRow.setAttribute('data-light', newLight);
+                    currentSelectedRow.setAttribute('data-water', newWater);
+                    currentSelectedRow.setAttribute('data-soil', newSoil);
+                    currentSelectedRow.setAttribute('data-care', newCare);
+
+                    const nameArEl = currentSelectedRow.querySelector('.plant-name-ar');
+                    const nameScEl = currentSelectedRow.querySelector('.plant-name-sc');
+                    if (nameArEl) nameArEl.textContent = newNameAr;
+                    if (nameScEl) nameScEl.textContent = newNameSc;
+
+                    document.getElementById('previewPlantName').textContent = newNameAr;
+                }
+
+                this.textContent = 'تم الحفظ!';
+                showToast(`تم حفظ تعديلات سجل "${newNameAr}" في نسخة جديدة.`);
+                setTimeout(() => {
+                    this.textContent = 'حفظ التغييرات';
+                }, 1800);
+            });
+        }
+
+        /* ============= زر المعاينة ============= */
+        const previewBtn = document.getElementById('previewRecordBtn');
+        if (previewBtn) {
+            previewBtn.addEventListener('click', function () {
+                const nameAr = document.getElementById('inputNameAr').value;
+                showToast(`فتح بطاقة المعاينة المعرفية لنبتة "${nameAr}"...`);
+            });
+        }
+
+        /* ============= زر إضافة سجل نبات جديد ============= */
+        const addBtn = document.getElementById('addRecordBtn');
+        if (addBtn) {
+            addBtn.addEventListener('click', function () {
+                document.getElementById('editRecordCode').textContent = 'PL-087 (جديد)';
+                document.getElementById('previewPlantName').textContent = 'سجل نبات جديد';
+                document.getElementById('previewPlantMeta').textContent = 'مسودة جديدة قيد الإنشاء';
+                
+                const statusBadge = document.getElementById('previewStatusBadge');
+                statusBadge.textContent = 'مسودة';
+                statusBadge.className = 'summary-badge badge-draft preview-badge-status';
+
+                document.getElementById('inputNameAr').value = '';
+                document.getElementById('inputNameSc').value = '';
+                document.getElementById('inputLight').value = '';
+                document.getElementById('inputWater').value = '';
+                document.getElementById('inputSoil').value = '';
+                document.getElementById('inputCare').value = '';
+                document.getElementById('inputNameAr').focus();
+
+                showToast('تم فتح استمارة إضافة سجل معرفي جديد.');
+            });
+        }
+    </script>
+
+</body>
+
+</html>

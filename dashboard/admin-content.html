@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>إدارة المحتوى | لوحة الأدمن — عناية Enaya</title>
+    <meta name="description" content="إدارة وتحرير مقالات وأدلة العناية بالنباتات والأسئلة الشائعة في منصة عناية.">
+
+    <!-- خط Cairo المعتمد لكامل الواجهة -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- أيقونات Lucide المعتمدة -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- CSS الموحد للقائمة الجانبية والواجهة -->
+    <link rel="stylesheet" href="../css/sidebar.css">
+    <link rel="stylesheet" href="../css/admin-content.css">
+
+
+    <!-- أيقونة الموقع في التبويب -->
+    <link rel="icon" type="image/png" href="logo-enaya.png">
+</head>
+
+<body>
+
+    <div class="app-container">
+
+        <!-- ============= القائمة الجانبية الموحدة (أدمن) ============= -->
+        <aside class="sidebar" id="sidebar">
+
+            <a href="admin-overview.html" class="sidebar-logo logo-area" aria-label="لوحة الأدمن | عناية">
+                <img src="logo-enaya.png" alt="شعار عناية">
+            </a>
+
+            <!-- شارة لوحة الإدارة -->
+            <div style="
+                display:flex; align-items:center; justify-content:center;
+                margin: 0 0 14px; padding: 4px 14px; border-radius: 20px;
+                background: rgba(169,207,156,0.18); border: 1px solid rgba(169,207,156,0.3);
+                font-size: 11px; font-weight: 800; color: #a9cf9c; letter-spacing: 0.3px;
+            ">لوحة الإدارة</div>
+
+            <nav class="sidebar-menu" aria-label="قائمة الأدمن">
+
+                <!-- نظرة عامة -->
+                <a href="admin-overview.html" class="menu-link">
+                    <i data-lucide="layout-dashboard"></i>
+                    <span>نظرة عامة</span>
+                </a>
+
+                <!-- إدارة المستخدمين -->
+                <a href="admin-users.html" class="menu-link">
+                    <i data-lucide="users"></i>
+                    <span>إدارة المستخدمين</span>
+                </a>
+
+                <!-- مكتبة النباتات -->
+                <a href="admin-plants.html" class="menu-link">
+                    <i data-lucide="sprout"></i>
+                    <span>مكتبة النباتات</span>
+                </a>
+
+                <!-- مراجعة التشخيصات -->
+                <a href="admin-diagnosis.html" class="menu-link">
+                    <i data-lucide="scan-line"></i>
+                    <span>مراجعة التشخيصات</span>
+                </a>
+
+                <!-- الاشتراكات والفواتير -->
+                <a href="admin-billing.html" class="menu-link">
+                    <i data-lucide="credit-card"></i>
+                    <span>الاشتراكات والفواتير</span>
+                </a>
+
+                <div class="menu-divider"></div>
+
+                <!-- إدارة المحتوى (النشطة) -->
+                <a href="admin-content.html" class="menu-link active" aria-current="page">
+                    <i data-lucide="file-text"></i>
+                    <span>إدارة المحتوى</span>
+                </a>
+
+                <!-- الدعم والرسائل -->
+                <a href="admin-support.html" class="menu-link">
+                    <i data-lucide="message-circle"></i>
+                    <span>الدعم والرسائل</span>
+                </a>
+
+                <!-- الصلاحيات والإعدادات -->
+                <a href="admin-settings.html" class="menu-link">
+                    <i data-lucide="settings"></i>
+                    <span>الصلاحيات والإعدادات</span>
+                </a>
+
+            </nav>
+
+            <!-- صندوق العناية تبدأ من هنا -->
+            <div class="upgrade-box">
+                <div class="upgrade-title">
+                    <i data-lucide="shield-check"></i>
+                    <strong>العناية تبدأ من هنا</strong>
+                </div>
+                <p>تابع الطلبات، وراجع المعرفة، وأجِب كل استفسار أهاممه.</p>
+                <a href="#" class="upgrade-button">
+                    <span style="display:inline-block; width:6px; height:6px; border-radius:50%; background:#2ed573; margin-left:6px;"></span>
+                    جميع الخدمات مستقرة
+                </a>
+            </div>
+
+            <!-- معلومات الأدمن -->
+            <div class="sidebar-user">
+                <div class="user-avatar">م</div>
+                <div class="user-info">
+                    <strong>مرام عاهد</strong>
+                    <small>مدير النظام · وصول كامل</small>
+                </div>
+                <button type="button" class="icon-btn" title="تسجيل الخروج" style="color:rgba(255,255,255,0.7); margin-right:auto;">
+                    <i data-lucide="log-out" style="width:17px; height:17px;"></i>
+                </button>
+            </div>
+
+        </aside>
+
+        <!-- ============= منطقة المحتوى الرئيسي ============= -->
+        <main class="main-content">
+
+            <!-- الشريط العلوي -->
+            <div class="top-bar">
+                <div class="top-bar-right">
+                    <button type="button" class="mobile-menu-btn" id="mobile-menu-toggle" aria-label="فتح القائمة">
+                        <i data-lucide="menu"></i>
+                    </button>
+                    <h2 class="page-title-small">إدارة المحتوى</h2>
+                </div>
+
+                <div class="top-bar-left">
+                    <div class="search-box">
+                        <i data-lucide="search" class="search-icon"></i>
+                        <input type="text" id="topSearchInput" placeholder="بحث في إدارة المحتوى..." aria-label="بحث سريع">
+                    </div>
+
+                    <button type="button" class="icon-btn" aria-label="الإشعارات" title="الإشعارات">
+                        <i data-lucide="bell"></i>
+                        <span class="notif-badge"></span>
+                    </button>
+
+                    <div class="topbar-user" title="الملف الشخصي">
+                        <span class="topbar-user-name">مرام عاهد</span>
+                        <div class="topbar-user-avatar">م</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- رأس الصفحة -->
+            <div class="page-header">
+                <div class="page-header-right">
+                    <h1>إدارة المحتوى</h1>
+                    <p>حرّر المقالات وأدلة العناية والأسئلة الشائعة، وراجع الجودة قبل النشر.</p>
+                </div>
+
+                <div class="page-header-left">
+                    <button type="button" class="btn-add-content" id="newArticleBtn">
+                        <i data-lucide="plus"></i>
+                        إضافة محتوى
+                    </button>
+                </div>
+            </div>
+
+            <!-- شريط مؤشرات المحتوى -->
+            <div class="content-metrics-bar">
+                <span class="metric-pill pill-green">٣٦ منشورة</span>
+                <span class="metric-pill pill-blue">٨ مسودات</span>
+                <span class="metric-pill pill-amber">٤ للمراجعة</span>
+                <span class="metrics-summary-text">٤٨ مادة · ٢٠ مقالاً · ١٦ دليل عناية · ١٢ سؤالاً شائعاً</span>
+            </div>
+
+            <!-- التخطيط المزدوج لإدارة المحتوى: سجل المحتوى (يمين) + محرر دليل العناية (يسار) -->
+            <div class="content-layout">
+
+                <!-- العمود الأيمن: سجل المحتوى والتنبيه الإرشادي -->
+                <div class="content-list-column">
+
+                    <div class="content-list-card">
+
+                        <div class="list-card-header">
+                            <div class="list-card-title">سجل المحتوى</div>
+                            <div class="list-card-count" id="listCountDisplay">٤٨ مادة</div>
+                        </div>
+
+                        <!-- شريط البحث السريع -->
+                        <div class="list-search-box">
+                            <i data-lucide="search" class="search-icon"></i>
+                            <input type="text" id="listSearchInput" placeholder="ابحث بعنوان المقال أو الدليل..." aria-label="بحث في المحتوى">
+                        </div>
+
+                        <!-- تبويبات التصنيف -->
+                        <div class="content-tabs-row">
+                            <button type="button" class="content-tab-btn active" data-category="all">كل المحتوى</button>
+                            <button type="button" class="content-tab-btn" data-category="article">المقالات</button>
+                            <button type="button" class="content-tab-btn" data-category="guide">أدلة العناية</button>
+                            <button type="button" class="content-tab-btn" data-category="faq">الأسئلة الشائعة</button>
+                        </div>
+
+                        <!-- شريط الفرز والحالة -->
+                        <div class="list-sub-filter-row">
+                            <button type="button" class="list-filter-btn" id="statusFilterBtn">
+                                <span>حالة النشر: الكل</span>
+                                <i data-lucide="chevron-down" style="width:13px; height:13px;"></i>
+                            </button>
+                            <button type="button" class="list-sort-btn">
+                                <span>الأحدث تحديثاً</span>
+                                <i data-lucide="arrow-down-up" style="width:12px; height:12px;"></i>
+                            </button>
+                        </div>
+
+                        <!-- جدول عناصر المحتوى -->
+                        <table class="content-table" id="contentTable">
+                            <thead>
+                                <tr>
+                                    <th>العنوان</th>
+                                    <th>التصنيف</th>
+                                    <th>الحالة</th>
+                                    <th>آخر تحديث</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- عنصر 1: ري البوتس (محدد افتراضياً) -->
+                                <tr class="selected"
+                                    data-id="C-0038"
+                                    data-title="ري البوتس دون إفراط"
+                                    data-category="دليل عناية"
+                                    data-status="مسودة"
+                                    data-badge-class="badge-drf"
+                                    data-date="اليوم، ٩:٣٢"
+                                    data-slug="/guides/pothos-watering"
+                                    data-seo="خطوات بسيطة لفحص التربة وتنظيم ري البوتس دون إفراط. ٦٧ حرفاً"
+                                    data-cover="activity-pothos.jpg"
+                                    data-alt="أوراق بوتس خضراء"
+                                    data-content="الموعد تذكير بالملاحظة، لا أمرٌ بالري&#10;&#10;قبل إضافة الماء، افحص جفاف الطبقة العلوية من التربة وتأكد من تصريف الأصيص. تتغير حاجة البوتس إلى الماء باختلاف الإضاءة والموسم وحجم الأصيص.&#10;&#10;إذا بقيت النبتة رطبة، انتظر ثم افحصها مجدداً. راقب الأوراق، ولا تعتمد الاصفرار وحده دليلاً على سبب المشكلة.">
+                                    <td class="article-title-cell">ري البوتس دون إفراط</td>
+                                    <td class="article-category-cell">دليل عناية</td>
+                                    <td><span class="badge-drf">مسودة</span></td>
+                                    <td class="article-date-cell">اليوم، ٩:٣٢</td>
+                                </tr>
+
+                                <!-- عنصر 2: نباتات تناسب الإضاءة الهادئة -->
+                                <tr data-id="C-0039"
+                                    data-title="نباتات تناسب الإضاءة الهادئة"
+                                    data-category="مقال"
+                                    data-status="منشور"
+                                    data-badge-class="badge-pub"
+                                    data-date="٢٥ أكتوبر"
+                                    data-slug="/articles/low-light-plants"
+                                    data-seo="دليل شامل لأفضل نباتات الزينة المنزلية التي تزدهر في الإضاءة المنخفضة."
+                                    data-cover="activity-zamia.jpg"
+                                    data-alt="نبات الزاميا في إضاءة خافتة"
+                                    data-content="تعتبر النباتات المقاومة لقلة الضوء مثل الزاميا والسانسيفيريا الخيار المثالي للمكاتب والغرف ذات النوافذ الصغيرة.&#10;&#10;حافظ على تقليل فترات الري نظراً لبطء تبخر المياه في البيئات قليلة الإضاءة.">
+                                    <td class="article-title-cell">نباتات تناسب الإضاءة الهادئة</td>
+                                    <td class="article-category-cell">مقال</td>
+                                    <td><span class="badge-pub">منشور</span></td>
+                                    <td class="article-date-cell">٢٥ أكتوبر</td>
+                                </tr>
+
+                                <!-- عنصر 3: دليل العناية بزنبق السلام -->
+                                <tr data-id="C-0040"
+                                    data-title="دليل العناية بزنبق السلام"
+                                    data-category="دليل عناية"
+                                    data-status="للمراجعة"
+                                    data-badge-class="badge-rev"
+                                    data-date="٢٤ أكتوبر"
+                                    data-slug="/guides/peace-lily-care"
+                                    data-seo="كيفية الحفاظ على نضارة أزهار وأوراق زنبق السلام وتفادي اصفرارها."
+                                    data-cover="activity-peace-lily.jpg"
+                                    data-alt="نبات زنبق السلام بأزهار بيضاء"
+                                    data-content="زنبق السلام نبتة حساسة لتيارات الهواء الباردة. تتدلى أوراقها عند العطش وتستعيد نضارتها بعد ساعات قليلة من ريها باعتدال.">
+                                    <td class="article-title-cell">دليل العناية بزنبق السلام</td>
+                                    <td class="article-category-cell">دليل عناية</td>
+                                    <td><span class="badge-rev">للمراجعة</span></td>
+                                    <td class="article-date-cell">٢٤ أكتوبر</td>
+                                </tr>
+
+                                <!-- عنصر 4: هل نتيجة التشخيص مؤكدة؟ -->
+                                <tr data-id="C-0041"
+                                    data-title="هل نتيجة التشخيص مؤكدة؟"
+                                    data-category="سؤال شائع"
+                                    data-status="منشور"
+                                    data-badge-class="badge-pub"
+                                    data-date="٢٣ أكتوبر"
+                                    data-slug="/faq/is-diagnosis-certain"
+                                    data-seo="توضيح لطبيعة التشخيص الآلي ودور المختص الزراعي في تأكيد النتيجة."
+                                    data-cover="activity-pothos.jpg"
+                                    data-alt="فحص أوراق النبتة بدقة"
+                                    data-content="التشخيص الآلي يقدم اقتراحات أولية بناءً على مئات آلاف الحالات، ولكنه لا يُعتمد نهائياً قبل مراجعة المختص البشري لظروف النبتة وبيئتها.">
+                                    <td class="article-title-cell">هل نتيجة التشخيص مؤكدة؟</td>
+                                    <td class="article-category-cell">سؤال شائع</td>
+                                    <td><span class="badge-pub">منشور</span></td>
+                                    <td class="article-date-cell">٢٣ أكتوبر</td>
+                                </tr>
+
+                                <!-- عنصر 5: كيف تختار تربة جيدة التصريف؟ -->
+                                <tr data-id="C-0042"
+                                    data-title="كيف تختار تربة جيدة التصريف؟"
+                                    data-category="مقال"
+                                    data-status="منشور"
+                                    data-badge-class="badge-pub"
+                                    data-date="٢٢ أكتوبر"
+                                    data-slug="/articles/well-draining-soil"
+                                    data-seo="تعرف على أفضل خلطات التربة للنباتات الداخلية لتجنب تعفن الجذور."
+                                    data-cover="Rectangle (1).png"
+                                    data-alt="خلطة تربة مع بيرلايت"
+                                    data-content="التربة الجيدة تمنح الجذور الأكسجين الكافي وتصرّف الماء الفائض خلال ثوانٍ. خلط البيتموس مع البيرلايت بنسبة ٣ إلى ١ هو الخيار الأكثر أماناً.">
+                                    <td class="article-title-cell">كيف تختار تربة جيدة التصريف؟</td>
+                                    <td class="article-category-cell">مقال</td>
+                                    <td><span class="badge-pub">منشور</span></td>
+                                    <td class="article-date-cell">٢٢ أكتوبر</td>
+                                </tr>
+
+                                <!-- عنصر 6: متى أغيّر أصيص النبتة؟ -->
+                                <tr data-id="C-0043"
+                                    data-title="متى أغيّر أصيص النبتة؟"
+                                    data-category="سؤال شائع"
+                                    data-status="مسودة"
+                                    data-badge-class="badge-drf"
+                                    data-date="٢١ أكتوبر"
+                                    data-slug="/faq/when-to-repot"
+                                    data-seo="العلامات التي تدل على أن نبتتك أصبحت بحاجة لحوض أكبر وأوسع."
+                                    data-cover="Rectangle (2).png"
+                                    data-alt="جذور نبات تخرج من أسفل الأصيص"
+                                    data-content="خروج الجذور من فتحات التصريف السفلية أو بطء نمو النبات رغم التسميد المنتظم هي إشارات واضحة على ضرورة التدوير لحوض أكبر بنمرة واحدة.">
+                                    <td class="article-title-cell">متى أغيّر أصيص النبتة؟</td>
+                                    <td class="article-category-cell">سؤال شائع</td>
+                                    <td><span class="badge-drf">مسودة</span></td>
+                                    <td class="article-date-cell">٢١ أكتوبر</td>
+                                </tr>
+
+                                <!-- عنصر 7: روتين العناية بالزاميا -->
+                                <tr data-id="C-0044"
+                                    data-title="روتين العناية بالزاميا"
+                                    data-category="دليل عناية"
+                                    data-status="منشور"
+                                    data-badge-class="badge-pub"
+                                    data-date="٢٠ أكتوبر"
+                                    data-slug="/guides/zz-plant-routine"
+                                    data-seo="دليل المبتدئين للعناية بنبات الزاميا الصبور وقليل المتطلبات."
+                                    data-cover="activity-zamia.jpg"
+                                    data-alt="نبتة زاميا نضرة"
+                                    data-content="نبتة الزاميا تخزن الماء في درناتها الجذعية الشبيهة بالبطاطس. لذلك فإن أكبر خطأ يمكن ارتكابه هو الري المتكرر؛ اروِها فقط عندما يجف قاع الحوض تماماً.">
+                                    <td class="article-title-cell">روتين العناية بالزاميا</td>
+                                    <td class="article-category-cell">دليل عناية</td>
+                                    <td><span class="badge-pub">منشور</span></td>
+                                    <td class="article-date-cell">٢٠ أكتوبر</td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <!-- تذييل الترقيم -->
+                        <div class="list-pagination-footer">
+                            <div class="pagination-controls">
+                                <button type="button" class="btn-page-next" id="nextPageBtn">التالي</button>
+                                <span class="page-number-pill">١</span>
+                                <i data-lucide="chevron-left" style="width:14px; height:14px; color:var(--text-light);"></i>
+                            </div>
+                            <span>عرض ١-٧ من ٤٨ مادة</span>
+                        </div>
+
+                    </div>
+
+                    <!-- شريط إرشادات النشر أسفل البطاقة -->
+                    <div class="publishing-guideline-banner">
+                        <i data-lucide="info"></i>
+                        <span>قائمة النشر: مراجعة دقة العناية، وحقوق الصورة والوصف البديل، وعنوان البحث قبل إتاحة المحتوى.</span>
+                    </div>
+
+                </div>
+
+                <!-- العمود الأيسر: محرر دليل العناية -->
+                <div class="content-editor-column">
+
+                    <div class="content-editor-card">
+
+                        <!-- شريط رأس المحرر -->
+                        <div class="editor-card-header">
+                            <div class="editor-title-block">
+                                <span class="editor-card-title" id="editorHeaderTitle">تحرير دليل العناية</span>
+                                <span class="editor-code-badge" id="editorCodeBadge">C-0038</span>
+                            </div>
+                            <div class="editor-view-toggle">
+                                <button type="button" class="view-toggle-btn active" id="btnToggleEdit">المحرر</button>
+                                <button type="button" class="view-toggle-btn" id="btnTogglePreview">معاينة</button>
+                            </div>
+                        </div>
+
+                        <!-- وضع المحرر (Editing Form) -->
+                        <div id="editorFormContainer" style="display:flex; flex-direction:column; gap:14px;">
+
+                            <!-- عنوان المحتوى -->
+                            <div class="editor-form-group">
+                                <label class="editor-label" for="articleTitleInput">عنوان المحتوى</label>
+                                <input type="text" class="editor-input" id="articleTitleInput" value="ري البوتس دون إفراط">
+                            </div>
+
+                            <!-- التصنيف وحالة النشر -->
+                            <div class="editor-row-2col">
+                                <div class="editor-form-group">
+                                    <label class="editor-label" for="articleCategorySelect">التصنيف</label>
+                                    <select class="editor-select" id="articleCategorySelect">
+                                        <option value="دليل عناية" selected>دليل عناية</option>
+                                        <option value="مقال">مقال</option>
+                                        <option value="سؤال شائع">سؤال شائع</option>
+                                    </select>
+                                </div>
+
+                                <div class="editor-form-group">
+                                    <label class="editor-label" for="articleStatusSelect">حالة النشر</label>
+                                    <select class="editor-select" id="articleStatusSelect">
+                                        <option value="مسودة" selected>مسودة</option>
+                                        <option value="منشور">منشور</option>
+                                        <option value="للمراجعة">للمراجعة</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <!-- صندوق المحرر الغني -->
+                            <div class="rich-editor-box">
+                                <div class="rich-editor-toolbar">
+                                    <div class="toolbar-group-right">
+                                        <select class="toolbar-select">
+                                            <option>فقرة</option>
+                                            <option>عنوان رئيسي</option>
+                                            <option>عنوان فرعي</option>
+                                        </select>
+                                    </div>
+                                    <div class="toolbar-group-left">
+                                        <button type="button" class="toolbar-btn" title="عريض"><b>B</b></button>
+                                        <button type="button" class="toolbar-btn" title="مائل"><i>I</i></button>
+                                        <button type="button" class="toolbar-btn" title="قائمة"><i data-lucide="list" style="width:13px; height:13px;"></i></button>
+                                        <button type="button" class="toolbar-btn" title="رابط"><i data-lucide="link" style="width:13px; height:13px;"></i></button>
+                                    </div>
+                                </div>
+                                <textarea class="rich-editor-content" id="articleBodyInput" rows="6">الموعد تذكير بالملاحظة، لا أمرٌ بالري
+
+قبل إضافة الماء، افحص جفاف الطبقة العلوية من التربة وتأكد من تصريف الأصيص. تتغير حاجة البوتس إلى الماء باختلاف الإضاءة والموسم وحجم الأصيص.
+
+إذا بقيت النبتة رطبة، انتظر ثم افحصها مجدداً. راقب الأوراق، ولا تعتمد الاصفرار وحده دليلاً على سبب المشكلة.</textarea>
+                            </div>
+
+                            <!-- صورة الغلاف -->
+                            <div class="cover-image-section">
+                                <img src="activity-pothos.jpg" alt="أوراق بوتس خضراء" class="cover-image-thumb" id="coverImagePreview">
+                                <div class="cover-image-info">
+                                    <span class="cover-image-title">صورة الغلاف</span>
+                                    <span class="cover-image-alt" id="coverAltDisplay">وصف بديل: أوراق بوتس خضراء</span>
+                                    <a class="cover-image-action" id="changeCoverBtn">تغيير الصورة ←</a>
+                                </div>
+                            </div>
+
+                            <!-- الرابط المختصر -->
+                            <div class="editor-form-group">
+                                <label class="editor-label" for="articleSlugInput">الرابط المختصر</label>
+                                <input type="text" class="editor-input" id="articleSlugInput" value="/guides/pothos-watering" dir="ltr" style="text-align:right;">
+                            </div>
+
+                            <!-- وصف البحث -->
+                            <div class="seo-description-meta" id="seoDescDisplay">
+                                وصف البحث: خطوات بسيطة لفحص التربة وتنظيم ري البوتس دون إفراط. ٦٧ حرفاً
+                            </div>
+
+                            <!-- أزرار الإجراءات -->
+                            <div class="editor-actions-row">
+                                <button type="button" class="btn-publish-main" id="btnPublishArticle">نشر المحتوى</button>
+                                <button type="button" class="btn-editor-outline" id="btnSaveDraft">حفظ المسودة</button>
+                                <button type="button" class="btn-editor-outline" id="btnScheduleArticle">جدولة</button>
+                            </div>
+
+                            <div class="editor-audit-meta" id="editorAuditMeta">
+                                آخر حفظ: اليوم ٩:٣٢ ص · مريم علي · الإصدار ٢
+                            </div>
+
+                        </div>
+
+                        <!-- وضع المعاينة المباشرة (Live Preview View) -->
+                        <div class="editor-preview-view" id="editorPreviewContainer">
+                            <h2 class="preview-article-title" id="previewTitle">ري البوتس دون إفراط</h2>
+                            <div class="preview-article-meta">
+                                <span class="badge-drf" id="previewStatusBadge">مسودة</span>
+                                <span id="previewCategory">دليل عناية</span>
+                                <span>· اليوم، ٩:٣٢</span>
+                            </div>
+                            <img src="activity-pothos.jpg" alt="غلاف المقال" class="preview-article-image" id="previewImage">
+                            <div class="preview-article-body" id="previewBodyText">
+الموعد تذكير بالملاحظة، لا أمرٌ بالري
+
+قبل إضافة الماء، افحص جفاف الطبقة العلوية من التربة وتأكد من تصريف الأصيص. تتغير حاجة البوتس إلى الماء باختلاف الإضاءة والموسم وحجم الأصيص.
+
+إذا بقيت النبتة رطبة، انتظر ثم افحصها مجدداً. راقب الأوراق، ولا تعتمد الاصفرار وحده دليلاً على سبب المشكلة.
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- تذييل الصفحة -->
+            <footer class="page-bottom-footer">
+                <span>مساحة إدارية آمنة · السجلات المعروضة توضيحية</span>
+                <span class="brand-tag">Enaya Admin · ٢٠٢٦</span>
+            </footer>
+
+        </main>
+
+    </div>
+
+    <!-- إشعار Toast منبثق للتفاعلات -->
+    <div class="toast-notice" id="toastNotice" role="status" aria-live="polite">
+        <i data-lucide="check-circle" id="toastIcon"></i>
+        <span id="toastMsg">تم تنفيذ الإجراء بنجاح</span>
+    </div>
+
+    <!-- سكريبت التفاعلية والقائمة الجانبية -->
+    <script src="../js/sidebar.js"></script>
+    <script>
+        /* ============= تهيئة أيقونات Lucide ============= */
+        document.addEventListener('DOMContentLoaded', function () {
+            if (window.lucide) {
+                lucide.createIcons();
+            }
+        });
+
+        /* ============= نظام إشعارات Toast ============= */
+        let toastTimeout;
+        function showToast(message, isError = false) {
+            const toast = document.getElementById('toastNotice');
+            const msgEl = document.getElementById('toastMsg');
+            const iconEl = document.getElementById('toastIcon');
+
+            if (!toast || !msgEl) return;
+
+            msgEl.textContent = message;
+            if (isError) {
+                toast.style.background = '#c0392b';
+                iconEl.setAttribute('data-lucide', 'alert-circle');
+            } else {
+                toast.style.background = '#1b2f1a';
+                iconEl.setAttribute('data-lucide', 'check-circle');
+            }
+
+            if (window.lucide) lucide.createIcons();
+
+            toast.classList.add('show');
+            clearTimeout(toastTimeout);
+            toastTimeout = setTimeout(() => {
+                toast.classList.remove('show');
+            }, 3000);
+        }
+
+        /* ============= تحديد عناصر جدول المحتوى وتحديث المحرر ============= */
+        const contentRows = document.querySelectorAll('#contentTable tbody tr');
+
+        function loadArticleIntoEditor(row) {
+            if (!row) return;
+
+            contentRows.forEach(r => r.classList.remove('selected'));
+            row.classList.add('selected');
+
+            const id = row.getAttribute('data-id');
+            const title = row.getAttribute('data-title');
+            const category = row.getAttribute('data-category');
+            const status = row.getAttribute('data-status');
+            const slug = row.getAttribute('data-slug');
+            const seo = row.getAttribute('data-seo');
+            const cover = row.getAttribute('data-cover');
+            const alt = row.getAttribute('data-alt');
+            const content = row.getAttribute('data-content');
+            const date = row.getAttribute('data-date');
+            const badgeClass = row.getAttribute('data-badge-class');
+
+            // تحديث الحقول في المحرر
+            document.getElementById('editorHeaderTitle').textContent = `تحرير ${category}`;
+            document.getElementById('editorCodeBadge').textContent = id;
+            document.getElementById('articleTitleInput').value = title;
+            document.getElementById('articleCategorySelect').value = category;
+            document.getElementById('articleStatusSelect').value = status;
+            document.getElementById('articleSlugInput').value = slug;
+            document.getElementById('articleBodyInput').value = content;
+            document.getElementById('coverImagePreview').src = cover;
+            document.getElementById('coverAltDisplay').textContent = `وصف بديل: ${alt}`;
+            document.getElementById('seoDescDisplay').textContent = `وصف البحث: ${seo}`;
+            document.getElementById('editorAuditMeta').textContent = `آخر حفظ: ${date} · مريم علي · الإصدار ٢`;
+
+            // تحديث بطاقة المعاينة المباشرة أيضاً
+            document.getElementById('previewTitle').textContent = title;
+            document.getElementById('previewCategory').textContent = category;
+            document.getElementById('previewImage').src = cover;
+            document.getElementById('previewBodyText').textContent = content;
+
+            const previewBadge = document.getElementById('previewStatusBadge');
+            previewBadge.textContent = status;
+            previewBadge.className = badgeClass;
+        }
+
+        contentRows.forEach(row => {
+            row.addEventListener('click', function () {
+                loadArticleIntoEditor(this);
+            });
+        });
+
+        /* ============= تبديل عرض المحرر / المعاينة ============= */
+        const btnEdit = document.getElementById('btnToggleEdit');
+        const btnPreview = document.getElementById('btnTogglePreview');
+        const formContainer = document.getElementById('editorFormContainer');
+        const previewContainer = document.getElementById('editorPreviewContainer');
+
+        if (btnEdit && btnPreview) {
+            btnEdit.addEventListener('click', function () {
+                btnEdit.classList.add('active');
+                btnPreview.classList.remove('active');
+                formContainer.style.display = 'flex';
+                previewContainer.classList.remove('active');
+            });
+
+            btnPreview.addEventListener('click', function () {
+                btnPreview.classList.add('active');
+                btnEdit.classList.remove('active');
+                formContainer.style.display = 'none';
+                previewContainer.classList.add('active');
+            });
+        }
+
+        /* ============= تصفية المحتوى حسب التبويبات ============= */
+        const categoryTabs = document.querySelectorAll('.content-tab-btn');
+        categoryTabs.forEach(tab => {
+            tab.addEventListener('click', function () {
+                categoryTabs.forEach(t => t.classList.remove('active'));
+                this.classList.add('active');
+
+                const cat = this.getAttribute('data-category');
+                let count = 0;
+
+                contentRows.forEach(row => {
+                    const rowCat = row.getAttribute('data-category');
+                    let show = false;
+
+                    if (cat === 'all') {
+                        show = true;
+                    } else if (cat === 'article' && rowCat === 'مقال') {
+                        show = true;
+                    } else if (cat === 'guide' && rowCat === 'دليل عناية') {
+                        show = true;
+                    } else if (cat === 'faq' && rowCat === 'سؤال شائع') {
+                        show = true;
+                    }
+
+                    if (show) {
+                        row.style.display = '';
+                        count++;
+                    } else {
+                        row.style.display = 'none';
+                    }
+                });
+
+                document.getElementById('listCountDisplay').textContent = `${count} مادة`;
+            });
+        });
+
+        /* ============= البحث السريع في المحتوى ============= */
+        const listSearch = document.getElementById('listSearchInput');
+        const topSearch = document.getElementById('topSearchInput');
+
+        function filterList(query) {
+            query = (query || '').trim().toLowerCase();
+            let count = 0;
+
+            contentRows.forEach(row => {
+                const title = (row.getAttribute('data-title') || '').toLowerCase();
+                const cat = (row.getAttribute('data-category') || '').toLowerCase();
+                const slug = (row.getAttribute('data-slug') || '').toLowerCase();
+
+                if (!query || title.includes(query) || cat.includes(query) || slug.includes(query)) {
+                    row.style.display = '';
+                    count++;
+                } else {
+                    row.style.display = 'none';
+                }
+            });
+
+            document.getElementById('listCountDisplay').textContent = `${count} مادة`;
+        }
+
+        if (listSearch) {
+            listSearch.addEventListener('input', function () {
+                filterList(this.value);
+            });
+        }
+
+        if (topSearch) {
+            topSearch.addEventListener('input', function () {
+                if (listSearch) listSearch.value = this.value;
+                filterList(this.value);
+            });
+        }
+
+        /* ============= أزرار حفظ ونشر المحتوى ============= */
+        const btnPublish = document.getElementById('btnPublishArticle');
+        if (btnPublish) {
+            btnPublish.addEventListener('click', function () {
+                const title = document.getElementById('articleTitleInput').value;
+                this.innerHTML = '<i data-lucide="check"></i> تم النشر';
+                if (window.lucide) lucide.createIcons();
+                this.style.background = '#27ae60';
+
+                showToast(`تم نشر "${title}" بنجاح في منصة عناية.`);
+
+                setTimeout(() => {
+                    this.textContent = 'نشر المحتوى';
+                    this.style.background = '';
+                }, 2200);
+            });
+        }
+
+        const btnSave = document.getElementById('btnSaveDraft');
+        if (btnSave) {
+            btnSave.addEventListener('click', function () {
+                showToast('تم حفظ التعديلات في المسودة بنجاح.');
+            });
+        }
+
+        const btnSchedule = document.getElementById('btnScheduleArticle');
+        if (btnSchedule) {
+            btnSchedule.addEventListener('click', function () {
+                showToast('تمت جدولة موعد النشر التلقائي لهذا المحتوى.');
+            });
+        }
+
+        /* ============= إضافة محتوى جديد ============= */
+        const btnNew = document.getElementById('newArticleBtn');
+        if (btnNew) {
+            btnNew.addEventListener('click', function () {
+                contentRows.forEach(r => r.classList.remove('selected'));
+                document.getElementById('editorHeaderTitle').textContent = 'إنشاء محتوى جديد';
+                document.getElementById('editorCodeBadge').textContent = 'C-0049';
+                document.getElementById('articleTitleInput').value = '';
+                document.getElementById('articleTitleInput').placeholder = 'اكتب عنوان المحتوى هنا...';
+                document.getElementById('articleBodyInput').value = '';
+                document.getElementById('articleSlugInput').value = '/guides/new-article';
+                document.getElementById('articleTitleInput').focus();
+
+                showToast('جاهز لكتابة مادة جديدة في المنصة.');
+            });
+        }
+
+        /* ============= تغيير صورة الغلاف ============= */
+        const changeCoverBtn = document.getElementById('changeCoverBtn');
+        if (changeCoverBtn) {
+            changeCoverBtn.addEventListener('click', function () {
+                showToast('اختر صورة الغلاف المناسبة من مكتبة الوسائط.');
+            });
+        }
+
+        /* ============= زر التالي في الترقيم ============= */
+        const nextPageBtn = document.getElementById('nextPageBtn');
+        if (nextPageBtn) {
+            nextPageBtn.addEventListener('click', function () {
+                showToast('تم عرض الصفحة الحالية (لا توجد صفحات إضافية في هذا العرض).');
+            });
+        }
+    </script>
+
+</body>
+
+</html>

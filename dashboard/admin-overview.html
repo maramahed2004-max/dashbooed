@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>نظرة عامة | لوحة الأدمن — عناية Enaya</title>
+    <meta name="description" content="لوحة تحكم الأدمن لتطبيق عناية — نظرة عامة على المستخدمين والنباتات والتشخيصات والنشاط.">
+
+    <!-- خط Cairo المعتمد لكامل الواجهة -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- أيقونات Lucide المعتمدة -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- CSS الموحد للقائمة الجانبية والواجهة -->
+    <link rel="stylesheet" href="../css/sidebar.css">
+    <link rel="stylesheet" href="../css/admin-overview.css">
+
+
+    <!-- أيقونة الموقع في التبويب -->
+    <link rel="icon" type="image/png" href="logo-enaya.png">
+</head>
+
+<body>
+
+    <div class="app-container">
+
+        <!-- ============= القائمة الجانبية الموحدة (أدمن) ============= -->
+        <aside class="sidebar" id="sidebar">
+
+            <a href="admin-overview.html" class="sidebar-logo logo-area" aria-label="لوحة الأدمن | عناية">
+                <img src="logo-enaya.png" alt="شعار عناية">
+            </a>
+
+            <!-- شارة لوحة الإدارة -->
+            <div style="
+                display:flex; align-items:center; justify-content:center;
+                margin: 0 0 14px; padding: 4px 14px; border-radius: 20px;
+                background: rgba(169,207,156,0.18); border: 1px solid rgba(169,207,156,0.3);
+                font-size: 11px; font-weight: 800; color: #a9cf9c; letter-spacing: 0.3px;
+            ">لوحة الإدارة</div>
+
+            <nav class="sidebar-menu" aria-label="قائمة الأدمن">
+
+                <!-- نظرة عامة (النشطة) -->
+                <a href="admin-overview.html" class="menu-link active" aria-current="page">
+                    <i data-lucide="layout-dashboard"></i>
+                    <span>نظرة عامة</span>
+                </a>
+
+                <!-- إدارة المستخدمين -->
+                <a href="admin-users.html" class="menu-link">
+                    <i data-lucide="users"></i>
+                    <span>إدارة المستخدمين</span>
+                </a>
+
+                <!-- مكتبة النباتات -->
+                <a href="admin-plants.html" class="menu-link">
+                    <i data-lucide="sprout"></i>
+                    <span>مكتبة النباتات</span>
+                </a>
+
+                <!-- مراجعة التشخيصات -->
+                <a href="admin-diagnosis.html" class="menu-link">
+                    <i data-lucide="scan-line"></i>
+                    <span>مراجعة التشخيصات</span>
+                </a>
+
+                <!-- الاشتراكات والفواتير -->
+                <a href="admin-billing.html" class="menu-link">
+                    <i data-lucide="credit-card"></i>
+                    <span>الاشتراكات والفواتير</span>
+                </a>
+
+                <div class="menu-divider"></div>
+
+                <!-- إدارة المحتوى -->
+                <a href="admin-content.html" class="menu-link">
+                    <i data-lucide="file-text"></i>
+                    <span>إدارة المحتوى</span>
+                </a>
+
+                <!-- الدعم والرسائل -->
+                <a href="admin-support.html" class="menu-link">
+                    <i data-lucide="message-circle"></i>
+                    <span>الدعم والرسائل</span>
+                </a>
+
+                <!-- الصلاحيات والإعدادات -->
+                <a href="admin-settings.html" class="menu-link">
+                    <i data-lucide="settings"></i>
+                    <span>الصلاحيات والإعدادات</span>
+                </a>
+
+            </nav>
+
+            <!-- صندوق العناية تبدأ من هنا -->
+            <div class="upgrade-box">
+                <div class="upgrade-title">
+                    <i data-lucide="shield-check"></i>
+                    <strong>العناية تبدأ من هنا</strong>
+                </div>
+                <p>تابع الطلبات، وراجع المعرفة، وأجِب كل استفسار أهاممه.</p>
+                <a href="#" class="upgrade-button">
+                    جميع الخدمات مسنقرة
+                    <i data-lucide="arrow-left"></i>
+                </a>
+            </div>
+
+            <!-- معلومات الأدمن -->
+            <div class="sidebar-user">
+                <div class="user-avatar">م</div>
+                <div class="user-info">
+                    <strong>مرام عاهد</strong>
+                    <small>maram@enaya.app</small>
+                    <span>مدير النظام</span>
+                </div>
+            </div>
+
+        </aside>
+
+        <!-- ============= منطقة المحتوى الرئيسي ============= -->
+        <main class="main-content">
+
+            <!-- الشريط العلوي -->
+            <div class="top-bar">
+                <div class="top-bar-right">
+                    <button type="button" class="mobile-menu-btn" id="mobile-menu-toggle" aria-label="فتح القائمة">
+                        <i data-lucide="menu"></i>
+                    </button>
+                    <h2 class="page-title-small">نظرة عامة</h2>
+                </div>
+
+                <div class="top-bar-left">
+                    <!-- أيقونة البحث فقط -->
+                    <button type="button" class="icon-btn" aria-label="بحث" id="adminSearchBtn">
+                        <i data-lucide="search"></i>
+                    </button>
+
+                    <!-- الإشعارات -->
+                    <button type="button" class="icon-btn" aria-label="الإشعارات" id="notifBtn">
+                        <i data-lucide="bell"></i>
+                        <span class="notif-badge"></span>
+                    </button>
+
+                    <!-- المستخدم -->
+                    <div class="topbar-user" id="topbarUser" role="button" tabindex="0">
+                        <div class="topbar-user-avatar">م</div>
+                        <span class="topbar-user-name">مرام عاهد</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- رأس الصفحة -->
+            <div class="page-header">
+                <div class="page-header-right">
+                    <h1>نظرة عامة</h1>
+                    <p>صورة واضحة لعمليات عناية، وما يحتاج إلى اهتمامك اليوم.</p>
+                </div>
+                <div class="page-header-left">
+                    <button type="button" class="btn-export" id="exportBtn">
+                        <i data-lucide="download"></i>
+                        تصدير الملخص
+                    </button>
+                </div>
+            </div>
+
+            <!-- شريط التاريخ والتحديث -->
+            <div class="date-refresh-bar">
+                <div class="date-range">
+                    <i data-lucide="calendar"></i>
+                    <span>١ – ٢٦ أكتوبر ٢٠٢٦</span>
+                </div>
+                <div class="refresh-info">
+                    <span>آخر تحديث ٩:٤١ ص</span>
+                    <span class="demo-tag">بيانات توضيحية</span>
+                </div>
+            </div>
+
+            <!-- ============= بطاقات الإحصاءات ============= -->
+            <div class="stats-grid">
+
+                <!-- إجمالي المستخدمين -->
+                <div class="stat-card">
+                    <div class="stat-value">١٬٢٤٨</div>
+                    <div class="stat-label">إجمالي المستخدمين</div>
+                    <div class="stat-sub">
+                        <strong>١٢٨ مستخدم جديد</strong> هذا الشهر<br>
+                        ٧٢ مشروع · ١٤ قيد الإعداد
+                    </div>
+                    <i data-lucide="users" class="stat-icon"></i>
+                </div>
+
+                <!-- في المكتبة المعرفية -->
+                <div class="stat-card">
+                    <div class="stat-value">٨٦</div>
+                    <div class="stat-label">نبتة في المكتبة المعرفية</div>
+                    <div class="stat-sub">
+                        ٧٢ منشورة · ١٤ قيد الإعداد<br>
+                        <strong>٤ إضافات</strong> هذا الشهر
+                    </div>
+                    <i data-lucide="sprout" class="stat-icon"></i>
+                </div>
+
+                <!-- تشخيصات بانتظار المراجعة -->
+                <div class="stat-card">
+                    <div class="stat-value">١٨</div>
+                    <div class="stat-label">تشخيصاً بنظر المراجعة</div>
+                    <div class="stat-sub">
+                        ٣ حالات ذات أولوية عالية<br>
+                        <strong>٣ جديدة</strong> منذ الأمس
+                    </div>
+                    <i data-lucide="scan-line" class="stat-icon"></i>
+                </div>
+
+                <!-- رسائل دعم -->
+                <div class="stat-card">
+                    <div class="stat-value">٢٤</div>
+                    <div class="stat-label">رسالة دعم متعلقة</div>
+                    <div class="stat-sub">
+                        ٨ رسائل جديدة تحتاج ردًا<br>
+                        متوسط الرد ٤ ساعات
+                    </div>
+                    <i data-lucide="message-circle" class="stat-icon"></i>
+                </div>
+
+            </div>
+
+            <!-- ============= الرسوم البيانية ============= -->
+            <div class="charts-row">
+
+                <!-- الرسم الشريطي: طلبات التشخيص -->
+                <div class="chart-card">
+                    <div class="chart-header">
+                        <div class="chart-title-group">
+                            <h2>طلبات التشخيص</h2>
+                            <p>آخر ٣٠ يوماً</p>
+                        </div>
+                        <span class="chart-badge">١٥١ طلباً</span>
+                    </div>
+
+                    <div class="bar-stats-row">
+                        <div class="bar-stat-item">
+                            <span class="bar-stat-value">١٥١</span>
+                            <span class="bar-stat-label">إجمالي الطلبات</span>
+                        </div>
+                        <div class="bar-stat-item">
+                            <span class="bar-stat-value">١٨</span>
+                            <span class="bar-stat-label">بانتظار المخصص</span>
+                        </div>
+                    </div>
+
+                    <div class="bar-chart-area" id="barChartArea">
+                        <!-- الأعمدة البيانية سيتم توليدها بـ JS -->
+                    </div>
+                </div>
+
+                <!-- الرسم الخطي: نمو المستخدمين -->
+                <div class="chart-card">
+                    <div class="chart-header">
+                        <div class="chart-title-group">
+                            <h2>نمو المستخدمين</h2>
+                            <p>آخر ٦ أشهر</p>
+                        </div>
+                        <span class="chart-badge">+١٥٫١٪ هذا الشهر</span>
+                    </div>
+
+                    <div class="line-chart-stats">
+                        <div class="bar-stat-item">
+                            <span class="bar-stat-value">١٬٢٤٨</span>
+                            <span class="bar-stat-label">١٬٢٤٨ مستخدم</span>
+                        </div>
+                    </div>
+
+                    <div class="line-chart-area" id="lineChartArea">
+                        <svg viewBox="0 0 500 110" preserveAspectRatio="none" aria-hidden="true" id="lineChartSvg">
+                            <!-- منطقة المساحة تحت الخط -->
+                            <defs>
+                                <linearGradient id="lineGrad" x1="0" y1="0" x2="0" y2="1">
+                                    <stop offset="0%"   stop-color="#2d4a2c" stop-opacity="0.18"/>
+                                    <stop offset="100%" stop-color="#2d4a2c" stop-opacity="0.01"/>
+                                </linearGradient>
+                            </defs>
+                            <path id="areaPath"
+                                d="M 0,95 C 60,85 100,80 150,72 C 200,64 240,58 280,48 C 320,37 360,28 400,18 C 430,10 465,6 500,2 L 500,110 L 0,110 Z"
+                                fill="url(#lineGrad)" />
+                            <path id="linePath"
+                                d="M 0,95 C 60,85 100,80 150,72 C 200,64 240,58 280,48 C 320,37 360,28 400,18 C 430,10 465,6 500,2"
+                                fill="none" stroke="#2d4a2c" stroke-width="2.5" stroke-linecap="round"/>
+                        </svg>
+                    </div>
+
+                    <div class="chart-x-labels">
+                        <span>مايو</span>
+                        <span>يونيو</span>
+                        <span>يوليو</span>
+                        <span>أغسطس</span>
+                        <span>سبتمبر</span>
+                        <span>أكتوبر</span>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- ============= الصف السفلي ============= -->
+            <div class="bottom-row">
+
+                <!-- قوائم العمل -->
+                <div class="work-queues-card">
+                    <div class="section-header">
+                        <h2>يحتاج إلى اهتمامك</h2>
+                        <span class="section-count">٣ قوائم عمل</span>
+                    </div>
+
+                    <table class="queues-table">
+                        <thead>
+                            <tr>
+                                <th>قائمة العمل</th>
+                                <th>العدد</th>
+                                <th>الإجراء</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="queue-name">مراجعة التشخيصات</td>
+                                <td><span class="status-badge badge-urgent">١٨ عاجلة</span></td>
+                                <td>
+                                    <a href="admin-diagnosis.html" class="action-link">
+                                        مراجعة الطلبات ←
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="queue-name">رسائل لم يُرد عليها</td>
+                                <td><span class="status-badge badge-new">٨ جديدة</span></td>
+                                <td>
+                                    <a href="#" class="action-link">
+                                        فتح صندوق الدعم ←
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="queue-name">مواد تنتظر النشر</td>
+                                <td><span class="status-badge badge-review">٤ للمراجعة</span></td>
+                                <td>
+                                    <a href="#" class="action-link">
+                                        مراجعة المحتوى ←
+                                    </a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- الأنشطة الإدارية الأخيرة -->
+                <div class="activities-card">
+                    <div class="section-header">
+                        <h2>آخر الأنشطة الإدارية</h2>
+                    </div>
+
+                    <div class="activity-list">
+
+                        <div class="activity-item">
+                            <div class="activity-icon">
+                                <i data-lucide="clock"></i>
+                            </div>
+                            <div class="activity-body">
+                                <div class="activity-text">مريم علي حدّثت دليل ري البوتس</div>
+                                <div class="activity-meta">المحتوى · حفظ مسودة</div>
+                            </div>
+                            <div class="activity-time">٩:٣٢ ص</div>
+                        </div>
+
+                        <div class="activity-item">
+                            <div class="activity-icon">
+                                <i data-lucide="clock"></i>
+                            </div>
+                            <div class="activity-body">
+                                <div class="activity-text">لبان حسن راجعت الحالة D-1041</div>
+                                <div class="activity-meta">التشخيصات · مراجعة محضن مكتملة</div>
+                            </div>
+                            <div class="activity-time">٩:١٨ ص</div>
+                        </div>
+
+                        <div class="activity-item">
+                            <div class="activity-icon">
+                                <i data-lucide="clock"></i>
+                            </div>
+                            <div class="activity-body">
+                                <div class="activity-text">آدم عمر أغلق المحادثة S-0283</div>
+                                <div class="activity-meta">الدعم · تم الحل</div>
+                            </div>
+                            <div class="activity-time">٨:٥٥ ص</div>
+                        </div>
+
+                    </div>
+
+                    <a href="#" class="btn-view-all" id="viewAllActivity">
+                        عرض سجل التدقيق
+                        <i data-lucide="arrow-left"></i>
+                    </a>
+                </div>
+
+            </div>
+
+            <!-- ============= شريط الروابط السريعة ============= -->
+            <div class="quick-links-bar">
+                <span class="quick-links-title">روابط سريعة</span>
+                <div class="quick-links-list">
+                    <a href="admin-users.html" class="quick-link-btn" id="qlUsers">
+                        <i data-lucide="users"></i>
+                        إدارة المستخدمين
+                    </a>
+                    <a href="admin-plants.html" class="quick-link-btn" id="qlPlants">
+                        <i data-lucide="sprout"></i>
+                        مكتبة النباتات
+                    </a>
+                    <a href="admin-content.html" class="quick-link-btn" id="qlContent">
+                        <i data-lucide="file-text"></i>
+                        إدارة المحتوى
+                    </a>
+                    <a href="admin-settings.html" class="quick-link-btn" id="qlSettings">
+                        <i data-lucide="settings"></i>
+                        الصلاحيات والإعدادات
+                    </a>
+                </div>
+            </div>
+
+            <!-- تذييل الصفحة -->
+            <footer class="page-bottom-footer">
+                <span>مساحة إدارية آمنة · البيانات المعروضة توضيحية</span>
+                <span class="brand-tag">Enaya Admin · ٢٠٢٦</span>
+            </footer>
+
+        </main>
+
+    </div>
+
+    <!-- سكريبت التفاعلية -->
+    <script src="../js/sidebar.js"></script>
+    <script>
+        /* ============= تهيئة الرسم الشريطي ============= */
+        (function buildBarChart() {
+            const data = [
+                { label: '٣-٢٧', value: 24 },
+                { label: '١-٤',  value: 31 },
+                { label: '١٧-١١', value: 40 },
+                { label: '٢٦-١٨', value: 61 },
+            ];
+            const maxVal = Math.max(...data.map(d => d.value));
+            const chartH  = 98; // px
+            const area = document.getElementById('barChartArea');
+            if (!area) return;
+
+            data.forEach((d, i) => {
+                const heightPct = (d.value / maxVal) * chartH;
+                const group = document.createElement('div');
+                group.className = 'bar-group';
+
+                const valEl = document.createElement('div');
+                valEl.className = 'bar-value';
+                valEl.textContent = d.value;
+
+                const bar = document.createElement('div');
+                bar.className = 'bar-col' + (i === data.length - 1 ? ' active' : '');
+                bar.style.height = heightPct + 'px';
+                bar.style.animationDelay = (0.3 + i * 0.07) + 's';
+                bar.title = d.label + ': ' + d.value + ' طلبات';
+
+                const lbl = document.createElement('div');
+                lbl.className = 'bar-label';
+                lbl.textContent = d.label;
+
+                group.appendChild(valEl);
+                group.appendChild(bar);
+                group.appendChild(lbl);
+                area.appendChild(group);
+            });
+        })();
+
+        /* ============= زر تصدير الملخص ============= */
+        const exportBtn = document.getElementById('exportBtn');
+        if (exportBtn) {
+            exportBtn.addEventListener('click', function () {
+                this.textContent = 'جارٍ التصدير...';
+                this.disabled = true;
+                setTimeout(() => {
+                    this.innerHTML = '<i data-lucide="check"></i> تم التصدير';
+                    if (window.lucide) lucide.createIcons();
+                    setTimeout(() => {
+                        this.innerHTML = '<i data-lucide="download"></i> تصدير الملخص';
+                        this.disabled = false;
+                        if (window.lucide) lucide.createIcons();
+                    }, 2200);
+                }, 1400);
+            });
+        }
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,646 @@
+/* ========================================================
+   ENAYA - ACTIVITY LOG PAGE STYLES (واجهة سجل النشاط)
+   التنسيق المتطابق مع التصميم الأصلي بخط Cairo والألوان المعتمدة
+   ======================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&display=swap');
+
+:root {
+    --bg-page: #eaf4e8;
+    --primary-green: #2d4a2c;
+    --primary-hover: #3a6239;
+    --dark-green-card: #243e23;
+    --text-dark: #1b2f1a;
+    --text-muted: #5e7c5b;
+    --text-light: #7b9678;
+    --border-color: #d8e6d5;
+    --card-bg: #ffffff;
+    --font-main: 'Cairo', sans-serif;
+    --transition: all 0.25s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-main);
+    background-color: var(--bg-page);
+    color: var(--text-dark);
+    direction: rtl;
+    min-height: 100vh;
+    
+    overflow-x: clip;
+}
+
+/* ============= هيكل الصفحة الرئيسي ============= */
+
+
+.main-content {
+    flex: 1;
+    min-width: 0;
+    background-color: var(--bg-page);
+    
+    display: flex;
+    flex-direction: column;
+    animation: fadeIn 0.4s ease-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ============= الشريط العلوي (مباشرة على الخلفية الخضراء الفاتحة) ============= */
+.top-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.top-bar-right {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.top-bar-right .breadcrumb {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text-light);
+}
+
+.top-bar-right .breadcrumb a {
+    color: inherit;
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.top-bar-right .breadcrumb a:hover {
+    color: var(--primary-green);
+}
+
+.top-bar-right .page-title-small {
+    font-size: 16px;
+    font-weight: 800;
+    color: var(--text-dark);
+    margin: 0;
+}
+
+.top-bar-left {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+/* حقل البحث */
+.search-box {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.search-box input {
+    background: #f7fbf6;
+    border: 1px solid var(--border-color);
+    border-radius: 9999px;
+    padding: 8px 18px 8px 38px;
+    font-family: var(--font-main);
+    font-size: 13px;
+    color: var(--text-dark);
+    width: 190px;
+    transition: var(--transition);
+    outline: none;
+}
+
+.search-box input:focus {
+    width: 230px;
+    background: #ffffff;
+    border-color: #396c35;
+    box-shadow: 0 0 0 3px rgba(57, 108, 53, 0.12);
+}
+
+.search-box .search-icon {
+    position: absolute;
+    left: 12px;
+    width: 16px;
+    height: 16px;
+    color: var(--text-light);
+    pointer-events: none;
+}
+
+/* زر التنبيهات */
+.icon-btn {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    color: var(--text-dark);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    transition: var(--transition);
+}
+
+.icon-btn:hover {
+    background: rgba(0, 0, 0, 0.04);
+}
+
+.icon-btn i {
+    width: 19px;
+    height: 19px;
+}
+
+/* محدد اللغة */
+.lang-badge {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-dark);
+    cursor: pointer;
+    user-select: none;
+}
+
+/* ============= بانر الهيرو (صورة أوراق المونستيرا الخضراء) ============= */
+.activity-hero-banner {
+    position: relative;
+    border-radius: 18px;
+    padding: 28px 36px;
+    margin-bottom: 20px;
+    background-size: cover;
+    background-position: center;
+    color: #ffffff;
+    box-shadow: 0 6px 20px rgba(18, 42, 20, 0.12);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 138px;
+    overflow: hidden;
+}
+
+.hero-demo-badge {
+    align-self: flex-start;
+    background: rgba(255, 255, 255, 0.22);
+    backdrop-filter: blur(4px);
+    border-radius: 9999px;
+    padding: 3px 12px;
+    font-size: 11.5px;
+    font-weight: 600;
+    color: #ffffff;
+    margin-bottom: 6px;
+}
+
+.activity-hero-banner h1 {
+    font-size: 26px;
+    font-weight: 900;
+    color: #ffffff;
+    margin-bottom: 4px;
+    letter-spacing: -0.2px;
+}
+
+.activity-hero-banner p {
+    font-size: 13.5px;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.9);
+    margin: 0;
+}
+
+/* ============= شريط الفلاتر ومحدد التاريخ ============= */
+.activity-controls-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+/* فلاتر النوع */
+.filter-pills-group {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.filter-btn {
+    background: #ffffff;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 6px 16px;
+    font-family: var(--font-main);
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-dark);
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.filter-btn:hover {
+    border-color: #396c35;
+}
+
+.filter-btn.active {
+    background: var(--primary-green);
+    border-color: var(--primary-green);
+    color: #ffffff;
+    font-weight: 700;
+}
+
+/* محدد الفترة / التاريخ */
+.date-range-block {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.date-range-label {
+    font-size: 11.5px;
+    font-weight: 600;
+    color: var(--text-light);
+}
+
+.date-range-pill {
+    background: #ffffff;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 6px 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-dark);
+}
+
+.date-range-pill i {
+    width: 15px;
+    height: 15px;
+    color: var(--text-muted);
+}
+
+/* ============= التخطيط المزدوج: كل مستطيل مقابل مربعه ============= */
+.activity-paired-rows {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+    margin-bottom: 22px;
+}
+
+/*
+ * مجموعة الحدث الواحد (هيدر التاريخ فوق المستطيل والمربع)
+ */
+.timeline-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.timeline-date-header {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--text-muted);
+    padding: 0 4px;
+}
+
+.timeline-date-header i {
+    width: 15px;
+    height: 15px;
+}
+
+/*
+ * كل صف: المستطيل والمربع جنباً إلى جنب على نفس السطر والارتفاع
+ * كلاهما يبدأ من نفس الحافة العلوية ولا يسبق أحدهما الآخر
+ */
+.activity-pair-row {
+    display: grid;
+    grid-template-columns: 1fr 280px;
+    gap: 16px;
+    align-items: stretch;
+}
+
+/* المستطيل الأبيض: ملء الارتفاع المتاح داخل الصف بالتساوي مع المربع */
+.activity-pair-row > .activity-card {
+    height: 100%;
+    margin: 0;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* المربع المقابل: يبدأ من نفس الخط العلوي وبنفس الارتفاع */
+.pair-card {
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: flex-start;
+    height: 100%;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+/* بطاقة الحدث البيضاء */
+.activity-card {
+    background: var(--card-bg);
+    border-radius: 16px;
+    padding: 22px 24px;
+    box-shadow: 0 4px 18px rgba(23, 44, 21, 0.04);
+    transition: var(--transition);
+}
+
+.activity-card:hover {
+    box-shadow: 0 6px 22px rgba(23, 44, 21, 0.07);
+    transform: translateY(-2px);
+}
+
+.activity-card-body {
+    display: flex;
+    align-items: flex-start;
+    gap: 18px;
+}
+
+/* صورة النبتة في الحدث */
+.activity-plant-thumb {
+    width: 68px;
+    height: 68px;
+    border-radius: 12px;
+    overflow: hidden;
+    background: #f0f6ef;
+    flex-shrink: 0;
+}
+
+.activity-plant-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.activity-info-side {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+/* شارات نوع النشاط */
+.activity-badge {
+    align-self: flex-start;
+    border-radius: 6px;
+    padding: 3px 9px;
+    font-size: 11px;
+    font-weight: 700;
+    margin-bottom: 2px;
+}
+
+.badge-diagnosis {
+    background: #fef5e6;
+    color: #b0781a;
+}
+
+.badge-add {
+    background: #eef7ed;
+    color: #2e5e2c;
+}
+
+.badge-care {
+    background: #ebf5fb;
+    color: #2471a3;
+}
+
+.activity-info-side h3 {
+    font-size: 16.5px;
+    font-weight: 800;
+    color: var(--text-dark);
+    margin: 0;
+}
+
+.activity-desc {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text-muted);
+    line-height: 1.5;
+    margin: 0;
+}
+
+.activity-subnote {
+    font-size: 11.5px;
+    font-weight: 500;
+    color: #8fa88c;
+    margin: 0;
+}
+
+.link-activity-action {
+    margin-top: auto;
+    align-self: flex-start;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--primary-green);
+    text-decoration: none;
+    transition: var(--transition);
+    display: inline-block;
+}
+
+.link-activity-action:hover {
+    color: #1b2f1a;
+    transform: translateX(-3px);
+}
+
+.timeline-end-note {
+    font-size: 12px;
+    font-weight: 500;
+    color: #8fa88c;
+    text-align: center;
+    padding-top: 10px;
+}
+
+/* ============= العمود الأيسر (3 بطاقات) ============= */
+.activity-sidebar-col {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+/* بطاقة 1: نظرة على نشاطك */
+.activity-stats-card {
+    background: var(--card-bg);
+    border-radius: 16px;
+    padding: 22px 20px;
+    box-shadow: 0 4px 18px rgba(23, 44, 21, 0.04);
+}
+
+.activity-stats-card h3 {
+    font-size: 16px;
+    font-weight: 800;
+    color: var(--text-dark);
+    margin-bottom: 14px;
+}
+
+.stats-items-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 12px;
+}
+
+.stat-metric-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 13.5px;
+    font-weight: 600;
+    color: var(--text-dark);
+}
+
+.metric-number-wrap {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.metric-number {
+    font-size: 15px;
+    font-weight: 800;
+    color: var(--text-dark);
+}
+
+.metric-bar {
+    width: 3px;
+    height: 16px;
+    background-color: #396c35;
+    border-radius: 2px;
+}
+
+.stats-footer-hint {
+    margin-top: auto;
+    font-size: 11px;
+    font-weight: 500;
+    color: #8fa88c;
+    border-top: 1px solid #f0f6ee;
+    padding-top: 8px;
+}
+
+/* بطاقة 2: مهام اليوم لم تنجز بعد (الداكنة) */
+.today-pending-card {
+    background-color: var(--dark-green-card);
+    color: #ffffff;
+    border-radius: 16px;
+    padding: 22px 20px;
+    box-shadow: 0 4px 18px rgba(23, 44, 21, 0.1);
+    gap: 8px;
+}
+
+.today-pending-card h3 {
+    font-size: 16.5px;
+    font-weight: 800;
+    color: #ffffff;
+}
+
+.today-pending-card p {
+    font-size: 12.5px;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.85);
+    line-height: 1.6;
+    margin: 0;
+}
+
+.link-goto-calendar {
+    margin-top: auto;
+    padding-top: 8px;
+    font-size: 13px;
+    font-weight: 700;
+    color: #c4dec1;
+    text-decoration: none;
+    transition: var(--transition);
+    display: inline-block;
+}
+
+.link-goto-calendar:hover {
+    color: #ffffff;
+    transform: translateX(-3px);
+}
+
+/* بطاقة 3: عن هذا السجل */
+.about-log-card {
+    background: var(--card-bg);
+    border-radius: 16px;
+    padding: 22px 20px;
+    box-shadow: 0 4px 18px rgba(23, 44, 21, 0.04);
+    gap: 8px;
+}
+
+.about-log-card h3 {
+    font-size: 16px;
+    font-weight: 800;
+    color: var(--text-dark);
+}
+
+.about-log-card p {
+    font-size: 12.5px;
+    font-weight: 500;
+    color: var(--text-muted);
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* ============= تذييل الصفحة ============= */
+.page-bottom-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--text-light);
+    padding: 4px 4px 0;
+}
+
+.page-bottom-footer .brand-tag {
+    font-weight: 600;
+}
+
+/* ============= التجاوب للشاشات المختلفة ============= */
+@media (max-width: 992px) {
+    .activity-pair-row {
+        grid-template-columns: 1fr;
+    }
+
+    .pair-card {
+        height: auto;
+    }
+}
+
+@media (max-width: 640px) {
+    .top-bar {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 14px;
+    }
+
+    .top-bar-left {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .search-box input {
+        width: 100%;
+    }
+
+    .activity-controls-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 14px;
+    }
+
+    .activity-card-body {
+        flex-direction: column;
+    }
+}

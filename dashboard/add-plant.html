@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>إضافة نبتة | عناية Enaya</title>
+
+    <!-- خط Cairo المعتمد لكامل الواجهة -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+
+    <!-- أيقونات Lucide المعتمدة -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- ربط CSS الخاص بالقائمة الجانبية الموحدة وواجهة إضافة نبتة -->
+    <link rel="stylesheet" href="../css/sidebar.css">
+    <link rel="stylesheet" href="../css/add-plant.css">
+
+
+    <!-- أيقونة الموقع في التبويب -->
+    <link rel="icon" type="image/png" href="logo-enaya.png">
+</head>
+
+<body>
+
+    <div class="app-container">
+
+        <!-- ============= القائمة الجانبية الموحدة ============= -->
+        <aside class="sidebar" id="sidebar">
+
+            <a href="dashboard.html" class="sidebar-logo logo-area" aria-label="الرئيسية | عناية">
+                <img src="logo-enaya.png" alt="شعار عناية">
+            </a>
+
+            <nav class="sidebar-menu">
+
+                <!-- الرئيسية -->
+                <a href="dashboard.html" class="menu-link">
+                    <i data-lucide="house"></i>
+                    <span>الرئيسية</span>
+                </a>
+
+                <!-- نباتاتي -->
+                <a href="my-plants.html" class="menu-link">
+                    <i data-lucide="sprout"></i>
+                    <span>نباتاتي</span>
+                </a>
+
+                <!-- إضافة نبتة (النشطة الحالية) -->
+                <a href="add-plant.html" class="menu-link active">
+                    <i data-lucide="circle-plus"></i>
+                    <span>إضافة نبتة</span>
+                </a>
+
+                <!-- تشخيص النباتات -->
+                <a href="plant-diagnosis.html" class="menu-link">
+                    <i data-lucide="scan-line"></i>
+                    <span>تشخيص النباتات</span>
+                </a>
+
+                <!-- جدول العناية -->
+                <a href="care-calendar.html" class="menu-link">
+                    <i data-lucide="calendar-days"></i>
+                    <span>جدول العناية</span>
+                </a>
+
+                <!-- سجل النشاط -->
+                <a href="activity-log.html" class="menu-link">
+                    <i data-lucide="history"></i>
+                    <span>سجل النشاط</span>
+                </a>
+
+                <div class="menu-divider"></div>
+
+                <!-- الاشتراك والفواتير -->
+                <a href="subscription.html" class="menu-link">
+                    <i data-lucide="credit-card"></i>
+                    <span>الاشتراك والفواتير</span>
+                </a>
+
+                <!-- الحساب والإعدادات -->
+                <a href="settings.html" class="menu-link">
+                    <i data-lucide="settings"></i>
+                    <span>الحساب والإعدادات</span>
+                </a>
+
+            </nav>
+
+            <!-- صندوق ترقية الخطة -->
+            <div class="upgrade-box">
+                <div class="upgrade-title">
+                    <i data-lucide="sparkles"></i>
+                    <strong>ترقية الخطة</strong>
+                </div>
+                <p>افتحي ميزات متقدمة لعناية أفضل بنباتاتك</p>
+                <a href="subscription.html" class="upgrade-button">
+                    اكتشف الخطط
+                    <i data-lucide="arrow-left"></i>
+                </a>
+            </div>
+
+            <!-- معلومات المستخدم -->
+            <div class="sidebar-user">
+                <div class="user-avatar">ي</div>
+                <div class="user-info">
+                    <strong>يوسف وسام</strong>
+                    <small>yousef@example.com</small>
+                    <span>الحساب المجاني</span>
+                </div>
+            </div>
+
+        </aside>
+
+        <!-- ============= منطقة المحتوى الرئيسي ============= -->
+        <main class="main-content">
+
+            <!-- الشريط العلوي (بدون مسافات زائدة وبنفس الهوية) -->
+            <div class="top-bar">
+                <div class="top-bar-right" style="display: flex; align-items: center; gap: 10px;">
+                    <button type="button" class="mobile-menu-btn" id="mobile-menu-toggle" aria-label="فتح القائمة">
+                        <i data-lucide="menu"></i>
+                    </button>
+                    <h2 class="page-title-small">إضافة نبتة</h2>
+                </div>
+
+                <div class="top-bar-left">
+                    <!-- أيقونة البحث فقط -->
+                    <button type="button" class="icon-btn" aria-label="بحث">
+                        <i data-lucide="search"></i>
+                    </button>
+
+                    <!-- زر الإشعارات المكتومة كما في الصورة -->
+                    <button type="button" class="icon-btn" aria-label="الإشعارات">
+                        <i data-lucide="bell-off"></i>
+                    </button>
+
+                    <!-- محدد اللغة -->
+                    <span class="lang-badge">العربية</span>
+                </div>
+            </div>
+
+            <!-- عنوان الصفحة الرئيسي والوصف التوضيحي -->
+            <div class="page-intro">
+                <h1>إضافة نبتة</h1>
+                <p>أضيفي بيانات نبتتك، وسنقترح ملف عناية لتراجعيه قبل الاعتماد.</p>
+            </div>
+
+            <!-- البطاقة البيضاء الأساسية الموحدة -->
+            <div class="form-card">
+
+                <div class="card-header-row">
+                    <h2>لنتعرّف على نبتتك</h2>
+                    <span class="required-hint">جميع الحقول مطلوبة</span>
+                </div>
+
+                <form id="addPlantForm">
+                    <div class="form-body-grid">
+
+                        <!-- عمود الحقول اليمين في RTL -->
+                        <div class="form-fields-col">
+
+                            <!-- اسم النبتة -->
+                            <div class="form-group">
+                                <label for="plantNameInput">اسم النبتة *</label>
+                                <input type="text" id="plantNameInput" class="form-input" value="مونستيرا" required>
+                                <span class="field-hint">الاسم الذي ستظهر به في نباتاتك.</span>
+                            </div>
+
+                            <!-- مكان النبتة -->
+                            <div class="form-group">
+                                <label for="plantLocationInput">مكان النبتة *</label>
+                                <input type="text" id="plantLocationInput" class="form-input"
+                                    value="غرفة المعيشة — قرب النافذة" required>
+                                <span class="field-hint">اذكري الغرفة وموقعها؛ لا نحتاج إلى موقع جغرافي.</span>
+                            </div>
+
+                            <!-- بطاقة الخطوة التالية (تحليل الذكاء الاصطناعي) -->
+                            <div class="ai-next-step-box">
+                                <div class="ai-header">
+                                    <i data-lucide="scan-line"></i>
+                                    <span>الخطوة التالية: تحليل ومراجعة</span>
+                                </div>
+                                <p>سيحلّل الذكاء الاصطناعي الصورة والبيانات لاقتراح احتياجات العناية. لن تُضاف النبتة إلا بعد اعتمادك.</p>
+                            </div>
+
+                        </div>
+
+                        <!-- عمود صورة النبتة اليسار في RTL -->
+                        <div class="image-col">
+                            <span class="image-label">صورة النبتة *</span>
+
+                            <!-- حاوية معاينة الصورة المعتمدة -->
+                            <div class="plant-image-wrapper">
+                                <img src="monstera-living-room.jpg" alt="صورة مونستيرا" id="plantImagePreview">
+                            </div>
+
+                            <!-- زر تفاعلي لتغيير الصورة -->
+                            <button type="button" class="btn-change-photo-card" id="changePhotoBtn" title="انقر لتغيير الصورة">
+                                <div class="change-btn-header">
+                                    <i data-lucide="image-up"></i>
+                                    <strong>تغيير الصورة</strong>
+                                </div>
+                                <span class="filename" id="uploadedFileName">monstera-living-room.jpg</span>
+                            </button>
+
+                            <!-- إجراءات وحالة أسفل الصورة -->
+                            <div class="image-actions-row">
+                                <button type="button" class="btn-upload-status" id="uploadStatusBadge" title="حالة رفع الصورة - انقر للتعديل">
+                                    <i data-lucide="check-circle-2"></i>
+                                    <span>تم رفع الصورة</span>
+                                </button>
+                                <span class="file-specs" id="fileSpecs">٢,٤ م.ب · JPG</span>
+                            </div>
+
+                            <!-- مدخل رفع ملف مخفي للتفاعل الحقيقي -->
+                            <input type="file" id="photoFileInput" accept="image/*" style="display: none;">
+                        </div>
+
+                    </div>
+
+                    <!-- شريط الأزرار أسفل البطاقة -->
+                    <div class="card-bottom-actions">
+                        <!-- زر الإلغاء على اليسار -->
+                        <a href="dashboard.html" class="btn-cancel-action">إلغاء الإضافة</a>
+
+                        <!-- زر الإجراء الرئيسي على اليمين تحت الحقول -->
+                        <button type="submit" class="btn-submit-action" id="submitBtn">
+                            تحليل ومراجعة
+                        </button>
+                    </div>
+                </form>
+
+            </div>
+
+            <!-- تذييل الصفحة -->
+            <footer class="page-bottom-footer">
+                <span>معاينة توضيحية لمسار الإضافة — لم تُضف النبتة بعد</span>
+                <span class="brand-tag">Enaya</span>
+            </footer>
+
+        </main>
+
+    </div>
+
+    <!-- نافذة منبثقة تفاعلية عند النقر على تحليل ومراجعة -->
+    <div class="modal-overlay" id="analysisModal">
+        <div class="modal-card">
+            <div class="modal-spinner"></div>
+            <h3 id="modalTitle">جارٍ تحليل النبتة بالذكاء الاصطناعي...</h3>
+            <p id="modalDesc">يقوم النظام الآن بمطابقة فصيلة النبتة واقتراح جدول الري وكمية الإضاءة المناسبة.</p>
+        </div>
+    </div>
+
+    <!-- سكريبت التفاعلية -->
+    <script src="../js/sidebar.js"></script>
+    <script src="../js/add-plant.js"></script>
+
+</body>
+
+</html>

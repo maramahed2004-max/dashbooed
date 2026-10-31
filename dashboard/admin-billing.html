@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>الاشتراكات والفواتير | لوحة الأدمن — عناية Enaya</title>
+    <meta name="description" content="إدارة ومتابعة الخطط والاشتراكات وسجلات الفوترة الاختبارية في نظام عناية.">
+
+    <!-- خط Cairo المعتمد لكامل الواجهة -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- أيقونات Lucide المعتمدة -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- CSS الموحد للقائمة الجانبية والواجهة -->
+    <link rel="stylesheet" href="../css/sidebar.css">
+    <link rel="stylesheet" href="../css/admin-billing.css">
+
+
+    <!-- أيقونة الموقع في التبويب -->
+    <link rel="icon" type="image/png" href="logo-enaya.png">
+</head>
+
+<body>
+
+    <div class="app-container">
+
+        <!-- ============= القائمة الجانبية الموحدة (أدمن) ============= -->
+        <aside class="sidebar" id="sidebar">
+
+            <a href="admin-overview.html" class="sidebar-logo logo-area" aria-label="لوحة الأدمن | عناية">
+                <img src="logo-enaya.png" alt="شعار عناية">
+            </a>
+
+            <!-- شارة لوحة الإدارة -->
+            <div style="
+                display:flex; align-items:center; justify-content:center;
+                margin: 0 0 14px; padding: 4px 14px; border-radius: 20px;
+                background: rgba(169,207,156,0.18); border: 1px solid rgba(169,207,156,0.3);
+                font-size: 11px; font-weight: 800; color: #a9cf9c; letter-spacing: 0.3px;
+            ">لوحة الإدارة</div>
+
+            <nav class="sidebar-menu" aria-label="قائمة الأدمن">
+
+                <!-- نظرة عامة -->
+                <a href="admin-overview.html" class="menu-link">
+                    <i data-lucide="layout-dashboard"></i>
+                    <span>نظرة عامة</span>
+                </a>
+
+                <!-- إدارة المستخدمين -->
+                <a href="admin-users.html" class="menu-link">
+                    <i data-lucide="users"></i>
+                    <span>إدارة المستخدمين</span>
+                </a>
+
+                <!-- مكتبة النباتات -->
+                <a href="admin-plants.html" class="menu-link">
+                    <i data-lucide="sprout"></i>
+                    <span>مكتبة النباتات</span>
+                </a>
+
+                <!-- مراجعة التشخيصات -->
+                <a href="admin-diagnosis.html" class="menu-link">
+                    <i data-lucide="scan-line"></i>
+                    <span>مراجعة التشخيصات</span>
+                </a>
+
+                <!-- الاشتراكات والفواتير (النشطة) -->
+                <a href="admin-billing.html" class="menu-link active" aria-current="page">
+                    <i data-lucide="credit-card"></i>
+                    <span>الاشتراكات والفواتير</span>
+                </a>
+
+                <div class="menu-divider"></div>
+
+                <!-- إدارة المحتوى -->
+                <a href="admin-content.html" class="menu-link">
+                    <i data-lucide="file-text"></i>
+                    <span>إدارة المحتوى</span>
+                </a>
+
+                <!-- الدعم والرسائل -->
+                <a href="admin-support.html" class="menu-link">
+                    <i data-lucide="message-circle"></i>
+                    <span>الدعم والرسائل</span>
+                </a>
+
+                <!-- الصلاحيات والإعدادات -->
+                <a href="admin-settings.html" class="menu-link">
+                    <i data-lucide="settings"></i>
+                    <span>الصلاحيات والإعدادات</span>
+                </a>
+
+            </nav>
+
+            <!-- صندوق العناية تبدأ من هنا -->
+            <div class="upgrade-box">
+                <div class="upgrade-title">
+                    <i data-lucide="shield-check"></i>
+                    <strong>العناية تبدأ من هنا</strong>
+                </div>
+                <p>تابع الطلبات، وراجع المعرفة، وأجِب كل استفسار أهاممه.</p>
+                <a href="#" class="upgrade-button">
+                    <span style="display:inline-block; width:6px; height:6px; border-radius:50%; background:#2ed573; margin-left:6px;"></span>
+                    جميع الخدمات مستقرة
+                </a>
+            </div>
+
+            <!-- معلومات الأدمن -->
+            <div class="sidebar-user">
+                <div class="user-avatar">م</div>
+                <div class="user-info">
+                    <strong>مرام عاهد</strong>
+                    <small>مدير النظام · وصول كامل</small>
+                </div>
+                <button type="button" class="icon-btn" title="تسجيل الخروج" style="color:rgba(255,255,255,0.7); margin-right:auto;">
+                    <i data-lucide="log-out" style="width:17px; height:17px;"></i>
+                </button>
+            </div>
+
+        </aside>
+
+        <!-- ============= منطقة المحتوى الرئيسي ============= -->
+        <main class="main-content">
+
+            <!-- الشريط العلوي -->
+            <div class="top-bar">
+                <div class="top-bar-right">
+                    <button type="button" class="mobile-menu-btn" id="mobile-menu-toggle" aria-label="فتح القائمة">
+                        <i data-lucide="menu"></i>
+                    </button>
+                    <h2 class="page-title-small">الاشتراكات والفواتير</h2>
+                </div>
+
+                <div class="top-bar-left">
+                    <div class="search-box">
+                        <i data-lucide="search" class="search-icon"></i>
+                        <input type="text" id="topSearchInput" placeholder="بحث في الاشتراكات والفواتير..." aria-label="بحث سريع">
+                    </div>
+
+                    <button type="button" class="icon-btn" aria-label="الإشعارات" title="الإشعارات">
+                        <i data-lucide="bell"></i>
+                        <span class="notif-badge"></span>
+                    </button>
+
+                    <div class="topbar-user" title="الملف الشخصي">
+                        <span class="topbar-user-name">مرام عاهد</span>
+                        <div class="topbar-user-avatar">م</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- رأس الصفحة -->
+            <div class="page-header">
+                <div class="page-header-right">
+                    <h1>الاشتراكات والفواتير</h1>
+                    <p>متابعة الخطة المجانية، وإعداد الخطط القادمة، ومراجعة سيناريوهات الفوترة الاختبارية.</p>
+                </div>
+
+                <div class="page-header-left">
+                    <button type="button" class="btn-export" id="exportBillingBtn">
+                        <i data-lucide="download"></i>
+                        تصدير السجل
+                    </button>
+                </div>
+            </div>
+
+            <!-- شريط التنبيه الإخباري -->
+            <div class="billing-info-banner">
+                <i data-lucide="info"></i>
+                <span>الخطة المجانية هي المتاحة حاليًا. الخطتان الشهرية والسنوية قيد التطوير: الأسعار والمزايا النهائية غير معتمدة، ولا توجد إيرادات أو فواتير فعلية.</span>
+            </div>
+
+            <!-- شبكة بطاقات الإحصاءات العلوية الثلاث -->
+            <div class="stats-grid-row">
+
+                <!-- بطاقة 1: نسبة الخطة المجانية -->
+                <div class="stat-metric-card">
+                    <div class="stat-metric-value">١٠٠٪</div>
+                    <div class="stat-metric-label">على الخطة المجانية</div>
+                    <div class="stat-metric-subtext">١,٢٤٨ حساباً · دون رسوم اشتراك</div>
+                </div>
+
+                <!-- بطاقة 2: خطط قيد التطوير -->
+                <div class="stat-metric-card">
+                    <div class="stat-metric-value">٢</div>
+                    <div class="stat-metric-label">خطتان قيد التطوير</div>
+                    <div class="stat-metric-subtext">شهري وسنوي · التسعير غير محدد</div>
+                </div>
+
+                <!-- بطاقة 3: اشتراكات مدفوعة نشطة -->
+                <div class="stat-metric-card">
+                    <div class="stat-metric-value">٠</div>
+                    <div class="stat-metric-label">اشتراكات مدفوعة نشطة</div>
+                    <div class="stat-metric-subtext">الدفع الفعلي غير مفعّل</div>
+                </div>
+
+            </div>
+
+            <!-- شبكة بطاقات الخطط الثلاث -->
+            <div class="plans-grid-row">
+
+                <!-- بطاقة الخطة المجانية المتاحة (المميزة بالخلفية الخضراء الداكنة) -->
+                <div class="plan-card-featured">
+                    <div>
+                        <div class="featured-top-row">
+                            <span class="featured-title">الخطة المجانية · متاحة</span>
+                            <span class="featured-price-tag">دون رسوم</span>
+                        </div>
+                        <div class="featured-count-value">١,٢٤٨</div>
+                    </div>
+                    <div class="featured-description">
+                        المكتبة وجدول العناية وسجل النشاط في الحساب الحالي.
+                    </div>
+                </div>
+
+                <!-- بطاقة الخطة الشهرية مسودة -->
+                <div class="plan-card-draft">
+                    <div>
+                        <div class="draft-header-row">
+                            <span class="draft-title">الخطة الشهرية · مسودة</span>
+                            <span class="badge-dev">قيد التطوير</span>
+                        </div>
+                        <div class="draft-price-text">السعر غير محدد</div>
+                        <div class="draft-desc-text">الدورة شهرية؛ لا تظهر للاشتراك ولا تُنشئ دفعات.</div>
+                    </div>
+                    <button type="button" class="btn-edit-draft" onclick="openPlanModal('monthly')">
+                        <i data-lucide="edit-3" style="width:14px; height:14px;"></i>
+                        تحرير إعدادات المسودة
+                    </button>
+                </div>
+
+                <!-- بطاقة الخطة السنوية مسودة -->
+                <div class="plan-card-draft">
+                    <div>
+                        <div class="draft-header-row">
+                            <span class="draft-title">الخطة السنوية · مسودة</span>
+                            <span class="badge-dev">قيد التطوير</span>
+                        </div>
+                        <div class="draft-price-text">السعر غير محدد</div>
+                        <div class="draft-desc-text">الدورة سنوية؛ لا تظهر للاشتراك ولا تُنشئ دفعات.</div>
+                    </div>
+                    <button type="button" class="btn-edit-draft" onclick="openPlanModal('yearly')">
+                        <i data-lucide="edit-3" style="width:14px; height:14px;"></i>
+                        تحرير إعدادات المسودة
+                    </button>
+                </div>
+
+            </div>
+
+            <!-- بطاقة سجل الاشتراكات الحالية -->
+            <div class="subscriptions-card">
+
+                <div class="subscriptions-card-header">
+                    <div class="subs-title-group">
+                        <div class="subs-main-title">سجل الاشتراكات الحالية</div>
+                        <div class="subs-meta-badge">بيانات حسابات توضيحية</div>
+                    </div>
+
+                    <div class="subs-controls-group">
+                        <div class="subs-search-box">
+                            <i data-lucide="search" class="search-icon"></i>
+                            <input type="text" id="subsSearchInput" placeholder="ابحث عن مستخدم أو رقم اشتراك..." aria-label="بحث في الاشتراكات">
+                        </div>
+
+                        <button type="button" class="filter-select-btn" id="planFilterBtn">
+                            <span>الخطة: مجانية</span>
+                            <i data-lucide="chevron-down" style="width:14px; height:14px;"></i>
+                        </button>
+
+                        <button type="button" class="filter-select-btn" id="statusFilterBtn">
+                            <span>الحالة: الكل</span>
+                            <i data-lucide="chevron-down" style="width:14px; height:14px;"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="table-responsive">
+                    <table class="enaya-table" id="subscriptionsTable">
+                        <thead>
+                            <tr>
+                                <th>المستخدم</th>
+                                <th>الخطة</th>
+                                <th>الحالة</th>
+                                <th>تاريخ البدء</th>
+                                <th>التجديد / الدفع</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- مستخدم 1 -->
+                            <tr data-user="يوسف وسام" data-code="U-0124" data-plan="مجانية" data-status="نشط">
+                                <td class="user-identity-cell">يوسف وسام · U-0124</td>
+                                <td>مجانية</td>
+                                <td><span class="badge-active">نشط</span></td>
+                                <td>٢٤ سبتمبر ٢٠٢٦</td>
+                                <td class="text-muted-cell">لا يوجد</td>
+                            </tr>
+
+                            <!-- مستخدم 2 -->
+                            <tr data-user="عمر خالد" data-code="U-0125" data-plan="مجانية" data-status="نشط">
+                                <td class="user-identity-cell">عمر خالد · U-0125</td>
+                                <td>مجانية</td>
+                                <td><span class="badge-active">نشط</span></td>
+                                <td>٢٢ سبتمبر ٢٠٢٦</td>
+                                <td class="text-muted-cell">لا يوجد</td>
+                            </tr>
+
+                            <!-- مستخدم 3 -->
+                            <tr data-user="هدى سامي" data-code="U-0127" data-plan="مجانية" data-status="نشط">
+                                <td class="user-identity-cell">هدى سامي · U-0127</td>
+                                <td>مجانية</td>
+                                <td><span class="badge-active">نشط</span></td>
+                                <td>٢٠ سبتمبر ٢٠٢٦</td>
+                                <td class="text-muted-cell">لا يوجد</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+
+            <!-- القسم السفلي المزدوج (فواتير بيئة الاختبار + لوحة مراجعة عملية اختبار) -->
+            <div class="bottom-split-row">
+
+                <!-- العمود الأيمن: بطاقة فواتير بيئة الاختبار -->
+                <div class="invoices-card">
+
+                    <div class="invoices-header-row">
+                        <div class="invoices-title">الفواتير · بيئة اختبار فقط</div>
+                        <div class="invoices-count-badge">٣ سجلات توضيحية</div>
+                    </div>
+
+                    <div class="invoices-disclaimer">
+                        ليست فواتير مستخدمين فعلية؛ المبالغ وحدات اختبار وليست أسعار اشتراك.
+                    </div>
+
+                    <div class="table-responsive">
+                        <table class="enaya-table" id="invoicesTable">
+                            <thead>
+                                <tr>
+                                    <th>رقم الفاتورة</th>
+                                    <th>وحدات الاختبار</th>
+                                    <th>الحالة</th>
+                                    <th>الإجراء</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- فاتورة 1 -->
+                                <tr>
+                                    <td style="font-weight:700;">TST-0901</td>
+                                    <td>١٠</td>
+                                    <td><span class="badge-inv-paid">مدفوعة · اختبار</span></td>
+                                    <td>
+                                        <button type="button" class="table-action-btn" onclick="selectTestInvoice('TST-0901', 'TEST-CUSTOMER-01', '١٠ وحدات اختبار', 'مدفوعة · اختبار')">مراجعة الاسترداد</button>
+                                    </td>
+                                </tr>
+
+                                <!-- فاتورة 2 -->
+                                <tr>
+                                    <td style="font-weight:700;">TST-0902</td>
+                                    <td>١٠</td>
+                                    <td><span class="badge-inv-failed">فشل · اختبار</span></td>
+                                    <td>
+                                        <button type="button" class="table-action-btn" onclick="selectTestInvoice('TST-0902', 'TEST-CUSTOMER-02', '١٠ وحدات اختبار', 'فشل بوابة الدفع')">فحص سبب الفشل</button>
+                                    </td>
+                                </tr>
+
+                                <!-- فاتورة 3 -->
+                                <tr>
+                                    <td style="font-weight:700;">TST-0903</td>
+                                    <td>١٠</td>
+                                    <td><span class="badge-inv-pending">معلّقة · اختبار</span></td>
+                                    <td>
+                                        <button type="button" class="table-action-btn" onclick="selectTestInvoice('TST-0903', 'TEST-CUSTOMER-03', '١٠ وحدات اختبار', 'معلقة في الانتظار')">عرض التفاصيل</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                </div>
+
+                <!-- العمود الأيسر: لوحة مراجعة عملية اختبار -->
+                <div class="test-review-panel" id="testReviewPanel">
+
+                    <div class="review-panel-top">
+                        <div class="review-panel-title">مراجعة عملية اختبار</div>
+                        <div class="review-panel-code" id="panelInvoiceCode">TST-0901</div>
+                    </div>
+
+                    <div class="badge-test-refund" id="panelRefundBadge">طلب استرداد اختباري</div>
+
+                    <div class="review-kv-list">
+                        <div class="kv-item">
+                            <span class="kv-label">المعرّف</span>
+                            <span class="kv-value" id="panelCustomerId">TEST-CUSTOMER-01</span>
+                        </div>
+                        <div class="kv-item">
+                            <span class="kv-label">المبلغ</span>
+                            <span class="kv-value" id="panelAmount">١٠ وحدات اختبار</span>
+                        </div>
+                        <div class="kv-item">
+                            <span class="kv-label">الحالة</span>
+                            <span class="kv-value" id="panelStatus">دفع في بيئة الاختبار</span>
+                        </div>
+                    </div>
+
+                    <div class="review-panel-actions">
+                        <button type="button" class="btn-review-action" id="btnRefundAction">مراجعة الاسترداد</button>
+                        <button type="button" class="btn-review-outline" id="btnVerifyAction">فحص الدفع</button>
+                    </div>
+
+                    <div class="review-panel-caution">
+                        لا تحوّل هذا الإجراء أموالاً. يلزم اعتماد خطة وتسعير وبوابة دفع قبل الإطلاق.
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- تذييل الصفحة -->
+            <footer class="page-bottom-footer">
+                <span>مساحة إدارية آمنة · السجلات المعروضة توضيحية</span>
+                <span class="brand-tag">Enaya Admin · ٢٠٢٦</span>
+            </footer>
+
+        </main>
+
+    </div>
+
+    <!-- مودال تحرير إعدادات المسودة -->
+    <div class="modal-overlay" id="planModal">
+        <div class="modal-box">
+            <div class="modal-header">
+                <h3 id="planModalTitle">تحرير مسودة الخطة</h3>
+                <button type="button" class="modal-close-btn" onclick="closePlanModal()"><i data-lucide="x"></i></button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label>اسم الخطة</label>
+                    <input type="text" id="modalPlanName" value="الخطة الشهرية">
+                </div>
+                <div class="form-group">
+                    <label>دورة الفوترة المقترحة</label>
+                    <select id="modalPlanCycle">
+                        <option value="monthly">شهري</option>
+                        <option value="yearly">سنوي</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>السعر المقترح (عملة افتراضية)</label>
+                    <input type="text" id="modalPlanPrice" placeholder="مثال: ٢٩ ر.س / شهر">
+                </div>
+                <div class="form-group">
+                    <label>ملاحظة بيئة الإطلاق</label>
+                    <input type="text" value="قيد الدراسة والمراجعة قبل تفعيل بوابة الدفع" readonly style="background:#f1f5f0; color:#5e7c5b;">
+                </div>
+            </div>
+            <div class="modal-actions">
+                <button type="button" class="btn-modal-cancel" onclick="closePlanModal()">إلغاء</button>
+                <button type="button" class="btn-modal-confirm" onclick="savePlanSettings()">حفظ المسودة</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- إشعار Toast منبثق للتفاعلات -->
+    <div class="toast-notice" id="toastNotice" role="status" aria-live="polite">
+        <i data-lucide="check-circle" id="toastIcon"></i>
+        <span id="toastMsg">تم تنفيذ الإجراء بنجاح</span>
+    </div>
+
+    <!-- سكريبت التفاعلية والقائمة الجانبية -->
+    <script src="../js/sidebar.js"></script>
+    <script>
+        /* ============= تهيئة أيقونات Lucide ============= */
+        document.addEventListener('DOMContentLoaded', function () {
+            if (window.lucide) {
+                lucide.createIcons();
+            }
+        });
+
+        /* ============= نظام إشعارات Toast ============= */
+        let toastTimeout;
+        function showToast(message, isError = false) {
+            const toast = document.getElementById('toastNotice');
+            const msgEl = document.getElementById('toastMsg');
+            const iconEl = document.getElementById('toastIcon');
+
+            if (!toast || !msgEl) return;
+
+            msgEl.textContent = message;
+            if (isError) {
+                toast.style.background = '#c0392b';
+                iconEl.setAttribute('data-lucide', 'alert-circle');
+            } else {
+                toast.style.background = '#1b2f1a';
+                iconEl.setAttribute('data-lucide', 'check-circle');
+            }
+
+            if (window.lucide) lucide.createIcons();
+
+            toast.classList.add('show');
+            clearTimeout(toastTimeout);
+            toastTimeout = setTimeout(() => {
+                toast.classList.remove('show');
+            }, 3000);
+        }
+
+        /* ============= البحث السريع في الاشتراكات ============= */
+        const subsSearch = document.getElementById('subsSearchInput');
+        const topSearch = document.getElementById('topSearchInput');
+        const subsRows = document.querySelectorAll('#subscriptionsTable tbody tr');
+
+        function filterSubs(query) {
+            query = (query || '').trim().toLowerCase();
+            subsRows.forEach(row => {
+                const user = (row.getAttribute('data-user') || '').toLowerCase();
+                const code = (row.getAttribute('data-code') || '').toLowerCase();
+                const plan = (row.getAttribute('data-plan') || '').toLowerCase();
+
+                if (!query || user.includes(query) || code.includes(query) || plan.includes(query)) {
+                    row.style.display = '';
+                } else {
+                    row.style.display = 'none';
+                }
+            });
+        }
+
+        if (subsSearch) {
+            subsSearch.addEventListener('input', function () {
+                filterSubs(this.value);
+            });
+        }
+
+        if (topSearch) {
+            topSearch.addEventListener('input', function () {
+                if (subsSearch) subsSearch.value = this.value;
+                filterSubs(this.value);
+            });
+        }
+
+        /* ============= أزرار تصدير السجل ============= */
+        const exportBtn = document.getElementById('exportBillingBtn');
+        if (exportBtn) {
+            exportBtn.addEventListener('click', function () {
+                this.innerHTML = '<i data-lucide="loader"></i> جاري التصدير...';
+                if (window.lucide) lucide.createIcons();
+
+                setTimeout(() => {
+                    this.innerHTML = '<i data-lucide="check"></i> تم التصدير';
+                    if (window.lucide) lucide.createIcons();
+                    showToast('تم تصدير سجل الاشتراكات والفواتير بتنسيق CSV بنجاح');
+                    setTimeout(() => {
+                        this.innerHTML = '<i data-lucide="download"></i> تصدير السجل';
+                        if (window.lucide) lucide.createIcons();
+                    }, 2200);
+                }, 900);
+            });
+        }
+
+        /* ============= تحديد فاتورة اختبار ومعاينتها في اللوحة ============= */
+        function selectTestInvoice(code, customer, amount, status) {
+            document.getElementById('panelInvoiceCode').textContent = code;
+            document.getElementById('panelCustomerId').textContent = customer;
+            document.getElementById('panelAmount').textContent = amount;
+            document.getElementById('panelStatus').textContent = status;
+
+            const badge = document.getElementById('panelRefundBadge');
+            if (code === 'TST-0902') {
+                badge.textContent = 'فحص سجل الخطأ';
+                badge.style.background = '#fde8e8';
+                badge.style.color = '#c0392b';
+                badge.style.borderColor = '#f8b4b4';
+            } else if (code === 'TST-0903') {
+                badge.textContent = 'معاملة قيد المعالجة';
+                badge.style.background = '#fff8e1';
+                badge.style.color = '#b78103';
+                badge.style.borderColor = '#ffe082';
+            } else {
+                badge.textContent = 'طلب استرداد اختباري';
+                badge.style.background = '#fff8e1';
+                badge.style.color = '#b78103';
+                badge.style.borderColor = '#ffe082';
+            }
+
+            showToast(`تم عرض تفاصيل العملية ${code}`);
+        }
+
+        /* ============= أزرار لوحة مراجعة الاختبار ============= */
+        const refundBtn = document.getElementById('btnRefundAction');
+        if (refundBtn) {
+            refundBtn.addEventListener('click', function () {
+                const code = document.getElementById('panelInvoiceCode').textContent;
+                showToast(`تمت محاكاة استرداد العملية الاختبارية ${code} بنجاح.`);
+            });
+        }
+
+        const verifyBtn = document.getElementById('btnVerifyAction');
+        if (verifyBtn) {
+            verifyBtn.addEventListener('click', function () {
+                const code = document.getElementById('panelInvoiceCode').textContent;
+                showToast(`تم فحص استجابة بوابة الدفع للعملية ${code}: المعاملة سليمة في بيئة الاختبار.`);
+            });
+        }
+
+        /* ============= مودال تحرير إعدادات المسودة ============= */
+        function openPlanModal(type) {
+            const modal = document.getElementById('planModal');
+            const title = document.getElementById('planModalTitle');
+            const nameInput = document.getElementById('modalPlanName');
+            const cycleSelect = document.getElementById('modalPlanCycle');
+            const priceInput = document.getElementById('modalPlanPrice');
+
+            if (type === 'yearly') {
+                title.textContent = 'تحرير مسودة الخطة السنوية';
+                nameInput.value = 'الخطة السنوية';
+                cycleSelect.value = 'yearly';
+                priceInput.placeholder = 'مثال: ٢٩٠ ر.س / سنة';
+            } else {
+                title.textContent = 'تحرير مسودة الخطة الشهرية';
+                nameInput.value = 'الخطة الشهرية';
+                cycleSelect.value = 'monthly';
+                priceInput.placeholder = 'مثال: ٢٩ ر.س / شهر';
+            }
+
+            modal.classList.add('show');
+        }
+
+        function closePlanModal() {
+            const modal = document.getElementById('planModal');
+            modal.classList.remove('show');
+        }
+
+        function savePlanSettings() {
+            closePlanModal();
+            showToast('تم حفظ تعديلات مسودة الخطة بنجاح (تبقى قيد التطوير).');
+        }
+
+        /* إغلاق المودال عند النقر خارج الصندوق */
+        window.addEventListener('click', function (e) {
+            const modal = document.getElementById('planModal');
+            if (e.target === modal) {
+                closePlanModal();
+            }
+        });
+    </script>
+
+</body>
+
+</html>

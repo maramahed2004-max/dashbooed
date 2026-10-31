@@ -1,0 +1,700 @@
+/* ========================================================
+   ENAYA - REVIEW PLANT PAGE STYLES (واجهة مراجعة النبتة)
+   التنسيق المتطابق مع التصميم الأصلي وشاشات المراجعة المعتمدة
+   ======================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&display=swap');
+
+:root {
+    --bg-page: #eaf4e8;
+    --primary-green: #2d4a2c;
+    --primary-hover: #3a6239;
+    --text-dark: #1b2f1a;
+    --text-muted: #5e7c5b;
+    --text-light: #7b9678;
+    --border-color: #d8e6d5;
+    --card-bg: #ffffff;
+    --warning-bg: #fef8ed;
+    --warning-border: #f9e8cb;
+    --warning-text: #966014;
+    --warning-desc: #a87428;
+    --font-main: 'Cairo', sans-serif;
+    --transition: all 0.25s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-main);
+    background-color: var(--bg-page);
+    color: var(--text-dark);
+    direction: rtl;
+    min-height: 100vh;
+    
+    overflow-x: clip;
+}
+
+/* ============= هيكل الصفحة الرئيسي ============= */
+
+
+.main-content {
+    flex: 1;
+    min-width: 0;
+    background-color: var(--bg-page);
+    
+    display: flex;
+    flex-direction: column;
+    animation: fadeIn 0.4s ease-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ============= الشريط العلوي (مباشرة على الخلفية الخضراء الفاتحة) ============= */
+.top-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 24px;
+}
+
+.top-bar-right {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 12px;
+    text-align: right;
+}
+
+.top-bar-right > div {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    align-items: flex-start;
+    text-align: right;
+}
+
+.top-bar-right .breadcrumb {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text-light);
+}
+
+.top-bar-right .breadcrumb a {
+    color: inherit;
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.top-bar-right .breadcrumb a:hover {
+    color: var(--primary-green);
+}
+
+.top-bar-right .page-title-small {
+    font-size: 16px;
+    font-weight: 800;
+    color: var(--text-dark);
+    margin: 0;
+}
+
+.top-bar-left {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+/* حقل البحث */
+.search-box {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.search-box input {
+    background: #f7fbf6;
+    border: 1px solid var(--border-color);
+    border-radius: 9999px;
+    padding: 8px 18px 8px 38px;
+    font-family: var(--font-main);
+    font-size: 13px;
+    color: var(--text-dark);
+    width: 190px;
+    transition: var(--transition);
+    outline: none;
+}
+
+.search-box input:focus {
+    width: 230px;
+    background: #ffffff;
+    border-color: #396c35;
+    box-shadow: 0 0 0 3px rgba(57, 108, 53, 0.12);
+}
+
+.search-box .search-icon {
+    position: absolute;
+    left: 12px;
+    width: 16px;
+    height: 16px;
+    color: var(--text-light);
+    pointer-events: none;
+}
+
+/* زر التنبيهات */
+.icon-btn {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    color: var(--text-dark);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    transition: var(--transition);
+}
+
+.icon-btn:hover {
+    background: rgba(0, 0, 0, 0.04);
+}
+
+.icon-btn i {
+    width: 19px;
+    height: 19px;
+}
+
+/* محدد اللغة */
+.lang-badge {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-dark);
+    cursor: pointer;
+    user-select: none;
+}
+
+/* ============= عنوان الصفحة ووصفها ============= */
+.page-intro {
+    margin-bottom: 22px;
+}
+
+.page-intro h1 {
+    font-size: 28px;
+    font-weight: 900;
+    color: var(--text-dark);
+    margin-bottom: 4px;
+    letter-spacing: -0.3px;
+}
+
+.page-intro p {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text-muted);
+}
+
+/* ============= شريط الخطوات (المراجعة هي الخطوة 3 النشطة) ============= */
+.stepper-nav {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 26px;
+}
+
+.step-item {
+    flex: 1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    padding: 13px 20px;
+    border-radius: 12px;
+    font-size: 15px;
+    font-weight: 700;
+    text-align: center;
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.step-item.active {
+    background-color: var(--primary-green);
+    color: #ffffff;
+    box-shadow: 0 4px 14px rgba(45, 74, 44, 0.2);
+}
+
+.step-item.completed {
+    background-color: #f2f8f0;
+    border: 1px solid #dce8db;
+    color: #355633;
+}
+
+.step-item.completed:hover {
+    background-color: #ffffff;
+    border-color: #396c35;
+}
+
+.step-item i {
+    width: 16px;
+    height: 16px;
+}
+
+/* ============= البطاقة البيضاء الأساسية ============= */
+.review-card {
+    background: var(--card-bg);
+    border-radius: 20px;
+    box-shadow: 0 4px 20px rgba(23, 44, 21, 0.04);
+    padding: 34px 38px 30px;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 16px;
+}
+
+/* تخطيط المحتوى: عمود يمين (ملخص النبتة)، وعمود يسار (احتياجات العناية) */
+.review-body-grid {
+    display: grid;
+    grid-template-columns: 380px 1fr;
+    gap: 36px;
+    align-items: start;
+    margin-bottom: 24px;
+}
+
+/* عمود ملخص النبتة (اليمين في RTL) */
+.plant-summary-col {
+    display: flex;
+    flex-direction: column;
+}
+
+.summary-img-box {
+    width: 100%;
+    height: 300px;
+    border-radius: 16px;
+    overflow: hidden;
+    position: relative;
+    background: #f0f6ef;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05);
+}
+
+.summary-img-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center center;
+    display: block;
+    transition: transform 0.4s ease;
+}
+
+.summary-img-box:hover img {
+    transform: scale(1.03);
+}
+
+.plant-summary-col h3.plant-title {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-top: 14px;
+    margin-bottom: 2px;
+}
+
+.plant-summary-col .plant-place {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-muted);
+    margin-bottom: 10px;
+}
+
+.plant-summary-col .plant-note {
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--text-light);
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* عمود بطاقات العناية المقترحة (اليسار في RTL) */
+.care-recommendations-col {
+    display: flex;
+    flex-direction: column;
+}
+
+/* هيدر قسم العناية */
+.care-header-row {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin-bottom: 18px;
+}
+
+.care-title-group {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.analysis-status-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 13px;
+    font-weight: 700;
+    color: #2e592c;
+    margin-bottom: 2px;
+}
+
+.analysis-status-pill i {
+    width: 16px;
+    height: 16px;
+    color: #2e592c;
+}
+
+.care-title-group h2 {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin: 0;
+}
+
+.care-title-group p {
+    font-size: 12.5px;
+    font-weight: 500;
+    color: var(--text-light);
+    line-height: 1.5;
+    margin-top: 2px;
+}
+
+.review-badge {
+    background: #fef3e2;
+    color: #b47818;
+    border-radius: 6px;
+    padding: 4px 10px;
+    font-size: 12px;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+/* قائمة بطاقات العناية الأربعة */
+.care-cards-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.care-card-item {
+    background: #fafdf9;
+    border: 1px solid #e1efe0;
+    border-radius: 12px;
+    padding: 13px 18px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: var(--transition);
+}
+
+.care-card-item:hover {
+    background: #ffffff;
+    border-color: #396c35;
+    box-shadow: 0 4px 12px rgba(45, 74, 44, 0.06);
+    transform: translateX(-2px);
+}
+
+.care-info {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.care-info strong {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--text-dark);
+}
+
+.care-info p {
+    font-size: 12.5px;
+    font-weight: 500;
+    color: var(--text-muted);
+    margin: 0;
+}
+
+.care-icon-box {
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #2e592c;
+    flex-shrink: 0;
+}
+
+.care-icon-box i {
+    width: 22px;
+    height: 22px;
+    stroke-width: 2;
+}
+
+/* صندوق التنبيه قبل الاعتماد النهائي (اللون الكريمي/الذهبي الهادئ) */
+.final-warning-box {
+    background-color: var(--warning-bg);
+    border: 1px solid var(--warning-border);
+    border-radius: 12px;
+    padding: 14px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    margin-bottom: 26px;
+}
+
+.final-warning-box strong {
+    font-size: 14px;
+    font-weight: 800;
+    color: var(--warning-text);
+}
+
+.final-warning-box p {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--warning-desc);
+    margin: 0;
+}
+
+/* ============= شريط الأزرار في أسفل البطاقة ============= */
+.review-bottom-actions {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.action-buttons-group {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+/* زر الاعتماد الأخضر */
+.btn-approve-action {
+    background-color: var(--primary-green);
+    color: #ffffff;
+    border: none;
+    border-radius: 10px;
+    padding: 12px 34px;
+    font-family: var(--font-main);
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 4px 14px rgba(45, 74, 44, 0.22);
+    transition: var(--transition);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.btn-approve-action:hover {
+    background-color: var(--primary-hover);
+    transform: translateY(-1px);
+    box-shadow: 0 6px 18px rgba(45, 74, 44, 0.28);
+}
+
+.btn-approve-action:active {
+    transform: translateY(0);
+}
+
+/* زر طلب تعديل الأبيض المحاط بإطار */
+.btn-edit-action {
+    background-color: #ffffff;
+    color: var(--primary-green);
+    border: 1px solid var(--primary-green);
+    border-radius: 10px;
+    padding: 12px 28px;
+    font-family: var(--font-main);
+    font-size: 15px;
+    font-weight: 700;
+    text-decoration: none;
+    cursor: pointer;
+    transition: var(--transition);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-edit-action:hover {
+    background-color: #f4f8f2;
+    border-color: #1b2f1a;
+}
+
+/* زر إلغاء الإضافة على اليسار */
+.btn-cancel-action {
+    background: transparent;
+    border: none;
+    color: var(--text-muted);
+    font-family: var(--font-main);
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.btn-cancel-action:hover {
+    color: var(--text-dark);
+}
+
+/* ============= تذييل الصفحة ============= */
+.page-bottom-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--text-light);
+    padding: 6px 4px 0;
+}
+
+.page-bottom-footer .brand-tag {
+    font-weight: 600;
+    letter-spacing: 0.2px;
+}
+
+/* ============= نافذة الاحتفال بالاعتماد ============= */
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(18, 32, 17, 0.45);
+    backdrop-filter: blur(4px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+.modal-overlay.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.modal-card {
+    background: #ffffff;
+    border-radius: 20px;
+    padding: 34px 38px;
+    max-width: 440px;
+    width: 90%;
+    text-align: center;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+    transform: scale(0.92);
+    transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.modal-overlay.active .modal-card {
+    transform: scale(1);
+}
+
+.success-icon-box {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: #eaf4e8;
+    color: var(--primary-green);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 16px;
+}
+
+.success-icon-box i {
+    width: 32px;
+    height: 32px;
+}
+
+.modal-card h3 {
+    font-size: 20px;
+    font-weight: 800;
+    color: var(--text-dark);
+    margin-bottom: 8px;
+}
+
+.modal-card p {
+    font-size: 14px;
+    color: var(--text-muted);
+    line-height: 1.6;
+}
+
+/* ============= التجاوب للشاشات المختلفة ============= */
+@media (max-width: 992px) {
+    .main-content {
+        
+    }
+
+    .review-body-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+
+    .plant-summary-col {
+        order: -1;
+    }
+
+    .summary-img-box {
+        height: 260px;
+    }
+}
+
+@media (max-width: 640px) {
+    .stepper-nav {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .step-item {
+        width: 100%;
+    }
+
+    .review-card {
+        padding: 24px 20px;
+    }
+
+    .top-bar {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 12px;
+    }
+
+    .top-bar-left {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .search-box input {
+        width: 100%;
+    }
+
+    .review-bottom-actions {
+        flex-direction: column-reverse;
+        gap: 16px;
+        align-items: stretch;
+    }
+
+    .action-buttons-group {
+        flex-direction: column;
+    }
+
+    .btn-approve-action,
+    .btn-edit-action,
+    .btn-cancel-action {
+        width: 100%;
+        text-align: center;
+    }
+}

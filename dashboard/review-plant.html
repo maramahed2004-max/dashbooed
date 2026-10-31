@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>مراجعة النبتة | عناية Enaya</title>
+
+    <!-- خط Cairo المعتمد لكامل الواجهة -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+
+    <!-- أيقونات Lucide المعتمدة -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- ربط CSS الخاص بالقائمة الجانبية الموحدة وواجهة المراجعة -->
+    <link rel="stylesheet" href="../css/sidebar.css">
+    <link rel="stylesheet" href="../css/review-plant.css">
+
+
+    <!-- أيقونة الموقع في التبويب -->
+    <link rel="icon" type="image/png" href="logo-enaya.png">
+</head>
+
+<body>
+
+    <div class="app-container">
+
+        <!-- ============= القائمة الجانبية الموحدة ============= -->
+        <aside class="sidebar" id="sidebar">
+
+            <a href="dashboard.html" class="sidebar-logo logo-area" aria-label="الرئيسية | عناية">
+                <img src="logo-enaya.png" alt="شعار عناية">
+            </a>
+
+            <nav class="sidebar-menu">
+
+                <!-- الرئيسية -->
+                <a href="dashboard.html" class="menu-link">
+                    <i data-lucide="house"></i>
+                    <span>الرئيسية</span>
+                </a>
+
+                <!-- نباتاتي -->
+                <a href="my-plants.html" class="menu-link">
+                    <i data-lucide="sprout"></i>
+                    <span>نباتاتي</span>
+                </a>
+
+                <!-- إضافة نبتة (النشطة) -->
+                <a href="add-plant.html" class="menu-link active">
+                    <i data-lucide="circle-plus"></i>
+                    <span>إضافة نبتة</span>
+                </a>
+
+                <!-- تشخيص النباتات -->
+                <a href="plant-diagnosis.html" class="menu-link">
+                    <i data-lucide="scan-line"></i>
+                    <span>تشخيص النباتات</span>
+                </a>
+
+                <!-- جدول العناية -->
+                <a href="care-calendar.html" class="menu-link">
+                    <i data-lucide="calendar-days"></i>
+                    <span>جدول العناية</span>
+                </a>
+
+                <!-- سجل النشاط -->
+                <a href="activity-log.html" class="menu-link">
+                    <i data-lucide="history"></i>
+                    <span>سجل النشاط</span>
+                </a>
+
+                <div class="menu-divider"></div>
+
+                <!-- الاشتراك والفواتير -->
+                <a href="subscription.html" class="menu-link">
+                    <i data-lucide="credit-card"></i>
+                    <span>الاشتراك والفواتير</span>
+                </a>
+
+                <!-- الحساب والإعدادات -->
+                <a href="settings.html" class="menu-link">
+                    <i data-lucide="settings"></i>
+                    <span>الحساب والإعدادات</span>
+                </a>
+
+            </nav>
+
+            <!-- صندوق ترقية الخطة -->
+            <div class="upgrade-box">
+                <div class="upgrade-title">
+                    <i data-lucide="sparkles"></i>
+                    <strong>ترقية الخطة</strong>
+                </div>
+                <p>افتحي ميزات متقدمة لعناية أفضل بنباتاتك</p>
+                <a href="subscription.html" class="upgrade-button">
+                    اكتشف الخطط
+                    <i data-lucide="arrow-left"></i>
+                </a>
+            </div>
+
+            <!-- معلومات المستخدم -->
+            <div class="sidebar-user">
+                <div class="user-avatar">ي</div>
+                <div class="user-info">
+                    <strong>يوسف وسام</strong>
+                    <small>yousef@example.com</small>
+                    <span>الحساب المجاني</span>
+                </div>
+            </div>
+
+        </aside>
+
+        <!-- ============= منطقة المحتوى الرئيسي ============= -->
+        <main class="main-content">
+
+            <!-- الشريط العلوي (بدون مسافات زائدة وبنفس الهوية) -->
+            <div class="top-bar">
+                <div class="top-bar-right" style="display: flex; align-items: center; gap: 10px;">
+                    <button type="button" class="mobile-menu-btn" id="mobile-menu-toggle" aria-label="فتح القائمة">
+                        <i data-lucide="menu"></i>
+                    </button>
+                    <h2 class="page-title-small">مراجعة النبتة</h2>
+                </div>
+
+                <div class="top-bar-left">
+                    <!-- أيقونة البحث فقط -->
+                    <button type="button" class="icon-btn" aria-label="بحث">
+                        <i data-lucide="search"></i>
+                    </button>
+
+                    <!-- زر الإشعارات المكتومة كما في الصورة -->
+                    <button type="button" class="icon-btn" aria-label="الإشعارات">
+                        <i data-lucide="bell-off"></i>
+                    </button>
+
+                    <!-- محدد اللغة -->
+                    <span class="lang-badge">العربية</span>
+                </div>
+            </div>
+
+            <!-- عنوان الصفحة الرئيسي والوصف التوضيحي -->
+            <div class="page-intro">
+                <h1>مراجعة النبتة</h1>
+                <p>راجعي البيانات واحتياجات العناية المقترحة، ثم اعتمدي إضافة مونستيرا إلى نباتاتك.</p>
+            </div>
+
+            <!-- البطاقة البيضاء الأساسية الموحدة -->
+            <div class="review-card">
+
+                <div class="review-body-grid">
+
+                    <!-- عمود ملخص النبتة (اليمين في RTL) -->
+                    <div class="plant-summary-col">
+                        <div class="summary-img-box">
+                            <img src="monstera-living-room.jpg" alt="صورة مونستيرا" id="reviewPlantImage">
+                        </div>
+                        <h3 class="plant-title" id="reviewPlantName">مونستيرا</h3>
+                        <span class="plant-place" id="reviewPlantLocation">غرفة المعيشة — قرب النافذة</span>
+                        <p class="plant-note">عند الاعتماد، يُنشأ ملف خاص يضم بيانات نبتتك واحتياجات رعايتها.</p>
+                    </div>
+
+                    <!-- عمود بطاقات العناية المقترحة (اليسار في RTL) -->
+                    <div class="care-recommendations-col">
+
+                        <div class="care-header-row">
+                            <div class="care-title-group">
+                                <div class="analysis-status-pill">
+                                    <i data-lucide="check-circle-2"></i>
+                                    <span>اكتمل التحليل</span>
+                                </div>
+                                <h2>احتياجات العناية المقترحة</h2>
+                                <p>اقتراحات من التحليل الآلي، وليست تأكيداً للنوع. راجعيها وفق بيئة نبتتك؛ قد يخطئ الذكاء الاصطناعي.</p>
+                            </div>
+                            <span class="review-badge">للمراجعة</span>
+                        </div>
+
+                        <!-- البطاقات الأربعة للعناية -->
+                        <div class="care-cards-stack">
+
+                            <!-- بطاقة الري -->
+                            <div class="care-card-item">
+                                <div class="care-info">
+                                    <strong>الري حسب حالة التربة</strong>
+                                    <p>افحصي جفاف التربة قبل الري، واتركي الماء الزائد يتصرّف.</p>
+                                </div>
+                                <div class="care-icon-box">
+                                    <i data-lucide="droplets"></i>
+                                </div>
+                            </div>
+
+                            <!-- بطاقة الإضاءة -->
+                            <div class="care-card-item">
+                                <div class="care-info">
+                                    <strong>ضوء ساطع غير مباشر</strong>
+                                    <p>قرب النافذة مناسب مع ضوء مرشّح؛ تجنّبي الشمس المباشرة.</p>
+                                </div>
+                                <div class="care-icon-box">
+                                    <i data-lucide="sun"></i>
+                                </div>
+                            </div>
+
+                            <!-- بطاقة التسميد -->
+                            <div class="care-card-item">
+                                <div class="care-info">
+                                    <strong>التسميد خلال النمو النشط</strong>
+                                    <p>اتبعي إرشادات السماد المناسب وراقبي استجابة النبتة.</p>
+                                </div>
+                                <div class="care-icon-box">
+                                    <i data-lucide="sprout"></i>
+                                </div>
+                            </div>
+
+                            <!-- بطاقة التذكيرات -->
+                            <div class="care-card-item">
+                                <div class="care-info">
+                                    <strong>تذكيرات الري والتسميد تلقائياً</strong>
+                                    <p>تُضبط عند الإضافة وفق ملف العناية الخاص بنبتتك.</p>
+                                </div>
+                                <div class="care-icon-box">
+                                    <i data-lucide="calendar-days"></i>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!-- صندوق التنبيه قبل الاعتماد النهائي (اللون الكريمي الهادئ) -->
+                <div class="final-warning-box">
+                    <strong>راجعيها قبل الاعتماد النهائي</strong>
+                    <p>لا يمكن تعديل النبتة بعد اعتمادها وإضافتها. لطلب أي تغيير، اختاري «طلب تعديل» الآن.</p>
+                </div>
+
+                <!-- شريط الأزرار في أسفل البطاقة -->
+                <div class="review-bottom-actions">
+                    <!-- زر الإلغاء على اليسار -->
+                    <a href="dashboard.html" class="btn-cancel-action">إلغاء الإضافة</a>
+
+                    <!-- أزرار الإجراءات على اليمين تحت المحتوى -->
+                    <div class="action-buttons-group">
+                        <a href="add-plant.html" class="btn-edit-action">طلب تعديل</a>
+                        <button type="button" class="btn-approve-action" id="approvePlantBtn">
+                            اعتماد وإضافة
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- تذييل الصفحة -->
+            <footer class="page-bottom-footer">
+                <span>معاينة توضيحية لمسار الإضافة — لم تُضف النبتة بعد</span>
+                <span class="brand-tag">Enaya</span>
+            </footer>
+
+        </main>
+
+    </div>
+
+    <!-- نافذة نجاح الاعتماد المنبثقة -->
+    <div class="modal-overlay" id="successModal">
+        <div class="modal-card">
+            <div class="success-icon-box">
+                <i data-lucide="circle-check"></i>
+            </div>
+            <h3>تمت إضافة النبتة بنجاح! 🎉</h3>
+            <p>تم إدراج <strong>مونستيرا</strong> في قائمة نباتاتك، وتفعيل مواعيد الري المقترحة في جدول العناية.<br>جارٍ توجيهك لصفحة نباتاتي...</p>
+        </div>
+    </div>
+
+    <!-- سكريبت التفاعلية -->
+    <script src="../js/sidebar.js"></script>
+    <script src="../js/review-plant.js"></script>
+
+</body>
+
+</html>

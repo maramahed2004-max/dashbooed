@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>مراجعة التشخيصات | لوحة الأدمن — عناية Enaya</title>
+    <meta name="description" content="مراجعة تشخيصات نباتات المستخدمين وتقديم التوجيهات المعتمدة من المختصين في نظام عناية.">
+
+    <!-- خط Cairo المعتمد لكامل الواجهة -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- أيقونات Lucide المعتمدة -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- CSS الموحد للقائمة الجانبية والواجهة -->
+    <link rel="stylesheet" href="../css/sidebar.css">
+    <link rel="stylesheet" href="../css/admin-diagnosis.css">
+
+
+    <!-- أيقونة الموقع في التبويب -->
+    <link rel="icon" type="image/png" href="logo-enaya.png">
+</head>
+
+<body>
+
+    <div class="app-container">
+
+        <!-- ============= القائمة الجانبية الموحدة (أدمن) ============= -->
+        <aside class="sidebar" id="sidebar">
+
+            <a href="admin-overview.html" class="sidebar-logo logo-area" aria-label="لوحة الأدمن | عناية">
+                <img src="logo-enaya.png" alt="شعار عناية">
+            </a>
+
+            <!-- شارة لوحة الإدارة -->
+            <div style="
+                display:flex; align-items:center; justify-content:center;
+                margin: 0 0 14px; padding: 4px 14px; border-radius: 20px;
+                background: rgba(169,207,156,0.18); border: 1px solid rgba(169,207,156,0.3);
+                font-size: 11px; font-weight: 800; color: #a9cf9c; letter-spacing: 0.3px;
+            ">لوحة الإدارة</div>
+
+            <nav class="sidebar-menu" aria-label="قائمة الأدمن">
+
+                <!-- نظرة عامة -->
+                <a href="admin-overview.html" class="menu-link">
+                    <i data-lucide="layout-dashboard"></i>
+                    <span>نظرة عامة</span>
+                </a>
+
+                <!-- إدارة المستخدمين -->
+                <a href="admin-users.html" class="menu-link">
+                    <i data-lucide="users"></i>
+                    <span>إدارة المستخدمين</span>
+                </a>
+
+                <!-- مكتبة النباتات -->
+                <a href="admin-plants.html" class="menu-link">
+                    <i data-lucide="sprout"></i>
+                    <span>مكتبة النباتات</span>
+                </a>
+
+                <!-- مراجعة التشخيصات (النشطة) -->
+                <a href="admin-diagnosis.html" class="menu-link active" aria-current="page">
+                    <i data-lucide="scan-line"></i>
+                    <span>مراجعة التشخيصات</span>
+                </a>
+
+                <!-- الاشتراكات والفواتير -->
+                <a href="admin-billing.html" class="menu-link">
+                    <i data-lucide="credit-card"></i>
+                    <span>الاشتراكات والفواتير</span>
+                </a>
+
+                <div class="menu-divider"></div>
+
+                <!-- إدارة المحتوى -->
+                <a href="admin-content.html" class="menu-link">
+                    <i data-lucide="file-text"></i>
+                    <span>إدارة المحتوى</span>
+                </a>
+
+                <!-- الدعم والرسائل -->
+                <a href="admin-support.html" class="menu-link">
+                    <i data-lucide="message-circle"></i>
+                    <span>الدعم والرسائل</span>
+                </a>
+
+                <!-- الصلاحيات والإعدادات -->
+                <a href="admin-settings.html" class="menu-link">
+                    <i data-lucide="settings"></i>
+                    <span>الصلاحيات والإعدادات</span>
+                </a>
+
+            </nav>
+
+            <!-- صندوق العناية تبدأ من هنا -->
+            <div class="upgrade-box">
+                <div class="upgrade-title">
+                    <i data-lucide="shield-check"></i>
+                    <strong>العناية تبدأ من هنا</strong>
+                </div>
+                <p>تابع الطلبات، وراجع المعرفة، وأجِب كل استفسار أهاممه.</p>
+                <a href="#" class="upgrade-button">
+                    <span style="display:inline-block; width:6px; height:6px; border-radius:50%; background:#2ed573; margin-left:6px;"></span>
+                    جميع الخدمات مستقرة
+                </a>
+            </div>
+
+            <!-- معلومات الأدمن -->
+            <div class="sidebar-user">
+                <div class="user-avatar">م</div>
+                <div class="user-info">
+                    <strong>مرام عاهد</strong>
+                    <small>مدير النظام · وصول كامل</small>
+                </div>
+                <button type="button" class="icon-btn" title="تسجيل الخروج" style="color:rgba(255,255,255,0.7); margin-right:auto;">
+                    <i data-lucide="log-out" style="width:17px; height:17px;"></i>
+                </button>
+            </div>
+
+        </aside>
+
+        <!-- ============= منطقة المحتوى الرئيسي ============= -->
+        <main class="main-content">
+
+            <!-- الشريط العلوي -->
+            <div class="top-bar">
+                <div class="top-bar-right">
+                    <button type="button" class="mobile-menu-btn" id="mobile-menu-toggle" aria-label="فتح القائمة">
+                        <i data-lucide="menu"></i>
+                    </button>
+                    <h2 class="page-title-small">مراجعة التشخيصات</h2>
+                </div>
+
+                <div class="top-bar-left">
+                    <div class="search-box">
+                        <i data-lucide="search" class="search-icon"></i>
+                        <input type="text" id="topSearchInput" placeholder="بحث في مراجعة التشخيصات..." aria-label="بحث سريع">
+                    </div>
+
+                    <button type="button" class="icon-btn" aria-label="الإشعارات" title="الإشعارات">
+                        <i data-lucide="bell"></i>
+                        <span class="notif-badge"></span>
+                    </button>
+
+                    <div class="topbar-user" title="الملف الشخصي">
+                        <span class="topbar-user-name">مرام عاهد</span>
+                        <div class="topbar-user-avatar">م</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- رأس الصفحة -->
+            <div class="page-header">
+                <div class="page-header-right">
+                    <h1>مراجعة التشخيصات</h1>
+                    <p>راجع الصورة والسياق، ثم قدّم إرشاداً مسؤولاً يفصل الاقتراح الآلي عن مراجعة المختص.</p>
+                </div>
+
+                <div class="page-header-left">
+                    <button type="button" class="btn-assign" id="assignCasesBtn">
+                        <i data-lucide="user-check"></i>
+                        تعيين الطلبات
+                    </button>
+                </div>
+            </div>
+
+            <!-- شريط مقاييس التشخيص -->
+            <div class="diagnosis-metrics-bar">
+                <span class="metric-pill pill-blue">١٥٦ طلباً هذا الشهر</span>
+                <span class="metric-pill pill-amber">١٨ بانتظار المراجعة</span>
+                <span class="metric-pill pill-rose">٣ أولوية عالية</span>
+                <span class="metrics-meta-text">المختص المتاح: ليان حسن · آخر مزامنة ٩:٤١ ص</span>
+            </div>
+
+            <!-- التخطيط المزدوج للتشخيصات: قائمة المراجعة (يمين) + تفاصيل المراجعة (يسار) -->
+            <div class="diagnosis-layout">
+
+                <!-- العمود الأيمن: بطاقة قائمة المراجعة -->
+                <div class="queue-card">
+
+                    <div class="queue-card-header">
+                        <div class="queue-card-title">قائمة المراجعة</div>
+                        <div class="queue-card-count" id="queueCountDisplay">١٨ طلباً</div>
+                    </div>
+
+                    <!-- شريط البحث -->
+                    <div class="queue-search-box">
+                        <i data-lucide="search" class="queue-search-icon"></i>
+                        <input type="text" id="queueFilterInput" placeholder="ابحث برقم الحالة أو المستخدم..." aria-label="بحث في الطلبات">
+                    </div>
+
+                    <!-- تبويبات الحالة -->
+                    <div class="queue-tabs-row">
+                        <button type="button" class="queue-tab-btn active" data-tab="pending">بانتظار المراجعة</button>
+                        <button type="button" class="queue-tab-btn" data-tab="completed">المكتملة</button>
+                    </div>
+
+                    <!-- شريط الترتيب والتصفية -->
+                    <div class="queue-sub-filter-row">
+                        <button type="button" class="queue-filter-btn" id="priorityFilterBtn">
+                            <span>الأولوية: الكل</span>
+                            <i data-lucide="chevron-down"></i>
+                        </button>
+                        <button type="button" class="queue-filter-btn">
+                            <span>الأقدم أولاً</span>
+                            <i data-lucide="arrow-down" style="width:13px; height:13px;"></i>
+                        </button>
+                    </div>
+
+                    <!-- قائمة عناصر المراجعة -->
+                    <div class="queue-items-list" id="queueItemsList">
+
+                        <!-- عنصر 1: يوسف وسام (محدد افتراضياً) -->
+                        <div class="queue-item selected"
+                            data-case-id="D-1042"
+                            data-plant="بوتس"
+                            data-scientific="Epipremnum aureum"
+                            data-user="يوسف وسام"
+                            data-user-code="U-0124"
+                            data-time="٩:١٠ ص"
+                            data-date="اليوم، ٢٦ أكتوبر"
+                            data-issue="اصفرار الأوراق"
+                            data-priority="high"
+                            data-priority-label="أولوية عالية"
+                            data-img="diagnosis-user-pothos.jpg"
+                            data-symptoms="«لاحظت اصفرار ورقتين منذ ثلاثة أيام. أسقيها كل يومين، والتربة ما زالت رطبة. النبتة قرب نافذة دون شمس مباشرة.»"
+                            data-env="الموقع: المطبخ · أخرى: ٢٥ أكتوبر"
+                            data-ai-title="احتمال زيادة الري"
+                            data-ai-desc="قد يرتبط الاصفرار برطوبة زائدة، لكن الصورة وحدها لا تكفي. يلزم التحقق من التربة والتصريف وظروف الإضاءة."
+                            data-ai-status="غير مؤكد · لم يُعتمد مراجعة المختص بعد"
+                            data-guide-title="افحص التربة والتصريف أولاً"
+                            data-guide-desc="انتظر جفاف الطبقة العلوية قبل الري؛ لا تعتمد جدولاً ثابتاً، وتأكد من خلو صحن الأصيص من الماء."
+                            data-draft-note="أحتاج صورة للتربة وقاعدة الأصيص لتقييم التصريف. يُنصح بالمراقبة دون تسميد أو علاج كيميائي في هذه المرحلة.">
+                            <div class="queue-item-header">
+                                <span class="queue-user-code">يوسف وسام · D-1042</span>
+                                <span class="queue-time">٩:١٠ ص</span>
+                            </div>
+                            <div class="queue-plant-issue">بوتس · اصفرار الأوراق</div>
+                            <div class="queue-item-footer">
+                                <span class="priority-tag priority-high">أولوية عالية</span>
+                                <span class="queue-status-text">بانتظار المراجعة</span>
+                            </div>
+                        </div>
+
+                        <!-- عنصر 2: عمر خالد -->
+                        <div class="queue-item"
+                            data-case-id="D-1043"
+                            data-plant="زاميا"
+                            data-scientific="Zamioculcas zamiifolia"
+                            data-user="عمر خالد"
+                            data-user-code="U-0125"
+                            data-time="٩:٠٢ ص"
+                            data-date="اليوم، ٢٦ أكتوبر"
+                            data-issue="بقع داكنة"
+                            data-priority="high"
+                            data-priority-label="أولوية عالية"
+                            data-img="activity-zamia.jpg"
+                            data-symptoms="«ظهرت بقع بنية داكنة على ساقين متقاربتين، مع ليونة طفيفة في أسفل الساق.»"
+                            data-env="الموقع: غرفة المعيشة · أخرى: ٢٤ أكتوبر"
+                            data-ai-title="اشتباه تعفن جذور أولي"
+                            data-ai-desc="الليونة في قاعدة الساق غالباً ما تشير إلى اختناق الجذور بالماء الزائد. يلزم إيقاف الري فوراً وفحص الرائحة."
+                            data-ai-status="غير مؤكد · بانتظار توجيه المختص"
+                            data-guide-title="إيقاف الري وفحص تهوية الجذور"
+                            data-guide-desc="أخرج النبتة بلطف وتفقد سلامة الدرنات. استأصل أي جزء لين وعقّم الأدوات."
+                            data-draft-note="يرجى إرسال لقطة واضحة لقاعدة الساق القريبة من سطح التربة للتأكد من عدم انتشار الفطريات.">
+                            <div class="queue-item-header">
+                                <span class="queue-user-code">عمر خالد · D-1043</span>
+                                <span class="queue-time">٩:٠٢ ص</span>
+                            </div>
+                            <div class="queue-plant-issue">زاميا · بقع داكنة</div>
+                            <div class="queue-item-footer">
+                                <span class="priority-tag priority-high">أولوية عالية</span>
+                                <span class="queue-status-text">بانتظار المراجعة</span>
+                            </div>
+                        </div>
+
+                        <!-- عنصر 3: هدى سامي -->
+                        <div class="queue-item"
+                            data-case-id="D-1044"
+                            data-plant="زنبق السلام"
+                            data-scientific="Spathiphyllum wallisii"
+                            data-user="هدى سامي"
+                            data-user-code="U-0127"
+                            data-time="٨:٥١ ص"
+                            data-date="اليوم، ٢٦ أكتوبر"
+                            data-issue="ذبول"
+                            data-priority="high"
+                            data-priority-label="أولوية عالية"
+                            data-img="activity-peace-lily.jpg"
+                            data-symptoms="«جميع الأوراق متدلية بشكل مفاجئ منذ صباح أمس رغم أن التربة غير جافة تماماً.»"
+                            data-env="الموقع: الصالة · أخرى: ٢٦ أكتوبر"
+                            data-ai-title="صدمة جفاف أو صدمة تيار هوائي"
+                            data-ai-desc="زنبق السلام يستجيب سريعاً لجفاف الجذور أو التعرض لتيار هواء بارد من التكييف."
+                            data-ai-status="اقتراح آلي أولي"
+                            data-guide-title="غمر خفيف ونقل بعيداً عن التيارات"
+                            data-guide-desc="إذا كانت التربة طاردة للماء، اغمر الأصيص في وعاء ماء لربع ساعة، ثم دعه يتصفى تماماً."
+                            data-draft-note="افحصي مكان الأصيص هل يقع في مواجهة تيار تكييف مباشر؟">
+                            <div class="queue-item-header">
+                                <span class="queue-user-code">هدى سامي · D-1044</span>
+                                <span class="queue-time">٨:٥١ ص</span>
+                            </div>
+                            <div class="queue-plant-issue">زنبق السلام · ذبول</div>
+                            <div class="queue-item-footer">
+                                <span class="priority-tag priority-high">أولوية عالية</span>
+                                <span class="queue-status-text">بانتظار المراجعة</span>
+                            </div>
+                        </div>
+
+                        <!-- عنصر 4: منى ناصر -->
+                        <div class="queue-item"
+                            data-case-id="D-1045"
+                            data-plant="سانسيفيريا"
+                            data-scientific="Dracaena trifasciata"
+                            data-user="منى ناصر"
+                            data-user-code="U-0129"
+                            data-time="٨:٣٥ ص"
+                            data-date="اليوم، ٢٦ أكتوبر"
+                            data-issue="أطراف جافة"
+                            data-priority="normal"
+                            data-priority-label="أولوية عادية"
+                            data-img="Rectangle (1).png"
+                            data-symptoms="«رؤوس بعض الأوراق القديمة جافة وبنية ولكن الساق قوية والأوراق الحديثة سليمة.»"
+                            data-env="الموقع: المكتب · أخرى: ٢٢ أكتوبر"
+                            data-ai-title="جفاف طبيعي للأوراق القديمة أو قلة رطوبة"
+                            data-ai-desc="جفاف قمم الأوراق شايع عند تدني الرطوبة في البيئات المكيفة، ولا يشكل خطراً ما دامت الأوراق منتصبة."
+                            data-ai-status="حالة مستقرة"
+                            data-guide-title="تقليم الأطراف الجافة دون لمس النسيج الحي"
+                            data-guide-desc="يمكن قص الطرف البني مع ترك شريط رقيق منه لحماية الورقة من استمرار الجفاف."
+                            data-draft-note="الحالة طبيعية ولا تدعو للقلق، واصلي جدول الري المتباعد المعتاد.">
+                            <div class="queue-item-header">
+                                <span class="queue-user-code">منى ناصر · D-1045</span>
+                                <span class="queue-time">٨:٣٥ ص</span>
+                            </div>
+                            <div class="queue-plant-issue">سانسيفيريا · أطراف جافة</div>
+                            <div class="queue-item-footer">
+                                <span class="priority-tag priority-normal">أولوية عادية</span>
+                                <span class="queue-status-text">بانتظار المراجعة</span>
+                            </div>
+                        </div>
+
+                        <!-- عنصر 5: فهد علي -->
+                        <div class="queue-item"
+                            data-case-id="D-1046"
+                            data-plant="بوتس"
+                            data-scientific="Epipremnum aureum"
+                            data-user="فهد علي"
+                            data-user-code="U-0130"
+                            data-time="٨:٢٢ ص"
+                            data-date="اليوم، ٢٦ أكتوبر"
+                            data-issue="بطء النمو"
+                            data-priority="normal"
+                            data-priority-label="أولوية عادية"
+                            data-img="activity-pothos.jpg"
+                            data-symptoms="«النبتة لا تخرج أوراقاً جديدة منذ شهر، وحجم الأوراق الصغيرة أصغر من المعتاد.»"
+                            data-env="الموقع: الممر · أخرى: ٢٠ أكتوبر"
+                            data-ai-title="نقص إضاءة أو ركود موسمي"
+                            data-ai-desc="صغر الأوراق وتباعد العقد دلالة على بحث النبتة عن مصدر ضوء أقوى."
+                            data-ai-status="تحتاج مراجعة بيئة"
+                            data-guide-title="تقريب النبتة من مصدر إضاءة ساطعة"
+                            data-guide-desc="انقل الأصيص لمكان تصله إضاءة طبيعية غير مباشرة دون تعريضها للشمس الحارقة."
+                            data-draft-note="انقلها لنافذة أكثر إضاءة لمدة أسبوعين وراقب استجابة النموات الحديثة.">
+                            <div class="queue-item-header">
+                                <span class="queue-user-code">فهد علي · D-1046</span>
+                                <span class="queue-time">٨:٢٢ ص</span>
+                            </div>
+                            <div class="queue-plant-issue">بوتس · بطء النمو</div>
+                            <div class="queue-item-footer">
+                                <span class="priority-tag priority-normal">أولوية عادية</span>
+                                <span class="queue-status-text">بانتظار المراجعة</span>
+                            </div>
+                        </div>
+
+                        <!-- عنصر 6: ريم عادل -->
+                        <div class="queue-item"
+                            data-case-id="D-1047"
+                            data-plant="زاميا"
+                            data-scientific="Zamioculcas zamiifolia"
+                            data-user="ريم عادل"
+                            data-user-code="U-0126"
+                            data-time="٨:١٠ ص"
+                            data-date="اليوم، ٢٦ أكتوبر"
+                            data-issue="تغيّر الأوراق"
+                            data-priority="normal"
+                            data-priority-label="أولوية عادية"
+                            data-img="activity-zamia.jpg"
+                            data-symptoms="«الورقة السفلية أصبحت صفراء باهتة وتساقطت، بينما بقية النبات أخضر ونضر.»"
+                            data-env="الموقع: غرفة النوم · أخرى: ١٩ أكتوبر"
+                            data-ai-title="تجدد طبيعي للأوراق القديمة"
+                            data-ai-desc="تساقط ورقة سفلية واحدة بين فترة وأخرى أمر طبيعي جداً لدى الزاميا عند خروج نموات جديدة."
+                            data-ai-status="حالة مطمئنة"
+                            data-guide-title="المتابعة دون تغيير الجدول"
+                            data-guide-desc="تأكد فقط من جفاف التربة التام قبل كل رية وعدم ركود الماء في قاع الحوض."
+                            data-draft-note="الأمر مجرد دورة حياة طبيعية للورقة القديمة، النبات بصحة جيدة.">
+                            <div class="queue-item-header">
+                                <span class="queue-user-code">ريم عادل · D-1047</span>
+                                <span class="queue-time">٨:١٠ ص</span>
+                            </div>
+                            <div class="queue-plant-issue">زاميا · تغيّر الأوراق</div>
+                            <div class="queue-item-footer">
+                                <span class="priority-tag priority-normal">أولوية عادية</span>
+                                <span class="queue-status-text">بانتظار المراجعة</span>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- رابط عرض باقي الطلبات -->
+                    <button type="button" class="btn-more-queue" id="moreQueueBtn">
+                        عرض ١٢ طلباً إضافياً
+                        <i data-lucide="arrow-left" style="width:14px; height:14px;"></i>
+                    </button>
+
+                </div>
+
+                <!-- العمود الأيسر: بطاقة تفاصيل ومراجعة التشخيص -->
+                <div class="review-detail-card" id="reviewDetailCard">
+
+                    <!-- شريط العنوان العلوي للحالة -->
+                    <div class="review-card-top-bar">
+                        <div class="review-case-info">
+                            <span class="case-id-title" id="caseTitleDisplay">الحالة D-1042 · بوتس</span>
+                            <span class="badge-in-review" id="caseStatusBadge">قيد مراجعة المختص</span>
+                        </div>
+                        <div class="review-meta-info">
+                            <span id="caseDateDisplay">اليوم، ٢٦ أكتوبر</span>
+                            <span class="review-meta-specialist">المسؤول: ليان حسن · مختص نباتات</span>
+                        </div>
+                    </div>
+
+                    <!-- محتوى الحالة ووصف المستخدم مع الصورة -->
+                    <div class="diagnosis-case-body">
+
+                        <!-- بيانات المستخدم وسياق الأعراض -->
+                        <div class="user-plant-info-block">
+                            <div class="user-plant-header">
+                                <div class="user-identity-text" id="userIdentityDisplay">يوسف وسام · U-0124</div>
+                                <div class="plant-species-text" id="plantSpeciesDisplay">النبتة: بوتس · Epipremnum aureum</div>
+                            </div>
+
+                            <div class="symptom-quote-box">
+                                <span class="symptom-label">وصف الأعراض من المستخدم</span>
+                                <div class="symptom-quote" id="symptomQuoteDisplay">
+                                    «لاحظت اصفرار ورقتين منذ ثلاثة أيام. أسقيها كل يومين، والتربة ما زالت رطبة. النبتة قرب نافذة دون شمس مباشرة.»
+                                </div>
+                                <div class="case-environment-meta" id="caseEnvDisplay">
+                                    الموقع: المطبخ · أخرى: ٢٥ أكتوبر
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- صورة المستخدم التشخيصية -->
+                        <div class="plant-photo-container">
+                            <img src="diagnosis-user-pothos.jpg" alt="صورة النبات التشخيصية" class="plant-diagnosis-photo" id="plantDiagnosisPhoto">
+                            <span class="photo-caption">صورة المستخدم · مثال توضيحي</span>
+                        </div>
+
+                    </div>
+
+                    <!-- صندوق اقتراح الذكاء الاصطناعي -->
+                    <div class="ai-suggestion-banner">
+                        <div class="ai-suggestion-header">
+                            <i data-lucide="sparkles"></i>
+                            <span id="aiTitleDisplay">اقتراح آلي: احتمال زيادة الري</span>
+                        </div>
+                        <div class="ai-suggestion-body" id="aiDescDisplay">
+                            قد يرتبط الاصفرار برطوبة زائدة، لكن الصورة وحدها لا تكفي. يلزم التحقق من التربة والتصريف وظروف الإضاءة.
+                        </div>
+                        <div class="ai-suggestion-status" id="aiStatusDisplay">
+                            غير مؤكد · لم يُعتمد مراجعة المختص بعد
+                        </div>
+                    </div>
+
+                    <!-- إرشادات العناية المقترحة للمراجعة -->
+                    <div class="care-guidelines-box">
+                        <div class="guidelines-heading">إرشادات العناية المقترحة للمراجعة</div>
+                        <div class="guidelines-title" id="guideTitleDisplay">افحص التربة والتصريف أولاً</div>
+                        <div class="guidelines-desc" id="guideDescDisplay">
+                            انتظر جفاف الطبقة العلوية قبل الري؛ لا تعتمد جدولاً ثابتاً، وتأكد من خلو صحن الأصيص من الماء.
+                        </div>
+                    </div>
+
+                    <!-- مسودة ملاحظة المختص -->
+                    <div class="specialist-draft-section">
+                        <label class="draft-label" for="specialistNoteInput">مسودة ملاحظة المختص · لا تظهر للمستخدم قبل الاعتماد</label>
+                        <textarea class="specialist-textarea" id="specialistNoteInput" rows="3">أحتاج صورة للتربة وقاعدة الأصيص لتقييم التصريف. يُنصح بالمراقبة دون تسميد أو علاج كيميائي في هذه المرحلة.</textarea>
+                    </div>
+
+                    <!-- أزرار الإجراءات -->
+                    <div class="review-actions-row">
+                        <button type="button" class="btn-approve-review" id="approveReviewBtn">اعتماد مراجعة المختص</button>
+                        <button type="button" class="btn-request-info" id="requestInfoBtn">طلب معلومات إضافية</button>
+                        <button type="button" class="btn-reassign" id="reassignBtn">إحالة لمختص آخر</button>
+                    </div>
+
+                    <div class="review-audit-note">
+                        اعتماد المراجعة يؤكد مراجعة المختص للإرشاد، وليس يقيناً بسبب المشكلة. يُسجّل القرار باسم المراجع ووقته.
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- تذييل الصفحة -->
+            <footer class="page-bottom-footer">
+                <span>مساحة إدارية آمنة · السجلات المعروضة توضيحية</span>
+                <span class="brand-tag">Enaya Admin · ٢٠٢٦</span>
+            </footer>
+
+        </main>
+
+    </div>
+
+    <!-- إشعار Toast منبثق للتفاعلات -->
+    <div class="toast-notice" id="toastNotice" role="status" aria-live="polite">
+        <i data-lucide="check-circle" id="toastIcon"></i>
+        <span id="toastMsg">تم اعتماد مراجعة التشخيص بنجاح</span>
+    </div>
+
+    <!-- سكريبت التفاعلية والقائمة الجانبية -->
+    <script src="../js/sidebar.js"></script>
+    <script>
+        /* ============= تهيئة أيقونات Lucide ============= */
+        document.addEventListener('DOMContentLoaded', function () {
+            if (window.lucide) {
+                lucide.createIcons();
+            }
+        });
+
+        /* ============= نظام إشعارات Toast ============= */
+        let toastTimeout;
+        function showToast(message, isError = false) {
+            const toast = document.getElementById('toastNotice');
+            const msgEl = document.getElementById('toastMsg');
+            const iconEl = document.getElementById('toastIcon');
+
+            if (!toast || !msgEl) return;
+
+            msgEl.textContent = message;
+            if (isError) {
+                toast.style.background = '#c0392b';
+                iconEl.setAttribute('data-lucide', 'alert-circle');
+            } else {
+                toast.style.background = '#1b2f1a';
+                iconEl.setAttribute('data-lucide', 'check-circle');
+            }
+
+            if (window.lucide) lucide.createIcons();
+
+            toast.classList.add('show');
+            clearTimeout(toastTimeout);
+            toastTimeout = setTimeout(() => {
+                toast.classList.remove('show');
+            }, 3000);
+        }
+
+        /* ============= التفاعل مع عناصر قائمة المراجعة وتحديث البطاقة ============= */
+        const queueItems = document.querySelectorAll('.queue-item');
+        let currentSelectedCase = document.querySelector('.queue-item.selected');
+
+        function loadCaseDetails(item) {
+            if (!item) return;
+
+            queueItems.forEach(q => q.classList.remove('selected'));
+            item.classList.add('selected');
+            currentSelectedCase = item;
+
+            const caseId = item.getAttribute('data-case-id');
+            const plant = item.getAttribute('data-plant');
+            const scientific = item.getAttribute('data-scientific');
+            const user = item.getAttribute('data-user');
+            const userCode = item.getAttribute('data-user-code');
+            const date = item.getAttribute('data-date');
+            const img = item.getAttribute('data-img');
+            const symptoms = item.getAttribute('data-symptoms');
+            const env = item.getAttribute('data-env');
+            const aiTitle = item.getAttribute('data-ai-title');
+            const aiDesc = item.getAttribute('data-ai-desc');
+            const aiStatus = item.getAttribute('data-ai-status');
+            const guideTitle = item.getAttribute('data-guide-title');
+            const guideDesc = item.getAttribute('data-guide-desc');
+            const draftNote = item.getAttribute('data-draft-note');
+
+            document.getElementById('caseTitleDisplay').textContent = `الحالة ${caseId} · ${plant}`;
+            document.getElementById('caseDateDisplay').textContent = date;
+            document.getElementById('userIdentityDisplay').textContent = `${user} · ${userCode}`;
+            document.getElementById('plantSpeciesDisplay').textContent = `النبتة: ${plant} · ${scientific}`;
+            document.getElementById('plantDiagnosisPhoto').src = img;
+            document.getElementById('symptomQuoteDisplay').textContent = symptoms;
+            document.getElementById('caseEnvDisplay').textContent = env;
+
+            document.getElementById('aiTitleDisplay').textContent = `اقتراح آلي: ${aiTitle}`;
+            document.getElementById('aiDescDisplay').textContent = aiDesc;
+            document.getElementById('aiStatusDisplay').textContent = aiStatus;
+
+            document.getElementById('guideTitleDisplay').textContent = guideTitle;
+            document.getElementById('guideDescDisplay').textContent = guideDesc;
+            document.getElementById('specialistNoteInput').value = draftNote;
+        }
+
+        queueItems.forEach(item => {
+            item.addEventListener('click', () => {
+                loadCaseDetails(item);
+            });
+        });
+
+        /* ============= تبويبات قائمة المراجعة (بانتظار المراجعة / المكتملة) ============= */
+        const queueTabs = document.querySelectorAll('.queue-tab-btn');
+        queueTabs.forEach(tab => {
+            tab.addEventListener('click', function () {
+                queueTabs.forEach(t => t.classList.remove('active'));
+                this.classList.add('active');
+                const tabType = this.getAttribute('data-tab');
+                if (tabType === 'completed') {
+                    showToast('تم التبديل إلى سجل الطلبات المكتملة (لا توجد طلبات معلقة)');
+                } else {
+                    showToast('عرض الطلبات بانتظار المراجعة');
+                }
+            });
+        });
+
+        /* ============= البحث السريع في الطلبات ============= */
+        const filterInput = document.getElementById('queueFilterInput');
+        const topSearch = document.getElementById('topSearchInput');
+
+        function filterQueue(query) {
+            query = (query || '').trim().toLowerCase();
+            let count = 0;
+
+            queueItems.forEach(item => {
+                const user = (item.getAttribute('data-user') || '').toLowerCase();
+                const code = (item.getAttribute('data-case-id') || '').toLowerCase();
+                const plant = (item.getAttribute('data-plant') || '').toLowerCase();
+                const issue = (item.getAttribute('data-issue') || '').toLowerCase();
+
+                if (!query || user.includes(query) || code.includes(query) || plant.includes(query) || issue.includes(query)) {
+                    item.style.display = '';
+                    count++;
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+
+            const countDisplay = document.getElementById('queueCountDisplay');
+            if (countDisplay) {
+                countDisplay.textContent = `${count} طلباً`;
+            }
+        }
+
+        if (filterInput) {
+            filterInput.addEventListener('input', function () {
+                filterQueue(this.value);
+            });
+        }
+
+        if (topSearch) {
+            topSearch.addEventListener('input', function () {
+                if (filterInput) filterInput.value = this.value;
+                filterQueue(this.value);
+            });
+        }
+
+        /* ============= أزرار إجراءات المراجعة ============= */
+        const approveBtn = document.getElementById('approveReviewBtn');
+        if (approveBtn) {
+            approveBtn.addEventListener('click', function () {
+                const caseId = currentSelectedCase ? currentSelectedCase.getAttribute('data-case-id') : 'D-1042';
+                this.innerHTML = '<i data-lucide="check"></i> تم الاعتماد';
+                if (window.lucide) lucide.createIcons();
+                this.style.background = '#27ae60';
+
+                showToast(`تم اعتماد مراجعة الحالة ${caseId} وإرسال التوجيهات للمستخدم بنجاح.`);
+
+                setTimeout(() => {
+                    this.textContent = 'اعتماد مراجعة المختص';
+                    this.style.background = '';
+                }, 2200);
+            });
+        }
+
+        const requestInfoBtn = document.getElementById('requestInfoBtn');
+        if (requestInfoBtn) {
+            requestInfoBtn.addEventListener('click', function () {
+                const user = currentSelectedCase ? currentSelectedCase.getAttribute('data-user') : 'المستخدم';
+                showToast(`تم إرسال طلب صور ومعلومات إضافية إلى ${user}.`);
+            });
+        }
+
+        const reassignBtn = document.getElementById('reassignBtn');
+        if (reassignBtn) {
+            reassignBtn.addEventListener('click', function () {
+                const caseId = currentSelectedCase ? currentSelectedCase.getAttribute('data-case-id') : 'D-1042';
+                showToast(`تمت إحالة الحالة ${caseId} إلى مختص نباتات آخر.`);
+            });
+        }
+
+        /* ============= زر تعيين الطلبات ============= */
+        const assignBtn = document.getElementById('assignCasesBtn');
+        if (assignBtn) {
+            assignBtn.addEventListener('click', function () {
+                this.textContent = 'جارٍ التوزيع...';
+                setTimeout(() => {
+                    this.innerHTML = '<i data-lucide="check"></i> تم تعيين الطلبات';
+                    if (window.lucide) lucide.createIcons();
+                    showToast('تم توزيع الطلبات الجديدة على المختصين المتاحين بالتساوي.');
+                    setTimeout(() => {
+                        this.innerHTML = '<i data-lucide="user-check"></i> تعيين الطلبات';
+                        if (window.lucide) lucide.createIcons();
+                    }, 2200);
+                }, 1000);
+            });
+        }
+
+        /* ============= زر عرض باقي الطلبات ============= */
+        const moreBtn = document.getElementById('moreQueueBtn');
+        if (moreBtn) {
+            moreBtn.addEventListener('click', function () {
+                showToast('جارٍ تحميل ١٢ طلباً إضافياً من الخادم...');
+            });
+        }
+    </script>
+
+</body>
+
+</html>

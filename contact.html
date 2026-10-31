@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>تواصل معنا | عناية - لديك سؤال؟ نحن هنا لمساعدتك</title>
+  <meta name="description"
+    content="تواصل مع فريق عناية. عن نباتاتك، حسابك أو اشتراكك؛ نحن هنا للإجابة على استفساراتك وتقديم المساعدة المتخصصة.">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="images/logo.png">
+  <link rel="apple-touch-icon" href="images/logo.png">
+
+  <!-- Cairo Google Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
+
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+  <!-- Contact Stylesheet -->
+  <link rel="stylesheet" href="css/contact.css">
+
+  <style>
+    /* HERO BACKGROUND WITH SOFT GREEN TRANSPARENCY */
+
+    .contact-hero {
+      position: relative;
+      isolation: isolate;
+      overflow: hidden;
+
+      background-image: url("images/workspace.png");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+
+    .contact-hero .contact-hero-overlay {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      opacity: 1;
+
+      background: linear-gradient(90deg,
+          rgba(46, 125, 50, 0.12) 0%,
+          rgba(46, 125, 50, 0.18) 30%,
+          rgba(27, 94, 32, 0.30) 55%,
+          rgba(20, 69, 23, 0.45) 80%,
+          rgba(20, 69, 23, 0.52) 100%);
+
+      pointer-events: none;
+    }
+
+    .contact-hero>.container {
+      position: relative;
+      z-index: 2;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Header & Navbar -->
+  <header class="site-header">
+    <div class="container">
+      <nav class="navbar" aria-label="شريط التنقل الرئيسي">
+
+        <!-- Brand Logo -->
+        <a href="index.html" class="brand-logo" aria-label="الصفحة الرئيسية لعناية">
+          <img src="images/logo.png" alt="شعار عناية">
+        </a>
+
+        <!-- Navigation Menu -->
+        <ul class="nav-menu" id="navMenu">
+          <li><a href="index.html" class="nav-link">الرئيسية</a></li>
+          <li><a href="about.html" class="nav-link">من نحن</a></li>
+          <li><a href="kaif-ta3mal-enaya.html" class="nav-link">كيف تعمل عناية</a></li>
+          <li><a href="services.html" class="nav-link">خدماتنا</a></li>
+          <li><a href="contact.html" class="nav-link active" aria-current="page">تواصل معنا</a></li>
+        </ul>
+
+        <!-- Nav Actions -->
+        <div class="nav-actions">
+          <a href="login.html" class="btn btn-outline btn-sm">تسجيل الدخول</a>
+          <a href="signup.html" class="btn btn-primary btn-sm">ابدأ الآن</a>
+          <button class="mobile-toggle" aria-label="فتح القائمة" aria-expanded="false">☰</button>
+        </div>
+
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="contact-hero-wrapper" aria-label="مقدمة تواصل معنا">
+    <div class="contact-hero">
+      <div class="contact-hero-overlay"></div>
+
+      <div class="container">
+        <div class="contact-hero-content">
+
+          <div class="hero-tag">
+            <i class="fa-solid fa-seedling" aria-hidden="true"></i>
+            <span>تواصل مع عناية</span>
+          </div>
+
+          <h1>
+            <span>لديك سؤال؟</span>
+            <span>نحن هنا لمساعدتك.</span>
+          </h1>
+
+          <p class="contact-hero-desc">
+            عن نباتاتك، حسابك أو اشتراكك؛ شاركنا سؤالك أو ملاحظتك لنفهم ما تحتاج إليه في رحلتك مع عناية.
+          </p>
+
+          <div class="contact-hero-buttons">
+            <a href="#contact-section" class="btn btn-white">أرسل رسالة</a>
+            <a href="services.html" class="btn btn-glass">استكشف خدماتنا</a>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Strip (Under Hero) -->
+  <section class="features-strip-section" aria-label="ميزات سريعة">
+    <div class="container">
+      <div class="features-strip-wrapper">
+
+        <div class="strip-item">
+          <i class="fa-solid fa-leaf" aria-hidden="true"></i>
+          <span>للنباتات المنزلية والحدائق الصغيرة</span>
+        </div>
+
+        <div class="strip-item">
+          <i class="fa-solid fa-mobile-screen-button" aria-hidden="true"></i>
+          <span>حساب واحد للويب والجوال</span>
+        </div>
+
+        <div class="strip-item">
+          <i class="fa-solid fa-globe" aria-hidden="true"></i>
+          <span>بالعربية والإنجليزية</span>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 2: Support Topics -->
+  <section class="support-topics-section">
+    <div class="container">
+
+      <div class="section-header">
+        <h2 class="section-title">كيف يمكننا مساعدتك؟</h2>
+        <p class="section-subtitle">اختر القسم الأقرب لاستفسارك للوصول السريع إلى الدعم المناسب</p>
+      </div>
+
+      <div class="topics-grid">
+
+        <!-- Topic 1 -->
+        <div class="topic-card">
+          <div class="topic-card-icon">
+            <i class="fa-regular fa-user" aria-hidden="true"></i>
+          </div>
+          <h3>الحساب وتسجيل الدخول</h3>
+          <p>مساعدة في تأكيد البريد، استعادة كلمة المرور والوصول السلس إلى حسابك ومجموعات نباتاتك.</p>
+        </div>
+
+        <!-- Topic 2 -->
+        <div class="topic-card">
+          <div class="topic-card-icon">
+            <i class="fa-solid fa-seedling" aria-hidden="true"></i>
+          </div>
+          <h3>استخدام عناية للنباتات</h3>
+          <p>أسئلة عن إضافة نبتة جديدة، ملف العناية، جدولة الإشعارات أو دقة التشخيص السريع بالصور.</p>
+        </div>
+
+        <!-- Topic 3 -->
+        <div class="topic-card">
+          <div class="topic-card-icon">
+            <i class="fa-regular fa-file-lines" aria-hidden="true"></i>
+          </div>
+          <h3>الاشتراكات والفواتير</h3>
+          <p>استفسارات عن تفاصيل اشتراكك الشهري أو السنوي، وسائل الدفع، الفواتير وترقية الباقات.</p>
+        </div>
+
+        <!-- Topic 4 -->
+        <div class="topic-card">
+          <div class="topic-card-icon">
+            <i class="fa-regular fa-comment-dots" aria-hidden="true"></i>
+          </div>
+          <h3>مشكلة تقنية أو اقتراح</h3>
+          <p>أخبرنا بما واجهته أثناء التصفح أو بميزة جديدة تفضل وجودها لتصبح تجربتك مع عناية أفضل.</p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Section 3: Contact Form & Channels -->
+  <section class="contact-main-section" id="contact-section">
+    <div class="container">
+
+      <div class="section-header">
+        <span class="section-tag">يسعدنا أن نسمع منك</span>
+        <h2 class="section-title">أخبرنا بما تحتاج إليه</h2>
+        <p class="section-subtitle">اكتب سؤالك أو ملاحظاتك، الحقول المشار إليها بنجمة مطلوبة، ولقطة الشاشة اختيارية.</p>
+      </div>
+
+      <div class="contact-layout-grid">
+
+        <!-- Contact Form -->
+        <div class="contact-form-card">
+          <form id="contactForm">
+
+            <div class="form-row">
+
+              <div class="form-group">
+                <label for="contactName">الاسم الكامل <span class="req">*</span></label>
+                <input type="text" id="contactName" class="form-input" placeholder="اكتب اسمك الكامل" required>
+              </div>
+
+              <div class="form-group">
+                <label for="contactEmail">البريد الإلكتروني <span class="req">*</span></label>
+                <input type="email" id="contactEmail" class="form-input" placeholder="name@example.com" required
+                  dir="ltr">
+              </div>
+
+            </div>
+
+            <div class="form-group">
+              <label for="contactMessage">الرسالة <span class="req">*</span></label>
+              <textarea id="contactMessage" class="form-textarea"
+                placeholder="اكتب رسالتك أو استفسارك وأرفق التفاصيل التي تساعدنا على مساعدتك بدقة..."
+                required></textarea>
+            </div>
+
+            <div class="form-group">
+              <label>لقطة شاشة - اختياري</label>
+              <input type="file" id="screenshotFile" accept="image/*" style="display: none;">
+
+              <div class="screenshot-upload-box" id="screenshotUploadBox">
+                <div class="upload-icon">
+                  <i class="fa-solid fa-cloud-arrow-up" aria-hidden="true"></i>
+                </div>
+
+                <div class="upload-text" id="uploadText">اسحب لقطة شاشة لإرفاقها أو انقر للتصفح</div>
+                <div class="upload-sub">الحد الأقصى لحجم الصورة: 5MB (PNG, JPG, WebP)</div>
+              </div>
+            </div>
+
+            <div class="form-security-note">
+              <i class="fa-solid fa-shield-halved" aria-hidden="true"></i>
+              <span>انتبه للبيانات الحساسة: لا ترسل كلمة المرور أو رقم البطاقة الائتمانية الكامل أو رمز CVV.</span>
+            </div>
+
+            <div class="form-submit-row">
+              <button type="submit" class="btn btn-primary" id="contactSubmitBtn">
+                <span>إرسال الرسالة</span>
+                <i class="fa-regular fa-paper-plane" style="margin-right: 8px;" aria-hidden="true"></i>
+              </button>
+            </div>
+
+          </form>
+        </div>
+
+        <!-- Direct Channels Side Card -->
+        <div class="direct-channels-card">
+          <div class="channels-header">
+            <h4>لنبقَ على تواصل</h4>
+            <p>يمكنك أيضاً التواصل السريع عبر قنوات الدعم الرسمية لعناية:</p>
+          </div>
+
+          <div class="channel-items-list">
+
+            <!-- Phone -->
+            <a href="tel:+972592332304" class="channel-item">
+              <div class="channel-icon">
+                <i class="fa-solid fa-phone" aria-hidden="true"></i>
+              </div>
+              <div class="channel-meta">
+                <span>رقم التواصل</span>
+                <strong>+972 59233 2304</strong>
+              </div>
+            </a>
+
+            <!-- WhatsApp -->
+            <a href="https://wa.me/972592332304" target="_blank" rel="noopener noreferrer" class="channel-item">
+              <div class="channel-icon" style="color: #25D366; background: #E8F8EE;">
+                <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
+              </div>
+              <div class="channel-meta">
+                <span>واتساب</span>
+                <strong>+972 59233 2304</strong>
+              </div>
+            </a>
+
+            <!-- Email -->
+            <a href="mailto:info.enayaApp@gmail.com" class="channel-item">
+              <div class="channel-icon">
+                <i class="fa-regular fa-envelope" aria-hidden="true"></i>
+              </div>
+              <div class="channel-meta">
+                <span>البريد الإلكتروني</span>
+                <strong style="direction: ltr; font-size: 0.88rem;">info.enayaApp@gmail.com</strong>
+              </div>
+            </a>
+
+            <!-- Instagram -->
+            <a href="https://instagram.com/enaya_plant" target="_blank" rel="noopener noreferrer" class="channel-item">
+              <div class="channel-icon" style="color: #E1306C; background: #FDE8EF;">
+                <i class="fa-brands fa-instagram" aria-hidden="true"></i>
+              </div>
+              <div class="channel-meta">
+                <span>إنستغرام</span>
+                <strong style="direction: ltr;">@enaya_plant</strong>
+              </div>
+            </a>
+
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Section 4: Green CTA Banner -->
+  <section class="contact-cta-banner">
+    <div class="container">
+      <div class="contact-cta-content">
+
+        <div class="cta-leaf-icon">
+          <i class="fa-solid fa-seedling" aria-hidden="true"></i>
+        </div>
+
+        <h2>هل تبدأ رحلتك مع أول نبتة؟</h2>
+        <p>أضف نبتتك وراجع ملف العناية المقترح قبل اعتماده، ثم تابع احتياجاتها وتذكيرات الري والتسميد في مكان واحد.</p>
+        <a href="signup.html" class="btn btn-white">ابدأ مع عناية</a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top">
+
+        <div class="footer-about">
+          <div class="brand-logo" style="margin-bottom: 16px;">
+            <img src="images/logo.png" alt="شعار عناية">
+            <div>
+              <span class="brand-name">عناية</span>
+              <span class="brand-sub">ENAYA</span>
+            </div>
+          </div>
+
+          <p>
+            عناية أقرب إلى نباتاتك. رفيقك لفهم احتياجات النباتات المنزلية والحدائق الصغيرة، خطوة بخطوة.
+          </p>
+        </div>
+
+        <div class="footer-col">
+          <h5>خدماتنا</h5>
+          <ul>
+            <li><a href="services.html#services-grid">ملف العناية بالنبات</a></li>
+            <li><a href="services.html#services-grid">التشخيص المقترح</a></li>
+            <li><a href="services.html#services-grid">تذكيرات الري والتسميد</a></li>
+            <li><a href="services.html#dashboard">متابعة نباتاتك</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h5>عن عناية</h5>
+          <ul>
+            <li><a href="about.html">من نحن</a></li>
+            <li><a href="kaif-ta3mal-enaya.html">كيف تعمل عناية</a></li>
+            <li><a href="services.html">خدماتنا</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h5>حسابك</h5>
+          <ul>
+            <li><a href="login.html">تسجيل الدخول</a></li>
+            <li><a href="signup.html">إنشاء حساب</a></li>
+            <li><a href="login.html">إعدادات الحساب</a></li>
+            <li><a href="services.html#pricing">الاشتراك والفواتير</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h5>المساعدة</h5>
+          <ul>
+            <li><a href="services.html#faq">الأسئلة الشائعة</a></li>
+            <li><a href="contact.html">تواصل معنا</a></li>
+            <li><a href="privacy.html">استعادة الوصول</a></li>
+            <li><a href="contact.html">الإبلاغ عن مشكلة</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="footer-bottom">
+        <div>عناية بالنباتات - Enaya</div>
+        <div>العربية / English</div>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- Contact JavaScript -->
+  <script src="js/contact.js"></script>
+
+</body>
+
+</html>

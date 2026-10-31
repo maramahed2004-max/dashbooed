@@ -1,0 +1,517 @@
+/* ==========================================================================
+   عناية | ENAYA - Signup Page Stylesheet
+   Design System & High-Fidelity UI Implementation
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&display=swap');
+
+:root {
+  /* Brand Green Palette */
+  --primary-green: #2E7D32;
+  --brand-green: #365633;
+  --brand-dark: #254222;
+  --light-green: #E8F5E9;
+  --soft-green: #A5D6A7;
+  --mint-green: #C8E6C9;
+
+  /* Neutral & Background Colors */
+  --bg-cream: #F4F6F1;
+  --card-bg: #FFFFFF;
+  --text-main: #2D3A2F;
+  --text-muted: #7D8978;
+  --text-subtle: #8E988A;
+  --border-light: #D1DFCC;
+  --border-focus: #2E7D32;
+  --white: #FFFFFF;
+  --error: #E53935;
+  --success: #4CAF50;
+
+  /* Typography */
+  --font-family: 'Cairo', system-ui, -apple-system, sans-serif;
+
+  /* Radii & Shadows */
+  --radius-sm: 8px;
+  --radius-md: 10px;
+  --radius-lg: 24px;
+  --radius-full: 9999px;
+  --shadow-sm: 0 4px 12px rgba(45, 58, 47, 0.04);
+  --shadow-card: 0 16px 45px rgba(45, 58, 47, 0.06);
+  --shadow-btn: 0 4px 14px rgba(46, 125, 50, 0.22);
+  --shadow-focus: 0 0 0 3.5px rgba(46, 125, 50, 0.12);
+
+  /* Transitions */
+  --transition: all 0.25s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+/* Base Reset */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-family);
+  background-color: var(--bg-cream);
+  color: var(--text-main);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  line-height: 1.6;
+  direction: rtl;
+  text-align: right;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: var(--transition);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  transition: var(--transition);
+}
+
+/* ==========================================================================
+   Header Navigation
+   ========================================================================== */
+.site-header {
+  height: 90px;
+  background: var(--white);
+  border-bottom: 1px solid rgba(209, 223, 204, 0.5);
+  display: flex;
+  align-items: center;
+  position: relative;
+  z-index: 10;
+}
+
+.header-container {
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  padding: 0 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.brand-block {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+}
+
+.brand-icon {
+  width: 44px;
+  height: 48px;
+  object-fit: contain;
+}
+
+.brand-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.brand-title {
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: var(--brand-green);
+  line-height: 1.1;
+  letter-spacing: -0.3px;
+}
+
+.brand-en {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 36px;
+  list-style: none;
+}
+
+.nav-link {
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--text-main);
+  position: relative;
+  padding: 4px 0;
+  transition: var(--transition);
+}
+
+.nav-link:hover {
+  color: var(--primary-green);
+}
+
+/* ==========================================================================
+   Main Wrapper & Card Layout
+   ========================================================================== */
+.main-wrapper {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 28px 20px 14px;
+}
+
+.auth-card {
+  display: flex;
+  flex-direction: row-reverse;
+  max-width: 1140px;
+  width: 100%;
+  min-height: 640px;
+  margin: 0 auto;
+  background: var(--card-bg);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-card);
+  border: 1px solid rgba(209, 223, 204, 0.6);
+  animation: cardEntrance 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes cardEntrance {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ==========================================================================
+   Left Showcase Column (Plant Image + Green Content)
+   ========================================================================== */
+.showcase-column {
+  width: 42%;
+  background: var(--brand-green);
+  color: var(--white);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+}
+
+.plant-media-wrap {
+  width: 100%;
+  height: 380px;
+  overflow: hidden;
+  background-color: #E2ECE0;
+  position: relative;
+}
+
+.plant-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  transition: transform 0.6s ease;
+}
+
+.auth-card:hover .plant-photo {
+  transform: scale(1.025);
+}
+
+.showcase-text {
+  padding: 34px 38px 38px;
+  text-align: right;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.tagline-small {
+  font-size: 0.75rem;
+  font-weight: 600;
+  opacity: 0.82;
+  letter-spacing: 0.5px;
+  margin-bottom: 10px;
+}
+
+.showcase-title {
+  font-size: 1.7rem;
+  font-weight: 700;
+  line-height: 1.45;
+  margin-bottom: 12px;
+  color: var(--white);
+}
+
+.showcase-desc {
+  font-size: 0.9rem;
+  line-height: 1.8;
+  opacity: 0.9;
+  font-weight: 400;
+}
+
+/* ==========================================================================
+   Right Form Column
+   ========================================================================== */
+.form-column {
+  width: 58%;
+  padding: 44px 56px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: right;
+}
+
+.form-header {
+  margin-bottom: 24px;
+}
+
+.form-title {
+  font-size: 1.95rem;
+  font-weight: 800;
+  color: var(--text-main);
+  margin-bottom: 6px;
+  letter-spacing: -0.3px;
+}
+
+.form-subtitle {
+  color: var(--text-muted);
+  font-size: 0.92rem;
+  font-weight: 500;
+}
+
+/* Form Groups & Inputs */
+.form-body {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.field-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.field-label {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-main);
+  margin-bottom: 7px;
+}
+
+.input-container {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  height: 50px;
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-md);
+  padding: 0 16px;
+  background: var(--white);
+  transition: var(--transition);
+}
+
+.input-container:focus-within {
+  border-color: var(--border-focus);
+  box-shadow: var(--shadow-focus);
+}
+
+.input-container input {
+  flex: 1;
+  min-width: 0;
+  height: 100%;
+  border: none;
+  outline: none;
+  font-family: inherit;
+  font-size: 0.92rem;
+  background: transparent;
+  color: var(--text-main);
+}
+
+.input-container input::placeholder {
+  color: #9AA697;
+  font-weight: 400;
+}
+
+.icon-box {
+  color: #71836C;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.icon-box svg {
+  width: 19px;
+  height: 19px;
+  stroke: currentColor;
+}
+
+.btn-toggle-pass {
+  cursor: pointer;
+  border: none;
+  background: transparent;
+  color: var(--brand-green);
+  font-family: inherit;
+  font-size: 0.78rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 4px;
+  white-space: nowrap;
+  transition: var(--transition);
+}
+
+.btn-toggle-pass:hover {
+  color: var(--brand-dark);
+}
+
+.field-hint {
+  color: var(--text-subtle);
+  font-size: 0.74rem;
+  margin-top: 6px;
+  line-height: 1.5;
+}
+
+/* Submit Action Button */
+.btn-submit {
+  width: 100%;
+  height: 52px;
+  background: var(--brand-green);
+  color: var(--white);
+  border: none;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 700;
+  margin-top: 10px;
+  transition: var(--transition);
+  box-shadow: var(--shadow-btn);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.btn-submit:hover {
+  background: var(--brand-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(46, 125, 50, 0.3);
+}
+
+.btn-submit:active {
+  transform: translateY(0);
+}
+
+/* Switch link */
+.account-switch {
+  text-align: center;
+  font-size: 0.88rem;
+  color: var(--text-main);
+  margin-top: 16px;
+}
+
+.account-switch a {
+  color: var(--brand-green);
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.account-switch a:hover {
+  text-decoration: underline;
+}
+
+/* Feedback message */
+.form-feedback {
+  font-size: 0.82rem;
+  font-weight: 600;
+  min-height: 18px;
+  text-align: center;
+  margin-top: 6px;
+}
+
+/* ==========================================================================
+   Page Number & Footer
+   ========================================================================== */
+.page-tracker {
+  max-width: 1140px;
+  width: 100%;
+  margin: 14px auto 0;
+  text-align: right;
+  color: var(--text-subtle);
+  font-size: 0.78rem;
+  font-weight: 500;
+  padding: 0 4px;
+}
+
+.site-footer {
+  max-width: 1140px;
+  width: 100%;
+  margin: 32px auto 24px;
+  padding: 0 4px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--text-subtle);
+  font-size: 0.82rem;
+  font-weight: 500;
+}
+
+/* ==========================================================================
+   Responsive Adaptations
+   ========================================================================== */
+@media (max-width: 960px) {
+  .auth-card {
+    flex-direction: column;
+    margin: 10px auto;
+    min-height: auto;
+  }
+
+  .showcase-column,
+  .form-column {
+    width: 100%;
+  }
+
+  .plant-media-wrap {
+    height: 250px;
+  }
+
+  .showcase-text {
+    padding: 24px 28px;
+  }
+
+  .form-column {
+    padding: 36px 28px;
+  }
+
+  .header-container {
+    padding: 0 20px;
+  }
+
+  .nav-links {
+    gap: 18px;
+  }
+}
